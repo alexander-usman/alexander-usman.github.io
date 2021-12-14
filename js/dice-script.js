@@ -12,8 +12,7 @@ window.onload = function () {
     for (let i = 0; i < numRolls; i++) {
       result += Math.trunc(Math.random() * dWhat) + 1;
     }
-    result += numModifier;
-
+    // result += numModifier;
     btnRoll.value = `Your Roll: ${result}`;
   };
 
