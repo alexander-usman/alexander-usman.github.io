@@ -14,7 +14,7 @@ window.onload = function () {
     }
     result += numModifier;
 
-    btnRoll.textContent = `Your Roll: ${result}`;
+    btnRoll.value = `Your Roll: ${result}`;
   };
 
   btnRoll.addEventListener(`click`, rollXDX);
