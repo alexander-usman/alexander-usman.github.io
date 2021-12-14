@@ -3,8 +3,8 @@ window.onload = function () {
 
   const rollXDX = function () {
     let result = 0;
-    const numRolls = document.querySelector(`.numRolls`).value;
-    const numModifier = document.querySelector(`.numModifier`).value;
+    const numRolls = Number(document.querySelector(`.numRolls`).value);
+    const numModifier = Number(document.querySelector(`.numModifier`).value);
     const dWhat = document.querySelector(
       "input[name=diceValues]:checked"
     ).value;
@@ -12,7 +12,7 @@ window.onload = function () {
     for (let i = 0; i < numRolls; i++) {
       result += Math.trunc(Math.random() * dWhat) + 1;
     }
-    // result += numModifier;
+    result += numModifier;
     btnRoll.value = `Your Roll: ${result}`;
   };
 
