@@ -1,5 +1,4 @@
 window.onload = function () {
-  // const frmRollDice = document.querySelector(`.diceForm`);
   const btnRoll = document.querySelector(`.btnRoll`);
 
   const rollXDX = function () {
