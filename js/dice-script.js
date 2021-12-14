@@ -1,9 +1,11 @@
 window.onload = function () {
   const btnRoll = document.querySelector(`.btnRoll`);
+  const divShowResult = document.querySelector(`.divShowResult`);
 
   const rollXDX = function () {
     let result = 0;
-    const numRolls = document.querySelector(".numRolls").value;
+    const numRolls = document.querySelector(`.numRolls`).value;
+    const numModifier = document.querySelector(`.numModifier`).value;
     console.log(numRolls);
     const dWhat = document.querySelector(
       "input[name=diceValues]:checked"
@@ -14,7 +16,9 @@ window.onload = function () {
       result += Math.trunc(Math.random() * dWhat) + 1;
       console.log(result);
     }
-    btnRoll.value = `Your Roll: ${result}`;
+    result += numModifier;
+
+    divShowResult.textContent = `${result}`;
   };
 
   btnRoll.addEventListener(`click`, rollXDX);
