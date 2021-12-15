@@ -1,6 +1,11 @@
 "use strict";
 window.onload = function () {
-  const divResults = document.querySelector(`.results`);
+  const divResultsPartyThreshold = document.querySelector(
+    `.resultsPartyThreshold`
+  );
+  const divResultsMonsterEXP = document.querySelector(`.resultsMonsterEXP`);
+  const divResultsDifficulty = document.querySelector(`.resultsDifficulty`);
+
   const btnCalculate = document.querySelector(`.btnCalculate`);
   const thresholdsByLevel = [
     [25, 50, 75, 100],
@@ -26,9 +31,44 @@ window.onload = function () {
   ];
   const thresholdNames = [`Trivial`, `Easy`, `Medium`, `Hard`, `Deadly`];
 
-  const calculateThresholds = function () {
-    const numPlayers = Number(document.querySelector(`.playerCount`).value);
-    const playerLevel = Number(document.querySelector(`.playerLevel`).value);
+  const expByCR = new Map([
+    [0, 10],
+    [0.125, 25],
+    [0.25, 50],
+    [0.5, 100],
+    [1, 200],
+    [2, 450],
+    [3, 700],
+    [4, 1100],
+    [5, 1800],
+    [6, 2300],
+    [7, 2900],
+    [8, 3900],
+    [9, 5000],
+    [10, 5900],
+    [11, 7200],
+    [12, 8400],
+    [13, 10000],
+    [14, 11500],
+    [15, 13000],
+    [16, 15000],
+    [17, 18000],
+    [18, 20000],
+    [19, 22000],
+    [20, 25000],
+    [21, 33000],
+    [22, 41000],
+    [23, 50000],
+    [24, 62000],
+    [25, 75000],
+    [26, 90000],
+    [27, 105000],
+    [28, 120000],
+    [29, 135000],
+    [30, 155000],
+  ]);
+
+  const calculateThresholds = function (numPlayers, playerLevel) {
     const thresholds = [
       thresholdsByLevel[playerLevel - 1][0] * numPlayers,
       thresholdsByLevel[playerLevel - 1][1] * numPlayers,
@@ -36,7 +76,7 @@ window.onload = function () {
       thresholdsByLevel[playerLevel - 1][3] * numPlayers,
     ];
 
-    divResults.innerHTML = `
+    divResultsPartyThreshold.innerHTML = `
         <table>
             <tr>
                 <th>Difficulty</th>
@@ -64,7 +104,61 @@ window.onload = function () {
             </tr>
         </table>
     `;
+
+    return thresholds;
   };
 
-  btnCalculate.addEventListener(`click`, calculateThresholds);
+  const calculateMonsterEXP = function (numMonsters, monsterCR) {
+    const expUnmodified = numMonsters * expByCR[monsterCR];
+    let expTotal = 0;
+
+    if (numMonsters >= 15) {
+      expTotal = expUnmodified * 4;
+    } else if (numMonsters >= 11) {
+      expTotal = expUnmodified * 3;
+    } else if (numMonsters >= 7) {
+      expTotal = expUnmodified * 2.5;
+    } else if (numMonsters >= 3) {
+      expTotal = expUnmodified * 2;
+    } else if ((numMonsters = 2)) {
+      expTotal = expUnmodified * 1.5;
+    } else {
+      expTotal = expUnmodified * 1;
+    }
+
+    divResultsMonsterEXP.innerHTML = `
+        <p>
+            Unmodified Experience: ${expUnmodified}
+            Total Experience: ${expTotal}
+        </p>
+    `;
+
+    return expTotal;
+  };
+
+  const calculateResults = function () {
+    const numPlayers = Number(document.querySelector(`.playerCount`).value);
+    const playerLevel = Number(document.querySelector(`.playerLevel`).value);
+    const thresholds = calculateThresholds(numPlayers, playerLevel);
+
+    const numMonsters = Number(document.querySelector(`.monsterCount`).value);
+    const monsterCR = Number(document.querySelector(`.monsterCR`).value);
+    const totalEXP = calculateMonsterEXP(numMonsters, monsterCR);
+
+    let difficulty = ``;
+
+    if (totalEXP >= thresholds[3]) {
+      difficulty = thresholdNames[4];
+    } else if (totalEXP >= thresholds[2]) {
+      difficulty = thresholds[3];
+    } else if (totalEXP >= thresholds[1]) {
+      difficulty = thresholds[2];
+    } else if (totalEXP >= thresholds[0]) {
+      difficulty = thresholds[1];
+    } else {
+      difficulty = thresholds[0];
+    }
+  };
+
+  btnCalculate.addEventListener(`click`, calculateResults);
 };
