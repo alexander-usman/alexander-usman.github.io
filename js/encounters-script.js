@@ -158,6 +158,10 @@ window.onload = function () {
     } else {
       difficulty = thresholds[0];
     }
+
+    divResultsDifficulty.innerHTML = `
+        This encounter is ${difficulty}.
+    `;
   };
 
   btnCalculate.addEventListener(`click`, calculateResults);
