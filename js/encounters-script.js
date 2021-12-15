@@ -1,5 +1,7 @@
 "use strict";
 window.onload = function () {
+  const divResults = document.querySelector(`.results`);
+  const btnCalculate = document.querySelector(`.btnCalculate`);
   const thresholdsByLevel = [
     [25, 50, 75, 100],
     [50, 100, 150, 200],
@@ -22,4 +24,47 @@ window.onload = function () {
     [2400, 4900, 7300, 10900],
     [2800, 5700, 8500, 12700],
   ];
+  const thresholdNames = [`Trivial`, `Easy`, `Medium`, `Hard`, `Deadly`];
+
+  const calculateThresholds = function () {
+    const numPlayers = Number(document.querySelector(`.playerCount`).value);
+    const playerLevel = Number(document.querySelector(`.playerLevel`).value);
+    const thresholds = [
+      thresholdsByLevel[level - 1][0] * numPlayers,
+      thresholdsByLevel[level - 1][1] * numPlayers,
+      thresholdsByLevel[level - 1][2] * numPlayers,
+      thresholdsByLevel[level - 1][3] * numPlayers,
+    ];
+
+    divResults.innerHTML = `
+        <table>
+            <tr>
+                <th>Difficulty</th>
+                <th>Party Threshold</th>
+            </tr>
+            <tr>
+                <td>${thresholdNames[0]}</td>
+                <td>Less than ${thresholds[0]}</td>
+            </tr>
+            <tr>
+                <td>${thresholdNames[1]}</td>
+                <td>${thresholds[0]}</td>
+            </tr>
+            <tr>
+                <td>${thresholdNames[2]}</td>
+                <td>${thresholds[1]}</td>
+            </tr>
+            <tr>
+                <td>${thresholdNames[3]}</td>
+                <td>${thresholds[2]}</td>
+            </tr>
+            <tr>
+                <td>${thresholdNames[4]}</td>
+                <td>${thresholds[3]}</td>
+            </tr>
+        </table>
+    `;
+  };
+
+  btnCalculate.addEventListener(`click`, calculateThresholds);
 };
