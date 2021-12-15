@@ -186,13 +186,13 @@ window.onload = function () {
 
     let difficulty = ``;
 
-    if (totalEXP >= thresholds[3]) {
+    if (expTotal >= thresholds[3]) {
       difficulty = thresholdNames[4];
-    } else if (totalEXP >= thresholds[2]) {
+    } else if (expTotal >= thresholds[2]) {
       difficulty = thresholdNames[3];
-    } else if (totalEXP >= thresholds[1]) {
+    } else if (expTotal >= thresholds[1]) {
       difficulty = thresholdNames[2];
-    } else if (totalEXP >= thresholds[0]) {
+    } else if (expTotal >= thresholds[0]) {
       difficulty = thresholdNames[1];
     } else {
       difficulty = thresholdNames[0];
