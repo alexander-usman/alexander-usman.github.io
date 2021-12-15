@@ -203,7 +203,7 @@ window.onload = function () {
     divResultsDifficulty.innerHTML = `
         <p>
             This encounter is ${difficulty}. 
-            Your players will earn ${expPerPlayer}.    
+            Your players will earn ${expPerPlayer} experience each.    
         </p>
     `;
   };
