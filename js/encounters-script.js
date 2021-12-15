@@ -109,16 +109,16 @@ window.onload = function () {
   };
 
   const calculateMonsterEXP = function (numMonsters, monsterCR) {
-    const expUnmodified = numMonsters * expByCR[monsterCR];
+    const expUnmodified = numMonsters * expByCR.get(monsterCR);
     let expTotal = 0;
 
     if (numMonsters >= 15) {
       expTotal = expUnmodified * 4;
-    } else if (numMonsters >= 11) {
+    } else if (numMonsters >= 11 && numMonsters <= 14) {
       expTotal = expUnmodified * 3;
-    } else if (numMonsters >= 7) {
+    } else if (numMonsters >= 7 && numMonsters <= 10) {
       expTotal = expUnmodified * 2.5;
-    } else if (numMonsters >= 3) {
+    } else if (numMonsters >= 3 && numMonsters <= 6) {
       expTotal = expUnmodified * 2;
     } else if ((numMonsters = 2)) {
       expTotal = expUnmodified * 1.5;
