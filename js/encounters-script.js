@@ -150,17 +150,19 @@ window.onload = function () {
     if (totalEXP >= thresholds[3]) {
       difficulty = thresholdNames[4];
     } else if (totalEXP >= thresholds[2]) {
-      difficulty = thresholds[3];
+      difficulty = thresholdNames[3];
     } else if (totalEXP >= thresholds[1]) {
-      difficulty = thresholds[2];
+      difficulty = thresholdNames[2];
     } else if (totalEXP >= thresholds[0]) {
-      difficulty = thresholds[1];
+      difficulty = thresholdNames[1];
     } else {
       difficulty = thresholds[0];
     }
 
     divResultsDifficulty.innerHTML = `
-        This encounter is ${difficulty}.
+        <p>
+            This encounter is ${difficulty}.     
+        </p>
     `;
   };
 
