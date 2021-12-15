@@ -30,10 +30,10 @@ window.onload = function () {
     const numPlayers = Number(document.querySelector(`.playerCount`).value);
     const playerLevel = Number(document.querySelector(`.playerLevel`).value);
     const thresholds = [
-      thresholdsByLevel[level - 1][0] * numPlayers,
-      thresholdsByLevel[level - 1][1] * numPlayers,
-      thresholdsByLevel[level - 1][2] * numPlayers,
-      thresholdsByLevel[level - 1][3] * numPlayers,
+      thresholdsByLevel[playerLevel - 1][0] * numPlayers,
+      thresholdsByLevel[playerLevel - 1][1] * numPlayers,
+      thresholdsByLevel[playerLevel - 1][2] * numPlayers,
+      thresholdsByLevel[playerLevel - 1][3] * numPlayers,
     ];
 
     divResults.innerHTML = `
