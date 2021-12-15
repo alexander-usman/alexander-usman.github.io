@@ -156,7 +156,7 @@ window.onload = function () {
     } else if (totalEXP >= thresholds[0]) {
       difficulty = thresholdNames[1];
     } else {
-      difficulty = thresholds[0];
+      difficulty = thresholdNames[0];
     }
 
     divResultsDifficulty.innerHTML = `
