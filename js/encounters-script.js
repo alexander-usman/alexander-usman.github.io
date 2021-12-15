@@ -124,7 +124,7 @@ window.onload = function () {
     } else if (numMonsters >= 11 && numMonsters <= 14) {
       if (numPlayers >= 6) {
         expTotal = expUnmodified * 2.5;
-      } else if (numplayers >= 3 && numplayers <= 5) {
+      } else if (numPlayers >= 3 && numPlayers <= 5) {
         expTotal = expUnmodified * 3;
       } else {
         expTotal = expUnmodified * 4;
@@ -132,7 +132,7 @@ window.onload = function () {
     } else if (numMonsters >= 7 && numMonsters <= 10) {
       if (numPlayers >= 6) {
         expTotal = expUnmodified * 2;
-      } else if (numplayers >= 3 && numplayers <= 5) {
+      } else if (numPlayers >= 3 && numPlayers <= 5) {
         expTotal = expUnmodified * 2.5;
       } else {
         expTotal = expUnmodified * 3;
@@ -140,7 +140,7 @@ window.onload = function () {
     } else if (numMonsters >= 3 && numMonsters <= 6) {
       if (numPlayers >= 6) {
         expTotal = expUnmodified * 1.5;
-      } else if (numplayers >= 3 && numplayers <= 5) {
+      } else if (numPlayers >= 3 && numPlayers <= 5) {
         expTotal = expUnmodified * 2;
       } else {
         expTotal = expUnmodified * 2.5;
@@ -148,7 +148,7 @@ window.onload = function () {
     } else if ((numMonsters = 2)) {
       if (numPlayers >= 6) {
         expTotal = expUnmodified * 1;
-      } else if (numplayers >= 3 && numplayers <= 5) {
+      } else if (numPlayers >= 3 && numPlayers <= 5) {
         expTotal = expUnmodified * 1.5;
       } else {
         expTotal = expUnmodified * 2;
@@ -156,7 +156,7 @@ window.onload = function () {
     } else {
       if (numPlayers >= 6) {
         expTotal = expUnmodified * 0.5;
-      } else if (numplayers >= 3 && numplayers <= 5) {
+      } else if (numPlayers >= 3 && numPlayers <= 5) {
         expTotal = expUnmodified * 1;
       } else {
         expTotal = expUnmodified * 1.5;
