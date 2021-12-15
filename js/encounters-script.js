@@ -108,22 +108,59 @@ window.onload = function () {
     return thresholds;
   };
 
-  const calculateMonsterEXP = function (numMonsters, monsterCR) {
+  const calculateMonsterEXP = function (numMonsters, monsterCR, numPlayers) {
+    // Refactor Me
     const expUnmodified = numMonsters * expByCR.get(monsterCR);
     let expTotal = 0;
 
     if (numMonsters >= 15) {
-      expTotal = expUnmodified * 4;
+      if (numPlayers >= 6) {
+        expTotal = expUnmodified * 3;
+      } else if (numplayers >= 3 && numplayers <= 5) {
+        expTotal = expUnmodified * 4;
+      } else {
+        expTotal = expUnmodified * 5;
+      }
     } else if (numMonsters >= 11 && numMonsters <= 14) {
-      expTotal = expUnmodified * 3;
+      if (numPlayers >= 6) {
+        expTotal = expUnmodified * 2.5;
+      } else if (numplayers >= 3 && numplayers <= 5) {
+        expTotal = expUnmodified * 3;
+      } else {
+        expTotal = expUnmodified * 4;
+      }
     } else if (numMonsters >= 7 && numMonsters <= 10) {
-      expTotal = expUnmodified * 2.5;
+      if (numPlayers >= 6) {
+        expTotal = expUnmodified * 2;
+      } else if (numplayers >= 3 && numplayers <= 5) {
+        expTotal = expUnmodified * 2.5;
+      } else {
+        expTotal = expUnmodified * 3;
+      }
     } else if (numMonsters >= 3 && numMonsters <= 6) {
-      expTotal = expUnmodified * 2;
+      if (numPlayers >= 6) {
+        expTotal = expUnmodified * 1.5;
+      } else if (numplayers >= 3 && numplayers <= 5) {
+        expTotal = expUnmodified * 2;
+      } else {
+        expTotal = expUnmodified * 2.5;
+      }
     } else if ((numMonsters = 2)) {
-      expTotal = expUnmodified * 1.5;
+      if (numPlayers >= 6) {
+        expTotal = expUnmodified * 1;
+      } else if (numplayers >= 3 && numplayers <= 5) {
+        expTotal = expUnmodified * 1.5;
+      } else {
+        expTotal = expUnmodified * 2;
+      }
     } else {
-      expTotal = expUnmodified * 1;
+      if (numPlayers >= 6) {
+        expTotal = expUnmodified * 0.5;
+      } else if (numplayers >= 3 && numplayers <= 5) {
+        expTotal = expUnmodified * 1;
+      } else {
+        expTotal = expUnmodified * 1.5;
+      }
     }
 
     divResultsMonsterEXP.innerHTML = `
@@ -133,7 +170,7 @@ window.onload = function () {
         </p>
     `;
 
-    return expTotal;
+    return [expUnmodified, expTotal];
   };
 
   const calculateResults = function () {
@@ -143,7 +180,9 @@ window.onload = function () {
 
     const numMonsters = Number(document.querySelector(`.monsterCount`).value);
     const monsterCR = Number(document.querySelector(`.monsterCR`).value);
-    const totalEXP = calculateMonsterEXP(numMonsters, monsterCR);
+    const arrEXP = calculateMonsterEXP(numMonsters, monsterCR, numPlayers);
+    const expTotal = arrEXP[0];
+    const expUnmodified = arrEXP[1];
 
     let difficulty = ``;
 
@@ -159,9 +198,12 @@ window.onload = function () {
       difficulty = thresholdNames[0];
     }
 
+    const expPerPlayer = expUnmodified / numPlayers;
+
     divResultsDifficulty.innerHTML = `
         <p>
-            This encounter is ${difficulty}.     
+            This encounter is ${difficulty}. 
+            Your players will earn ${expPerPlayer}.    
         </p>
     `;
   };
