@@ -181,8 +181,8 @@ window.onload = function () {
     const numMonsters = Number(document.querySelector(`.monsterCount`).value);
     const monsterCR = Number(document.querySelector(`.monsterCR`).value);
     const arrEXP = calculateMonsterEXP(numMonsters, monsterCR, numPlayers);
-    const expTotal = arrEXP[0];
-    const expUnmodified = arrEXP[1];
+    const expUnmodified = arrEXP[0];
+    const expTotal = arrEXP[1];
 
     let difficulty = ``;
 
