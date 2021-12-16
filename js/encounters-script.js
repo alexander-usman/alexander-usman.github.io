@@ -232,14 +232,14 @@ const addRow = function (btnID) {
 };
 
 const removeRow = function (btnID) {
-  if (btnID === `btnAddMonster`) {
+  if (btnID === `btnRemoveMonster`) {
     if (rowCountMonster > 1) {
       rowCountMonster--;
       alert(`Success: Monster Removed`);
     } else {
       alert(`You need at least one monster.`);
     }
-  } else if (btnID === `btnAddPlayer`) {
+  } else if (btnID === `btnRemovePlayer`) {
     if (rowCountPlayer > 1) {
       rowCountPlayer--;
       alert(`Success: Player Removed`);
