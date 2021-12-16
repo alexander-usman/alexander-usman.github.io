@@ -94,8 +94,18 @@
                 <option value="30">30</option>
               </select>
             </div>
-            <input type="button" class="btnAddMonster" value="Add Row" />
-            <input type="button" class="btnRemoveMonster" value="Remove Row" />
+            <input
+              type="button"
+              class="btnAddMonster"
+              value="Add Row"
+              onclick="addRow(this.class)"
+            />
+            <input
+              type="button"
+              class="btnRemoveMonster"
+              value="Remove Row"
+              onclick="removeRow(this.class)"
+            />
           </div>
           <div class="resultsMonsterEXP"></div>
           <input type="button" class="btnCalculate" value="Calculate" />

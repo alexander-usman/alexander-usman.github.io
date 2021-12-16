@@ -221,8 +221,6 @@ const addRow = function (btnClass) {
   }
 };
 
-const removeRow = function () {};
+const removeRow = function (btnClass) {};
 
 btnCalculate.addEventListener(`click`, calculateResults);
-btnAddMonster.addEventListener(`click`, addRow(this.class));
-btnRemoveMonster.addEventListener(`clcik`, removeRow);
