@@ -213,14 +213,40 @@ const calculateResults = function () {
     `;
 };
 
-const addRow = function (btnClass) {
-  if (btnClass === `btnAddMonster`) {
-    alert(`Success: Monster`);
-  } else if (btnClass === `btnAddPlayer`) {
-    alert(`Success: Player`);
+const addRow = function (btnID) {
+  if (btnID === `btnAddMonster`) {
+    if (rowCountMonster < 10) {
+      rowCountMonster++;
+      alert(`Success: Monster`);
+    } else {
+      alert(`You can only have so many kinds of monster.`);
+    }
+  } else if (btnID === `btnAddPlayer`) {
+    if (rowCountPlayer < 10) {
+      rowCountPlayer++;
+      alert(`Success: Player`);
+    } else {
+      alert(`More than ten different levels? That might be too many.`);
+    }
   }
 };
 
-const removeRow = function (btnClass) {};
+const removeRow = function (btnID) {
+  if (btnID === `btnAddMonster`) {
+    if (rowCountMonster > 1) {
+      rowCountMonster--;
+      alert(`Success: Monster Removed`);
+    } else {
+      alert(`You need at least one monster.`);
+    }
+  } else if (btnID === `btnAddPlayer`) {
+    if (rowCountPlayer > 1) {
+      rowCountPlayer--;
+      alert(`Success: Player Removed`);
+    } else {
+      alert(`You need at least one player.`);
+    }
+  }
+};
 
 btnCalculate.addEventListener(`click`, calculateResults);
