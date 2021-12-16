@@ -213,10 +213,10 @@ const calculateResults = function () {
     `;
 };
 
-const addRow = function () {
-  if (this.class === `btnAddMonster`) {
+const addRow = function (btnClass) {
+  if (btnClass === `btnAddMonster`) {
     alert(`Success: Monster`);
-  } else if (this.class === `btnAddPlayer`) {
+  } else if (btnClass === `btnAddPlayer`) {
     alert(`Success: Player`);
   }
 };
@@ -224,5 +224,5 @@ const addRow = function () {
 const removeRow = function () {};
 
 btnCalculate.addEventListener(`click`, calculateResults);
-btnAddMonster.addEventListener(`click`, addRow);
+btnAddMonster.addEventListener(`click`, addRow(this.class));
 btnRemoveMonster.addEventListener(`clcik`, removeRow);
