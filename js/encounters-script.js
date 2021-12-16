@@ -9,6 +9,9 @@ const btnCalculate = document.querySelector(`.btnCalculate`);
 const btnAddMonster = document.querySelector(`.btnAddMonster`);
 const btnRemoveMonster = document.querySelector(`.btnRemoveMonster`);
 
+let rowCountMonster = 1;
+let rowCountPlayer = 1;
+
 const thresholdsByLevel = [
   [25, 50, 75, 100],
   [50, 100, 150, 200],
@@ -218,4 +221,8 @@ const addRow = function () {
   }
 };
 
+const removeRow = function () {};
+
 btnCalculate.addEventListener(`click`, calculateResults);
+btnAddMonster.addEventListener(`click`, addRow);
+btnRemoveMonster.addEventListener(`clcik`, removeRow);
