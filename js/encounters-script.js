@@ -231,7 +231,7 @@ const calculateMonsterEXP = function (
 };
 
 const calculateResults = function () {
-  const sumPlayersEls = document.querySelectorAll(`.playerCount`);
+  const numPlayersEls = document.querySelectorAll(`.playerCount`);
   const numPlayers = [].map.call(numPlayersEls, function (e) {
     return e.value;
   });
