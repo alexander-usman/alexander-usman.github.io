@@ -111,12 +111,23 @@ const optionText = `
       `;
 
 const calculateThresholds = function (numPlayers, playerLevel) {
-  const thresholds = [
-    thresholdsByLevel[playerLevel - 1][0] * numPlayers,
-    thresholdsByLevel[playerLevel - 1][1] * numPlayers,
-    thresholdsByLevel[playerLevel - 1][2] * numPlayers,
-    thresholdsByLevel[playerLevel - 1][3] * numPlayers,
-  ];
+  let easy = 0;
+  let medium = 0;
+  let hard = 0;
+  let deadly = 0;
+
+  for (let i = 0; i < numPlayers.length; i++) {
+    easy +=
+      thresholdsByLevel[playerLevel[i].value - 1][0] * numPlayers[i].value;
+    medium +=
+      thresholdsByLevel[playerLevel[i].value - 1][1] * numPlayers[i].value;
+    hard +=
+      thresholdsByLevel[playerLevel[i].value - 1][2] * numPlayers[i].value;
+    deadly +=
+      thresholdsByLevel[playerLevel[i].value - 1][3] * numPlayers[i].value;
+  }
+
+  const thresholds = [easy, medium, hard, deadly];
 
   divResultsPartyThreshold.innerHTML = `
         <table>
@@ -164,50 +175,50 @@ const calculateMonsterEXP = function (
       numMonsters[i].value * expByCR.get(Number(monsterCR[i].value));
   }
 
-  if (numMonsters >= 15) {
+  if (sumMonsters >= 15) {
     if (numPlayers >= 6) {
       expTotal = expUnmodified * 3;
-    } else if (numplayers >= 3 && numplayers <= 5) {
+    } else if (sumplayers >= 3 && numplayers <= 5) {
       expTotal = expUnmodified * 4;
     } else {
       expTotal = expUnmodified * 5;
     }
-  } else if (numMonsters >= 11 && numMonsters <= 14) {
+  } else if (sumMonsters >= 11 && sumMonsters <= 14) {
     if (numPlayers >= 6) {
       expTotal = expUnmodified * 2.5;
-    } else if (numPlayers >= 3 && numPlayers <= 5) {
+    } else if (sumPlayers >= 3 && sumPlayers <= 5) {
       expTotal = expUnmodified * 3;
     } else {
       expTotal = expUnmodified * 4;
     }
-  } else if (numMonsters >= 7 && numMonsters <= 10) {
-    if (numPlayers >= 6) {
+  } else if (sumMonsters >= 7 && sumMonsters <= 10) {
+    if (sumPlayers >= 6) {
       expTotal = expUnmodified * 2;
-    } else if (numPlayers >= 3 && numPlayers <= 5) {
+    } else if (sumPlayers >= 3 && sumPlayers <= 5) {
       expTotal = expUnmodified * 2.5;
     } else {
       expTotal = expUnmodified * 3;
     }
-  } else if (numMonsters >= 3 && numMonsters <= 6) {
-    if (numPlayers >= 6) {
+  } else if (sumMonsters >= 3 && sumMonsters <= 6) {
+    if (sumPlayers >= 6) {
       expTotal = expUnmodified * 1.5;
-    } else if (numPlayers >= 3 && numPlayers <= 5) {
+    } else if (sumPlayers >= 3 && numPlayers <= 5) {
       expTotal = expUnmodified * 2;
     } else {
       expTotal = expUnmodified * 2.5;
     }
-  } else if ((numMonsters = 2)) {
-    if (numPlayers >= 6) {
+  } else if ((sumMonsters = 2)) {
+    if (sumPlayers >= 6) {
       expTotal = expUnmodified * 1;
-    } else if (numPlayers >= 3 && numPlayers <= 5) {
+    } else if (sumPlayers >= 3 && sumPlayers <= 5) {
       expTotal = expUnmodified * 1.5;
     } else {
       expTotal = expUnmodified * 2;
     }
   } else {
-    if (numPlayers >= 6) {
+    if (sumPlayers >= 6) {
       expTotal = expUnmodified * 0.5;
-    } else if (numPlayers >= 3 && numPlayers <= 5) {
+    } else if (sumPlayers >= 3 && numPlayers <= 5) {
       expTotal = expUnmodified * 1;
     } else {
       expTotal = expUnmodified * 1.5;
@@ -226,19 +237,19 @@ const calculateMonsterEXP = function (
 
 const calculateResults = function () {
   const numPlayers = document.querySelectorAll(`.playerCount`);
-  const playerLevel = Number(document.querySelector(`.playerLevel`).value);
-  let sumPlayers = 0;
+  const playerLevel = document.querySelector(`.playerLevel`);
 
-  for (const num of numPlayers) {
-    sumPlayers += Number(num.value);
-  }
-
-  const thresholds = calculateThresholds(sumPlayers, playerLevel);
+  const thresholds = calculateThresholds(numPlayers, playerLevel);
 
   const numMonsters = document.querySelectorAll(`.monsterCount`);
   const monsterCR = document.querySelectorAll(`.monsterCR`);
 
+  let sumPlayers = 0;
   let sumMonsters = 0;
+
+  for (const num of numPlayers) {
+    sumPlayers += Number(num.value);
+  }
 
   for (const num of numMonsters) {
     sumMonsters += Number(num.value);
@@ -268,7 +279,7 @@ const calculateResults = function () {
     difficulty = thresholdNames[0];
   }
 
-  const expPerPlayer = expUnmodified / numPlayers;
+  const expPerPlayer = expUnmodified / sumPlayers;
 
   divResultsDifficulty.innerHTML = `
         <p>
@@ -290,12 +301,12 @@ const addRow = function (btnID) {
       countLabel.htmlFor = `monsterCount${rowCountMonster}`;
       countLabel.innerText = `Amount`;
       const countInput = document.createElement(`input`);
-      countInput.class = "monsterCount";
+      countInput.class = `monsterCount`;
       countInput.type = "number";
-      countInput.id = "monsterCount1";
-      countInput.min = "1";
-      countInput.max = "10";
-      countInput.value = "1";
+      countInput.id = `monsterCount${rowCountMonster}`;
+      countInput.min = `1`;
+      countInput.max = `10`;
+      countInput.value = `1`;
       const crLabel = document.createElement(`label`);
       crLabel.htmlFor = `monsterCR${rowCountMonster}`;
       crLabel.innerText = `CR`;
@@ -309,14 +320,36 @@ const addRow = function (btnID) {
       container.appendChild(countInput);
       container.appendChild(crLabel);
       container.appendChild(crSelect);
-      alert(`Success: Monster`);
     } else {
       alert(`You can only have so many kinds of monster.`);
     }
   } else if (btnID === `btnAddPlayer`) {
     if (rowCountPlayer <= 10) {
       rowCountPlayer++;
-      alert(`Success: Player`);
+      // Create a monster row.
+      const container = document.createElement(`div`);
+      container.className = `playerRow`;
+      container.id = `playerRow${rowCountPlayer}`;
+      const countLabel = document.createElement(`label`);
+      countLabel.htmlFor = `playerCount${rowCountPlayer}`;
+      countLabel.innerText = `Amount`;
+      const countInput = document.createElement(`input`);
+      countInput.class = `playerCount`;
+      countInput.type = `number`;
+      countInput.id = `playerCount${rowCountPlayer}`;
+      countInput.min = `1`;
+      countInput.max = `10`;
+      countInput.value = `1`;
+      const levelLabel = document.createElement(`label`);
+      crLabel.htmlFor = `playerCR${rowCountPlayer}`;
+      crLabel.innerText = `Level`;
+      const levelInput = document.createElement(`input`);
+      countInput.class = `playerLevel`;
+      countInput.type = `number`;
+      countInput.id = `playerLevel${rowCountPlayer}`;
+      countInput.min = `1`;
+      countInput.max = `20`;
+      countInput.value = `1`;
     } else {
       alert(`More than ten different levels? That might be too many.`);
     }
@@ -329,16 +362,16 @@ const removeRow = function (btnID) {
       const rows = document.querySelector(`.monsterEXP`).children;
       document.querySelector(`.monsterEXP`).removeChild(rows[rows.length - 1]);
       rowCountMonster--;
-      alert(`Success: Monster Removed`);
     } else {
       alert(`You need at least one monster.`);
     }
   } else if (btnID === `btnRemovePlayer`) {
     if (rowCountPlayer > 1) {
       const rows = document.querySelector(`.partyThreshold`).children;
-      document.querySelector(`.monsterEXP`).removeChild(rows[rows.length - 1]);
+      document
+        .querySelector(`.partyThreshold`)
+        .removeChild(rows[rows.length - 1]);
       rowCountPlayer--;
-      alert(`Success: Player Removed`);
     } else {
       alert(`You need at least one player.`);
     }
