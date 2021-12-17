@@ -167,8 +167,7 @@ const calculateMonsterEXP = function (
   let expTotal = 0;
 
   for (let i = 0; i < numMonsters.length; i++) {
-    expUnmodified +=
-      numMonsters[i].value * expByCR.get(Number(monsterCR[i].value));
+    expUnmodified += numMonsters[i] * expByCR.get(Number(monsterCR[i]));
   }
 
   if (sumMonsters >= 15) {
@@ -256,11 +255,11 @@ const calculateResults = function () {
   let sumMonsters = 0;
 
   for (const num of numPlayers) {
-    sumPlayers += Number(num.value);
+    sumPlayers += Number(num);
   }
 
   for (const num of numMonsters) {
-    sumMonsters += Number(num.value);
+    sumMonsters += Number(num);
   }
 
   const arrEXP = calculateMonsterEXP(
