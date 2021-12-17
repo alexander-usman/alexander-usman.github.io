@@ -73,6 +73,43 @@ const expByCR = new Map([
   [30, 155000],
 ]);
 
+const optionText = `
+        <option value="0">0</option>
+        option value="0.125">0.125</option>
+        <option value="0.25">0.25</option>
+        <option value="0.5">0.5</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="29">29</option>
+        <option value="30">30</option>
+      `;
+
 const calculateThresholds = function (numPlayers, playerLevel) {
   const thresholds = [
     thresholdsByLevel[playerLevel - 1][0] * numPlayers,
@@ -114,7 +151,6 @@ const calculateThresholds = function (numPlayers, playerLevel) {
 };
 
 const calculateMonsterEXP = function (numMonsters, monsterCR, numPlayers) {
-  // Refactor Me
   const expUnmodified = numMonsters * expByCR.get(monsterCR);
   let expTotal = 0;
 
@@ -183,9 +219,13 @@ const calculateResults = function () {
   const playerLevel = Number(document.querySelector(`.playerLevel`).value);
   const thresholds = calculateThresholds(numPlayers, playerLevel);
 
-  const numMonsters = Number(document.querySelector(`.monsterCount`).value);
-  const monsterCR = Number(document.querySelector(`.monsterCR`).value);
-  const arrEXP = calculateMonsterEXP(numMonsters, monsterCR, numPlayers);
+  const numMonsters = Number(document.querySelectorAll(`.monsterCount`).value);
+  let sumMonsters = 0;
+  for (sum of numMonsters) {
+    sumMonsters += sum;
+  }
+  const monsterCR = Number(document.querySelectorAll(`.monsterCR`).value);
+  const arrEXP = calculateMonsterEXP(sumMonsters, monsterCR, numPlayers);
   const expUnmodified = arrEXP[0];
   const expTotal = arrEXP[1];
 
@@ -215,7 +255,7 @@ const calculateResults = function () {
 
 const addRow = function (btnID) {
   if (btnID === `btnAddMonster`) {
-    if (rowCountMonster < 10) {
+    if (rowCountMonster <= 10) {
       rowCountMonster++;
       // Create a monster row.
       const container = document.createElement(`div`);
@@ -237,42 +277,7 @@ const addRow = function (btnID) {
       const crSelect = document.createElement(`select`);
       crSelect.class = `monsterCR`;
       crSelect.id = `monsterCR${rowCountMonster}`;
-      crSelect.innerHTML = `
-        <option value="0">0</option>
-        option value="0.125">0.125</option>
-        <option value="0.25">0.25</option>
-        <option value="0.5">0.5</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-        <option value="13">13</option>
-        <option value="14">14</option>
-        <option value="15">15</option>
-        <option value="16">16</option>
-        <option value="17">17</option>
-        <option value="18">18</option>
-        <option value="19">19</option>
-        <option value="20">20</option>
-        <option value="21">21</option>
-        <option value="22">22</option>
-        <option value="23">23</option>
-        <option value="24">24</option>
-        <option value="25">25</option>
-        <option value="26">26</option>
-        <option value="27">27</option>
-        <option value="28">28</option>
-        <option value="29">29</option>
-        <option value="30">30</option>
-      `;
+      crSelect.innerHTML = optionText;
       // Add the row to the DOM.
       document.querySelector(`.monsterEXP`).append(container);
       container.appendChild(countLabel);
@@ -284,7 +289,7 @@ const addRow = function (btnID) {
       alert(`You can only have so many kinds of monster.`);
     }
   } else if (btnID === `btnAddPlayer`) {
-    if (rowCountPlayer < 10) {
+    if (rowCountPlayer <= 10) {
       rowCountPlayer++;
       alert(`Success: Player`);
     } else {
