@@ -226,17 +226,20 @@ const calculateMonsterEXP = function (
 const calculateResults = function () {
   const numPlayers = document.querySelectorAll(`.playerCount`);
   const playerLevel = Number(document.querySelector(`.playerLevel`).value);
+  let sumPlayers = 0;
+
+  for (const num of numPlayers) {
+    sumPlayers += Number(num.value);
+  }
+
   const thresholds = calculateThresholds(numPlayers, playerLevel);
 
   const numMonsters = document.querySelectorAll(`.monsterCount`);
   const monsterCR = document.querySelectorAll(`.monsterCR`);
-  let sumPlayers = 0;
-  let sumMonsters = 0;
-  for (num of numPlayers) {
-    sumPlayers += Number(num.value);
-  }
 
-  for (num of numMonsters) {
+  let sumMonsters = 0;
+
+  for (const num of numMonsters) {
     sumMonsters += Number(num.value);
   }
 
