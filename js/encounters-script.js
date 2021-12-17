@@ -232,7 +232,7 @@ const calculateResults = function () {
     sumPlayers += Number(num.value);
   }
 
-  const thresholds = calculateThresholds(numPlayers, playerLevel);
+  const thresholds = calculateThresholds(sumPlayers, playerLevel);
 
   const numMonsters = document.querySelectorAll(`.monsterCount`);
   const monsterCR = document.querySelectorAll(`.monsterCR`);
