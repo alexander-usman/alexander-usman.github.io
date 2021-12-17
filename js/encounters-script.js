@@ -171,15 +171,15 @@ const calculateMonsterEXP = function (
   }
 
   if (sumMonsters >= 15) {
-    if (numPlayers >= 6) {
+    if (sumPlayers >= 6) {
       expTotal = expUnmodified * 3;
-    } else if (sumplayers >= 3 && numplayers <= 5) {
+    } else if (sumplayers >= 3 && sumPlayers <= 5) {
       expTotal = expUnmodified * 4;
     } else {
       expTotal = expUnmodified * 5;
     }
   } else if (sumMonsters >= 11 && sumMonsters <= 14) {
-    if (numPlayers >= 6) {
+    if (sumPlayers >= 6) {
       expTotal = expUnmodified * 2.5;
     } else if (sumPlayers >= 3 && sumPlayers <= 5) {
       expTotal = expUnmodified * 3;
@@ -197,7 +197,7 @@ const calculateMonsterEXP = function (
   } else if (sumMonsters >= 3 && sumMonsters <= 6) {
     if (sumPlayers >= 6) {
       expTotal = expUnmodified * 1.5;
-    } else if (sumPlayers >= 3 && numPlayers <= 5) {
+    } else if (sumPlayers >= 3 && sumPlayers <= 5) {
       expTotal = expUnmodified * 2;
     } else {
       expTotal = expUnmodified * 2.5;
@@ -213,7 +213,7 @@ const calculateMonsterEXP = function (
   } else {
     if (sumPlayers >= 6) {
       expTotal = expUnmodified * 0.5;
-    } else if (sumPlayers >= 3 && numPlayers <= 5) {
+    } else if (sumPlayers >= 3 && sumPlayers <= 5) {
       expTotal = expUnmodified * 1;
     } else {
       expTotal = expUnmodified * 1.5;
@@ -231,7 +231,7 @@ const calculateMonsterEXP = function (
 };
 
 const calculateResults = function () {
-  const numPlayersEls = document.querySelectorAll(`.playerCount`);
+  const sumPlayersEls = document.querySelectorAll(`.playerCount`);
   const numPlayers = [].map.call(numPlayersEls, function (e) {
     return e.value;
   });
