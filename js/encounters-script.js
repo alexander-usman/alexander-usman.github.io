@@ -237,7 +237,7 @@ const calculateMonsterEXP = function (
 
 const calculateResults = function () {
   const numPlayers = document.querySelectorAll(`.playerCount`);
-  const playerLevel = document.querySelector(`.playerLevel`);
+  const playerLevel = document.querySelectorAll(`.playerLevel`);
 
   const thresholds = calculateThresholds(numPlayers, playerLevel);
 
