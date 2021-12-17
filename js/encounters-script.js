@@ -118,13 +118,17 @@ const calculateThresholds = function (numPlayers, playerLevel) {
 
   for (let i = 0; i < numPlayers.length; i++) {
     easy +=
-      thresholdsByLevel[playerLevel[i].value - 1][0] * numPlayers[i].value;
+      thresholdsByLevel[playerLevel[i].value - 1][0] *
+      Number(numPlayers[i].value);
     medium +=
-      thresholdsByLevel[playerLevel[i].value - 1][1] * numPlayers[i].value;
+      thresholdsByLevel[playerLevel[i].value - 1][1] *
+      Number(numPlayers[i].value);
     hard +=
-      thresholdsByLevel[playerLevel[i].value - 1][2] * numPlayers[i].value;
+      thresholdsByLevel[playerLevel[i].value - 1][2] *
+      Number(numPlayers[i].value);
     deadly +=
-      thresholdsByLevel[playerLevel[i].value - 1][3] * numPlayers[i].value;
+      thresholdsByLevel[playerLevel[i].value - 1][3] *
+      Number(numPlayers[i].value);
   }
 
   const thresholds = [easy, medium, hard, deadly];
