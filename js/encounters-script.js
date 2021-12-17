@@ -236,13 +236,25 @@ const calculateMonsterEXP = function (
 };
 
 const calculateResults = function () {
-  const numPlayers = document.querySelectorAll(`.playerCount`);
-  const playerLevel = document.querySelectorAll(`.playerLevel`);
+  const numPlayersEls = document.querySelectorAll(`.playerCount`);
+  const numPlayers = [].map.call(numPlayersEls, function (e) {
+    return e.value;
+  });
+  const playerLevelEls = document.querySelectorAll(`.playerLevel`);
+  const PlayerLevel = [].map.call(playerLevelEls, function (e) {
+    return e.value;
+  });
 
   const thresholds = calculateThresholds(numPlayers, playerLevel);
 
-  const numMonsters = document.querySelectorAll(`.monsterCount`);
-  const monsterCR = document.querySelectorAll(`.monsterCR`);
+  const numMonstersEls = document.querySelectorAll(`.monsterCount`);
+  const numMonsters = [].map.call(numMonstersEls, function (e) {
+    return e.value;
+  });
+  const monsterCREls = document.querySelectorAll(`.monsterCR`);
+  const monsterCR = [].map.call(monsterCREls, function (e) {
+    return e.value;
+  });
 
   let sumPlayers = 0;
   let sumMonsters = 0;
@@ -364,7 +376,7 @@ const addRow = function (btnID) {
 
 const removeRow = function (btnID) {
   if (btnID === `btnRemoveMonster`) {
-    if (rowlevelMonster > 1) {
+    if (rowCountMonster > 1) {
       const rows = document.querySelector(`.monsterEXP`).children;
       document.querySelector(`.monsterEXP`).removeChild(rows[rows.length - 1]);
       rowCountMonster--;
