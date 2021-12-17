@@ -135,7 +135,7 @@ const calculateThresholds = function (numPlayers, playerLevel) {
     medium += thresholdsByLevel[playerLevel[i] - 1][1] * numPlayers[i];
     hard += thresholdsByLevel[playerLevel[i] - 1][2] * numPlayers[i];
     deadly += thresholdsByLevel[playerLevel[i] - 1][3] * numPlayers[i];
-    perDay += expPerDay[i - 1] * numPlayers[i];
+    perDay += expPerDay[playerLevel[i] - 1] * numPlayers[i];
   }
 
   const thresholds = [easy, medium, hard, deadly, perDay];
