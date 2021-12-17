@@ -150,9 +150,18 @@ const calculateThresholds = function (numPlayers, playerLevel) {
   return thresholds;
 };
 
-const calculateMonsterEXP = function (numMonsters, monsterCR, numPlayers) {
-  const expUnmodified = numMonsters * expByCR.get(monsterCR);
+const calculateMonsterEXP = function (
+  numMonsters,
+  monsterCR,
+  numPlayers,
+  sumMonsters
+) {
+  let expUnmodified = 0;
   let expTotal = 0;
+
+  for (let i = 0; i < numMonsters.length; i++) {
+    expUnmodified += numMonsters[i] * expByCR.get(monsterCR[i]);
+  }
 
   if (numMonsters >= 15) {
     if (numPlayers >= 6) {
@@ -215,17 +224,29 @@ const calculateMonsterEXP = function (numMonsters, monsterCR, numPlayers) {
 };
 
 const calculateResults = function () {
-  const numPlayers = Number(document.querySelector(`.playerCount`).value);
+  const numPlayers = document.querySelectorAll(`.playerCount`);
   const playerLevel = Number(document.querySelector(`.playerLevel`).value);
   const thresholds = calculateThresholds(numPlayers, playerLevel);
 
-  const numMonsters = Number(document.querySelectorAll(`.monsterCount`).value);
+  const numMonsters = document.querySelectorAll(`.monsterCount`);
+  const monsterCR = document.querySelectorAll(`.monsterCR`);
+  let sumPlayers = 0;
   let sumMonsters = 0;
-  for (sum of numMonsters) {
-    sumMonsters += sum;
+  for (num of numPlayers) {
+    sumPlayers += Number(num.value);
   }
-  const monsterCR = Number(document.querySelectorAll(`.monsterCR`).value);
-  const arrEXP = calculateMonsterEXP(sumMonsters, monsterCR, numPlayers);
+
+  for (num of numMonsters) {
+    sumMonsters += Number(num.value);
+  }
+
+  const arrEXP = calculateMonsterEXP(
+    numMonsters,
+    monsterCR,
+    sumPlayers,
+    sumMonsters
+  );
+
   const expUnmodified = arrEXP[0];
   const expTotal = arrEXP[1];
 
