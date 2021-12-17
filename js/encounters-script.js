@@ -276,9 +276,9 @@ const addRow = function (btnID) {
       // Add the row to the DOM.
       document.querySelector(`.monsterEXP`).append(container);
       container.appendChild(countLabel);
-      countLabel.append(countInput);
-      countInput.append(crLabel);
-      crLabel.append(crSelect);
+      container.appendChild(countInput);
+      container.appendChild(crLabel);
+      container.appendChild(crSelect);
       alert(`Success: Monster`);
     } else {
       alert(`You can only have so many kinds of monster.`);
