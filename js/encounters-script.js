@@ -217,6 +217,68 @@ const addRow = function (btnID) {
   if (btnID === `btnAddMonster`) {
     if (rowCountMonster < 10) {
       rowCountMonster++;
+      // Create a monster row.
+      const container = document.createElement(`div`);
+      container.className = `monsterRow`;
+      container.id = `monsterRow${rowCountMonster}`;
+      const countLabel = document.createElement(`label`);
+      countLabel.for = `monsterCount${rowCountMonster}`;
+      countLabel.innerText = `Amount`;
+      const countInput = document.createElement(`input`);
+      countInput.class = "monsterCount";
+      countInput.type = "number";
+      countInput.id = "monsterCount1";
+      countInput.min = "1";
+      countInput.max = "10";
+      countInput.value = "1";
+      const crLabel = document.createElement(`label`);
+      countLabel.for = `monsterCR${rowCountMonster}`;
+      countLabel.innerText = `CR`;
+      const crSelect = document.createElement(`select`);
+      crSelect.class = `monsterCR`;
+      crSelect.id = `monsterCR${rowCountMonster}`;
+      crSelect.innerHTML = `
+        <option value="0">0</option>
+        option value="0.125">0.125</option>
+        <option value="0.25">0.25</option>
+        <option value="0.5">0.5</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="29">29</option>
+        <option value="30">30</option>
+      `;
+      // Add the row to the DOM.
+      document.querySelector(`.monsterEXP`).append(container);
+      container.appendChild(countLabel);
+      countLabel.append(countInput);
+      countInput.append(crLabel);
+      crLabel.append(crSelect);
       alert(`Success: Monster`);
     } else {
       alert(`You can only have so many kinds of monster.`);
@@ -234,6 +296,8 @@ const addRow = function (btnID) {
 const removeRow = function (btnID) {
   if (btnID === `btnRemoveMonster`) {
     if (rowCountMonster > 1) {
+      const rows = document.querySelector(`.monsterEXP`).children;
+      document.querySelector(`.monsterEXP`).removeChild(rows[rows.length - 1]);
       rowCountMonster--;
       alert(`Success: Monster Removed`);
     } else {
@@ -241,6 +305,8 @@ const removeRow = function (btnID) {
     }
   } else if (btnID === `btnRemovePlayer`) {
     if (rowCountPlayer > 1) {
+      const rows = document.querySelector(`.partyThreshold`).children;
+      document.querySelector(`.monsterEXP`).removeChild(rows[rows.length - 1]);
       rowCountPlayer--;
       alert(`Success: Player Removed`);
     } else {
