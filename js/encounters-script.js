@@ -241,7 +241,7 @@ const calculateResults = function () {
     return e.value;
   });
   const playerLevelEls = document.querySelectorAll(`.playerLevel`);
-  const PlayerLevel = [].map.call(playerLevelEls, function (e) {
+  const playerLevel = [].map.call(playerLevelEls, function (e) {
     return e.value;
   });
 
