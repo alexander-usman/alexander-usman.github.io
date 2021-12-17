@@ -160,7 +160,9 @@ const calculateMonsterEXP = function (
   let expTotal = 0;
 
   for (let i = 0; i < numMonsters.length; i++) {
-    expUnmodified += numMonsters[i].value * expByCR.get(monsterCR[i].value);
+    expUnmodified += Number(
+      numMonsters[i].value * expByCR.get(monsterCR[i].value)
+    );
   }
 
   if (numMonsters >= 15) {
