@@ -164,7 +164,7 @@ const calculateThresholds = function (numPlayers, playerLevel) {
 const calculateMonsterEXP = function (
   numMonsters,
   monsterCR,
-  numPlayers,
+  sumPlayers,
   sumMonsters
 ) {
   let expUnmodified = 0;
