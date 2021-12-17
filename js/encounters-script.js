@@ -34,7 +34,20 @@ const thresholdsByLevel = [
   [2400, 4900, 7300, 10900],
   [2800, 5700, 8500, 12700],
 ];
-const thresholdNames = [`Trivial`, `Easy`, `Medium`, `Hard`, `Deadly`];
+
+const thresholdNames = [
+  `Trivial`,
+  `Easy`,
+  `Medium`,
+  `Hard`,
+  `Deadly`,
+  `Per Day`,
+];
+
+const expPerDay = [
+  300, 600, 1200, 1700, 3500, 4000, 5000, 6000, 7500, 9000, 10500, 11500, 13500,
+  15000, 18000, 20000, 25000, 27000, 30000, 40000,
+];
 
 const expByCR = new Map([
   [0, 10],
@@ -115,15 +128,17 @@ const calculateThresholds = function (numPlayers, playerLevel) {
   let medium = 0;
   let hard = 0;
   let deadly = 0;
+  let perDay = 0;
 
   for (let i = 0; i < numPlayers.length; i++) {
     easy += thresholdsByLevel[playerLevel[i] - 1][0] * numPlayers[i];
     medium += thresholdsByLevel[playerLevel[i] - 1][1] * numPlayers[i];
     hard += thresholdsByLevel[playerLevel[i] - 1][2] * numPlayers[i];
     deadly += thresholdsByLevel[playerLevel[i] - 1][3] * numPlayers[i];
+    perDay += expPerDay[i - 1] * numPlayers[i];
   }
 
-  const thresholds = [easy, medium, hard, deadly];
+  const thresholds = [easy, medium, hard, deadly, perDay];
 
   divResultsPartyThreshold.innerHTML = `
         <table>
@@ -150,6 +165,10 @@ const calculateThresholds = function (numPlayers, playerLevel) {
             <tr>
                 <td>${thresholdNames[4]}</td>
                 <td>${thresholds[3]}</td>
+            </tr>
+            <tr>
+                <td>${thresholdNames[5]}</td>
+                <td>${thresholds[4]}</td>
             </tr>
         </table>
     `;
