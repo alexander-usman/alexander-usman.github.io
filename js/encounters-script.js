@@ -326,7 +326,7 @@ const addRow = function (btnID) {
   } else if (btnID === `btnAddPlayer`) {
     if (rowCountPlayer <= 10) {
       rowCountPlayer++;
-      // Create a monster row.
+      // Create a player row.
       const container = document.createElement(`div`);
       container.className = `playerRow`;
       container.id = `playerRow${rowCountPlayer}`;
@@ -343,13 +343,19 @@ const addRow = function (btnID) {
       const levelLabel = document.createElement(`label`);
       levelLabel.htmlFor = `playerLevel${rowCountPlayer}`;
       levelLabel.innerText = `Level`;
-      const levenpu = document.createElement(`input`);
-      countInput.class = `playerLevel`;
-      countInput.type = `number`;
-      countInput.id = `playerLevel${rowCountPlayer}`;
-      countInput.min = `1`;
-      countInput.max = `20`;
-      countInput.value = `1`;
+      const levelInput = document.createElement(`input`);
+      levelInput.class = `playerLevel`;
+      levelInput.type = `number`;
+      levelInput.id = `playerLevel${rowCountPlayer}`;
+      levelInput.min = `1`;
+      levelInput.max = `20`;
+      levelInput.value = `1`;
+      // Add the row to the DOM.
+      document.querySelector(`.partyThreshold`).append(container);
+      container.appendChild(countLabel);
+      container.appendChild(countInput);
+      container.appendChild(levelLabel);
+      container.appendChild(levelInput);
     } else {
       alert(`More than ten different levels? That might be too many.`);
     }
@@ -358,7 +364,7 @@ const addRow = function (btnID) {
 
 const removeRow = function (btnID) {
   if (btnID === `btnRemoveMonster`) {
-    if (rowCountMonster > 1) {
+    if (rowlevelMonster > 1) {
       const rows = document.querySelector(`.monsterEXP`).children;
       document.querySelector(`.monsterEXP`).removeChild(rows[rows.length - 1]);
       rowCountMonster--;
