@@ -317,7 +317,7 @@ const calculateResults = function () {
 
 const addRow = function (btnID) {
   if (btnID === `btnAddMonster`) {
-    if (rowCountMonster <= 10) {
+    if (rowCountMonster < 10) {
       rowCountMonster++;
       // Create a monster row.
       const container = document.createElement(`div`);
@@ -350,7 +350,7 @@ const addRow = function (btnID) {
       alert(`You can only have so many kinds of monster.`);
     }
   } else if (btnID === `btnAddPlayer`) {
-    if (rowCountPlayer <= 10) {
+    if (rowCountPlayer < 10) {
       rowCountPlayer++;
       // Create a player row.
       const container = document.createElement(`div`);
