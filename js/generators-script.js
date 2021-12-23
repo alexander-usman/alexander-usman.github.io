@@ -489,7 +489,7 @@ const getMagicItems = function (dWhat, table) {
       case `A`:
         for (const [k, v] of magicItemTableA) {
           if (roll <= k) {
-            result += v;
+            result.concat(v);
             break;
           }
         }
@@ -497,7 +497,7 @@ const getMagicItems = function (dWhat, table) {
       case `B`:
         for (const [k, v] of magicItemTableB) {
           if (roll <= k) {
-            result += v;
+            result.concat(v);
             break;
           }
         }
