@@ -322,7 +322,14 @@ const generateTreasureHoard = function () {
       result += getCoins(...row);
     }
 
-    const treasureHoardRow = treasureHoardTable0.get(roll);
+    let treasureHoardRow;
+
+    for ([k, v] of treasureHoardTable0) {
+      if (roll <= k) {
+        treasureHoardRow = treasureHoardTable0.get(k);
+        break;
+      }
+    }
 
     if (treasureHoardRow[0][3] === `gems`) {
       result +=
