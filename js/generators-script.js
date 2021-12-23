@@ -300,7 +300,7 @@ const treasureHoardTable0 = new Map([
   [
     92,
     [
-      [2, 4, 255, `art`],
+      [2, 4, 25, `art`],
       [4, `F`],
     ],
   ],
