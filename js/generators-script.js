@@ -429,7 +429,10 @@ const generateTreasureHoard = function () {
       result += `\nNo Gems or Art.`;
     }
 
-    if (treasureHoardRow[1]) {
+    if (
+      typeof treasureHoardRow[1][0] === `number` &&
+      typeof treasureHoardRow[1][1] === `string`
+    ) {
       result +=
         `\n` + getMagicItems(treasureHoardRow[1][0], treasureHoardRow[1][1]);
     }
