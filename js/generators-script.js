@@ -430,7 +430,8 @@ const generateTreasureHoard = function () {
     }
 
     if (treasureHoardRow[1]) {
-      getMagicItems(treasureHoardRow[1][0], treasureHoardRow[1][1]);
+      result +=
+        `\n` + getMagicItems(treasureHoardRow[1][0], treasureHoardRow[1][1]);
     }
   }
 
@@ -489,7 +490,7 @@ const getMagicItems = function (dWhat, table) {
       case `A`:
         for (const [k, v] of magicItemTableA) {
           if (roll <= k) {
-            result.concat(v);
+            result.concat(v, ` `);
             break;
           }
         }
@@ -497,13 +498,13 @@ const getMagicItems = function (dWhat, table) {
       case `B`:
         for (const [k, v] of magicItemTableB) {
           if (roll <= k) {
-            result.concat(v);
+            result.concat(v, ` `);
             break;
           }
         }
         break;
       default:
-        result += `\nNo Magic Items.`;
+        result += `No Magic Items.`;
         break;
     }
   }
