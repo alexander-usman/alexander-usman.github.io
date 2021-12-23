@@ -96,6 +96,9 @@ const individualLootTableCR17 = new Map([
 ]);
 
 const resultsDiv = document.querySelector(`.results`);
+const btnCalculateIndividualLoot = document.querySelector(
+  `.btnCalculateIndividualLoot`
+);
 
 const generateIndividualLoot = function () {
   const numMonsters = document.querySelector(
@@ -104,6 +107,7 @@ const generateIndividualLoot = function () {
   const monsterCR = Number(
     document.querySelector(`.individualLootGenerator .monsterCR`).value
   );
+
   let result = ``;
   const roll = Math.trunc(Math.random() * dWhat) + 1; // Your loot roll on a D100.
 
@@ -136,3 +140,8 @@ const getCoins = function (numRolls, dWhat, multiplier, currency) {
 
   return resultString;
 };
+
+btnCalculateIndividualLoot.addEventListener(
+  `click`,
+  btnCalculateIndividualLoot
+);
