@@ -451,10 +451,16 @@ const getCoins = function (numRolls, dWhat, multiplier, currency) {
 
 const getGems = function (numRolls, dWhat, value) {
   let result = ``;
+  let totalRolls = 0;
   for (let i = 0; i < numRolls; i++) {
-    const roll = Math.trunc(Math.random() * dWhat) + 1;
+    totalRolls += Math.trunc(Math.random() * dWhat) + 1;
+  }
+
+  for (let j = 0; j < totalRolls; j++) {
+    const roll = Math.trunc(Math.random() * gemstones.get(value).length);
     result += gemstones.get(value)[roll] + ` `;
   }
+
   return result;
 };
 
