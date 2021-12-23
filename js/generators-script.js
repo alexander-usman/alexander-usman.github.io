@@ -487,7 +487,7 @@ const getMagicItems = function (dWhat, table) {
     const roll = Math.trunc(Math.random() * 100) + 1;
     switch (table) {
       case `A`:
-        for ([k, v] of magicItemTableA) {
+        for (const [k, v] of magicItemTableA) {
           if (roll <= k) {
             result += v;
             break;
@@ -495,7 +495,7 @@ const getMagicItems = function (dWhat, table) {
         }
         break;
       case `B`:
-        for ([k, v] of magicItemTableB) {
+        for (const [k, v] of magicItemTableB) {
           if (roll <= k) {
             result += v;
             break;
