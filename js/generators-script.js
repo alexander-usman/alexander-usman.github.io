@@ -141,7 +141,4 @@ const getCoins = function (numRolls, dWhat, multiplier, currency) {
   return resultString;
 };
 
-btnCalculateIndividualLoot.addEventListener(
-  `click`,
-  btnCalculateIndividualLoot
-);
+btnCalculateIndividualLoot.addEventListener(`click`, generateIndividualLoot);
