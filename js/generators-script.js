@@ -368,6 +368,7 @@ const getGems = function (numRolls, dWhat, value) {
   for (let i = 0; i < numRolls; i++) {
     result += gemstones.get(value)[Math.trunc(Math.random() * dWhat) + 1] + ` `;
   }
+  return result;
 };
 
 const getArt = function (numRolls, dWhat, value) {
@@ -375,6 +376,7 @@ const getArt = function (numRolls, dWhat, value) {
   for (let i = 0; i < numRolls; i++) {
     result += artworks.get(value)[Math.trunc(Math.random() * dWhat) + 1] + ` `;
   }
+  return result;
 };
 
 const getMagicItems = function (dWhat, table) {
@@ -395,6 +397,7 @@ const getMagicItems = function (dWhat, table) {
         break;
     }
   }
+  return result;
 };
 
 btnGenerateIndividualLoot.addEventListener(`click`, generateIndividualLoot);
