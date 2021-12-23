@@ -146,6 +146,54 @@ const artworks = new Map([
     ],
   ],
 ]);
+// Magic Item Tables
+const magicItemTableA = new Map([
+  [50, `Potion of Healing`],
+  [60, `Spell Scroll (Cantrip)`],
+  [70, `Potion of Climbing`],
+  [90, `Spell Scroll (First Level)`],
+  [94, `Spell Scroll (Second Level)`],
+  [98, `Potion of Greater Healing`],
+  [99, `Bag of Holding`],
+  [100, `Driftglobe`],
+]);
+const magicItemTableB = new Map([
+  [15, `Potion of Greater Healing`],
+  [22, `Potion of Fire Breath`],
+  [29, `Potion of Resistance`],
+  [34, `Ammunition (Plus One)`],
+  [39, `Potion of Animal Friendship`],
+  [44, `Potion of Hill Giant Strength`],
+  [49, `Potion of Growth`],
+  [54, `Potion of Water Breathing`],
+  [59, `Spell Scroll (Second Level)`],
+  [64, `Spell Scroll (Third Level)`],
+  [67, `Bag of Holding`],
+  [70, `Keoghtom's Ointment`],
+  [73, `Oil of Slipperiness`],
+  [75, `Dust of Disappearance`],
+  [77, `Dust of Dryness`],
+  [79, `Dust of Sneezing and Choking`],
+  [81, `Elemental Gem`],
+  [83, `Philter of Love`],
+  [84, `Alchemy Jug`],
+  [85, `Cap of Water-Breathing`],
+  [86, `Cloak of the Manta Ray`],
+  [87, `Driftglobe`],
+  [88, `Goggles of Night`],
+  [89, `Helm of Comprehending Languages`],
+  [90, `Immovable Rod`],
+  [91, `Lantern of Revealing`],
+  [92, `Mariner's Armour`],
+  [93, `Mithril Armour`],
+  [94, `Potion of Poison`],
+  [95, `Ring of Swimming`],
+  [96, `Robe of Useful Items`],
+  [97, `Rope of Climbing`],
+  [98, `Saddle of the Cavalier`],
+  [99, `Wand of Magic Detection`],
+  [100, `Wand of Secrets`],
+]);
 // Treasure Hoard Coins
 const treasureHoardCoins = new Map([
   [
@@ -179,6 +227,26 @@ const treasureHoardCoins = new Map([
       [8, 6, 1000, `pp`],
     ],
   ],
+]);
+// Treasure Hoard Tables
+const treasureHoardTable0 = new Map([
+  [6, [], []],
+  [16, [2, 6, 10, `gems`], []],
+  [26, [2, 4, 25, `art`], []],
+  [36, [1, 6, 50, `gems`], []],
+  [44, [2, 6, 10, `gems`], [6, `A`]],
+  [52, [2, 4, 25, `art`], [6, `A`]],
+  [60, [2, 6, 50, `gems`], [6, `A`]],
+  [65, [2, 6, 10, `gems`], [4, `B`]],
+  [70, [2, 4, 25, `art`], [4, `B`]],
+  [75, [2, 6, 50, `gems`], [4, `B`]],
+  [78, [2, 6, 10, `gems`], [4, `C`]],
+  [80, [2, 4, 25, `art`], [4, `C`]],
+  [85, [2, 6, 50, `gems`], [4, `C`]],
+  [92, [2, 4, 255, `art`], [4, `F`]],
+  [97, [2, 6, 50, `gems`], [4, `F`]],
+  [99, [2, 4, 25, `art`], [0, `G`]],
+  [100, [2, 6, 50, `gems`], [0, `G`]],
 ]);
 // HTML Elements
 const resultsDiv = document.querySelector(`.results`);
@@ -253,6 +321,32 @@ const generateTreasureHoard = function () {
     for (const row of treasureHoardCoins.get(0)) {
       result += getCoins(...row);
     }
+
+    const treasureHoardRow = treasureHoardTable0.get(roll);
+
+    if (treasureHoardRow[0][3] === `gems`) {
+      result +=
+        `\ngems: ` +
+        getGems(
+          treasureHoardRow[0][0],
+          treasureHoardRow[0][1],
+          treasureHoardRow[0][2]
+        );
+    } else if (treasureHoardRow[0][3] === `art`) {
+      result +=
+        `\nart: ` +
+        getArt(
+          treasureHoardRow[0][0],
+          treasureHoardRow[0][1],
+          treasureHoardRow[0][2]
+        );
+    } else {
+      result += `\nNo Gems or Art.`;
+    }
+
+    if (treasureHoardRow[1]) {
+      getMagicItems(treasureHoardRow[1][0], treasureHoardRow[1][1]);
+    }
   }
 
   resultsDiv.innerHTML = result;
@@ -269,7 +363,39 @@ const getCoins = function (numRolls, dWhat, multiplier, currency) {
   return resultString;
 };
 
-const getGems = function (numRolls, dWhat) {};
+const getGems = function (numRolls, dWhat, value) {
+  let result = ``;
+  for (let i = 0; i < numRolls; i++) {
+    result += gemstones.get(value)[Math.trunc(Math.random() * dWhat) + 1] + ` `;
+  }
+};
+
+const getArt = function (numRolls, dWhat, value) {
+  let result = ``;
+  for (let i = 0; i < numRolls; i++) {
+    result += artworks.get(value)[Math.trunc(Math.random() * dWhat) + 1] + ` `;
+  }
+};
+
+const getMagicItems = function (dWhat, table) {
+  let result = ``;
+  const totalRolls = Math.trunc(Math.random() * dWhat) + 1;
+
+  for (let i = 0; i < totalRolls; i++) {
+    let roll = Math.trunc(Math.random() * 100) + 1;
+    switch (table) {
+      case `A`:
+        result += `${magicItemTableA.get(roll)}`;
+        break;
+      case `B`:
+        result += `${magicItemTableB.get(roll)}`;
+        break;
+      default:
+        result += `\nNo Magic Items.`;
+        break;
+    }
+  }
+};
 
 btnGenerateIndividualLoot.addEventListener(`click`, generateIndividualLoot);
 btnGenerateHoardLoot.addEventListener(`click`, generateTreasureHoard);
