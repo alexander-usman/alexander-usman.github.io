@@ -250,7 +250,7 @@ const generateTreasureHoard = function () {
   const roll = Math.trunc(Math.random() * 100) + 1; // Your loot roll on a D100.
 
   if (hoardCR >= 0 && hoardCR <= 4) {
-    for (row of treasureHoardCoins.get(0)) {
+    for (const row of treasureHoardCoins.get(0)) {
       result += getCoins(...row);
     }
   }
