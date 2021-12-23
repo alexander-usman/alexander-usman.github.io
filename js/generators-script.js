@@ -324,7 +324,7 @@ const generateTreasureHoard = function () {
 
     let treasureHoardRow;
 
-    for ([k, v] of treasureHoardTable0) {
+    for (const [k, v] of treasureHoardTable0) {
       if (roll <= k) {
         treasureHoardRow = treasureHoardTable0.get(k);
         break;
