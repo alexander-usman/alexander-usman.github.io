@@ -487,10 +487,20 @@ const getMagicItems = function (dWhat, table) {
     const roll = Math.trunc(Math.random() * 100) + 1;
     switch (table) {
       case `A`:
-        result += `${magicItemTableA.get(roll)}`;
+        for ([k, v] of magicItemTableA) {
+          if (roll <= k) {
+            result += v;
+            break;
+          }
+        }
         break;
       case `B`:
-        result += `${magicItemTableB.get(roll)}`;
+        for ([k, v] of magicItemTableB) {
+          if (roll <= k) {
+            result += v;
+            break;
+          }
+        }
         break;
       default:
         result += `\nNo Magic Items.`;
