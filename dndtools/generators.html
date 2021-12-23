@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/style.css" />
-    <script defer src="../js/encounters-script.js"></script>
+    <script defer src="../js/generators-script.js"></script>
     <title>D&D Tools</title>
   </head>
   <body>
     <nav>
-      <ul>
+      <>
         <li><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/dndtools/dice">Dice</a></li>
@@ -21,60 +21,21 @@
 
     <div class="container">
       <div class="blurb">
-        <h1>D&D Tools: Encounters</h1>
-        <div class="encounters">
-          <div class="partyThreshold">
-            <h2>Players</h2>
-            <div class="playerRow" id="playerRow1">
-              <label for="playerCount">Amount</label>
-              <input
-                class="playerCount"
-                type="number"
-                id="playerCount1"
-                min="1"
-                max="10"
-                value="1"
-              />
-              <label for="playerLevel">Level</label>
-              <input
-                class="playerLevel"
-                type="number"
-                id="playerLevel1"
-                min="1"
-                max="20"
-                value="1"
-              />
-            </div>
-          </div>
-          <input
-            type="button"
-            class="btnAddPlayer"
-            id="btnAddPlayer"
-            value="Add Row"
-            onclick="addRow(this.id)"
-          />
-          <input
-            type="button"
-            class="btnRemovePlayer"
-            id="btnRemovePlayer"
-            value="Remove Row"
-            onclick="removeRow(this.id)"
-          />
-          <div class="resultsPartyThreshold"></div>
-          <div class="monsterEXP">
-            <h2>Monsters</h2>
-            <div class="monsterRow" id="monsterRow1">
-              <label for="monsterCount1">Amount</label>
+        <h1>D&D Tools: Generators</h1>
+        <div class="results"></div>
+        <div class="individualLootGenerator">
+            <div class="monsterRow" id="monsterRow">
+              <label for="monsterCount">Amount</label>
               <input
                 class="monsterCount"
                 type="number"
-                id="monsterCount1"
+                id="monsterCount"
                 min="1"
                 max="10"
                 value="1"
               />
-              <label for="monsterCR1">CR</label>
-              <select class="monsterCR" id="monsterCR1">
+              <label for="monsterCR">CR</label>
+              <select class="monsterCR" id="monsterCR">
                 <option value="0">0</option>
                 <option value="0.125">0.125</option>
                 <option value="0.25">0.25</option>
@@ -111,24 +72,7 @@
                 <option value="30">30</option>
               </select>
             </div>
-          </div>
-          <input
-            type="button"
-            class="btnAddMonster"
-            id="btnAddMonster"
-            value="Add Row"
-            onclick="addRow(this.id)"
-          />
-          <input
-            type="button"
-            class="btnRemoveMonster"
-            id="btnRemoveMonster"
-            value="Remove Row"
-            onclick="removeRow(this.id)"
-          />
-          <div class="resultsMonsterEXP"></div>
-          <input type="button" class="btnCalculate" value="Calculate" />
-          <div class="resultsDifficulty"></div>
+            <input type="button" class="btnCalculate" value="Generate Individual Loot" />
         </div>
       </div>
     </div>
@@ -136,9 +80,9 @@
       <ul>
         <li><a href="mailto:alexander.usman@gmail.com">email</a></li>
         <li>
-          <a href="https://github.com/alexander-usman">
-            github.com/alexander-usman
-          </a>
+          <a href="https://github.com/alexander-usman"
+            >github.com/alexander-usman</a
+          >
         </li>
       </ul>
     </footer>
