@@ -129,7 +129,7 @@ const gemstones = new Map([
   ],
 ]);
 // Art Objects
-artworks = new Map([
+const artworks = new Map([
   [
     25,
     [
