@@ -1,5 +1,5 @@
 "use strict";
-
+// Individual Loot Tables
 const individualLootTableCR0 = new Map([
   [30, [[5, 6, 1, `cp`]]], // Roll below 30 and recieve 5D6 * 1 Copper Pieces.
   [60, [[4, 6, 1, `sp`]]],
@@ -7,7 +7,6 @@ const individualLootTableCR0 = new Map([
   [95, [[3, 6, 1, `gp`]]],
   [100, [[1, 6, 1, `pp`]]],
 ]);
-
 const individualLootTableCR5 = new Map([
   [
     30,
@@ -39,7 +38,6 @@ const individualLootTableCR5 = new Map([
     ],
   ],
 ]);
-
 const individualLootTableCR11 = new Map([
   [
     20,
@@ -70,7 +68,6 @@ const individualLootTableCR11 = new Map([
     ],
   ],
 ]);
-
 const individualLootTableCR17 = new Map([
   [
     15,
@@ -94,10 +91,102 @@ const individualLootTableCR17 = new Map([
     ],
   ],
 ]);
-
+//Gemstones
+const gemstones = new Map([
+  [
+    10,
+    [
+      `Azurite`,
+      `Banded Agate`,
+      `Blue Quartz`,
+      `Eye Agate`,
+      `Hematite`,
+      `Lapis Lazuli`,
+      `Malachite`,
+      `Moss Agate`,
+      `Obsidian`,
+      `Rhondochrosite`,
+      `Tiger Eye`,
+      `Turquoise`,
+    ],
+  ],
+  [
+    50,
+    [
+      `Bloodstone`,
+      `Carnelian`,
+      `Chalcedony`,
+      `Chrysoprase`,
+      `Citrine`,
+      `Jasper`,
+      `Moonstone`,
+      `Onyx`,
+      `Quartz`,
+      `Sardonyx`,
+      `Star Rose Quartz`,
+      `Zircon`,
+    ],
+  ],
+]);
+// Art Objects
+artworks = new Map([
+  [
+    25,
+    [
+      `Silver Ewer`,
+      `Carved Bone Statuette`,
+      `Small Gold Bracelet`,
+      `Cloth-of-Gold Vestments`,
+      `Black Velvet Mask Stitched with Silver Thread`,
+      `Copper Chalice with Silver Filigree`,
+      `Pair of Engraved Bone Dice`,
+      `Small Mirror Set in a Painted Wooden Frame`,
+      `Embroidered Silk Handkerchief`,
+      `Gold Locket with a Painted Portrait Inside`,
+    ],
+  ],
+]);
+// Treasure Hoard Coins
+const treasureHoardCoins = new Map([
+  [
+    0,
+    [
+      [6, 6, 100, `cp`],
+      [3, 6, 100, `sp`],
+      [2, 6, 10, `gp`],
+    ],
+  ],
+  [
+    5,
+    [
+      [2, 6, 100, `cp`],
+      [2, 6, 1000, `sp`],
+      [6, 6, 100, `gp`],
+      [3, 6, 100, `pp`],
+    ],
+  ],
+  [
+    11,
+    [
+      [4, 6, 1000, `gp`],
+      [5, 6, 100, `pp`],
+    ],
+  ],
+  [
+    17,
+    [
+      [12, 6, 1000, `gp`],
+      [8, 6, 1000, `pp`],
+    ],
+  ],
+]);
+// HTML Elements
 const resultsDiv = document.querySelector(`.results`);
-const btnCalculateIndividualLoot = document.querySelector(
-  `.btnCalculateIndividualLoot`
+const btnGenerateIndividualLoot = document.querySelector(
+  `.btnGenerateIndividualLoot`
+);
+const btnGenerateHoardLoot = document.querySelector(
+  `.btnGenerateTreasureHoardLoot`
 );
 
 const generateIndividualLoot = function () {
@@ -110,14 +199,15 @@ const generateIndividualLoot = function () {
 
   let result = ``;
   const roll = Math.trunc(Math.random() * 100) + 1; // Your loot roll on a D100.
-
+  // Check CR and select the rioght coinage
   if (monsterCR >= 0 && monsterCR <= 4) {
     for (const [k, v] of individualLootTableCR0) {
       if (roll <= k) {
+        // Select the correct row of the loot table
         for (let j = 0; j < v.length; j++) {
-          result += getCoins(...v[j]);
+          result += getCoins(...v[j]); // Roll an amount for each currency in that row.
         }
-        break; // Only use the first result lower than your roll.
+        break; // Only use the first row which is lower than your roll.
       }
     }
   } else if (monsterCR >= 5 && monsterCR <= 10) {
@@ -148,6 +238,22 @@ const generateIndividualLoot = function () {
       }
     }
   }
+  // Display the results
+  resultsDiv.innerHTML = result;
+};
+
+const generateTreasureHoard = function () {
+  const hoardCR = Number(
+    document.querySelector(`.treasureHoardGenerator .treasureHoardCR`).value
+  );
+  let result = ``;
+  const roll = Math.trunc(Math.random() * 100) + 1; // Your loot roll on a D100.
+
+  if (hoardCR >= 0 && hoardCR <= 4) {
+    for (row of treasureHoardCoins.get(0)) {
+      result += getCoins(...row);
+    }
+  }
 
   resultsDiv.innerHTML = result;
 };
@@ -158,12 +264,12 @@ const getCoins = function (numRolls, dWhat, multiplier, currency) {
   for (let i = 0; i < numRolls; i++) {
     total += Math.trunc(Math.random() * dWhat) + 1;
   }
-
   total *= multiplier;
-
-  resultString = `${total}${currency}\n`;
-
+  resultString = `${total} ${currency}\n`;
   return resultString;
 };
 
-btnCalculateIndividualLoot.addEventListener(`click`, generateIndividualLoot);
+const getGems = function (numRolls, dWhat) {};
+
+btnGenerateIndividualLoot.addEventListener(`click`, generateIndividualLoot);
+btnGenerateHoardLoot.addEventListener(`click`, generateTreasureHoard);
