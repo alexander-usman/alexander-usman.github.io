@@ -130,7 +130,23 @@ const generateIndividualLoot = function () {
       }
     }
   } else if (monsterCR >= 11 && monsterCR <= 16) {
+    for (const [k, v] of individualLootTableCR11) {
+      if (roll <= k) {
+        for (let j = 0; j < v.length; j++) {
+          result += getCoins(...v[j]);
+        }
+        break;
+      }
+    }
   } else if (monsterCR >= 17) {
+    for (const [k, v] of individualLootTableCR17) {
+      if (roll <= k) {
+        for (let j = 0; j < v.length; j++) {
+          result += getCoins(...v[j]);
+        }
+        break;
+      }
+    }
   }
 
   resultsDiv.innerHTML = result;
