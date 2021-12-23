@@ -101,15 +101,15 @@ const btnCalculateIndividualLoot = document.querySelector(
 );
 
 const generateIndividualLoot = function () {
-  const numMonsters = document.querySelector(
-    `.individualLootGenerator .monsterCount`
-  ).value;
+  const numMonsters = Number(
+    document.querySelector(`.individualLootGenerator .monsterCount`).value
+  );
   const monsterCR = Number(
     document.querySelector(`.individualLootGenerator .monsterCR`).value
   );
 
   let result = ``;
-  const roll = Math.trunc(Math.random() * dWhat) + 1; // Your loot roll on a D100.
+  const roll = Math.trunc(Math.random() * 100) + 1; // Your loot roll on a D100.
 
   if (monsterCR >= 0 && monsterCR <= 4) {
     for (const [k, v] of individualLootTableCR0) {
@@ -117,9 +117,18 @@ const generateIndividualLoot = function () {
         for (let j = 0; j < v.length; j++) {
           result += getCoins(...v[j]);
         }
+        break; // Only use the first result lower than your roll.
       }
     }
   } else if (monsterCR >= 5 && monsterCR <= 10) {
+    for (const [k, v] of individualLootTableCR5) {
+      if (roll <= k) {
+        for (let j = 0; j < v.length; j++) {
+          result += getCoins(...v[j]);
+        }
+        break;
+      }
+    }
   } else if (monsterCR >= 11 && monsterCR <= 16) {
   } else if (monsterCR >= 17) {
   }
