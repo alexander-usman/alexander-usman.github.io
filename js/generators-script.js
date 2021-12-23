@@ -124,7 +124,7 @@ const generateIndividualLoot = function () {
   } else if (monsterCR >= 17) {
   }
 
-  resultsDiv.textContent = result;
+  resultsDiv.innerHTML = result;
 };
 
 const getCoins = function (numRolls, dWhat, multiplier, currency) {
