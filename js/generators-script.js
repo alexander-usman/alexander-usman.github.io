@@ -194,6 +194,13 @@ const magicItemTableB = new Map([
   [99, `Wand of Magic Detection`],
   [100, `Wand of Secrets`],
 ]);
+const magicItemTableC = new Map([]);
+const magicItemTableD = new Map([]);
+const magicItemTableE = new Map([]);
+const magicItemTableF = new Map([]);
+const magicItemTableG = new Map([]);
+const magicItemTableH = new Map([]);
+const magicItemTableI = new Map([]);
 // Treasure Hoard Coins
 const treasureHoardCoins = new Map([
   [
@@ -489,26 +496,69 @@ const getMagicItems = function (dWhat, table) {
 
   for (let i = 0; i < totalRolls; i++) {
     const roll = Math.trunc(Math.random() * 100) + 1;
-    switch (table) {
-      case `A`:
-        for (const [k, v] of magicItemTableA) {
-          if (roll <= k) {
-            result.concat(v, ` `);
-            break;
-          }
+    if (table === `A`) {
+      for (const [k, v] of magicItemTableA) {
+        if (roll <= k) {
+          result += v + ` `;
+          break;
         }
-        break;
-      case `B`:
-        for (const [k, v] of magicItemTableB) {
-          if (roll <= k) {
-            result.concat(v, ` `);
-            break;
-          }
+      }
+    } else if (result === `B`) {
+      for (const [k, v] of magicItemTableB) {
+        if (roll <= k) {
+          result += v + ` `;
+          break;
         }
-        break;
-      default:
-        result += `No Magic Items.`;
-        break;
+      }
+    } else if (result === `C`) {
+      for (const [k, v] of magicItemTableC) {
+        if (roll <= k) {
+          result += v + ` `;
+          break;
+        }
+      }
+    } else if (result === `D`) {
+      for (const [k, v] of magicItemTableD) {
+        if (roll <= k) {
+          result += v + ` `;
+          break;
+        }
+      }
+    } else if (result === `E`) {
+      for (const [k, v] of magicItemTableE) {
+        if (roll <= k) {
+          result += v + ` `;
+          break;
+        }
+      }
+    } else if (result === `F`) {
+      for (const [k, v] of magicItemTableF) {
+        if (roll <= k) {
+          result += v + ` `;
+          break;
+        }
+      }
+    } else if (result === `G`) {
+      for (const [k, v] of magicItemTableG) {
+        if (roll <= k) {
+          result += v + ` `;
+          break;
+        }
+      }
+    } else if (result === `H`) {
+      for (const [k, v] of magicItemTableH) {
+        if (roll <= k) {
+          result += v + ` `;
+          break;
+        }
+      }
+    } else if (result === `I`) {
+      for (const [k, v] of magicItemTableI) {
+        if (roll <= k) {
+          result += v + ` `;
+          break;
+        }
+      }
     }
   }
   return result;
