@@ -441,7 +441,8 @@ const getCoins = function (numRolls, dWhat, multiplier, currency) {
   let total = 0;
   let resultString = ``;
   for (let i = 0; i < numRolls; i++) {
-    total += Math.trunc(Math.random() * dWhat) + 1;
+    const roll = Math.trunc(Math.random() * dWhat) + 1;
+    total += roll;
   }
   total *= multiplier;
   resultString = `${total} ${currency}\n`;
@@ -451,7 +452,8 @@ const getCoins = function (numRolls, dWhat, multiplier, currency) {
 const getGems = function (numRolls, dWhat, value) {
   let result = ``;
   for (let i = 0; i < numRolls; i++) {
-    result += gemstones.get(value)[Math.trunc(Math.random() * dWhat) + 1] + ` `;
+    const roll = Math.trunc(Math.random() * dWhat) + 1;
+    result += gemstones.get(value)[roll] + ` `;
   }
   return result;
 };
@@ -459,7 +461,8 @@ const getGems = function (numRolls, dWhat, value) {
 const getArt = function (numRolls, dWhat, value) {
   let result = ``;
   for (let i = 0; i < numRolls; i++) {
-    result += artworks.get(value)[Math.trunc(Math.random() * dWhat) + 1] + ` `;
+    const roll = Math.trunc(Math.random() * dWhat) + 1;
+    result += artworks.get(value)[roll] + ` `;
   }
   return result;
 };
@@ -469,7 +472,7 @@ const getMagicItems = function (dWhat, table) {
   const totalRolls = Math.trunc(Math.random() * dWhat) + 1;
 
   for (let i = 0; i < totalRolls; i++) {
-    let roll = Math.trunc(Math.random() * 100) + 1;
+    const roll = Math.trunc(Math.random() * 100) + 1;
     switch (table) {
       case `A`:
         result += `${magicItemTableA.get(roll)}`;
