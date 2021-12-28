@@ -127,6 +127,31 @@ const gemstones = new Map([
       `Zircon`,
     ],
   ],
+  [
+    500,
+    [
+      `Alexandrite`,
+      `Aquamarine`,
+      `Black Pearl`,
+      `Blue Spinel`,
+      `Peridot`,
+      `Topaz`,
+    ],
+  ],
+  [
+    1000,
+    [
+      `Black Opal`,
+      `Blue Sapphire`,
+      `Emerald`,
+      `Fire Opal`,
+      `Opal`,
+      `Star Ruby`,
+      `Star Sapphire`,
+      `Yellow Sapphire`,
+    ],
+  ],
+  [5000, [`Black Sapphire`, `Diamond`, `Jacinth`, `Ruby`]],
 ]);
 // Art Objects
 const artworks = new Map([
@@ -143,6 +168,64 @@ const artworks = new Map([
       `Small Mirror Set in a Painted Wooden Frame`,
       `Embroidered Silk Handkerchief`,
       `Gold Locket with a Painted Portrait Inside`,
+    ],
+  ],
+  [
+    250,
+    [
+      `Gold Ring Set with Bloodstones`,
+      `Carved Ivory Statuette`,
+      `Large Gold Bracelet`,
+      `Silver Necklace with a Gemstone Pendant`,
+      `Bronze Crown`,
+      `Silk Robe with Gold Embroidery`,
+      `Large Well-Made Tapestry`,
+      `Brass Mug with Jade Inlay`,
+      `Box of Turquoise Animal Figurines`,
+      `Gold Bird Cage with Electrum Filigree`,
+    ],
+  ],
+  [
+    750,
+    [
+      `Silver Chalice Set with Moonstones`,
+      `Silver-Plated Steel Longsword with  Jet Set in Hilt`,
+      `Carved Harp of Exotic Wood with Ivory Inlay and Zircon Gems`,
+      `Small Gold Idol`,
+      `Gold Dragon Comb Set with Red Garnets as Eyes`,
+      `Bottle Stopper Cork Embossed with Gold Leaf and Set with Amethysts`,
+      `Ceremonial Electrum Dagger with a Black Pearl in the Pommel`,
+      `Silver and Gold Broach`,
+      `Obsidian Statuette with Gold Fittings and Inlay`,
+      `Painted Gold War Mask`,
+    ],
+  ],
+  [
+    2500,
+    [
+      `Fine Gold Chain Set with a Fire Opal`,
+      `Old Masterpiece Painting`,
+      `Embroidered Silk and Velvet Mantle Set with Numerous Moonstones`,
+      `Platinum Bracelet Set with a Sapphire`,
+      `Embroidered Glove Set with Jewel Chips`,
+      `Jeweled Anklet`,
+      `Gold Music Box`,
+      `Gold Circlet Set with Four Aquamarines`,
+      `Eye Patch with a Mock Eye Set in Blue Sapphire and Moonstone`,
+      `A Necklace with a String of Small Pink Pearls`,
+    ],
+  ],
+  [
+    7500,
+    [
+      `Jeweled Gold Crown`,
+      `Jewled Platinum Ring`,
+      `Small Gold Statuette Set with Rubies`,
+      `Gold Cup Set with Emeralds`,
+      `Gold Jewelery Box with Platinum Filigree`,
+      `Painted Gold Child's Sarcophagus`,
+      `Jade Game Board with Solid Gold Playing Pieces`,
+      `Bejeweled Ivory Drinking Horn with Gold Filigree`,
     ],
   ],
 ]);
@@ -333,6 +416,181 @@ const treasureHoardTable0 = new Map([
     ],
   ],
 ]);
+const treasureHoardTable5 = new Map([
+  [4, [[], []]],
+  [10, [[2, 4, 25, `art`], []]],
+  [16, [[3, 6, 50, `gems`], []]],
+  [22, [[3, 6, 100, `gems`], []]],
+  [28, [[2, 4, 250, `art`], []]],
+  [
+    32,
+    [
+      [2, 4, 25, `art`],
+      [6, `A`],
+    ],
+  ],
+  [
+    36,
+    [
+      [3, 6, 50, `gems`],
+      [6, `A`],
+    ],
+  ],
+  [
+    40,
+    [
+      [3, 6, 100, `gems`],
+      [6, `A`],
+    ],
+  ],
+  [
+    44,
+    [
+      [2, 4, 350, `art`],
+      [6, `A`],
+    ],
+  ],
+  [
+    49,
+    [
+      [2, 4, 25, `art`],
+      [4, `B`],
+    ],
+  ],
+  [
+    54,
+    [
+      [3, 6, 50, `gems`],
+      [4, `B`],
+    ],
+  ],
+  [
+    59,
+    [
+      [3, 6, 100, `gems`],
+      [4, `B`],
+    ],
+  ],
+  [
+    63,
+    [
+      [2, 4, 250, `art`],
+      [4, `B`],
+    ],
+  ],
+  [
+    66,
+    [
+      [2, 4, 25, `art`],
+      [4, `C`],
+    ],
+  ],
+  [
+    69,
+    [
+      [3, 6, 25, `art`],
+      [4, `C`],
+    ],
+  ],
+  [
+    72,
+    [
+      [3, 6, 100, `gems`],
+      [4, `C`],
+    ],
+  ],
+  [
+    74,
+    [
+      [2, 4, 250, `art`],
+      [4, `C`],
+    ],
+  ],
+  [
+    76,
+    [
+      [2, 4, 25, `art`],
+      [0, `D`],
+    ],
+  ],
+  [
+    78,
+    [
+      [3, 6, 50, `gems`],
+      [0, `D`],
+    ],
+  ],
+  [
+    79,
+    [
+      [3, 6, 100, `gems`],
+      [0, `D`],
+    ],
+  ],
+  [
+    80,
+    [
+      [2, 4, 250, `art`],
+      [0, `D`],
+    ],
+  ],
+  [
+    84,
+    [
+      [2, 4, 25, `art`],
+      [4, `F`],
+    ],
+  ],
+  [
+    88,
+    [
+      [3, 6, 50, `gems`],
+      [4, `F`],
+    ],
+  ],
+  [
+    91,
+    [
+      [3, 6, 100, `gems`],
+      [4, `F`],
+    ],
+  ],
+  [
+    94,
+    [
+      [2, 4, 250, `art`],
+      [4, `F`],
+    ],
+  ],
+  [
+    96,
+    [
+      [3, 6, 100, `gems`],
+      [4, `G`],
+    ],
+  ],
+  [
+    98,
+    [
+      [2, 4, 250, `art`],
+      [4, `G`],
+    ],
+  ],
+  [
+    99,
+    [
+      [3, 6, 100, `gems`],
+      [0, `H`],
+    ],
+  ],
+  [
+    100,
+    [
+      [2, 4, 250, `art`],
+      [0, `H`],
+    ],
+  ],
+]);
 // HTML Elements
 const resultsDiv = document.querySelector(`.results`);
 const btnGenerateIndividualLoot = document.querySelector(
@@ -412,6 +670,47 @@ const generateTreasureHoard = function () {
     for (const [k, v] of treasureHoardTable0) {
       if (roll <= k) {
         treasureHoardRow = treasureHoardTable0.get(k);
+        break;
+      }
+    }
+
+    if (treasureHoardRow[0][3] === `gems`) {
+      result +=
+        `\ngems: ` +
+        getGems(
+          treasureHoardRow[0][0],
+          treasureHoardRow[0][1],
+          treasureHoardRow[0][2]
+        );
+    } else if (treasureHoardRow[0][3] === `art`) {
+      result +=
+        `\nart: ` +
+        getArt(
+          treasureHoardRow[0][0],
+          treasureHoardRow[0][1],
+          treasureHoardRow[0][2]
+        );
+    } else {
+      result += `\nNo Gems or Art.`;
+    }
+
+    if (
+      typeof treasureHoardRow[1][0] === `number` &&
+      typeof treasureHoardRow[1][1] === `string`
+    ) {
+      result +=
+        `\n` + getMagicItems(treasureHoardRow[1][0], treasureHoardRow[1][1]);
+    }
+  } else if (hoardCR >= 5 && hoardCR <= 10) {
+    for (const row of treasureHoardCoins.get(5)) {
+      result += getCoins(...row);
+    }
+
+    let treasureHoardRow;
+
+    for (const [k, v] of treasureHoardTable5) {
+      if (roll <= k) {
+        treasureHoardRow = treasureHoardTable5.get(k);
         break;
       }
     }
