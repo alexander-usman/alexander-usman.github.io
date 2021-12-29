@@ -1603,56 +1603,56 @@ const getMagicItems = function (dWhat, table) {
           break;
         }
       }
-    } else if (result === `B`) {
+    } else if (table === `B`) {
       for (const [k, v] of magicItemTableB) {
         if (roll <= k) {
           result += v + ` `;
           break;
         }
       }
-    } else if (result === `C`) {
+    } else if (table === `C`) {
       for (const [k, v] of magicItemTableC) {
         if (roll <= k) {
           result += v + ` `;
           break;
         }
       }
-    } else if (result === `D`) {
+    } else if (table === `D`) {
       for (const [k, v] of magicItemTableD) {
         if (roll <= k) {
           result += v + ` `;
           break;
         }
       }
-    } else if (result === `E`) {
+    } else if (table === `E`) {
       for (const [k, v] of magicItemTableE) {
         if (roll <= k) {
           result += v + ` `;
           break;
         }
       }
-    } else if (result === `F`) {
+    } else if (table === `F`) {
       for (const [k, v] of magicItemTableF) {
         if (roll <= k) {
           result += v + ` `;
           break;
         }
       }
-    } else if (result === `G`) {
+    } else if (table === `G`) {
       for (const [k, v] of magicItemTableG) {
         if (roll <= k) {
           result += v + ` `;
           break;
         }
       }
-    } else if (result === `H`) {
+    } else if (table === `H`) {
       for (const [k, v] of magicItemTableH) {
         if (roll <= k) {
           result += v + ` `;
           break;
         }
       }
-    } else if (result === `I`) {
+    } else if (table === `I`) {
       for (const [k, v] of magicItemTableI) {
         if (roll <= k) {
           result += v + ` `;
