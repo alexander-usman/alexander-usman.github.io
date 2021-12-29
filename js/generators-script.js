@@ -1495,14 +1495,17 @@ const generateTreasureHoard = function () {
         treasureHoardRow[1][1]
       );
     }
-    if (
-      typeof treasureHoardRow[2][0] === `number` &&
-      typeof treasureHoardRow[2][1] === `string`
-    ) {
-      magicItemResult += getMagicItems(
-        treasureHoardRow[2][0],
-        treasureHoardRow[2][1]
-      );
+
+    if (treasureHoardRow.length === 3) {
+      if (
+        typeof treasureHoardRow[2][0] === `number` &&
+        typeof treasureHoardRow[2][1] === `string`
+      ) {
+        magicItemResult += getMagicItems(
+          treasureHoardRow[2][0],
+          treasureHoardRow[2][1]
+        );
+      }
     }
   } else if (hoardCR >= 17) {
     for (const row of treasureHoardCoins.get(17)) {
@@ -1545,7 +1548,7 @@ const generateTreasureHoard = function () {
   }
 
   resultsDiv.innerHTML = `
-  <h3>coins</h3>
+  <h3>Coins</h3>
   <ul>
   ${coinResult}
   </ul>
