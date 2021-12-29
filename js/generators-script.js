@@ -381,7 +381,7 @@ const magicItemTableF = new Map([
   [84, `Helm of Telepathy`],
   [85, `Instrument of the Bards (Doss Lute)`],
   [86, `Instrument of the Bards (Fochlucan Bandore)`],
-  [87, `Instrument of tthe Bards (Mac-Fuimidh Cittern)`],
+  [87, `Instrument of the Bards (Mac-Fuimidh Cittern)`],
   [88, `Medallion of Thoughts`],
   [89, `Necklace of Adaption`],
   [90, `Periapt of Wound Closure`],
@@ -1193,7 +1193,7 @@ const treasureHoardTable17 = new Map([
     52,
     [
       [3, 6, 1000, `gems`],
-      [86, `E`],
+      [6, `E`],
     ],
   ],
   [
