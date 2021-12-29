@@ -1558,7 +1558,7 @@ const generateTreasureHoard = function () {
   </ul>
   <h3>Magic Items</h3>
   <ul>
-  ${magicItemResult || `<li></li>No Magic Items</li>`}
+  ${magicItemResult || `<li>No Magic Items</li>`}
   </ul>
   `;
 };
