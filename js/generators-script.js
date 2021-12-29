@@ -1532,7 +1532,7 @@ const generateTreasureHoard = function () {
         treasureHoardRow[0][2]
       );
     } else {
-      gemResult += `No Gems.`;
+      gemResult += `No gems.`;
       artResult += `No art.`;
     }
 
