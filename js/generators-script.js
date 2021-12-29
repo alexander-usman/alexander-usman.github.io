@@ -396,7 +396,7 @@ const magicItemTableF = new Map([
   [99, `Wind Fan`],
   [100, `Winged Boots`],
 ]);
-const magicItemTableG = new Map([\
+const magicItemTableG = new Map([
   [11, `Weapon (Plus Two)`],
   [14, `Figurine of Wondrous Power`],
   [15, `Adamantine Armour (Brastplate)`],
@@ -1303,7 +1303,7 @@ const treasureHoardTable17 = new Map([
     ],
   ],
 ]);
-// HTML Elements[],[]
+// HTML Elements
 const resultsDiv = document.querySelector(`.results`);
 const btnGenerateIndividualLoot = document.querySelector(
   `.btnGenerateIndividualLoot`
