@@ -1362,22 +1362,29 @@ const generateIndividualLoot = function () {
     }
   }
   // Display the results
-  resultsDiv.innerHTML = result;
+  resultsDiv.innerHTML = `
+  <h3>Coins</h3>
+  <ul>
+  ${result}
+  </ul>`;
 };
 
 const generateTreasureHoard = function () {
   const hoardCR = Number(
     document.querySelector(`.treasureHoardGenerator .treasureHoardCR`).value
   );
-  let result = ``;
+  let treasureHoardRow;
+  let coinResult = ``;
+  let gemResult = ``;
+  let artResult = ``;
+  let magicItemResult = ``;
+
   const roll = Math.trunc(Math.random() * 100) + 1; // Your loot roll on a D100.
 
   if (hoardCR >= 0 && hoardCR <= 4) {
     for (const row of treasureHoardCoins.get(0)) {
-      result += getCoins(...row);
+      coinResult += getCoins(...row);
     }
-
-    let treasureHoardRow;
 
     for (const [k, v] of treasureHoardTable0) {
       if (roll <= k) {
@@ -1387,38 +1394,35 @@ const generateTreasureHoard = function () {
     }
 
     if (treasureHoardRow[0][3] === `gems`) {
-      result +=
-        `\ngems: ` +
-        getGems(
-          treasureHoardRow[0][0],
-          treasureHoardRow[0][1],
-          treasureHoardRow[0][2]
-        );
+      gemResult += getGems(
+        treasureHoardRow[0][0],
+        treasureHoardRow[0][1],
+        treasureHoardRow[0][2]
+      );
     } else if (treasureHoardRow[0][3] === `art`) {
-      result +=
-        `\nart: ` +
-        getArt(
-          treasureHoardRow[0][0],
-          treasureHoardRow[0][1],
-          treasureHoardRow[0][2]
-        );
+      artResult += getArt(
+        treasureHoardRow[0][0],
+        treasureHoardRow[0][1],
+        treasureHoardRow[0][2]
+      );
     } else {
-      result += `\nNo Gems or Art.`;
+      gemResult += `No Gems.`;
+      artResult += `No art.`;
     }
 
     if (
       typeof treasureHoardRow[1][0] === `number` &&
       typeof treasureHoardRow[1][1] === `string`
     ) {
-      result +=
-        `\n` + getMagicItems(treasureHoardRow[1][0], treasureHoardRow[1][1]);
+      magicItemResult += getMagicItems(
+        treasureHoardRow[1][0],
+        treasureHoardRow[1][1]
+      );
     }
   } else if (hoardCR >= 5 && hoardCR <= 10) {
     for (const row of treasureHoardCoins.get(5)) {
-      result += getCoins(...row);
+      coinResult += getCoins(...row);
     }
-
-    let treasureHoardRow;
 
     for (const [k, v] of treasureHoardTable5) {
       if (roll <= k) {
@@ -1428,38 +1432,35 @@ const generateTreasureHoard = function () {
     }
 
     if (treasureHoardRow[0][3] === `gems`) {
-      result +=
-        `\ngems: ` +
-        getGems(
-          treasureHoardRow[0][0],
-          treasureHoardRow[0][1],
-          treasureHoardRow[0][2]
-        );
+      gemResult += getGems(
+        treasureHoardRow[0][0],
+        treasureHoardRow[0][1],
+        treasureHoardRow[0][2]
+      );
     } else if (treasureHoardRow[0][3] === `art`) {
-      result +=
-        `\nart: ` +
-        getArt(
-          treasureHoardRow[0][0],
-          treasureHoardRow[0][1],
-          treasureHoardRow[0][2]
-        );
+      artResult += getArt(
+        treasureHoardRow[0][0],
+        treasureHoardRow[0][1],
+        treasureHoardRow[0][2]
+      );
     } else {
-      result += `\nNo Gems or Art.`;
+      gemResult += `No Gems.`;
+      artResult += `No art.`;
     }
 
     if (
       typeof treasureHoardRow[1][0] === `number` &&
       typeof treasureHoardRow[1][1] === `string`
     ) {
-      result +=
-        `\n` + getMagicItems(treasureHoardRow[1][0], treasureHoardRow[1][1]);
+      magicItemResult += getMagicItems(
+        treasureHoardRow[1][0],
+        treasureHoardRow[1][1]
+      );
     }
   } else if (hoardCR >= 11 && hoardCR <= 16) {
     for (const row of treasureHoardCoins.get(11)) {
-      result += getCoins(...row);
+      coinResult += getCoins(...row);
     }
-
-    let treasureHoardRow;
 
     for (const [k, v] of treasureHoardTable11) {
       if (roll <= k) {
@@ -1469,45 +1470,44 @@ const generateTreasureHoard = function () {
     }
 
     if (treasureHoardRow[0][3] === `gems`) {
-      result +=
-        `\ngems: ` +
-        getGems(
-          treasureHoardRow[0][0],
-          treasureHoardRow[0][1],
-          treasureHoardRow[0][2]
-        );
+      gemResult += getGems(
+        treasureHoardRow[0][0],
+        treasureHoardRow[0][1],
+        treasureHoardRow[0][2]
+      );
     } else if (treasureHoardRow[0][3] === `art`) {
-      result +=
-        `\nart: ` +
-        getArt(
-          treasureHoardRow[0][0],
-          treasureHoardRow[0][1],
-          treasureHoardRow[0][2]
-        );
+      artResult += getArt(
+        treasureHoardRow[0][0],
+        treasureHoardRow[0][1],
+        treasureHoardRow[0][2]
+      );
     } else {
-      result += `\nNo Gems or Art.`;
+      gemResult += `No Gems.`;
+      artResult += `No art.`;
     }
 
     if (
       typeof treasureHoardRow[1][0] === `number` &&
       typeof treasureHoardRow[1][1] === `string`
     ) {
-      result +=
-        `\n` + getMagicItems(treasureHoardRow[1][0], treasureHoardRow[1][1]);
+      magicItemResult += getMagicItems(
+        treasureHoardRow[1][0],
+        treasureHoardRow[1][1]
+      );
     }
     if (
       typeof treasureHoardRow[2][0] === `number` &&
       typeof treasureHoardRow[2][1] === `string`
     ) {
-      result +=
-        `\n` + getMagicItems(treasureHoardRow[2][0], treasureHoardRow[2][1]);
+      magicItemResult += getMagicItems(
+        treasureHoardRow[2][0],
+        treasureHoardRow[2][1]
+      );
     }
   } else if (hoardCR >= 17) {
     for (const row of treasureHoardCoins.get(17)) {
-      result += getCoins(...row);
+      coinResult += getCoins(...row);
     }
-
-    let treasureHoardRow;
 
     for (const [k, v] of treasureHoardTable17) {
       if (roll <= k) {
@@ -1517,35 +1517,47 @@ const generateTreasureHoard = function () {
     }
 
     if (treasureHoardRow[0][3] === `gems`) {
-      result +=
-        `\ngems: ` +
-        getGems(
-          treasureHoardRow[0][0],
-          treasureHoardRow[0][1],
-          treasureHoardRow[0][2]
-        );
+      gemResult += getGems(
+        treasureHoardRow[0][0],
+        treasureHoardRow[0][1],
+        treasureHoardRow[0][2]
+      );
     } else if (treasureHoardRow[0][3] === `art`) {
-      result +=
-        `\nart: ` +
-        getArt(
-          treasureHoardRow[0][0],
-          treasureHoardRow[0][1],
-          treasureHoardRow[0][2]
-        );
+      artResult += getArt(
+        treasureHoardRow[0][0],
+        treasureHoardRow[0][1],
+        treasureHoardRow[0][2]
+      );
     } else {
-      result += `\nNo Gems or Art.`;
+      gemResult += `No Gems.`;
+      artResult += `No art.`;
     }
 
     if (
       typeof treasureHoardRow[1][0] === `number` &&
       typeof treasureHoardRow[1][1] === `string`
     ) {
-      result +=
-        `\n` + getMagicItems(treasureHoardRow[1][0], treasureHoardRow[1][1]);
+      magicItemResult += getMagicItems(
+        treasureHoardRow[1][0],
+        treasureHoardRow[1][1]
+      );
     }
   }
 
-  resultsDiv.innerHTML = result;
+  resultsDiv.innerHTML = `
+  <h3>coins</h3>
+  <ul>
+  ${coinResult}
+  </ul>
+  <h3>Art and Gemstones</h3>
+  <ul>
+  ${artResult} ${gemResult}
+  </ul>
+  <h3>Magic Items</h3>
+  <ul>
+  ${magicItemResult || `<li></li>No Magic Items</li>`}
+  </ul>
+  `;
 };
 
 const getCoins = function (numRolls, dWhat, multiplier, currency) {
@@ -1557,12 +1569,7 @@ const getCoins = function (numRolls, dWhat, multiplier, currency) {
   }
   total *= multiplier;
   resultString = `<li>${total} ${currency}</li>`;
-  return `
-  <h3>Coins</h3>
-  <ul>
-  ${resultString}
-  </ul>  
-  `;
+  return resultString;
 };
 
 const getGems = function (numRolls, dWhat, value) {
@@ -1574,7 +1581,7 @@ const getGems = function (numRolls, dWhat, value) {
 
   for (let j = 0; j < totalRolls; j++) {
     const roll = Math.trunc(Math.random() * gemstones.get(value).length);
-    result += gemstones.get(value)[roll] + ` `;
+    result += `<li>${gemstones.get(value)[roll]}</li>`;
   }
 
   return result;
@@ -1589,7 +1596,7 @@ const getArt = function (numRolls, dWhat, value) {
 
   for (let j = 0; j < totalRolls; j++) {
     const roll = Math.trunc(Math.random() * artworks.get(value).length);
-    result += artworks.get(value)[roll] + ` `;
+    result += `<li>${artworks.get(value)[roll]}</li>`;
   }
 
   return result;
@@ -1604,63 +1611,63 @@ const getMagicItems = function (dWhat, table) {
     if (table === `A`) {
       for (const [k, v] of magicItemTableA) {
         if (roll <= k) {
-          result += v + ` `;
+          result += `<li>${v}</li>`;
           break;
         }
       }
     } else if (table === `B`) {
       for (const [k, v] of magicItemTableB) {
         if (roll <= k) {
-          result += v + ` `;
+          result += `<li>${v}</li>`;
           break;
         }
       }
     } else if (table === `C`) {
       for (const [k, v] of magicItemTableC) {
         if (roll <= k) {
-          result += v + ` `;
+          result += `<li>${v}</li>`;
           break;
         }
       }
     } else if (table === `D`) {
       for (const [k, v] of magicItemTableD) {
         if (roll <= k) {
-          result += v + ` `;
+          result += `<li>${v}</li>`;
           break;
         }
       }
     } else if (table === `E`) {
       for (const [k, v] of magicItemTableE) {
         if (roll <= k) {
-          result += v + ` `;
+          result += `<li>${v}</li>`;
           break;
         }
       }
     } else if (table === `F`) {
       for (const [k, v] of magicItemTableF) {
         if (roll <= k) {
-          result += v + ` `;
+          result += `<li>${v}</li>`;
           break;
         }
       }
     } else if (table === `G`) {
       for (const [k, v] of magicItemTableG) {
         if (roll <= k) {
-          result += v + ` `;
+          result += `<li>${v}</li>`;
           break;
         }
       }
     } else if (table === `H`) {
       for (const [k, v] of magicItemTableH) {
         if (roll <= k) {
-          result += v + ` `;
+          result += `<li>${v}</li>`;
           break;
         }
       }
     } else if (table === `I`) {
       for (const [k, v] of magicItemTableI) {
         if (roll <= k) {
-          result += v + ` `;
+          result += `<li>${v}</li>`;
           break;
         }
       }
