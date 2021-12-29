@@ -591,7 +591,391 @@ const treasureHoardTable5 = new Map([
     ],
   ],
 ]);
-// HTML Elements
+const treasureHoardTable11 = new Map([
+  [3, [[], []]],
+  [6, [[2, 4, 250, `art`], []]],
+  [9, [[2, 4, 750, `art`], []]],
+  [12, [[3, 6, 500, `gems`], []]],
+  [15, [[3, 6, 1000, `gems`], []]],
+  [
+    19,
+    [
+      [2, 4, 250, `art`],
+      [4, `A`],
+      [6, `B`],
+    ],
+  ],
+  [
+    23,
+    [
+      [2, 4, 750, `art`],
+      [4, `A`],
+      [6, `B`],
+    ],
+  ],
+  [
+    26,
+    [
+      [3, 6, 500, `gems`],
+      [4, `A`],
+      [6, `B`],
+    ],
+  ],
+  [
+    29,
+    [
+      [3, 6, 1000, `gems`],
+      [4, `A`],
+      [6, `B`],
+    ],
+  ],
+  [
+    35,
+    [
+      [2, 4, 250, `art`],
+      [6, `C`],
+    ],
+  ],
+  [
+    40,
+    [
+      [2, 4, 750, `art`],
+      [6, `C`],
+    ],
+  ],
+  [
+    45,
+    [
+      [3, 6, 500, `gems`],
+      [6, `C`],
+    ],
+  ],
+  [
+    50,
+    [
+      [3, 6, 1000, `gems`],
+      [6, `C`],
+    ],
+  ],
+  [
+    54,
+    [
+      [2, 4, 250, `art`],
+      [4, `D`],
+    ],
+  ],
+  [
+    58,
+    [
+      [2, 4, 750, `art`],
+      [4, `D`],
+    ],
+  ],
+  [
+    62,
+    [
+      [3, 6, 500, `gems`],
+      [4, `D`],
+    ],
+  ],
+  [
+    66,
+    [
+      [3, 6, 1000, `gems`],
+      [4, `D`],
+    ],
+  ],
+  [
+    68,
+    [
+      [2, 4, 250, `art`],
+      [0, `E`],
+    ],
+  ],
+  [
+    70,
+    [
+      [2, 4, 750, `art`],
+      [0, `E`],
+    ],
+  ],
+  [
+    72,
+    [
+      [3, 6, 500, `gems`],
+      [0, `E`],
+    ],
+  ],
+  [
+    74,
+    [
+      [3, 6, 1000, `gems`],
+      [0, `E`],
+    ],
+  ],
+  [
+    76,
+    [
+      [2, 4, 250, `art`],
+      [0, `F`],
+      [4, `G`],
+    ],
+  ],
+  [
+    78,
+    [
+      [2, 4, 750, `art`],
+      [0, `F`],
+      [4, `G`],
+    ],
+  ],
+  [
+    80,
+    [
+      [3, 6, 500, `gems`],
+      [0, `F`],
+      [4, `G`],
+    ],
+  ],
+  [
+    82,
+    [
+      [3, 6, 1000, `gems`],
+      [0, `F`],
+      [4, `G`],
+    ],
+  ],
+  [
+    85,
+    [
+      [2, 4, 250, `art`],
+      [4, `H`],
+    ],
+  ],
+  [
+    88,
+    [
+      [2, 4, 750, `art`],
+      [4, `H`],
+    ],
+  ],
+  [
+    90,
+    [
+      [3, 6, 500, `gems`],
+      [4, `H`],
+    ],
+  ],
+  [
+    92,
+    [
+      [3, 6, 1000, `gems`],
+      [4, `H`],
+    ],
+  ],
+
+  [
+    94,
+    [
+      [2, 4, 250, `art`],
+      [0, `I`],
+    ],
+  ],
+  [
+    96,
+    [
+      [2, 4, 750, `art`],
+      [0, `I`],
+    ],
+  ],
+  [
+    98,
+    [
+      [3, 6, 500, `gems`],
+      [0, `I`],
+    ],
+  ],
+  [
+    100,
+    [
+      [3, 6, 1000, `gems`],
+      [0, `I`],
+    ],
+  ],
+]);
+const treasureHoardTable17 = new Map([
+  [2, [[], []]],
+  [
+    5,
+    [
+      [3, 6, 1000, `gems`],
+      [8, `C`],
+    ],
+  ],
+  [
+    8,
+    [
+      [1, 10, 2500, `art`],
+      [8, `C`],
+    ],
+  ],
+  [
+    11,
+    [
+      [4, 2, 7500, `art`],
+      [8, `C`],
+    ],
+  ],
+  [
+    14,
+    [
+      [1, 8, 5000, `gems`],
+      [8, `C`],
+    ],
+  ],
+  [
+    22,
+    [
+      [3, 6, 1000, `gems`],
+      [6, `D`],
+    ],
+  ],
+  [
+    30,
+    [
+      [1, 10, 2500, `art`],
+      [6, `D`],
+    ],
+  ],
+  [
+    38,
+    [
+      [4, 2, 7500, `art`],
+      [6, `D`],
+    ],
+  ],
+  [
+    46,
+    [
+      [1, 8, 5000, `gems`],
+      [6, `D`],
+    ],
+  ],
+  [
+    52,
+    [
+      [3, 6, 1000, `gems`],
+      [86, `E`],
+    ],
+  ],
+  [
+    58,
+    [
+      [1, 10, 2500, `art`],
+      [6, `E`],
+    ],
+  ],
+  [
+    63,
+    [
+      [4, 2, 7500, `art`],
+      [6, `E`],
+    ],
+  ],
+  [
+    68,
+    [
+      [1, 8, 5000, `gems`],
+      [6, `E`],
+    ],
+  ],
+  [
+    69,
+    [
+      [3, 6, 1000, `gems`],
+      [4, `G`],
+    ],
+  ],
+  [
+    70,
+    [
+      [1, 10, 2500, `art`],
+      [4, `G`],
+    ],
+  ],
+  [
+    71,
+    [
+      [4, 2, 7500, `art`],
+      [4, `G`],
+    ],
+  ],
+  [
+    72,
+    [
+      [1, 8, 5000, `gems`],
+      [4, `G`],
+    ],
+  ],
+  [
+    74,
+    [
+      [3, 6, 1000, `gems`],
+      [4, `H`],
+    ],
+  ],
+  [
+    76,
+    [
+      [1, 10, 2500, `art`],
+      [4, `H`],
+    ],
+  ],
+  [
+    78,
+    [
+      [4, 2, 7500, `art`],
+      [4, `H`],
+    ],
+  ],
+  [
+    80,
+    [
+      [1, 8, 5000, `gems`],
+      [4, `H`],
+    ],
+  ],
+
+  [
+    85,
+    [
+      [3, 6, 1000, `gems`],
+      [4, `I`],
+    ],
+  ],
+  [
+    90,
+    [
+      [1, 10, 2500, `art`],
+      [4, `I`],
+    ],
+  ],
+  [
+    95,
+    [
+      [4, 2, 7500, `art`],
+      [4, `I`],
+    ],
+  ],
+  [
+    100,
+    [
+      [1, 8, 5000, `gems`],
+      [4, `I`],
+    ],
+  ],
+]);
+// HTML Elements[],[]
 const resultsDiv = document.querySelector(`.results`);
 const btnGenerateIndividualLoot = document.querySelector(
   `.btnGenerateIndividualLoot`
@@ -711,6 +1095,95 @@ const generateTreasureHoard = function () {
     for (const [k, v] of treasureHoardTable5) {
       if (roll <= k) {
         treasureHoardRow = treasureHoardTable5.get(k);
+        break;
+      }
+    }
+
+    if (treasureHoardRow[0][3] === `gems`) {
+      result +=
+        `\ngems: ` +
+        getGems(
+          treasureHoardRow[0][0],
+          treasureHoardRow[0][1],
+          treasureHoardRow[0][2]
+        );
+    } else if (treasureHoardRow[0][3] === `art`) {
+      result +=
+        `\nart: ` +
+        getArt(
+          treasureHoardRow[0][0],
+          treasureHoardRow[0][1],
+          treasureHoardRow[0][2]
+        );
+    } else {
+      result += `\nNo Gems or Art.`;
+    }
+
+    if (
+      typeof treasureHoardRow[1][0] === `number` &&
+      typeof treasureHoardRow[1][1] === `string`
+    ) {
+      result +=
+        `\n` + getMagicItems(treasureHoardRow[1][0], treasureHoardRow[1][1]);
+    }
+  } else if (hoardCR >= 11 && hoardCR <= 16) {
+    for (const row of treasureHoardCoins.get(11)) {
+      result += getCoins(...row);
+    }
+
+    let treasureHoardRow;
+
+    for (const [k, v] of treasureHoardTable11) {
+      if (roll <= k) {
+        treasureHoardRow = treasureHoardTable11.get(k);
+        break;
+      }
+    }
+
+    if (treasureHoardRow[0][3] === `gems`) {
+      result +=
+        `\ngems: ` +
+        getGems(
+          treasureHoardRow[0][0],
+          treasureHoardRow[0][1],
+          treasureHoardRow[0][2]
+        );
+    } else if (treasureHoardRow[0][3] === `art`) {
+      result +=
+        `\nart: ` +
+        getArt(
+          treasureHoardRow[0][0],
+          treasureHoardRow[0][1],
+          treasureHoardRow[0][2]
+        );
+    } else {
+      result += `\nNo Gems or Art.`;
+    }
+
+    if (
+      typeof treasureHoardRow[1][0] === `number` &&
+      typeof treasureHoardRow[1][1] === `string`
+    ) {
+      result +=
+        `\n` + getMagicItems(treasureHoardRow[1][0], treasureHoardRow[1][1]);
+    }
+    if (
+      typeof treasureHoardRow[2][0] === `number` &&
+      typeof treasureHoardRow[2][1] === `string`
+    ) {
+      result +=
+        `\n` + getMagicItems(treasureHoardRow[2][0], treasureHoardRow[2][1]);
+    }
+  } else if (hoardCR >= 17) {
+    for (const row of treasureHoardCoins.get(17)) {
+      result += getCoins(...row);
+    }
+
+    let treasureHoardRow;
+
+    for (const [k, v] of treasureHoardTable17) {
+      if (roll <= k) {
+        treasureHoardRow = treasureHoardTable17.get(k);
         break;
       }
     }
