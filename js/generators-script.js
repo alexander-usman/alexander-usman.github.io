@@ -1322,7 +1322,7 @@ const generateIndividualLoot = function () {
 
   let result = ``;
   const roll = Math.trunc(Math.random() * 100) + 1; // Your loot roll on a D100.
-  // Check CR and select the rioght coinage
+  // Check CR and select the right coinage
   if (monsterCR >= 0 && monsterCR <= 4) {
     for (const [k, v] of individualLootTableCR0) {
       if (roll <= k) {
@@ -1556,8 +1556,12 @@ const getCoins = function (numRolls, dWhat, multiplier, currency) {
     total += roll;
   }
   total *= multiplier;
-  resultString = `${total} ${currency}\n`;
-  return resultString;
+  resultString = `<li>${total} ${currency}</li>`;
+  return `
+  <ul>
+  ${resultString}
+  </ul>  
+  `;
 };
 
 const getGems = function (numRolls, dWhat, value) {
