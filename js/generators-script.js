@@ -1558,6 +1558,7 @@ const getCoins = function (numRolls, dWhat, multiplier, currency) {
   total *= multiplier;
   resultString = `<li>${total} ${currency}</li>`;
   return `
+  <h3>Coins</h3>
   <ul>
   ${resultString}
   </ul>  
