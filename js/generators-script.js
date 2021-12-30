@@ -14,7 +14,7 @@ const individualLootTableCR5 = new Map([
       [4, 6, 100, `cp`],
       [1, 6, 10, `ep`],
     ],
-  ], // Roll below 30 and recieve 4D6 * 10 Copper, and 1D6 * 10 Electrum Pieces.
+  ], // Roll 30 or less and recieve 4D6 * 10 Copper, and 1D6 * 10 Electrum Pieces.
   [
     60,
     [
@@ -1303,6 +1303,68 @@ const treasureHoardTable17 = new Map([
     ],
   ],
 ]);
+// Quest Hook Tables
+const dungeonGoals = [
+  `Stop the dungeon's monstrous inhabitants from raiding the surface world. `,
+  `Foil a villain's evil scheme. `,
+  `Destroy a magical threat inside the dungeon.`,
+  `Acquire treasure . `,
+  `Find a particular item for a specific purpose.`,
+  `Retrieve a stolen item hidden in the dungeon. `,
+  `Find information needed for a special purpose.`,
+  `Rescue a captive.`,
+  `Discover the fate of a previous adventuring party.`,
+  `Find an NPC who disappeared in the area.`,
+  `Slay a dragon or some other challenging monster`,
+  `Discover the nature and origin of a strange location or phenomenon.`,
+  `Pursue fleeing foes taking refuge in the dungeon. `,
+  `Escape from captivity in the dungeon. `,
+  `Clear a ruin so it can be rebuilt and reoccupied. `,
+  `Discover why a villain is interested in the dungeon. `,
+  `Win a bet or complete a rite of passage by surviving in the dungeon for a certain amount of time.`,
+  `Parley with a villain in the dungeon. `,
+  `Hide from a threat outside the dungeon. `,
+  `Roll twice, ignoring resu lts of 20. `,
+];
+const wildernessGoals = [
+  `Locate a dungeon or other site of interest (roll on the Dungeon Goals table to find out why).`,
+  `Assess the scope of a natural or unnatural disaster.`,
+  `Escort an NPC to a destination.`,
+  `Arrive at a destination without being seen by the villain's forces.`,
+  `Stop monsters from raiding caravans and farms.`,
+  `Establish trade with a distant town.`,
+  `Protect a caravan traveling to a distant town .`,
+  `Map a new land.`,
+  `Find a place to establish a colony.`,
+  `Find a natural resource.`,
+  `Hunt a specific monster.`,
+  `Return home from a distant place.`,
+  `Obtain information from a reclusive hermit.`,
+  `Find an object that was lost in the wilds.`,
+  `Discover the fate of a missing group of explorers.`,
+  `Pursue fleeing foes.`,
+  `Assess the size of an approaching army.`,
+  `Escape the reign of a tyrant.`,
+  `Protect a wilderness site from attackers.`,
+  `Roll twice, ignoring results of 20.`,
+];
+const otherGoals = [
+  `Seize control of a fortified location such as a fortress, town, or ship.`,
+  `Defend a location from attackers.`,
+  `Retrieve an object from inside a secure location in a settlement.`,
+  `Retrieve an object from a caravan.`,
+  `Salvage an object or goods from a lost vessel or caravan.`,
+  `Break a prisoner out of a jail or prison camp.`,
+  `Escape from a jail or prison camp. `,
+  `Successfully travel through an obstacle course to gain recognition or reward.`,
+  `Infiltrate a fortified location.`,
+  `Find the source of strange occurrences in a haunted house or other location.`,
+  `Interfere with the operation of a business.`,
+  `Rescue a character, monster, or object from a natural or unnatural disaster.`,
+];
+
+// NPC Generation Tables
+
 // HTML Elements
 const resultsDiv = document.querySelector(`.results`);
 const btnGenerateIndividualLoot = document.querySelector(
@@ -1311,6 +1373,7 @@ const btnGenerateIndividualLoot = document.querySelector(
 const btnGenerateHoardLoot = document.querySelector(
   `.btnGenerateTreasureHoardLoot`
 );
+const btnGenerateQuestHook = document.querySelector(`.btnGenerateQuestHook`);
 
 const generateIndividualLoot = function () {
   const numMonsters = Number(
@@ -1563,6 +1626,30 @@ const generateTreasureHoard = function () {
   `;
 };
 
+const generateQuestHook = function () {
+  const hookType = document.querySelector(
+    `.questHookGenerator .questHookType`
+  ).value;
+
+  let questTable = [];
+  let dWhat = 0;
+
+  if (hookType === `Wilderness`) {
+    questTable = wildernessGoals;
+  } else if (hookType === `Dungeon`) {
+    questTable = dungeonGoals;
+  } else if (hookType === `Other`) {
+    questTable = otherGoals;
+  }
+
+  dwhat = questTable.length;
+  const roll = Math.trunc(Math.random() * dWhat) + 1;
+
+  resultsDiv.innerHTML = `
+    Quest Hook: ${questTable[roll]}
+  `;
+};
+
 const getCoins = function (numRolls, dWhat, multiplier, currency) {
   let total = 0;
   let resultString = ``;
@@ -1599,7 +1686,7 @@ const getArt = function (numRolls, dWhat, value) {
 
   for (let j = 0; j < totalRolls; j++) {
     const roll = Math.trunc(Math.random() * artworks.get(value).length);
-    result += `<li>${artworks.get(value)[roll]}</li>`;
+    result += `<li>${artworks.get(value)[roll]} - ${value} gp</li>`;
   }
 
   return result;
@@ -1614,63 +1701,63 @@ const getMagicItems = function (dWhat, table) {
     if (table === `A`) {
       for (const [k, v] of magicItemTableA) {
         if (roll <= k) {
-          result += `<li>${v}</li>`;
+          result += `<li>${v} (Table ${table} - ${roll})</li>`;
           break;
         }
       }
     } else if (table === `B`) {
       for (const [k, v] of magicItemTableB) {
         if (roll <= k) {
-          result += `<li>${v}</li>`;
+          result += `<li>${v} (Table ${table} - ${roll})</li>`;
           break;
         }
       }
     } else if (table === `C`) {
       for (const [k, v] of magicItemTableC) {
         if (roll <= k) {
-          result += `<li>${v}</li>`;
+          result += `<li>${v} (Table ${table} - ${roll})</li>`;
           break;
         }
       }
     } else if (table === `D`) {
       for (const [k, v] of magicItemTableD) {
         if (roll <= k) {
-          result += `<li>${v}</li>`;
+          result += `<li>${v} (Table ${table} - ${roll})</li>`;
           break;
         }
       }
     } else if (table === `E`) {
       for (const [k, v] of magicItemTableE) {
         if (roll <= k) {
-          result += `<li>${v}</li>`;
+          result += `<li>${v} (Table ${table} - ${roll})</li>`;
           break;
         }
       }
     } else if (table === `F`) {
       for (const [k, v] of magicItemTableF) {
         if (roll <= k) {
-          result += `<li>${v}</li>`;
+          result += `<li>${v} (Table ${table} - ${roll})</li>`;
           break;
         }
       }
     } else if (table === `G`) {
       for (const [k, v] of magicItemTableG) {
         if (roll <= k) {
-          result += `<li>${v}</li>`;
+          result += `<li>${v} (Table ${table} - ${roll})</li>`;
           break;
         }
       }
     } else if (table === `H`) {
       for (const [k, v] of magicItemTableH) {
         if (roll <= k) {
-          result += `<li>${v}</li>`;
+          result += `<li>${v} (Table ${table} - ${roll})</li>`;
           break;
         }
       }
     } else if (table === `I`) {
       for (const [k, v] of magicItemTableI) {
         if (roll <= k) {
-          result += `<li>${v}</li>`;
+          result += `<li>${v} (Table ${table} - ${roll})</li>`;
           break;
         }
       }
