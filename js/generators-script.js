@@ -1530,7 +1530,7 @@ const generateIndividualLoot = function () {
   }
   // Display the results
   resultsDiv.innerHTML = `
-  <h3>Coins</h3>
+  <h3>Pocket Contents</h3>
   <ul>
   ${result}
   </ul>`;
