@@ -1516,8 +1516,6 @@ const otherGoals = [
   `Rescue a character, monster, or object from a natural or unnatural disaster.`,
 ];
 
-// NPC Generation Tables
-
 // HTML Elements
 const resultsDiv = document.querySelector(`.results`);
 const btnGenerateIndividualLoot = document.querySelector(
@@ -1803,7 +1801,10 @@ const generateRandomItem = function () {
   }
 
   resultsDiv.innerHTML = `
-    ${itemType} - ${itemChoice}
+    <h3>${itemType}</h3> 
+    <ul>
+    ${itemChoice}
+    </ul>
   `;
 };
 
@@ -1964,5 +1965,4 @@ const getCommonMagicalItem = function () {
 btnGenerateIndividualLoot.addEventListener(`click`, generateIndividualLoot);
 btnGenerateHoardLoot.addEventListener(`click`, generateTreasureHoard);
 btnGenerateRandomItem.addEventListener(`click`, generateRandomItem);
-
 btnGenerateQuestHook.addEventListener(`click`, generateQuestHook);
