@@ -191,9 +191,10 @@ const getSimpleAppearance = function () {
 
 const getNPCHighAbility = function () {
   const roll = Math.trunc(Math.random() * randomNPCHighAbility.size);
-  const getAdjective =
-    Math.trunc(Math.random() * randomNPCAppearance.get(roll).length) + 1;
-  return `${randomNPCAppearance.get(roll)[getAdjective]}`;
+  const getAdjective = Math.trunc(
+    Math.random() * randomNPCHighAbility.get(roll).length
+  );
+  return `${randomNPCHighAbility.get(roll)[getAdjective]}`;
 };
 
 btnGenerateRandomNPC.addEventListener(`click`, generateRandomNPC);
