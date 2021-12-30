@@ -1403,6 +1403,59 @@ const trinkets = [
   `A wooden box with a ceramic bottom that holds a living worm with a head on each end of its body`,
   `A metal urn containing the ashes of a hero`,
 ];
+const commonMagicalItems = [
+  `Armour of Gleaming`,
+  `Bead of Nourishment`,
+  `Bead of Refreshment`,
+  `Boots of False Tracks`,
+  `Candle of the Deep`,
+  `Cast-Off Armour`,
+  `Charlatan's Die`,
+  `Cloak of Billowing`,
+  `Claok of Many Fashions`,
+  `Clockwork Amulet`,
+  `Clothes of Mending`,
+  `Dark Shard Amulet`,
+  `Dread Helm`,
+  `Ear Horn of Hearing`,
+  `Enduring Spellbook`,
+  `Ersatz Eye`,
+  `Hat of Vermin`,
+  `Hat of Wizardry`,
+  `Heward's Handy Spice Pouch`,
+  `Horn of Silent Alarm`,
+  `Instrument of Illusion`,
+  `Instrument of Scribing`,
+  `Lock of Trickery`,
+  `Moon-Touched Sword`,
+  `Mystery Key`,
+  `Orb of Direction`,
+  `Orb of Time`,
+  `Perfume of Bewitching`,
+  `Pipe of Smoke Monsters`,
+  `Pole of Angling`,
+  `Pole of Collapsing`,
+  `Potion of Climbing`,
+  `Potion of Healing`,
+  `Rope of Mending`,
+  `Ruby of the War Mage`,
+  `Shield of Expression`,
+  `Smoldering Armour`,
+  `Spell Scroll (Cantrip)`,
+  `Spell Scroll (First level)`,
+  `Staff of Adornment`,
+  `Staff of Birdcalls`,
+  `Staff of Flowers`,
+  `Talking Doll`,
+  `Tankard of Sobriety`,
+  `Unbreakable Arrow`,
+  `Veteran's Cane`,
+  `Walloping Ammunition`,
+  `Wand of Conducting`,
+  `Wand of Pyrotechnics`,
+  `Wand of Scowls`,
+  `Wand of Smiles`,
+];
 // Quest Hook Tables
 const dungeonGoals = [
   `Stop the dungeon's monstrous inhabitants from raiding the surface world. `,
@@ -1473,6 +1526,7 @@ const btnGenerateIndividualLoot = document.querySelector(
 const btnGenerateHoardLoot = document.querySelector(
   `.btnGenerateTreasureHoardLoot`
 );
+const btnGenerateRandomItem = document.querySelector(`.btnGenerateRandomItem`);
 const btnGenerateQuestHook = document.querySelector(`.btnGenerateQuestHook`);
 
 const generateIndividualLoot = function () {
@@ -1730,6 +1784,29 @@ const generateTreasureHoard = function () {
   `;
 };
 
+const generateRandomItem = function () {
+  const itemType = document.querySelector(
+    `.randomItemGenerator .randomItemType`
+  ).value;
+
+  let itemChoice = ``;
+
+  switch (itemType) {
+    case `Trinket`:
+      itemChoice += getTrinket();
+      break;
+    case `Common Magical Item`:
+      itemChoice += getCommonMagicalItem();
+      break;
+    default:
+      break;
+  }
+
+  resultsDiv.innerHTML = `
+    ${itemType} - ${itemChoice}
+  `;
+};
+
 const generateQuestHook = function () {
   const hookType = document.querySelector(
     `.questHookGenerator .questHookType`
@@ -1877,6 +1954,15 @@ const getTrinket = function () {
   return result;
 };
 
+const getCommonMagicalItem = function () {
+  let result = ``;
+  const roll = Math.trunc(Math.random() * commonMagicalItems.length);
+  result = `<li>${commonMagicalItems[roll]}</li>`;
+  return result;
+};
+
 btnGenerateIndividualLoot.addEventListener(`click`, generateIndividualLoot);
 btnGenerateHoardLoot.addEventListener(`click`, generateTreasureHoard);
+btnGenerateRandomItem.addEventListener(`click`);
+
 btnGenerateQuestHook.addEventListener(`click`, generateQuestHook);
