@@ -24,21 +24,21 @@ const randomNPCAppearance = new Map([
 ]);
 
 const randomNPCHighAbility = new Map([
-  [1, `Strength`, [`powerful`, `brawny`, `as strong as an ox`]],
-  [2, `Dexterity`, [`lithe`, `agile`, `graceful`]],
-  [3, `Constitution`, [`hardy`, `hale`, `healthy`]],
-  [4, `Intelligence`, [`studious`, `learned`, `inquisitive`]],
-  [5, `Wisdom`, [`perceptive`, `spiritual`, `insightful`]],
-  [6, `Charisma`, [`persuasive`, `forceful`, `a born leader`]],
+  [1, [`Strength`, `powerful`, `brawny`, `as strong as an ox`]],
+  [2, [`Dexterity`, `lithe`, `agile`, `graceful`]],
+  [3, [`Constitution`, `hardy`, `hale`, `healthy`]],
+  [4, [`Intelligence`, `studious`, `learned`, `inquisitive`]],
+  [5, [`Wisdom`, `perceptive`, `spiritual`, `insightful`]],
+  [6, [`Charisma`, `persuasive`, `forceful`, `a born leader`]],
 ]);
 
 const randomNPCLowAbility = new Map([
-  [1, `Strength`, [`feeble`, `scrawny`]],
-  [2, `Dexterity`, [`clumsy`, `fumbling`]],
-  [3, `Constitution`, [`sickly`, `pale`]],
-  [4, `Intelligence`, [`dim-witted`, `slow`]],
-  [5, `Wisdom`, [`oblivious`, `absentminded`]],
-  [6, `Charisma`, [`dull`, `boring`]],
+  [1, [`Strength`, `feeble`, `scrawny`]],
+  [2, [`Dexterity`, `clumsy`, `fumbling`]],
+  [3, [`Constitution`, `sickly`, `pale`]],
+  [4, [`Intelligence`, `dim-witted`, `slow`]],
+  [5, [`Wisdom`, `oblivious`, `absentminded`]],
+  [6, [`Charisma`, `dull`, `boring`]],
 ]);
 
 const randomNPCTalent = new Map([
@@ -191,10 +191,9 @@ const getSimpleAppearance = function () {
 
 const getNPCHighAbility = function () {
   const roll = Math.trunc(Math.random() * randomNPCHighAbility.size);
-  const getAdjective = Math.trunc(
-    Math.random() * randomNPCAppearance.get(roll)[1].length
-  );
-  return `${randomNPCAppearance.get(roll)[1][getAdjective]}`;
+  const getAdjective =
+    Math.trunc(Math.random() * randomNPCAppearance.get(roll).length) + 1;
+  return `${randomNPCAppearance.get(roll)[getAdjective]}`;
 };
 
 btnGenerateRandomNPC.addEventListener(`click`, generateRandomNPC);
