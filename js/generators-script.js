@@ -1963,6 +1963,6 @@ const getCommonMagicalItem = function () {
 
 btnGenerateIndividualLoot.addEventListener(`click`, generateIndividualLoot);
 btnGenerateHoardLoot.addEventListener(`click`, generateTreasureHoard);
-btnGenerateRandomItem.addEventListener(`click`);
+btnGenerateRandomItem.addEventListener(`click`, generateRandomItem);
 
 btnGenerateQuestHook.addEventListener(`click`, generateQuestHook);
