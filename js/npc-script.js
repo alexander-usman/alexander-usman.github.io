@@ -41,7 +41,7 @@ const randomNPCLowAbility = new Map([
   [6, [`Charisma`, `dull`, `boring`]],
 ]);
 
-const randomNPCTalent = new Map([
+const randomNPCTalents = new Map([
   [1, `Plays a musical instrument`],
   [2, `Speaks several languages fluently`],
   [3, `Unbelievably lucky`],
@@ -64,7 +64,7 @@ const randomNPCTalent = new Map([
   [20, `Knows thieves' cant`],
 ]);
 
-const randomNPCMannerism = new Map([
+const randomNPCMannerisms = new Map([
   [1, `Prone to singing, whistling, or humming quietly `],
   [2, `Speaks in rhyme or some other peculiar way`],
   [3, `Particularly low or high voice`],
@@ -177,24 +177,116 @@ const btnGenerateRandomNPC = document.querySelector(`.btnGenerateRandomNPC`);
 const generateRandomNPC = function () {
   const appearance = getSimpleAppearance();
   const highScore = getNPCHighAbility();
+  const lowScore = getNPCLowAbility();
+  const talent = getNPCTalent();
+  const mannerism = getNPCMannerism();
+  const interactionTrait = getNPCInteractionTrait();
+  const ideal = getNPCIdeal();
+  const bond = getNPCBond();
+  const flaw = getNPCFlaw();
 
   resultsDiv.innerHTML = `
+    <ul>
     ${appearance}
     ${highScore}
+    ${lowScore}
+    ${talent}
+    ${mannerism}
+    ${interactionTrait}
+    ${ideal}
+    ${bond}
+    ${flaw}
+    </ul>
   `;
 };
 
 const getSimpleAppearance = function () {
-  const roll = Math.trunc(Math.random() * randomNPCAppearance.size);
-  return `${randomNPCAppearance.get(roll)}`;
+  const roll = Math.trunc(Math.random() * randomNPCAppearance.size) + 1;
+  return `<li>${randomNPCAppearance.get(roll)}</li>`;
 };
 
 const getNPCHighAbility = function () {
-  const roll = Math.trunc(Math.random() * randomNPCHighAbility.size);
+  const roll = Math.trunc(Math.random() * randomNPCHighAbility.size) + 1;
   const getAdjective = Math.trunc(
     Math.random() * randomNPCHighAbility.get(roll).length
   );
-  return `${randomNPCHighAbility.get(roll)[getAdjective]}`;
+  return `<li>${randomNPCHighAbility.get(roll)[getAdjective]}</li>`;
+};
+
+const getNPCLowAbility = function () {
+  const roll = Math.trunc(Math.random() * randomNPCLowAbility.size) + 1;
+  const getAdjective = Math.trunc(
+    Math.random() * randomNPCLowAbility.get(roll).length
+  );
+  return `<li>${randomNPCLowAbility.get(roll)[getAdjective]}</li>`;
+};
+
+const getNPCTalent = function () {
+  const roll = Math.trunc(Math.random() * randomNPCTalents.size) + 1;
+  return `<li>${randomNPCTalents.get(roll)}</li>`;
+};
+
+const getNPCMannerism = function () {
+  const roll = Math.trunc(Math.random() * randomNPCMannerisms.size) + 1;
+  return `<li>${randomNPCMannerisms.get(roll)}</li>`;
+};
+
+const getNPCInteractionTrait = function () {
+  const roll = Math.trunc(Math.random() * randomNPCInteractionTraits.size) + 1;
+  return `<li>${randomNPCInteractionTraits.get(roll)}</li>`;
+};
+
+const getNPCIdeal = function () {
+  let result = ``;
+
+  const rollGNE = Math.trunc(Math.random() * 3) + 1;
+  const rollLNC = Math.trunc(Math.random() * 3) + 1;
+  const firstRoll = Math.trunc(Math.random() * 6);
+  const secondRoll = Math.trunc(Math.random() * 6);
+
+  switch (rollGNE) {
+    case 0:
+      result += `Good: <li>${randomNPCIdeals.get(`Good`)[firstRoll]}</li>`;
+      break;
+    case 1:
+      result += `Neutral: <li>${
+        randomNPCIdeals.get(`Neutral`)[firstRoll]
+      }</li>`;
+      break;
+    case 2:
+      result += `Evil: <li>${randomNPCIdeals.get(`Evil`)[firstRoll]}</li>`;
+      break;
+    default:
+      break;
+  }
+
+  switch (rollLNC) {
+    case 0:
+      result += `<li>Lawful: ${randomNPCIdeals.get(`Lawful`)[secondRoll]}</li>`;
+      break;
+    case 1:
+      result += `Other: <li>${randomNPCIdeals.get(`Other`)[secondRoll]}</li>`;
+      break;
+    case 2:
+      result += `Chaotic: <li>${
+        randomNPCIdeals.get(`Chaotic`)[secondRoll]
+      }</li>`;
+      break;
+    default:
+      break;
+  }
+
+  return `${result}`;
+};
+
+const getNPCBond = function () {
+  const roll = Math.trunc(Math.random() * randomNPCBonds.size) + 1;
+  return `<li>${randomNPCBonds.get(roll)}</li>`;
+};
+
+const getNPCFlaw = function () {
+  const roll = Math.trunc(Math.random() * randomNPCFlaws.size) + 1;
+  return `<li>${randomNPCFlaws.get(roll)}`;
 };
 
 btnGenerateRandomNPC.addEventListener(`click`, generateRandomNPC);
