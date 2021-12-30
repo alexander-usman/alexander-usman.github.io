@@ -1768,3 +1768,4 @@ const getMagicItems = function (dWhat, table) {
 
 btnGenerateIndividualLoot.addEventListener(`click`, generateIndividualLoot);
 btnGenerateHoardLoot.addEventListener(`click`, generateTreasureHoard);
+btnGenerateQuestHook.addEventListener(`click`, generateQuestHook);
