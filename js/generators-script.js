@@ -1642,7 +1642,7 @@ const generateQuestHook = function () {
     questTable = otherGoals;
   }
 
-  dwhat = questTable.length;
+  dWhat = questTable.length;
   const roll = Math.trunc(Math.random() * dWhat) + 1;
 
   resultsDiv.innerHTML = `
