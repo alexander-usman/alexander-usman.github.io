@@ -239,38 +239,38 @@ const getNPCInteractionTrait = function () {
 const getNPCIdeal = function () {
   let result = ``;
 
-  const rollGNE = Math.trunc(Math.random() * 3) + 1;
-  const rollLNC = Math.trunc(Math.random() * 3) + 1;
+  const rollGNE = Math.trunc(Math.random() * 3);
+  const rollLNC = Math.trunc(Math.random() * 3);
   const firstRoll = Math.trunc(Math.random() * 6);
   const secondRoll = Math.trunc(Math.random() * 6);
-
-  switch (rollGNE) {
-    case 0:
-      result += `Good: <li>${randomNPCIdeals.get(`Good`)[firstRoll]}</li>`;
-      break;
-    case 1:
-      result += `Neutral: <li>${
-        randomNPCIdeals.get(`Neutral`)[firstRoll]
-      }</li>`;
-      break;
-    case 2:
-      result += `Evil: <li>${randomNPCIdeals.get(`Evil`)[firstRoll]}</li>`;
-      break;
-    default:
-      break;
-  }
 
   switch (rollLNC) {
     case 0:
       result += `<li>Lawful: ${randomNPCIdeals.get(`Lawful`)[secondRoll]}</li>`;
       break;
     case 1:
-      result += `Other: <li>${randomNPCIdeals.get(`Other`)[secondRoll]}</li>`;
+      result += `<li>Other: ${randomNPCIdeals.get(`Other`)[secondRoll]}</li>`;
       break;
     case 2:
-      result += `Chaotic: <li>${
+      result += `<li>Chaotic: ${
         randomNPCIdeals.get(`Chaotic`)[secondRoll]
       }</li>`;
+      break;
+    default:
+      break;
+  }
+
+  switch (rollGNE) {
+    case 0:
+      result += `<li>Good: ${randomNPCIdeals.get(`Good`)[firstRoll]}</li>`;
+      break;
+    case 1:
+      result += `<li>Neutral: ${
+        randomNPCIdeals.get(`Neutral`)[firstRoll]
+      }</li>`;
+      break;
+    case 2:
+      result += `<li>Evil:  ${randomNPCIdeals.get(`Evil`)[firstRoll]}</li>`;
       break;
     default:
       break;
