@@ -1530,7 +1530,7 @@ const generateIndividualLoot = function () {
   }
   // Display the results
   resultsDiv.innerHTML = `
-  <h3>Pocket Contents</h3>
+  <h3>Coins</h3>
   <ul>
   ${result}
   </ul>`;
@@ -1775,7 +1775,7 @@ const getGems = function (numRolls, dWhat, value) {
 
   for (let j = 0; j < totalRolls; j++) {
     const roll = Math.trunc(Math.random() * gemstones.get(value).length);
-    result += `<li>${gemstones.get(value)[roll]}</li>`;
+    result += `<li>${gemstones.get(value)[roll]} - ${value} gp</li>`;
   }
 
   return result;
