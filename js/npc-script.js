@@ -1548,11 +1548,15 @@ const randomNPCFlaws = new Map([
 const resultsDiv = document.querySelector(`.results`);
 const btnGenerateRandomNPC = document.querySelector(`.btnGenerateRandomNPC`);
 
+const stripListMarkup = function (input) {
+  return inpuit.slice(4, -5);
+};
+
 const generateSimpleNPC = function () {
   const race = getNPCRace();
-  const trimmedRace = race.slice(4, -5);
+  const trimmedRace = stripListMarkup(race);
   const gender = getNPCGender();
-  const trimmedGender = gender.slice(4, -5);
+  const trimmedGender = stripListMarkup(gender);
   const name = getNPCName(trimmedRace, trimmedGender);
   const appearance = getSimpleAppearance();
   const highScore = getNPCHighAbility();
@@ -1691,8 +1695,10 @@ const getNPCName = function (race = `Human`, gender = `Male`) {
     case `Half-Orc`:
       namedBy = Math.trunc(Math.random() * 18) + 1;
       if (namedBy <= 9) {
-        result += getNPCName(`Human - ${randomHumanType.get(namedBy)}`, gender);
-        result += ` (${getNPCName(`Orc`, gender)})`;
+        result += `${stripListMarkup(
+          getNPCName(`Human - ${randomHumanType.get(namedBy)}`, gender)
+        )}`;
+        result += ` (${stripListMarkup(getNPCName(`Orc`, gender))})`;
         return `<li>${result}</li>`;
       } else {
         result += getNPCName(`Orc`, gender);
