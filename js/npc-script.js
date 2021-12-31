@@ -856,9 +856,113 @@ const namesHalflingFamily = [
   `Wildheart`,
   `Wiseacre`,
 ];
-const namesHalfOrcFemale = [];
-const namesHalfOrcMale = [];
-const namesTireflingFemale = [
+const namesOrcFemale = [
+  `Ahra`,
+  `Baggi`,
+  `Bendoo`,
+  `Bilga`,
+  `Brakka`,
+  `Creega`,
+  `Drenna`,
+  `Ekk`,
+  `Emen`,
+  `Engong`,
+  `Fistula`,
+  `Gaaki`,
+  `Gorga`,
+  `Grai`,
+  `Greeba`,
+  `Grigi`,
+  `Gynk`,
+  `Hrathy`,
+  `Huru`,
+  `Ilga`,
+  `Kabbarg`,
+  `Kansif`,
+  `Lagazi`,
+  `Lezre`,
+  `Murgen`,
+  `Murook`,
+  `Myev`,
+  `Nagrette`,
+  `Neega`,
+  `Nella`,
+  `Nogu`,
+  `Oolah`,
+  `Ootah`,
+  `Ovak`,
+  `Ownka`,
+  `Puyet`,
+  `Reeza`,
+  `Shautha`,
+  `Silgre`,
+  `Sutha`,
+  `Tagga`,
+  `Tawar`,
+  `Tomph`,
+  `Ubada`,
+  `Vanchu`,
+  `Vola`,
+  `Volen`,
+  `Vorka`,
+  `Yevelda`,
+  `Zagga`,
+  ``,
+  ``,
+];
+const namesOrcMale = [
+  `Argran`,
+  `Brak`,
+  `Brug`,
+  `Cagak`,
+  `Dench`,
+  `Dorn`,
+  `Dren`,
+  `Druuk`,
+  `Feng`,
+  `Gell`,
+  `Gnarsh`,
+  `Grumbar`,
+  `Gubrash`,
+  `Hagren`,
+  `Henk`,
+  `Hogar`,
+  `Holg`,
+  `Imsh`,
+  `Karash`,
+  `Karg`,
+  `Keth`,
+  `Korag`,
+  `Krusk`,
+  `Lubash`,
+  `Megged`,
+  `Mhurren`,
+  `Mord`,
+  `Morg`,
+  `Ni`,
+  `Nybarg`,
+  `Odorr`,
+  `Ohr`,
+  `Rendar`,
+  `Resh`,
+  `Ront`,
+  `Rrath`,
+  `Sark`,
+  `Scrag`,
+  `Sheggen`,
+  `Shump`,
+  `Tanglar`,
+  `Tarak`,
+  `Thar`,
+  `Thokk`,
+  `Trag`,
+  `Ugarth`,
+  `Varg`,
+  `Vilberg`,
+  `Yurk`,
+  `Zed`,
+];
+const namesTieflingFemale = [
   `Akta`,
   `Anakis`,
   `Armara`,
@@ -910,8 +1014,110 @@ const namesTireflingFemale = [
   `Vepar`,
   `Verin`,
 ];
-const namesTieflingMale = [];
-const namesTieflingVirtue = [];
+const namesTieflingMale = [
+  `Abad`,
+  `Ahrim`,
+  `Akmen`,
+  `Amnon`,
+  `Andram`,
+  `Astar`,
+  `Balam`,
+  `Barakas`,
+  `Bathin`,
+  `Caim`,
+  `Chem`,
+  `Cimer`,
+  `Cressel`,
+  `Damakos`,
+  `Ekemon`,
+  `Euron`,
+  `Fenriz`,
+  `Forcas`,
+  `Habor`,
+  `Iados`,
+  `Kairon`,
+  `Leucis`,
+  `Mamnen`,
+  `Mantus`,
+  `Marbas`,
+  `Melech`,
+  `Merihim`,
+  `Modean`,
+  `Mordai`,
+  `Mormo`,
+  `Morthos`,
+  `Nicor`,
+  `Nirgel`,
+  `Oriax`,
+  `Paymon`,
+  `Pelaois`,
+  `Purson`,
+  `Qemuel`,
+  `Raam`,
+  `Rimmon`,
+  `Sammal`,
+  `Skamos`,
+  `Tethren`,
+  `Thamuz`,
+  `Therai`,
+  `Valafar`,
+  `Vassago`,
+  `Xappan`,
+  `Zepar`,
+  `Zephan`,
+];
+const namesTieflingVirtue = [
+  `Ambition`,
+  `Art`,
+  `Carrion`,
+  `Chant`,
+  `Creed`,
+  `Death`,
+  `Debauchery`,
+  `Despair`,
+  `Doom`,
+  `Doubt`,
+  `Dread`,
+  `Ecstacy`,
+  `Ennui`,
+  `Entropy`,
+  `Excellence`,
+  `Fear`,
+  `Glory`,
+  `Gluttony`,
+  `Grief`,
+  `Hate`,
+  `Hope`,
+  `Horror`,
+  `Ideal`,
+  `Ignominy`,
+  `Laughter`,
+  `Love`,
+  `Lust`,
+  `Mayhem`,
+  `Mockery`,
+  `Murder`,
+  `Muse`,
+  `Music`,
+  `Mystery`,
+  `Nowhere`,
+  `Open`,
+  `Pain`,
+  `Passion`,
+  `Poetry`,
+  `Quest`,
+  `Random`,
+  `Reverance`,
+  `Revulsion`,
+  `Sorrow`,
+  `Temerity`,
+  `Torment`,
+  `Tragedy`,
+  `Vice`,
+  `Virtue`,
+  `Weary`,
+  `Wit`,
+];
 const namesHumanCalishiteMale = [
   `Aseir`,
   `Bardeid`,
@@ -1403,6 +1609,7 @@ const getNPCName = function (race = `Human`, gender = `Male`) {
   let firstNameRoll = 0;
   let lastNameRoll = 0;
   let childNameRoll = 0;
+  let namedBy = 0;
 
   switch (race) {
     case `Dragonborn`:
@@ -1457,6 +1664,16 @@ const getNPCName = function (race = `Human`, gender = `Male`) {
       result += `${namesGnomeClan[lastNameRoll]}`;
       break;
 
+    case `Half-Elf`:
+      namedBy = Math.trunc(Math.random() * 18) + 1;
+      if (namedBy <= 9) {
+        result += getNPCName(`Human - ${humanType.get(namedBy)}`, gender);
+      } else {
+        result += getNPCName(`Elf`, gender);
+      }
+
+      break;
+
     case `Halfling`:
       if (gender === `Male`) {
         firstNameRoll = Math.trunc(Math.random() * namesHalflingMale.length);
@@ -1467,6 +1684,64 @@ const getNPCName = function (race = `Human`, gender = `Male`) {
       }
       lastNameRoll = Math.trunc(Math.random() * namesHalflingFamily.length);
       result += `${namesHalflingFamily[lastNameRoll]}`;
+      break;
+
+    case `Half-Orc`:
+      namedBy = Math.trunc(Math.random() * 18) + 1;
+      if (namedBy <= 9) {
+        result += getNPCName(`Human - ${humanType.get(namedBy)}`, gender);
+        result += ` (${getNPCName(`Orc`, gender)})`;
+      } else {
+        result += getNPCName(`Orc`, gender);
+      }
+      break;
+
+    case `Human - Calishite`:
+      if (gender === `Male`) {
+        firstNameRoll = Math.trunc(
+          Math.random() * namesHumanCalishiteMale.length
+        );
+        result += `${namesHumanCalishiteMale[firstNameRoll]} `;
+      } else if (gender === `Female`) {
+        firstNameRoll = Math.trunc(
+          Math.random() * namesHumanCalishiteFemale.length
+        );
+        result += `${namesDragonbornFemale[firstNameRoll]} `;
+      }
+      lastNameRoll = Math.trunc(
+        Math.random() * namesHumanCalishiteSurname.length
+      );
+      result += `${namesHumanCalishiteSurname[lastNameRoll]}`;
+      break;
+
+    case `Orc`:
+      if (gender === `Male`) {
+        firstNameRoll = Math.trunc(Math.random() * namesOrcMale.length);
+        result += `${namesOrcMale[firstNameRoll]}`;
+      } else if (gender === `Female`) {
+        firstNameRoll = Math.trunc(Math.random() * namesOrcFemale.length);
+        result += `${namesOrcFemale[firstNameRoll]}`;
+      }
+      break;
+
+    case `Tiefling`:
+      namedBy = Math.trunc(Math.random() * 18) + 1;
+
+      if (namedBy <= 6) {
+        firstNameRoll = Math.trunc(Math.random() * namesTieflingVirtue.length);
+        result += `${namesTieflingVirtue[firstNameRoll]} `;
+      } else {
+        if (gender === `Male`) {
+          firstNameRoll = Math.trunc(Math.random() * namesTeiflingMale.length);
+          result += `${namesTieflingMale[firstNameRoll]} `;
+        } else if (gender === `Female`) {
+          firstNameRoll = Math.trunc(
+            Math.random() * namesTieflingFemale.length
+          );
+          result += `${namesTieflingFemale[firstNameRoll]} `;
+        }
+      }
+
       break;
 
     default:
