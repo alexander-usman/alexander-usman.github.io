@@ -1,5 +1,176 @@
 "use strict";
 // Random NPC Tables
+const randomNPCRace = new Map([
+  [1, [`Dragonborn`]],
+  [2, [`Dwarf`]],
+  [3, [`Elf`]],
+  [4, [`Gnome`]],
+  [5, [`Half-Elf`]],
+  [6, [`Halfling`]],
+  [7, [`Half-Orc`]],
+  [8, [`Human`]],
+  [9, [`Tiefling`]],
+]);
+
+const namesDragonbornFemale = [
+  `Akra`,
+  `Asathra`,
+  `Antara`,
+  `Arava`,
+  `Biri`,
+  `Blendaeth`,
+  `Burana`,
+  `Chassath`,
+  `Daar`,
+  `Dentratha`,
+  `Doudra`,
+  `Driindar`,
+  `Eggren`,
+  `Farideh`,
+  `Findex`,
+  `Furrele`,
+  `Gesrethe`,
+  `Gilkass`,
+  `Harann`,
+  `Havilar`,
+  `Hethress`,
+  `Hillanot`,
+  `Jaxi`,
+  `Jezean`,
+  `Jheri`,
+  `Kadana`,
+  `Kava`,
+  `Korinn`,
+  `Megren`,
+  `Mijira`,
+  `Mishann`,
+  `Nala`,
+  `Nuthra`,
+  `Perra`,
+  `Pogranix`,
+  `Pyxrin`,
+  `Quespa`,
+  `Raiann`,
+  `Rezena`,
+  `Ruloth`,
+  `Saphara`,
+  `Savaran`,
+  `Sora`,
+  `Surina`,
+  `Synthrin`,
+  `Tatyan`,
+  `Thava`,
+  `Uadjit`,
+  `Vezera`,
+  `Zykroff`,
+];
+
+const namesDragonbornMale = [
+  `Adrex`,
+  `Arjhan`,
+  `Azzakh`,
+  `Balasar`,
+  `Baradad`,
+  `Bharash`,
+  `Bidreked`,
+  `Dadalan`,
+  `Dazzazan`,
+  `Direcris`,
+  `Donaar`,
+  `Fax`,
+  `Gargax`,
+  `Ghesh`,
+  `Gorbundus`,
+  `Greethen`,
+  `Heskan`,
+  `Hirrathak`,
+  `Ildrex`,
+  `Kaladan`,
+  `Kerkad`,
+  `Kiirith`,
+  `Kriv`,
+  `Maagog`,
+  `Medrash`,
+  `Mehen`,
+  `Mozkith`,
+  `Mreksh`,
+  `Mugrunden`,
+  `Nadarr`,
+  `Nithther`,
+  `Norkruuth`,
+  `Nykkan`,
+  `Pandjed`,
+  `Paatrin`,
+  `Pijjirik`,
+  `Quarethon`,
+  `Rathkran`,
+  `Rhogar`,
+  `Rivaan`,
+  `Sethrekar`,
+  `Shamash`,
+  `Shedinn`,
+  `Srorthen`,
+  `Tarhun`,
+  `Torinn`,
+  `Trynnicus`,
+  `Valorean`,
+  `Vrondiss`,
+  `Zedaar`,
+];
+
+const namesDragonbornClan = [
+  `Akhamberylliax`,
+  `Argenthrixus`,
+  `baharoosh`,
+  `Beryntolthropal`,
+  `Benkhumbyrznaax`,
+  `Caavylteradyn`,
+  `Chumbyxirinnish`,
+  `Clenthinthiallor`,
+  `Daardendrian`,
+  `Delmirev`,
+  `Dhyrktelonis`,
+  `Ebynichtomonis`,
+  `Esstyrlynn`,
+  `Fharngnarthnost`,
+  `Ghaallixirn`,
+  `Grrrmmballhyst`,
+  `Gygazzylyshrift`,
+  `Hashphronyxadyn`,
+  `Hshhsstoroth`,
+  `Imbixtellrhyst`,
+  `jerynomonis`,
+  `Jharthraxyn`,
+  `Kerrhylon`,
+  `Kimbatuul`,
+  `Lhamboldennish`,
+  `Lixakasendalor`,
+  `Mohradyllion`,
+  `Mystan`,
+  `Nemmonis`,
+  `Norixius`,
+  `Ophinshtalajiir`,
+  `Orexijandilin`,
+  `Pfaphnyrennish`,
+  `Phradrandon`,
+  `Pyraxtallinost`,
+  `Qyxpahrgh`,
+  `Ragthroknaar`,
+  `Shestendeliath`,
+  `Skaarzborroosh`,
+  `Sumnarghthrysh`,
+  `Tiammmanthyllish`,
+  `Turnuroth`,
+  `Umbyrphrael`,
+  `Vangdondalor`,
+  `Verthisathurgiesh`,
+  `Wivvyrholdalphiax`,
+  `Wystongjiir`,
+  `Xephyrbahnor`,
+  `Yarjerit`,
+  `Zzzxaaxthroth`,
+];
+
 const randomNPCAppearance = new Map([
   [1, `Distinctive jewelry: earrings, necklace, circlet, bracelets`],
   [2, `Piercings`],
@@ -174,7 +345,12 @@ const randomNPCFlaws = new Map([
 const resultsDiv = document.querySelector(`.results`);
 const btnGenerateRandomNPC = document.querySelector(`.btnGenerateRandomNPC`);
 
-const generateRandomNPC = function () {
+const generateSimpleNPC = function () {
+  const race = getNPCRace();
+  const trimmedRace = race.slice(4, -5);
+  const gender = getNPCGender();
+  const trimmedGender = gender.slice(4, -5);
+  const name = getNPCName(trimmedRace, trimmedGender);
   const appearance = getSimpleAppearance();
   const highScore = getNPCHighAbility();
   const lowScore = getNPCLowAbility();
@@ -187,6 +363,8 @@ const generateRandomNPC = function () {
 
   resultsDiv.innerHTML = `
     <ul>
+    ${race}
+    ${gender}
     ${appearance}
     ${highScore}
     ${lowScore}
@@ -198,6 +376,39 @@ const generateRandomNPC = function () {
     ${flaw}
     </ul>
   `;
+};
+const getNPCRace = function () {
+  const roll = Math.trunc(Math.random() * randomNPCRace.size) + 1;
+  return `<li>${randomNPCRace.get(roll)}</li>`;
+};
+
+const getNPCGender = function () {
+  const roll = Math.trunc(Math.random * 2);
+  return `<li>${(roll = 0 ? `Male` : `Female`)}</li>`;
+};
+
+const getNPCName = function (race = `Human`, gender) {
+  let result = ``;
+  switch (race) {
+    case `Dragonborn`:
+      if (gender === `Male`) {
+        firstNameRoll = Math.trunc(Math.random() * namesDragonbornMale.length);
+        result += `${namesDragonbornMale[roll]} `;
+      } else if (gender === `Female`) {
+        firstNameRoll = Math.trunc(
+          Math.random() * namesDragonbornFemale.length
+        );
+        result += `${namesDragonbornFemale[roll]}`;
+      }
+      lastNameRoll = Math.trunc(Math.random() * namesDragonbornClan.length);
+      result += `${namesDragonbornClan[roll]} `;
+      break;
+
+    default:
+      break;
+  }
+
+  return `<li>${result}</li>`;
 };
 
 const getSimpleAppearance = function () {
@@ -289,4 +500,4 @@ const getNPCFlaw = function () {
   return `<li>${randomNPCFlaws.get(roll)}`;
 };
 
-btnGenerateRandomNPC.addEventListener(`click`, generateRandomNPC);
+btnGenerateRandomNPC.addEventListener(`click`, generateSimpleNPC);
