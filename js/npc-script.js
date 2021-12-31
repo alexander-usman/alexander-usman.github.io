@@ -384,7 +384,7 @@ const getNPCRace = function () {
 
 const getNPCGender = function () {
   const roll = Math.trunc(Math.random * 2);
-  return `<li>${(roll = 0 ? `Male` : `Female`)}</li>`;
+  return `<li>${roll === 0 ? `Male` : `Female`}</li>`;
 };
 
 const getNPCName = function (race = `Human`, gender) {
@@ -392,15 +392,19 @@ const getNPCName = function (race = `Human`, gender) {
   switch (race) {
     case `Dragonborn`:
       if (gender === `Male`) {
-        firstNameRoll = Math.trunc(Math.random() * namesDragonbornMale.length);
+        const firstNameRoll = Math.trunc(
+          Math.random() * namesDragonbornMale.length
+        );
         result += `${namesDragonbornMale[roll]} `;
       } else if (gender === `Female`) {
-        firstNameRoll = Math.trunc(
+        const firstNameRoll = Math.trunc(
           Math.random() * namesDragonbornFemale.length
         );
         result += `${namesDragonbornFemale[roll]}`;
       }
-      lastNameRoll = Math.trunc(Math.random() * namesDragonbornClan.length);
+      const lastNameRoll = Math.trunc(
+        Math.random() * namesDragonbornClan.length
+      );
       result += `${namesDragonbornClan[roll]} `;
       break;
 
