@@ -1667,7 +1667,7 @@ const getNPCName = function (race = `Human`, gender = `Male`) {
     case `Half-Elf`:
       namedBy = Math.trunc(Math.random() * 18) + 1;
       if (namedBy <= 9) {
-        result += getNPCName(`Human - ${humanType.get(namedBy)}`, gender);
+        result += getNPCName(`Human - ${randomHumanType.get(namedBy)}`, gender);
       } else {
         result += getNPCName(`Elf`, gender);
       }
@@ -1689,7 +1689,7 @@ const getNPCName = function (race = `Human`, gender = `Male`) {
     case `Half-Orc`:
       namedBy = Math.trunc(Math.random() * 18) + 1;
       if (namedBy <= 9) {
-        result += getNPCName(`Human - ${humanType.get(namedBy)}`, gender);
+        result += getNPCName(`Human - ${randomHumanType.get(namedBy)}`, gender);
         result += ` (${getNPCName(`Orc`, gender)})`;
       } else {
         result += getNPCName(`Orc`, gender);
