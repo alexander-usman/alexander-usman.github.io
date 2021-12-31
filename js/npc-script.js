@@ -1901,7 +1901,7 @@ const getNPCHighAbility = function () {
   const getAdjective = Math.trunc(
     Math.random() * randomNPCHighAbility.get(roll).length
   );
-  return `<li>${randomNPCHighAbility.get(roll)[getAdjective]}</li>`;
+  return `<li>${randomNPCHighAbility.get(roll)[getAdjective + 1]}</li>`;
 };
 
 const getNPCLowAbility = function () {
@@ -1909,7 +1909,7 @@ const getNPCLowAbility = function () {
   const getAdjective = Math.trunc(
     Math.random() * randomNPCLowAbility.get(roll).length
   );
-  return `<li>${randomNPCLowAbility.get(roll)[getAdjective]}</li>`;
+  return `<li>${randomNPCLowAbility.get(roll)[getAdjective] + 1}</li>`;
 };
 
 const getNPCTalent = function () {
