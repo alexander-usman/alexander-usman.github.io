@@ -391,7 +391,58 @@ const namesElfChild = [
   `Wil`,
   `Za`,
 ];
-const namesElfAdultFemale = [];
+const namesElfAdultFemale = [
+  `Adre`,
+  `Ahinar`,
+  `Ahhaea`,
+  `Anastrianna`,
+  `Andraste`,
+  `Antinua`,
+  `Arara`,
+  `Baelitae`,
+  `Bethrynna`,
+  `Birol`,
+  `Caelynn`,
+  `Chaedi`,
+  `Claira`,
+  `Dara`,
+  `Drusilia`,
+  `Elama`,
+  `Enna`,
+  `Faral`,
+  `Felosial`,
+  `Hatae`,
+  `lelenia`,
+  `llanis`,
+  `lrann`,
+  `Jarsall`,
+  `Jelenneth`,
+  `Keyleth`,
+  `Leshanna`,
+  `Lia`,
+  `Maiathah`,
+  `Malquis`,
+  `Meriele`,
+  `Mialee`,
+  `Myathethil`,
+  `Naivara`,
+  `Quelenna`,
+  `Quillathe`,
+  `Ridaro`,
+  `Sariel`,
+  `Shanairla`,
+  `Shava`,
+  `Silaqui`,
+  `Sumnes`,
+  `Theirastra`,
+  `Thiala`,
+  `Tiaathque`,
+  `Traulam`,
+  `Vadania`,
+  `Valanthc`,
+  `Valna`,
+  `Xanaphia`,
+];
 const namesElfAdultMale = [];
 const namesElfFamily = [];
 const namesGnomeFemale = [];
@@ -894,39 +945,36 @@ const getNPCGender = function () {
 
 const getNPCName = function (race = `Human`, gender = `Male`) {
   let result = ``;
+  let firstNameRoll = 0;
+  let lastNameRoll = 0;
+  let childNameRoll = 0;
+
   switch (race) {
     case `Dragonborn`:
       if (gender === `Male`) {
-        const firstNameRoll = Math.trunc(
-          Math.random() * namesDragonbornMale.length
-        );
+        firstNameRoll = Math.trunc(Math.random() * namesDragonbornMale.length);
         result += `${namesDragonbornMale[firstNameRoll]} `;
       } else if (gender === `Female`) {
-        const firstNameRoll = Math.trunc(
+        firstNameRoll = Math.trunc(
           Math.random() * namesDragonbornFemale.length
         );
         result += `${namesDragonbornFemale[firstNameRoll]} `;
       }
-      const lastNameRoll = Math.trunc(
-        Math.random() * namesDragonbornClan.length
-      );
+      lastNameRoll = Math.trunc(Math.random() * namesDragonbornClan.length);
       result += `${namesDragonbornClan[lastNameRoll]}`;
       break;
 
     case `Dwarf`:
       if (gender === `Male`) {
-        const firstNameRoll = Math.trunc(Math.random() * namesDwarfMale.length);
+        firstNameRoll = Math.trunc(Math.random() * namesDwarfMale.length);
         result += `${namesDwarfMale[firstNameRoll]} `;
       } else if (gender === `Female`) {
-        const firstNameRoll = Math.trunc(
-          Math.random() * namesDwarfFemale.length
-        );
+        firstNameRoll = Math.trunc(Math.random() * namesDwarfFemale.length);
         result += `${namesDwarfFemale[firstNameRoll]} `;
       }
-      const lastNameRoll = Math.trunc(Math.random() * namesDwarfClan.length);
+      lastNameRoll = Math.trunc(Math.random() * namesDwarfClan.length);
       result += `${namesDwarfClan[lastNameRoll]}`;
       break;
-
     default:
       break;
   }
