@@ -16,7 +16,7 @@ const randomHumanType = new Map([
   [1, `Calishite`],
   [2, `Chondathan`],
   [3, `Damaran`],
-  [4, `Illluskan`],
+  [4, `Illuskan`],
   [5, `Mulan`],
   [6, `Rashemi`],
   [7, `Shou`],
