@@ -1668,8 +1668,10 @@ const getNPCName = function (race = `Human`, gender = `Male`) {
       namedBy = Math.trunc(Math.random() * 18) + 1;
       if (namedBy <= 9) {
         result += getNPCName(`Human - ${randomHumanType.get(namedBy)}`, gender);
+        return result;
       } else {
         result += getNPCName(`Elf`, gender);
+        return result;
       }
 
       break;
@@ -1691,8 +1693,10 @@ const getNPCName = function (race = `Human`, gender = `Male`) {
       if (namedBy <= 9) {
         result += getNPCName(`Human - ${randomHumanType.get(namedBy)}`, gender);
         result += ` (${getNPCName(`Orc`, gender)})`;
+        return `<li>${result}</li>`;
       } else {
         result += getNPCName(`Orc`, gender);
+        return result;
       }
       break;
 
