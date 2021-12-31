@@ -1584,7 +1584,7 @@ const generateSimpleNPC = function () {
 const getNPCRace = function () {
   const roll = Math.trunc(Math.random() * randomNPCRace.size) + 1;
 
-  if (randomNPCRace.get(roll) === `Human`) {
+  if (randomNPCRace.get(roll)[0] === `Human`) {
     const humanType = randomHumanType.get(
       Math.trunc(Math.random() * randomHumanType.size) + 1
     );
@@ -1736,7 +1736,7 @@ const getNPCName = function (race = `Human`, gender = `Male`) {
         result += `${namesTieflingVirtue[firstNameRoll]} `;
       } else {
         if (gender === `Male`) {
-          firstNameRoll = Math.trunc(Math.random() * namesTeiflingMale.length);
+          firstNameRoll = Math.trunc(Math.random() * namesTieflingMale.length);
           result += `${namesTieflingMale[firstNameRoll]} `;
         } else if (gender === `Female`) {
           firstNameRoll = Math.trunc(
