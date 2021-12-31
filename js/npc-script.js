@@ -401,7 +401,7 @@ const getNPCName = function (race = `Human`, gender = `Male`) {
         const firstNameRoll = Math.trunc(
           Math.random() * namesDragonbornMale.length
         );
-        result += `${namesDragonbornMale[roll]} `;
+        result += `${namesDragonbornMale[firstNameRoll]} `;
       } else if (gender === `Female`) {
         const firstNameRoll = Math.trunc(
           Math.random() * namesDragonbornFemale.length
