@@ -1549,7 +1549,7 @@ const resultsDiv = document.querySelector(`.results`);
 const btnGenerateRandomNPC = document.querySelector(`.btnGenerateRandomNPC`);
 
 const stripListMarkup = function (input) {
-  return inpuit.slice(4, -5);
+  return input.slice(4, -5);
 };
 
 const generateSimpleNPC = function () {
