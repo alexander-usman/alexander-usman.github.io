@@ -1710,7 +1710,7 @@ const getNPCName = function (race = `Human`, gender = `Male`) {
         firstNameRoll = Math.trunc(
           Math.random() * namesHumanCalishiteFemale.length
         );
-        result += `${namesCalishiteFemale[firstNameRoll]} `;
+        result += `${namesHumanCalishiteFemale[firstNameRoll]} `;
       }
       lastNameRoll = Math.trunc(
         Math.random() * namesHumanCalishiteSurname.length
@@ -1728,7 +1728,7 @@ const getNPCName = function (race = `Human`, gender = `Male`) {
         firstNameRoll = Math.trunc(
           Math.random() * namesHumanChondathanFemale.length
         );
-        result += `${namesChondathanFemale[firstNameRoll]} `;
+        result += `${namesHumanChondathanFemale[firstNameRoll]} `;
       }
       lastNameRoll = Math.trunc(
         Math.random() * namesHumanChondathanSurname.length
@@ -1746,7 +1746,7 @@ const getNPCName = function (race = `Human`, gender = `Male`) {
         firstNameRoll = Math.trunc(
           Math.random() * namesHumanDamaranFemale.length
         );
-        result += `${namesDamaranFemale[firstNameRoll]} `;
+        result += `${namesHumanDamaranFemale[firstNameRoll]} `;
       }
       lastNameRoll = Math.trunc(
         Math.random() * namesHumanDamaranSurname.length
@@ -1764,7 +1764,7 @@ const getNPCName = function (race = `Human`, gender = `Male`) {
         firstNameRoll = Math.trunc(
           Math.random() * namesHumanIlluskanFemale.length
         );
-        result += `${namesIlluskanFemale[firstNameRoll]} `;
+        result += `${namesHumanIlluskanFemale[firstNameRoll]} `;
       }
       lastNameRoll = Math.trunc(
         Math.random() * namesHumanIlluskanSurname.length
@@ -1780,7 +1780,7 @@ const getNPCName = function (race = `Human`, gender = `Male`) {
         firstNameRoll = Math.trunc(
           Math.random() * namesHumanMulanFemale.length
         );
-        result += `${namesMulanFemale[firstNameRoll]} `;
+        result += `${namesHumanMulanFemale[firstNameRoll]} `;
       }
       lastNameRoll = Math.trunc(Math.random() * namesHumanMulanSurname.length);
       result += `${namesHumanMulanSurname[lastNameRoll]}`;
@@ -1796,7 +1796,7 @@ const getNPCName = function (race = `Human`, gender = `Male`) {
         firstNameRoll = Math.trunc(
           Math.random() * namesHumanRashemiFemale.length
         );
-        result += `${namesRashemiFemale[firstNameRoll]} `;
+        result += `${namesHumanRashemiFemale[firstNameRoll]} `;
       }
       lastNameRoll = Math.trunc(
         Math.random() * namesHumanRashemiSurname.length
@@ -1810,7 +1810,7 @@ const getNPCName = function (race = `Human`, gender = `Male`) {
         result += `${namesHumanShouMale[firstNameRoll]} `;
       } else if (gender === `Female`) {
         firstNameRoll = Math.trunc(Math.random() * namesHumanShouFemale.length);
-        result += `${namesShouFemale[firstNameRoll]} `;
+        result += `${namesHumanShouFemale[firstNameRoll]} `;
       }
       lastNameRoll = Math.trunc(Math.random() * namesHumanShouSurname.length);
       result += `${namesHumanShouSurname[lastNameRoll]}`;
@@ -1826,7 +1826,7 @@ const getNPCName = function (race = `Human`, gender = `Male`) {
         firstNameRoll = Math.trunc(
           Math.random() * namesHumanTethyrianFemale.length
         );
-        result += `${namesTethyrianFemale[firstNameRoll]} `;
+        result += `${namesHumanTethyrianFemale[firstNameRoll]} `;
       }
       lastNameRoll = Math.trunc(
         Math.random() * namesHumanTethyrianSurname.length
@@ -1842,7 +1842,7 @@ const getNPCName = function (race = `Human`, gender = `Male`) {
         firstNameRoll = Math.trunc(
           Math.random() * namesHumanTuramiFemale.length
         );
-        result += `${namesTuramiFemale[firstNameRoll]} `;
+        result += `${namesHumanTuramiFemale[firstNameRoll]} `;
       }
       lastNameRoll = Math.trunc(Math.random() * namesHumanTuramiSurname.length);
       result += `${namesHumanTuramiSurname[lastNameRoll]}`;
