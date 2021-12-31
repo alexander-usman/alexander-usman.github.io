@@ -1166,7 +1166,7 @@ const randomNPCBonds = new Map([
   [5, `Captivated by a romantic interest`],
   [6, `Drawn to a special place`],
   [7, `Protective of a sentimental keepsake`],
-  [8, `Protective of a va luable possession`],
+  [8, `Protective of a valuable possession`],
   [9, `Out for revenge`],
   [10, `Roll twice, ignoring results of 10`],
 ]);
@@ -1396,7 +1396,7 @@ const getNPCBond = function () {
   if (roll === 10) {
     const firstRoll = Math.trunc(Math.random() * randomNPCBonds.size - 1) + 1;
     const secondRoll = Math.trunc(Math.random() * randomNPCBonds.size - 1) + 1;
-    return `<li>${randomNPCBonds.get(firstRoll)} , ${randomNPCBonds.get(
+    return `<li>${randomNPCBonds.get(firstRoll)}, ${randomNPCBonds.get(
       secondRoll
     )}</li>`;
   }
