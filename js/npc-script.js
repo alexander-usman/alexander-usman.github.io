@@ -1280,11 +1280,11 @@ const getNPCName = function (race = `Human`, gender = `Male`) {
 
     case `Elf`:
       if (gender === `Male`) {
-        firstNameRoll = Math.trunc(Math.random() * namesElfMale.length);
-        result += `${namesElfMale[firstNameRoll]} `;
+        firstNameRoll = Math.trunc(Math.random() * namesElfAdultMale.length);
+        result += `${namesElfAdultMale[firstNameRoll]} `;
       } else if (gender === `Female`) {
-        firstNameRoll = Math.trunc(Math.random() * namesElfFemale.length);
-        result += `${namesElfFemale[firstNameRoll]} `;
+        firstNameRoll = Math.trunc(Math.random() * namesElfAdultFemale.length);
+        result += `${namesElfAdultFemale[firstNameRoll]} `;
       }
       lastNameRoll = Math.trunc(Math.random() * namesElfFamily.length);
       result += `${namesElfFamily[lastNameRoll]}`;
