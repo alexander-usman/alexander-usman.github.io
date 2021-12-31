@@ -365,6 +365,7 @@ const generateSimpleNPC = function () {
     <ul>
     ${race}
     ${gender}
+    ${name}
     ${appearance}
     ${highScore}
     ${lowScore}
