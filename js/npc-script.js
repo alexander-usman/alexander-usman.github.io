@@ -1039,21 +1039,21 @@ const randomNPCAppearance = new Map([
 ]);
 
 const randomNPCHighAbility = new Map([
-  [1, [`Strength`, `powerful`, `brawny`, `as strong as an ox`]],
-  [2, [`Dexterity`, `lithe`, `agile`, `graceful`]],
-  [3, [`Constitution`, `hardy`, `hale`, `healthy`]],
-  [4, [`Intelligence`, `studious`, `learned`, `inquisitive`]],
-  [5, [`Wisdom`, `perceptive`, `spiritual`, `insightful`]],
-  [6, [`Charisma`, `persuasive`, `forceful`, `a born leader`]],
+  [1, [`Strength`, `Powerful`, `Brawny`, `As strong as an ox`]],
+  [2, [`Dexterity`, `Lithe`, `Agile`, `Graceful`]],
+  [3, [`Constitution`, `Hardy`, `Hale`, `Healthy`]],
+  [4, [`Intelligence`, `Studious`, `Learned`, `Inquisitive`]],
+  [5, [`Wisdom`, `Perceptive`, `Spiritual`, `Insightful`]],
+  [6, [`Charisma`, `Persuasive`, `Forceful`, `A born leader`]],
 ]);
 
 const randomNPCLowAbility = new Map([
-  [1, [`Strength`, `feeble`, `scrawny`]],
-  [2, [`Dexterity`, `clumsy`, `fumbling`]],
-  [3, [`Constitution`, `sickly`, `pale`]],
-  [4, [`Intelligence`, `dim-witted`, `slow`]],
-  [5, [`Wisdom`, `oblivious`, `absentminded`]],
-  [6, [`Charisma`, `dull`, `boring`]],
+  [1, [`Strength`, `Feeble`, `Scrawny`]],
+  [2, [`Dexterity`, `Clumsy`, `Fumbling`]],
+  [3, [`Constitution`, `Sickly`, `Pale`]],
+  [4, [`Intelligence`, `Dim-witted`, `Slow`]],
+  [5, [`Wisdom`, `Oblivious`, `Absentminded`]],
+  [6, [`Charisma`, `Dull`, `Boring`]],
 ]);
 
 const randomNPCTalents = new Map([
@@ -1392,6 +1392,15 @@ const getNPCIdeal = function () {
 
 const getNPCBond = function () {
   const roll = Math.trunc(Math.random() * randomNPCBonds.size) + 1;
+
+  if (roll === 10) {
+    const firstRoll = Math.trunc(Math.random() * randomNPCBonds.size - 1) + 1;
+    const secondRoll = Math.trunc(Math.random() * randomNPCBonds.size - 1) + 1;
+    return `<li>${randomNPCBonds.get(firstRoll)} , ${randomNPCBonds.get(
+      secondRoll
+    )}</li>`;
+  }
+
   return `<li>${randomNPCBonds.get(roll)}</li>`;
 };
 
