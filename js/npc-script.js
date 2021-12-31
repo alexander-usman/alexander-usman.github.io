@@ -1288,7 +1288,7 @@ const getNPCName = function (race = `Human`, gender = `Male`) {
       }
       lastNameRoll = Math.trunc(Math.random() * namesElfFamily.length);
       result += `${namesElfFamily[lastNameRoll]}`;
-      childNameRoll = Math.trunc(Math.random * namesElfChild.length);
+      childNameRoll = Math.trunc(Math.random() * namesElfChild.length);
       result += ` (Child name: ${namesElfChild[childNameRoll]})`;
       break;
 
