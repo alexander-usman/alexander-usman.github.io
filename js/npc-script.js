@@ -1909,7 +1909,7 @@ const getNPCLowAbility = function () {
   const getAdjective = Math.trunc(
     Math.random() * randomNPCLowAbility.get(roll).length
   );
-  return `<li>${randomNPCLowAbility.get(roll)[getAdjective] + 1}</li>`;
+  return `<li>${randomNPCLowAbility.get(roll)[getAdjective + 1]}</li>`;
 };
 
 const getNPCTalent = function () {
