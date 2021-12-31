@@ -1710,12 +1710,142 @@ const getNPCName = function (race = `Human`, gender = `Male`) {
         firstNameRoll = Math.trunc(
           Math.random() * namesHumanCalishiteFemale.length
         );
-        result += `${namesDragonbornFemale[firstNameRoll]} `;
+        result += `${namesCalishiteFemale[firstNameRoll]} `;
       }
       lastNameRoll = Math.trunc(
         Math.random() * namesHumanCalishiteSurname.length
       );
       result += `${namesHumanCalishiteSurname[lastNameRoll]}`;
+      break;
+
+    case `Human - Chondathan`:
+      if (gender === `Male`) {
+        firstNameRoll = Math.trunc(
+          Math.random() * namesHumanChondathanMale.length
+        );
+        result += `${namesHumanChondathanMale[firstNameRoll]} `;
+      } else if (gender === `Female`) {
+        firstNameRoll = Math.trunc(
+          Math.random() * namesHumanChondathanFemale.length
+        );
+        result += `${namesChondathanFemale[firstNameRoll]} `;
+      }
+      lastNameRoll = Math.trunc(
+        Math.random() * namesHumanChondathanSurname.length
+      );
+      result += `${namesHumanChondathanSurname[lastNameRoll]}`;
+      break;
+
+    case `Human - Damaran`:
+      if (gender === `Male`) {
+        firstNameRoll = Math.trunc(
+          Math.random() * namesHumanDamaranMale.length
+        );
+        result += `${namesHumanDamaranMale[firstNameRoll]} `;
+      } else if (gender === `Female`) {
+        firstNameRoll = Math.trunc(
+          Math.random() * namesHumanDamaranFemale.length
+        );
+        result += `${namesDamaranFemale[firstNameRoll]} `;
+      }
+      lastNameRoll = Math.trunc(
+        Math.random() * namesHumanDamaranSurname.length
+      );
+      result += `${namesHumanDamaranSurname[lastNameRoll]}`;
+      break;
+
+    case `Human - Illuskan`:
+      if (gender === `Male`) {
+        firstNameRoll = Math.trunc(
+          Math.random() * namesHumanIlluskanMale.length
+        );
+        result += `${namesHumanIlluskanMale[firstNameRoll]} `;
+      } else if (gender === `Female`) {
+        firstNameRoll = Math.trunc(
+          Math.random() * namesHumanIlluskanFemale.length
+        );
+        result += `${namesIlluskanFemale[firstNameRoll]} `;
+      }
+      lastNameRoll = Math.trunc(
+        Math.random() * namesHumanIlluskanSurname.length
+      );
+      result += `${namesHumanIlluskanSurname[lastNameRoll]}`;
+      break;
+
+    case `Human - Mulan`:
+      if (gender === `Male`) {
+        firstNameRoll = Math.trunc(Math.random() * namesHumanMulanMale.length);
+        result += `${namesHumanMulanMale[firstNameRoll]} `;
+      } else if (gender === `Female`) {
+        firstNameRoll = Math.trunc(
+          Math.random() * namesHumanMulanFemale.length
+        );
+        result += `${namesMulanFemale[firstNameRoll]} `;
+      }
+      lastNameRoll = Math.trunc(Math.random() * namesHumanMulanSurname.length);
+      result += `${namesHumanMulanSurname[lastNameRoll]}`;
+      break;
+
+    case `Human - Rashemi`:
+      if (gender === `Male`) {
+        firstNameRoll = Math.trunc(
+          Math.random() * namesHumanRashemiMale.length
+        );
+        result += `${namesHumanRashemiMale[firstNameRoll]} `;
+      } else if (gender === `Female`) {
+        firstNameRoll = Math.trunc(
+          Math.random() * namesHumanRashemiFemale.length
+        );
+        result += `${namesRashemiFemale[firstNameRoll]} `;
+      }
+      lastNameRoll = Math.trunc(
+        Math.random() * namesHumanRashemiSurname.length
+      );
+      result += `${namesHumanRashemiSurname[lastNameRoll]}`;
+      break;
+
+    case `Human - Shou`:
+      if (gender === `Male`) {
+        firstNameRoll = Math.trunc(Math.random() * namesHumanShouMale.length);
+        result += `${namesHumanShouMale[firstNameRoll]} `;
+      } else if (gender === `Female`) {
+        firstNameRoll = Math.trunc(Math.random() * namesHumanShouFemale.length);
+        result += `${namesShouFemale[firstNameRoll]} `;
+      }
+      lastNameRoll = Math.trunc(Math.random() * namesHumanShouSurname.length);
+      result += `${namesHumanShouSurname[lastNameRoll]}`;
+      break;
+
+    case `Human - Tethyrian`:
+      if (gender === `Male`) {
+        firstNameRoll = Math.trunc(
+          Math.random() * namesHumanTethyrianMale.length
+        );
+        result += `${namesHumanTethyrianMale[firstNameRoll]} `;
+      } else if (gender === `Female`) {
+        firstNameRoll = Math.trunc(
+          Math.random() * namesHumanTethyrianFemale.length
+        );
+        result += `${namesTethyrianFemale[firstNameRoll]} `;
+      }
+      lastNameRoll = Math.trunc(
+        Math.random() * namesHumanTethyrianSurname.length
+      );
+      result += `${namesHumanTethyrianSurname[lastNameRoll]}`;
+      break;
+
+    case `Human - Turami`:
+      if (gender === `Male`) {
+        firstNameRoll = Math.trunc(Math.random() * namesHumanTuramiMale.length);
+        result += `${namesHumanTuramiMale[firstNameRoll]} `;
+      } else if (gender === `Female`) {
+        firstNameRoll = Math.trunc(
+          Math.random() * namesHumanTuramiFemale.length
+        );
+        result += `${namesTuramiFemale[firstNameRoll]} `;
+      }
+      lastNameRoll = Math.trunc(Math.random() * namesHumanTuramiSurname.length);
+      result += `${namesHumanTuramiSurname[lastNameRoll]}`;
       break;
 
     case `Orc`:
