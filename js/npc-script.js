@@ -385,14 +385,15 @@ const getNPCRace = function () {
 
 const getNPCGender = function () {
   const roll = Math.trunc(Math.random() * 2);
+
   if (roll === 0) {
-    return `Male`;
+    return `<li>Male</li>`;
   } else if (roll === 1) {
-    return `Female`;
+    return `<li>Female</li>`;
   }
 };
 
-const getNPCName = function (race = `Human`, gender) {
+const getNPCName = function (race = `Human`, gender = `Male`) {
   let result = ``;
   switch (race) {
     case `Dragonborn`:
