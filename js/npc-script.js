@@ -1,5 +1,6 @@
 "use strict";
 // Random NPC Tables
+// Race stuff
 const randomNPCRace = new Map([
   [1, [`Dragonborn`]],
   [2, [`Dwarf`]],
@@ -11,7 +12,6 @@ const randomNPCRace = new Map([
   [8, [`Human`]],
   [9, [`Tiefling`]],
 ]);
-
 const randomHumanType = new Map([
   [1, `Calishite`],
   [2, `Chondathan`],
@@ -23,7 +23,7 @@ const randomHumanType = new Map([
   [8, `Tethyrian`],
   [9, `Turami`],
 ]);
-
+// Name stuff
 const namesDragonbornFemale = [
   `Akra`,
   `Asathra`,
@@ -76,7 +76,6 @@ const namesDragonbornFemale = [
   `Vezera`,
   `Zykroff`,
 ];
-
 const namesDragonbornMale = [
   `Adrex`,
   `Arjhan`,
@@ -129,7 +128,6 @@ const namesDragonbornMale = [
   `Vrondiss`,
   `Zedaar`,
 ];
-
 const namesDragonbornClan = [
   `Akhamberylliax`,
   `Argenthrixus`,
@@ -151,7 +149,7 @@ const namesDragonbornClan = [
   `Hashphronyxadyn`,
   `Hshhsstoroth`,
   `Imbixtellrhyst`,
-  `jerynomonis`,
+  `Jerynomonis`,
   `Jharthraxyn`,
   `Kerrhylon`,
   `Kimbatuul`,
@@ -182,7 +180,6 @@ const namesDragonbornClan = [
   `Yarjerit`,
   `Zzzxaaxthroth`,
 ];
-
 const namesDwarfFemale = [
   `Anbera`,
   `Arlin`,
@@ -194,7 +191,7 @@ const namesDwarfFemale = [
   `Oagnal`,
   `Oariff`,
   `Delre`,
-  `Oiesa`,
+  `Diesa`,
   `Eldeth`,
   `Eridred`,
   `Falkrunn`,
@@ -206,7 +203,7 @@ const namesDwarfFemale = [
   `Helgret`,
   `Heja`,
   `Hlin`,
-  `llde`,
+  `Ilde`,
   `Jarana`,
   `Kathra`,
   `Kilia`,
@@ -317,7 +314,7 @@ const namesDwarfClan = [
   `Hammerstone`,
   `Helcral`,
   `Holderhek`,
-  `lronfist`,
+  `Ironfist`,
   `Loderr`,
   `Lutgehr`,
   `Morigak`,
@@ -358,7 +355,7 @@ const namesElfChild = [
   `Fera`,
   `Gael`,
   `Gar`,
-  `lnnll`,
+  `Innll`,
   `Jar`,
   `Kan`,
   `Koeth`,
@@ -412,9 +409,9 @@ const namesElfAdultFemale = [
   `Faral`,
   `Felosial`,
   `Hatae`,
-  `lelenia`,
-  `llanis`,
-  `lrann`,
+  `Ielenia`,
+  `Ilanis`,
+  `Irann`,
   `Jarsall`,
   `Jelenneth`,
   `Keyleth`,
@@ -443,20 +440,325 @@ const namesElfAdultFemale = [
   `Valna`,
   `Xanaphia`,
 ];
-const namesElfAdultMale = [];
-const namesElfFamily = [];
-const namesGnomeFemale = [];
-const namesGnomeMale = [];
-const namesGnomeClan = [];
+const namesElfAdultMale = [
+  `Adran`,
+  `Aelar`,
+  `Aerdeth`,
+  `Ahvain`,
+  `Aramil`,
+  `Arannis`,
+  `Aust`,
+  `Azaki`,
+  `Beiro`,
+  `Berrian`,
+  `Cacldrim`,
+  `Carrie`,
+  `Dayereth`,
+  `Dreali`,
+  `Efferil`,
+  `Eiravel`,
+  `Enialis`,
+  `Erdan`,
+  `Erevan`,
+  `Fivin`,
+  `Galinndan`,
+  `Gennal`,
+  `Hadarai`,
+  `Halimath`,
+  `Heian`,
+  `Himo`,
+  `Immeral`,
+  `Ivellios`,
+  `Korfel`,
+  `Lamlis`,
+  `Laucian`,
+  `Lucan`,
+  `Mindartis`,
+  `Naal`,
+  `Nutae`,
+  `Paelias`,
+  `Peren`,
+  `Quarion`,
+  `Riardon`,
+  `Rolen`,
+  `Soveliss`,
+  `Suhnae`,
+  `Thamior`,
+  `Tharivol`,
+  `Theren`,
+  `Theriatis`,
+  `Thervan`,
+  `Uthemar`,
+  `Vanuath`,
+  `Varis`,
+];
+const namesElfFamily = [
+  `Aloro`,
+  `Amakiir`,
+  `Amastaria`,
+  `Ariessus`,
+  `Arnuanna`,
+  `Berevan`,
+  `Caerdonel`,
+  `Caphaxath`,
+  `Casilltenirra`,
+  `Cithreth`,
+  `Dalanthan`,
+  `Eathalena`,
+  `Erenaeth`,
+  `Ethanasath`,
+  `Fasharash`,
+  `Firahel`,
+  `Floshem`,
+  `Galanodel`,
+  `Goltorah`,
+  `Hanali`,
+  `Holimion`,
+  `Horineth`,
+  `Iathrana`,
+  `Ilphelkiir`,
+  `Iranapha`,
+  `Koehlanna`,
+  `Lathalas`,
+  `Liadon`,
+  `Melamne`,
+  `Mellerelel`,
+  `Mystralath`,
+  `Nailo`,
+  `Netyoive`,
+  `Ofandrus`,
+  `Ostoroth`,
+  `Othronus`,
+  `Qualanthri`,
+  `Raethran`,
+  `Rothenel`,
+  `Selevarun`,
+  `Siannodel`,
+  `Suithrasas`,
+  `Sylvaranth`,
+  `Teinithra`,
+  `Tiltathana`,
+  `Wasanthi`,
+  `Withrethin`,
+  `Xiloscient`,
+  `Xistsrith`,
+  `Yaeldrin`,
+];
+const namesGnomeFemale = [
+  `Abalaba`,
+  `Bimpnottin`,
+  `Breena`,
+  `Buvvie`,
+  `Callybon`,
+  `Caramip`,
+  `Carlin`,
+  `Cumpen`,
+  `Dalaba`,
+  `Donella`,
+  `Duvamil`,
+  `Ella`,
+  `Ellyjoybell`,
+  `Ellywick`,
+  `Enidda`,
+  `Lilli`,
+  `loopmottin`,
+  `Lorilla`,
+  `Luthra`,
+  `Mardnab`,
+  `meena`,
+  `Menny`,
+  `Mumpena`,
+  `Nissa`,
+  `Numba`,
+  `Nyx`,
+  `Oda`,
+  `Oppah`,
+  `Orla`,
+  `Panana`,
+  `Pyntle`,
+  `Quilla`,
+  `Ranala`,
+  `Reddlepop`,
+  `Roywyn`,
+  `Salanop`,
+  `Shamil`,
+  `Siffress`,
+  `Symma`,
+  `Tana`,
+  `Tenena`,
+  `Tevaround`,
+  `Tippletoe`,
+  `Ulla`,
+  `Unvera`,
+  `Veloptima`,
+  `Virra`,
+  `Waywocket`,
+  `Yebe`,
+  `Zanna`,
+];
+const namesGnomeMale = [
+  `Alston`,
+  `Alvyn`,
+  `Anverth`,
+  `Arumawann`,
+  `Bilbron`,
+  `Boddynock`,
+  `Brocc`,
+  `Burgell`,
+  `Cockaby`,
+  `Crampernap`,
+  `Dabbledop`,
+  `Delebean`,
+  `Dimble`,
+  `Eberdeb`,
+  `Eldon`,
+  `Erky`,
+  `Fablen`,
+  `Fibblestib`,
+  `Fonkin`,
+  `Frouse`,
+  `Frug`,
+  `Gerbo`,
+  `Gimble`,
+  `Glim`,
+  `Igden`,
+  `Jabble`,
+  `Jabeddo`,
+  `Kellen`,
+  `Kipper`,
+  `Namfoodle`,
+  `Oppleby`,
+  `Orryn`,
+  `Paggen`,
+  `Pallabar`,
+  `Pog`,
+  `Qualen`,
+  `Ribbles`,
+  `Rimple`,
+  `Roondar`,
+  `Sapply`,
+  `Seebo`,
+  `Senteq`,
+  `Sindri`,
+  `Umpen`,
+  `Warryn`,
+  `Wiggens`,
+  `Wobbles`,
+  `Wrenn`,
+  `Zaffrab`,
+  `Zook`,
+];
+const namesGnomeClan = [
+  `Albaratie`,
+  `Bafflestone`,
+  `Beren`,
+  `Boondiggles`,
+  `Cobblelob`,
+  `Daergel`,
+  `Dunben`,
+  `Fabblestabble`,
+  `Fapplestamp`,
+  `Fiddlefen`,
+  `Folkor`,
+  `Garrick`,
+  `Gimlen`,
+  `Glittergem`,
+  `Gobblefern`,
+  `Gummen`,
+  `Horcusporcus`,
+  `Humplebumple`,
+  `Ironhide`,
+  `Leffery`,
+  `Lingenhall`,
+  `Loofollue`,
+  `Maekleferce`,
+  `Miggledy`,
+  `Munggen`,
+  `Murning`,
+  `Musgraben`,
+  `Nackle`,
+  `Ningel`,
+  `Nopenstallen`,
+  `Nucklestamp`,
+  `Offund`,
+  `Oomtrowl`,
+  `Pilwicken`,
+  `Pingun`,
+  `Quillsharpener`,
+  `Raulnor`,
+  `Reese`,
+  `Rofferton`,
+  `Scheppen`,
+  `Shadowcloak`,
+  `Silverthread`,
+  `Sympony`,
+  `Tarkleby`,
+  `Timbers`,
+  `Turen`,
+  `Umbodoben`,
+  `Waggletop`,
+  `Welber`,
+  `Wildwander`,
+];
 const namesHalflingFemale = [];
 const namesHalflingMale = [];
 const namesHalflingFamily = [];
 const namesHalfOrcFemale = [];
 const namesHalfOrcMale = [];
-const namesTireflingFemale = [];
+const namesTireflingFemale = [
+  `Akta`,
+  `Anakis`,
+  `Armara`,
+  `Astaro`,
+  `Aym`,
+  `Azza`,
+  `Beleth`,
+  `Bryseis`,
+  `Bune`,
+  `Criela`,
+  `Damaia`,
+  `Decarabia`,
+  `Ea`,
+  `Gadreel`,
+  `Gomory`,
+  `Hecat`,
+  `Ishte`,
+  `Jezebeth`,
+  `Kali`,
+  `Kallista`,
+  `Kasdeya`,
+  `Lerissa`,
+  `Lilitll`,
+  `Makana`,
+  `Manea`,
+  `Markosian`,
+  `Mastema`,
+  `Naamah`,
+  `Nemeia`,
+  `Nija`,
+  `Orianna`,
+  `Osah`,
+  `Phelaia`,
+  `Prosperine`,
+  `Punh`,
+  `Pyra`,
+  `Rieta`,
+  `Ronobe`,
+  `Ronwe`,
+  `Seddit`,
+  `Seere`,
+  `Sekhmet`,
+  `Semyaza`,
+  `Shava`,
+  `Shax`,
+  `Sorath`,
+  `Uzza`,
+  `Vapula`,
+  `Vepar`,
+  `Verin`,
+];
 const namesTieflingMale = [];
 const namesTieflingVirtue = [];
-
 const namesHumanCalishiteMale = [
   `Aseir`,
   `Bardeid`,
@@ -975,6 +1277,33 @@ const getNPCName = function (race = `Human`, gender = `Male`) {
       lastNameRoll = Math.trunc(Math.random() * namesDwarfClan.length);
       result += `${namesDwarfClan[lastNameRoll]}`;
       break;
+
+    case `Elf`:
+      if (gender === `Male`) {
+        firstNameRoll = Math.trunc(Math.random() * namesElfMale.length);
+        result += `${namesElfMale[firstNameRoll]} `;
+      } else if (gender === `Female`) {
+        firstNameRoll = Math.trunc(Math.random() * namesElfFemale.length);
+        result += `${namesElfFemale[firstNameRoll]} `;
+      }
+      lastNameRoll = Math.trunc(Math.random() * namesElfFamily.length);
+      result += `${namesElfFamily[lastNameRoll]}`;
+      childNameRoll = Math.trunc(Math.random * namesElfChild.length);
+      result += ` (Child name: ${namesElfChild[childNameRoll]})`;
+      break;
+
+    case `Gnome`:
+      if (gender === `Male`) {
+        firstNameRoll = Math.trunc(Math.random() * namesGnomeMale.length);
+        result += `${namesGnomeMale[firstNameRoll]} `;
+      } else if (gender === `Female`) {
+        firstNameRoll = Math.trunc(Math.random() * namesGnomeFemale.length);
+        result += `${namesGnomeFemale[firstNameRoll]} `;
+      }
+      lastNameRoll = Math.trunc(Math.random() * namesGnomeClan.length);
+      result += `${namesGnomeClan[lastNameRoll]}`;
+      break;
+
     default:
       break;
   }
