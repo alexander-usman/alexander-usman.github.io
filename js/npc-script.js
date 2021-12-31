@@ -1940,7 +1940,7 @@ const getNPCIdeal = function () {
       result += `<li>Lawful: ${randomNPCIdeals.get(`Lawful`)[secondRoll]}</li>`;
       break;
     case 1:
-      result += `<li>Other: ${randomNPCIdeals.get(`Other`)[secondRoll]}</li>`;
+      result += `<li>Neutral: ${randomNPCIdeals.get(`Other`)[secondRoll]}</li>`;
       break;
     case 2:
       result += `<li>Chaotic: ${
