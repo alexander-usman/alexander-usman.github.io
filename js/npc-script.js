@@ -384,7 +384,7 @@ const getNPCRace = function () {
 };
 
 const getNPCGender = function () {
-  const roll = Math.trunc(Math.random * 2);
+  const roll = Math.trunc(Math.random() * 2);
   if (roll === 0) {
     return `Male`;
   } else if (roll === 1) {
