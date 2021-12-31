@@ -385,7 +385,11 @@ const getNPCRace = function () {
 
 const getNPCGender = function () {
   const roll = Math.trunc(Math.random * 2);
-  return `<li>${roll === 0 ? `Male` : `Female`}</li>`;
+  if (roll === 0) {
+    return `Male`;
+  } else if (roll === 1) {
+    return `Female`;
+  }
 };
 
 const getNPCName = function (race = `Human`, gender) {
