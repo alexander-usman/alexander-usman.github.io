@@ -1560,7 +1560,7 @@ const generateSimpleNPC = function () {
   const name = getNPCName(trimmedRace, trimmedGender);
   const appearance = getSimpleAppearance();
   const highScore = getNPCHighAbility();
-  const lowScore = getNPCLowAbility();
+  const lowScore = getNPCLowAbility(highScore[0]);
   const talent = getNPCTalent();
   const mannerism = getNPCMannerism();
   const interactionTrait = getNPCInteractionTrait();
@@ -1906,10 +1906,14 @@ const getNPCHighAbility = function () {
   ];
 };
 
-const getNPCLowAbility = function () {
+const getNPCLowAbility = function (highAbility) {
   const roll = Math.trunc(Math.random() * randomNPCLowAbility.size) + 1;
   const getAdjective =
     Math.trunc(Math.random() * randomNPCLowAbility.get(roll).length - 1) + 1;
+
+  if (randomNPCLowAbility.get(roll)[0] === highAbility) {
+    getNPCLowAbility(highAbility);
+  }
   return [
     randomNPCLowAbility.get(roll)[0],
     `<li>${randomNPCLowAbility.get(roll)[getAdjective]}</li>`,
