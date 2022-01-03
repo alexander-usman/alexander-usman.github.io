@@ -1,6 +1,7 @@
 "use strict";
 
 const btnRoll = document.querySelector(`.btnRoll`);
+const resultsDiv = document.querySelector(`.results`);
 
 const rollXDX = function () {
   let result = 0;
@@ -15,7 +16,7 @@ const rollXDX = function () {
     rollList.push(roll);
   }
   result += numModifier;
-  btnRoll.value = `Your Roll: ${result} (${rollList})`;
+  resultsDiv.innerHTML = `Your Roll: ${result} (${rollList})`;
 };
 
 btnRoll.addEventListener(`click`, rollXDX);
