@@ -1574,8 +1574,8 @@ const generateSimpleNPC = function () {
     ${gender}
     ${name}
     ${appearance}
-    ${highScore}
-    ${lowScore}
+    ${highScore[0]}: ${highScore[1]}
+    ${lowScore[0]}: ${lowScore[1]}
     ${talent}
     ${mannerism}
     ${interactionTrait}
@@ -1900,14 +1900,20 @@ const getNPCHighAbility = function () {
   const roll = Math.trunc(Math.random() * randomNPCHighAbility.size) + 1;
   const getAdjective =
     Math.trunc(Math.random() * randomNPCHighAbility.get(roll).length - 1) + 1; // Get an index from 1 to 3, skipping the unwanted 0th item.
-  return `<li>${randomNPCHighAbility.get(roll)[getAdjective]}</li>`;
+  return [
+    randomNPCHighAbility.get(roll)[0],
+    `<li>${randomNPCHighAbility.get(roll)[getAdjective]}</li>`,
+  ];
 };
 
 const getNPCLowAbility = function () {
   const roll = Math.trunc(Math.random() * randomNPCLowAbility.size) + 1;
   const getAdjective =
     Math.trunc(Math.random() * randomNPCLowAbility.get(roll).length - 1) + 1;
-  return `<li>${randomNPCLowAbility.get(roll)[getAdjective]}</li>`;
+  return [
+    randomNPCLowAbility.get(roll)[0],
+    `<li>${randomNPCLowAbility.get(roll)[getAdjective]}</li>`,
+  ];
 };
 
 const getNPCTalent = function () {
