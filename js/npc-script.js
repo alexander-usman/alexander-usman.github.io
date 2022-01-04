@@ -1680,7 +1680,7 @@ const backgrounds = new Map([
     `Charlatan`,
     {
       skills: [`Deception`, `Sleight of Hand`],
-      tools: [`Disguise kit`, `Forgery Kit`],
+      tools: [`Disguise Kit`, `Forgery Kit`],
       languages: 0,
       personality: [
         `I fall in and out of love easily, and am always pursuing someone.`,
@@ -2182,7 +2182,44 @@ const backgrounds = new Map([
   ],
 ]);
 
-const tools = [``, ``, ``, ``, ``, ``, ``, ``];
+const gamingSets = [
+  `Dice Set`,
+  `Dragonchess Set`,
+  `playing Card Set`,
+  `Three-Dragon Ante Set`,
+];
+const artisansTools = [
+  `Alchemist’s Supplies`,
+  `Brewer’s Supplies`,
+  `Calligrapher's Supplies `,
+  `Carpenter’s Tools`,
+  `Cartographer’s Tools`,
+  `Cobbler’s Tools`,
+  `Cook’s Utensils`,
+  `Glassblower’s Tools`,
+  `Jeweler’s Tools`,
+  `Leatherworker’s Tools`,
+  `Mason’s Tools`,
+  `Painter’s Supplies`,
+  `Potter’s Tools`,
+  `Smith’s Tools`,
+  `Tinker’s Tools`,
+  `Weaver’s Tools `,
+  `Woodcarver's Tools`,
+];
+
+const musicalInstruments = [
+  `Bagpipes`,
+  `Drum`,
+  `Dulcimer`,
+  `Flute`,
+  `Lute`,
+  `Lyre`,
+  `Horn`,
+  `Pan Flute`,
+  `Shawm`,
+  `Viol`,
+];
 
 const languages = [
   `Common`,
@@ -2316,6 +2353,7 @@ const generateComplexNPC = function () {
     npcClass[0],
     backgrounds.get(background[0]).languages
   );
+  const tools = getNPCTools(backgrounds.get(background[0]).tools);
 
   resultsDiv.innerHTML = `
     <ul>
@@ -2324,6 +2362,7 @@ const generateComplexNPC = function () {
     ${name}
     ${parents}
     ${languages}
+    ${tools}
     ${appearance}
     ${highScore[1]}
     ${lowScore[1]}
@@ -2727,6 +2766,30 @@ const getNPCLanguages = function (race, npcClass, background) {
   }
 
   return `<ul>${languageList}</ul>`;
+};
+
+const getNPCTools = function (backgroundTools) {
+  let toolList = ``;
+  if (backgroundTools != []) {
+    for (let i = 0; i < backgroundTools.length; i++) {
+      if (backgroundTools[i] === `Artisan's Tools`) {
+        const roll = Math.trunc(Math.random() * artisansTools.length);
+        toolList += `<li>${artisansTools[roll]}</li>`;
+      } else if (backgroundTools[i] === `Musical Instrument`) {
+        const roll = Math.trunc(Math.random() * musicalInstruments.length);
+        toolList += `<li>${musicalInstruments[roll]}</li>`;
+      } else if (backgroundTools[i] === `Gaming Set`) {
+        const roll = Math.trunc(Math.random() * gamingSets.length);
+        toolList += `<li>${gamingSets[roll]}</li>`;
+      } else {
+        toolList += `<li>${toolList[i]}</li>`;
+      }
+    }
+  } else {
+    return;
+  }
+
+  return `<ul>${toolList}</ul>`;
 };
 
 const getSimpleAppearance = function () {
