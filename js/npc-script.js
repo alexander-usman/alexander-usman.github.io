@@ -2185,7 +2185,7 @@ const backgrounds = new Map([
 const gamingSets = [
   `Dice Set`,
   `Dragonchess Set`,
-  `playing Card Set`,
+  `Playing Card Set`,
   `Three-Dragon Ante Set`,
 ];
 const artisansTools = [
