@@ -2086,6 +2086,7 @@ const classGrid = [
   [
     // High Strength
     [
+      [],
       [`Fighter`], // Low Dexterity
       [`Paladin`], // Low Constitution
       [`Barbarian`], // Low Intelligence
@@ -2097,6 +2098,7 @@ const classGrid = [
     // High Dexterity
     [
       [`Ranger`], // Low Strength
+      [],
       [`Rogue`], // Low Constitution
       [`Monk`], // Low Intelligence
       [`Rogue`], // Low Wisdom
@@ -2108,6 +2110,7 @@ const classGrid = [
     [
       [`Ranger`], // Low Strength
       [`Fighter`], // Low Dexterity
+      [],
       [`Barbarian`], // Low Intelligence
       [`Sorcerer`], // Low Wisdom
       [`Paladin`], // Low Charisma
@@ -2119,6 +2122,7 @@ const classGrid = [
       [`Rogue`], // Low Strength
       [`Druid`], // Low Dexterity
       [`Wizard`], // Low Constitution
+      [],
       [`Warlock`], // Low Wisdom
       [`Wizard`], // Low Charisma
     ],
@@ -2130,6 +2134,7 @@ const classGrid = [
       [`Cleric`], // Low Dexterity
       [`Monk`], // Low Constitution
       [`Cleric`], // Low Intelligence
+      [],
       [`Druid`], // Low Charisma
     ],
   ],
@@ -2141,6 +2146,7 @@ const classGrid = [
       [`Bard`], // Low Constitution
       [`Paladin`], // Low Intelligence
       [`Bard`], // Low Wisdom
+      [],
     ],
   ],
 ];
