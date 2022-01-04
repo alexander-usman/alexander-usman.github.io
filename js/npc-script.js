@@ -2709,8 +2709,17 @@ const getNPCBackground = function () {
 };
 
 const getNPCClass = function (highAbility, lowAbility) {
-  const highIndex = classList.get(highAbility);
-  const lowIndex = classList.get(lowAbility);
+  const classList = [
+    `Strength`,
+    `Dexterity`,
+    `Constitution`,
+    `Intelligence`,
+    `Wisdom`,
+    `Charisma`,
+  ];
+
+  const highIndex = classList.findIndex(highAbility);
+  const lowIndex = classList.findIndex(lowAbility);
   const npcClass = classGrid[highIndex][lowIndex];
 
   return `<li>${npcClass}</li>`;
