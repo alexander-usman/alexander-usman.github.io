@@ -12,6 +12,19 @@ const randomNPCRace = new Map([
   [8, [`Human`]],
   [9, [`Tiefling`]],
 ]);
+
+const languageByRace = new Map([
+  [`Dragonborn`, [`Common`, `Draconic`]],
+  [`Dwarf`, [`Common`, `Dwarvish`]],
+  [`Elf`, [`Common`, `Elvish`]],
+  [`Gnome`, [`Common`, `Gnomish`]],
+  [`Half-Elf`, [`Common`]],
+  [`Halfling`, [`Common`, `Halfling`]],
+  [`Half-Orc`, [`Common`, `Orc`]],
+  [`Human`, [`Common`]],
+  [`Tiefling`, [`Common`, `Infernal`]],
+]);
+
 const randomHumanType = new Map([
   [1, `Calishite`],
   [2, `Chondathan`],
@@ -23,6 +36,7 @@ const randomHumanType = new Map([
   [8, `Tethyrian`],
   [9, `Turami`],
 ]);
+
 // Name Lists
 const namesDragonbornFemale = [
   `Akra`,
@@ -76,6 +90,7 @@ const namesDragonbornFemale = [
   `Vezera`,
   `Zykroff`,
 ];
+
 const namesDragonbornMale = [
   `Adrex`,
   `Arjhan`,
@@ -128,6 +143,7 @@ const namesDragonbornMale = [
   `Vrondiss`,
   `Zedaar`,
 ];
+
 const namesDragonbornClan = [
   `Akhamberylliax`,
   `Argenthrixus`,
@@ -180,6 +196,7 @@ const namesDragonbornClan = [
   `Yarjerit`,
   `Zzzxaaxthroth`,
 ];
+
 const namesDwarfFemale = [
   `Anbera`,
   `Arlin`,
@@ -232,6 +249,7 @@ const namesDwarfFemale = [
   `Whurdred`,
   `Yurgunn`,
 ];
+
 const namesDwarfMale = [
   `Adrik`,
   `Alberich`,
@@ -284,6 +302,7 @@ const namesDwarfMale = [
   `Vondal`,
   `Whurbin`,
 ];
+
 const namesDwarfClan = [
   `Aranore`,
   `Balderk`,
@@ -336,6 +355,7 @@ const namesDwarfClan = [
   `Trueblood`,
   `Ungart`,
 ];
+
 const namesElfChild = [
   `Ael`,
   `Ang`,
@@ -388,6 +408,7 @@ const namesElfChild = [
   `Wil`,
   `Za`,
 ];
+
 const namesElfAdultFemale = [
   `Adre`,
   `Ahinar`,
@@ -440,6 +461,7 @@ const namesElfAdultFemale = [
   `Valna`,
   `Xanaphia`,
 ];
+
 const namesElfAdultMale = [
   `Adran`,
   `Aelar`,
@@ -492,6 +514,7 @@ const namesElfAdultMale = [
   `Vanuath`,
   `Varis`,
 ];
+
 const namesElfFamily = [
   `Aloro`,
   `Amakiir`,
@@ -544,6 +567,7 @@ const namesElfFamily = [
   `Xistsrith`,
   `Yaeldrin`,
 ];
+
 const namesGnomeFemale = [
   `Abalaba`,
   `Bimpnottin`,
@@ -596,6 +620,7 @@ const namesGnomeFemale = [
   `Yebe`,
   `Zanna`,
 ];
+
 const namesGnomeMale = [
   `Alston`,
   `Alvyn`,
@@ -648,6 +673,7 @@ const namesGnomeMale = [
   `Zaffrab`,
   `Zook`,
 ];
+
 const namesGnomeClan = [
   `Albaratie`,
   `Bafflestone`,
@@ -700,6 +726,7 @@ const namesGnomeClan = [
   `Welber`,
   `Wildwander`,
 ];
+
 const namesHalflingFemale = [
   `Alain`,
   `Andry`,
@@ -752,6 +779,7 @@ const namesHalflingFemale = [
   `Wella`,
   `Willow`,
 ];
+
 const namesHalflingMale = [
   `Alton`,
   `Ander`,
@@ -804,6 +832,7 @@ const namesHalflingMale = [
   `Wenner`,
   `Wes`,
 ];
+
 const namesHalflingFamily = [
   `Appleblossom`,
   `Bigheart`,
@@ -856,6 +885,7 @@ const namesHalflingFamily = [
   `Wildheart`,
   `Wiseacre`,
 ];
+
 const namesOrcFemale = [
   `Ahra`,
   `Baggi`,
@@ -908,6 +938,7 @@ const namesOrcFemale = [
   `Yevelda`,
   `Zagga`,
 ];
+
 const namesOrcMale = [
   `Argran`,
   `Brak`,
@@ -960,6 +991,7 @@ const namesOrcMale = [
   `Yurk`,
   `Zed`,
 ];
+
 const namesTieflingFemale = [
   `Akta`,
   `Anakis`,
@@ -1012,6 +1044,7 @@ const namesTieflingFemale = [
   `Vepar`,
   `Verin`,
 ];
+
 const namesTieflingMale = [
   `Abad`,
   `Ahrim`,
@@ -1064,6 +1097,7 @@ const namesTieflingMale = [
   `Zepar`,
   `Zephan`,
 ];
+
 const namesTieflingVirtue = [
   `Ambition`,
   `Art`,
@@ -1116,6 +1150,7 @@ const namesTieflingVirtue = [
   `Weary`,
   `Wit`,
 ];
+
 const namesHumanCalishiteMale = [
   `Aseir`,
   `Bardeid`,
@@ -1125,6 +1160,7 @@ const namesHumanCalishiteMale = [
   `Sudeiman`,
   `Zasheir,`,
 ];
+
 const namesHumanCalishiteFemale = [
   `Atala`,
   `Ceidil`,
@@ -1135,6 +1171,7 @@ const namesHumanCalishiteFemale = [
   `Yasheira`,
   `Zasheida`,
 ];
+
 const namesHumanCalishiteSurname = [
   `Basha`,
   `Dumein`,
@@ -1144,6 +1181,7 @@ const namesHumanCalishiteSurname = [
   `Pashar`,
   `Rein`,
 ];
+
 const namesHumanChondathanMale = [
   `Darvin`,
   `Dorn`,
@@ -1156,6 +1194,7 @@ const namesHumanChondathanMale = [
   `Randal`,
   `Stedd`,
 ];
+
 const namesHumanChondathanFemale = [
   `Arveene`,
   `Esvele`,
@@ -1167,6 +1206,7 @@ const namesHumanChondathanFemale = [
   `Shandri`,
   `Tessele`,
 ];
+
 const namesHumanChondathanSurname = [
   `Amblecrown`,
   `Buckman`,
@@ -1175,6 +1215,7 @@ const namesHumanChondathanSurname = [
   `Greycastle`,
   `Tallstag`,
 ];
+
 const namesHumanDamaranMale = [
   `Bor`,
   `Fodel`,
@@ -1188,6 +1229,7 @@ const namesHumanDamaranMale = [
   `Pavel`,
   `Sergor`,
 ];
+
 const namesHumanDamaranFemale = [
   `Alethra`,
   `Kara`,
@@ -1198,6 +1240,7 @@ const namesHumanDamaranFemale = [
   `Tana`,
   `Zora`,
 ];
+
 const namesHumanDamaranSurname = [
   `Bersk`,
   `Chernin`,
@@ -1208,6 +1251,7 @@ const namesHumanDamaranSurname = [
   `Shemov`,
   `Starag`,
 ];
+
 const namesHumanIlluskanMale = [
   `Ander`,
   `Blath`,
@@ -1221,6 +1265,7 @@ const namesHumanIlluskanMale = [
   `Taman`,
   `Urth`,
 ];
+
 const namesHumanIlluskanFemale = [
   `Amafrey`,
   `Betha`,
@@ -1231,6 +1276,7 @@ const namesHumanIlluskanFemale = [
   `Silifrey`,
   `Westra`,
 ];
+
 const namesHumanIlluskanSurname = [
   `Brightwood`,
   `Helder`,
@@ -1239,6 +1285,7 @@ const namesHumanIlluskanSurname = [
   `Stormwind`,
   `Windrivver`,
 ];
+
 const namesHumanMulanMale = [
   `Aoth`,
   `Bareris`,
@@ -1250,6 +1297,7 @@ const namesHumanMulanMale = [
   `Thazar-De`,
   `Urhur`,
 ];
+
 const namesHumanMulanFemale = [
   `Arizima`,
   `Chathi`,
@@ -1261,6 +1309,7 @@ const namesHumanMulanFemale = [
   `Umara`,
   `Zolis`,
 ];
+
 const namesHumanMulanSurname = [
   `Ankhalab`,
   `Anskuld`,
@@ -1270,6 +1319,7 @@ const namesHumanMulanSurname = [
   `Sepret`,
   `Uuthrakt`,
 ];
+
 const namesHumanRashemiMale = [
   `Borivik`,
   `Faurgar`,
@@ -1280,6 +1330,7 @@ const namesHumanRashemiMale = [
   `Shaumar`,
   `Vladislak`,
 ];
+
 const namesHumanRashemiFemale = [
   `Fyevarra`,
   `Hulmarra`,
@@ -1290,6 +1341,7 @@ const namesHumanRashemiFemale = [
   `Tammith`,
   `Yuldra`,
 ];
+
 const namesHumanRashemiSurname = [
   `Chergoba`,
   `Dyernina`,
@@ -1298,6 +1350,7 @@ const namesHumanRashemiSurname = [
   `Stayanoga`,
   `Ulmokina`,
 ];
+
 const namesHumanShouMale = [
   `An`,
   `Chen`,
@@ -1313,6 +1366,7 @@ const namesHumanShouMale = [
   `Shui`,
   `Wen`,
 ];
+
 const namesHumanShouFemale = [
   `Bai`,
   `Chao`,
@@ -1323,6 +1377,7 @@ const namesHumanShouFemale = [
   `Shui`,
   `Tai`,
 ];
+
 const namesHumanShouSurname = [
   `Chien`,
   `Huang`,
@@ -1337,9 +1392,13 @@ const namesHumanShouSurname = [
   `Tan`,
   `Wan`,
 ];
+
 const namesHumanTethyrianMale = namesHumanChondathanMale;
+
 const namesHumanTethyrianFemale = namesHumanChondathanFemale;
+
 const namesHumanTethyrianSurname = namesHumanChondathanSurname;
+
 const namesHumanTuramiMale = [
   `Anton`,
   `Diero`,
@@ -1350,6 +1409,7 @@ const namesHumanTuramiMale = [
   `Salazar`,
   `Umbero`,
 ];
+
 const namesHumanTuramiFemale = [
   `Balama`,
   `Dona`,
@@ -1361,6 +1421,7 @@ const namesHumanTuramiFemale = [
   `Selise`,
   `Vonda`,
 ];
+
 const namesHumanTuramiSurname = [
   `Agosto`,
   `Astorio`,
@@ -1576,6 +1637,9 @@ const backgrounds = new Map([
   [
     `Acolyte`,
     {
+      skills: [`Insight`, `Religion`],
+      tools: [],
+      languages: 2,
       personality: [
         `I idolize a particular hero of my faith and constantly refer to that person's deeds and example.`,
         `I can find common ground between the fiercest enemies, empathizing with them and always working toward peace.`,
@@ -1615,6 +1679,9 @@ const backgrounds = new Map([
   [
     `Charlatan`,
     {
+      skills: [`Deception`, `Sleight of Hand`],
+      tools: [`Disguise kit`, `Forgery Kit`],
+      languages: 0,
       personality: [
         `I fall in and out of love easily, and am always pursuing someone.`,
         `I have a joke for every occasion, especially occasions where humor is inappropriate.`,
@@ -1654,6 +1721,9 @@ const backgrounds = new Map([
   [
     `Criminal`,
     {
+      skills: [`Deception`, `Stealth`],
+      tools: [`Gaming Set`, `Thieves' Tools`],
+      languages: 0,
       personality: [
         `I always have plan for what to do when things go wrong.`,
         `I am always calm, no matter what the situation. I never raise my voice or let my emotions control me.`,
@@ -1693,6 +1763,9 @@ const backgrounds = new Map([
   [
     `Entertainer`,
     {
+      skills: [`Acrobatics`, `Performance`],
+      tools: [`Disguise Kit`, `Musical Instrument`],
+      languages: 0,
       personality: [
         `I know a story relevant to almost every situation.`,
         `Whenever I come to a new place, I collect local rumors and spread gossip.`,
@@ -1732,6 +1805,9 @@ const backgrounds = new Map([
   [
     `Folk Hero`,
     {
+      skills: [`Animal Handling`, `Survival`],
+      tools: [`Artisan's Tools`, `Vehicles (Land)`],
+      languages: 0,
       personality: [
         `I judge people by their actions, not their words.`,
         `If someone is in trouble, I'm always willing to lend help.`,
@@ -1771,6 +1847,9 @@ const backgrounds = new Map([
   [
     `Guild Artisan`,
     {
+      skills: [`Insight`, `Persuasion`],
+      tools: [`Artisan's Tools`],
+      languages: 1,
       personality: [
         `I believe that everything worth doing is worth doing right. I can't help it--I'm a perfectionist.`,
         `I'm a snob who looks down on those who can't appreciate fine art.`,
@@ -1810,6 +1889,9 @@ const backgrounds = new Map([
   [
     `Hermit`,
     {
+      skills: [`Medicine`, `Religion`],
+      tools: [`Herbalism Kit`],
+      languages: 1,
       personality: [
         `I've been isolated for so long that I rarely speak, preferring gestures and the occasional grunt.`,
         `I am utterly serene, even in the face of disaster.`,
@@ -1849,6 +1931,9 @@ const backgrounds = new Map([
   [
     `Noble`,
     {
+      skills: [`History`, `Persuasion`],
+      tools: [`Gaming Set`],
+      languages: 1,
       personality: [
         `My eloquent flattery makes everyone I talk to feel like the most wonderful and important person in the world.`,
         `The common folk love me for my kindness and generosity.`,
@@ -1888,6 +1973,9 @@ const backgrounds = new Map([
   [
     `Outlander`,
     {
+      skills: [`Athletics`, `Survival`],
+      tools: [`Musical Instrument`],
+      languages: 1,
       personality: [
         `I'm driven by a wanderlust that led me away from home.`,
         `I watch over my friends as if they were a litter of newborn pups.`,
@@ -1927,6 +2015,9 @@ const backgrounds = new Map([
   [
     `Sage`,
     {
+      skills: [`Arcana`, `History`],
+      tools: [],
+      languages: 2,
       personality: [
         `I use polysyllabic words to convey the impression of great erudition.`,
         `I've read every book in the world's greatest libraries--or like to boast that I have.`,
@@ -1966,6 +2057,9 @@ const backgrounds = new Map([
   [
     `Sailor`,
     {
+      skills: [`Athletics`, `Perception`],
+      tools: [`Navigator's Tools`, `Vehicles (Water)`],
+      languages: 0,
       personality: [
         ` My friends know they can rely on me, no matter what.`,
         `I work hard so that I can play hard when the work is done.`,
@@ -2005,6 +2099,9 @@ const backgrounds = new Map([
   [
     `Soldier`,
     {
+      skills: [`Athletics`, `Intimidation`],
+      tools: [`Gaming Set`, `Vehicles (Land)`],
+      languages: 0,
       personality: [
         `I'm always polite and respectful.`,
         `I'm haunted by memories of war. I can't get the images of violence out of my mind.`,
@@ -2044,6 +2141,9 @@ const backgrounds = new Map([
   [
     `Urchin`,
     {
+      skills: [`Sleight of Hand`, `Stealth`],
+      tools: [`Disguise Kit`, `Thieves' Tools`],
+      languages: 0,
       personality: [
         `I hide scraps of food and trinkets away in my pockets.`,
         `I ask a lot of questions.`,
@@ -2081,6 +2181,19 @@ const backgrounds = new Map([
     },
   ],
 ]);
+
+const tools = [``, ``, ``, ``, ``, ``, ``, ``];
+
+const languages = [
+  `Common`,
+  `Dwarvish`,
+  `Elvish`,
+  `Giant`,
+  `Gnomish`,
+  `Goblin`,
+  `Halfling`,
+  `Orc`,
+];
 
 const classGrid = [
   // High Strength
@@ -2197,7 +2310,14 @@ const generateComplexNPC = function () {
   const mannerism = getNPCMannerism();
   const interactionTrait = getNPCInteractionTrait();
   const background = getNPCBackground();
+  const trimmedBackground = stripListMarkup(background);
   const npcClass = getNPCClass(highScore[0], lowScore[0]);
+  const trimmedClass = stripListMarkup(npcClass);
+  const languages = getNPCLanguages(
+    trimmedRace,
+    trimmedClass,
+    backgrounds.get(trimmedBackground).languages
+  );
 
   resultsDiv.innerHTML = `
     <ul>
@@ -2205,6 +2325,7 @@ const generateComplexNPC = function () {
     ${gender}
     ${name}
     ${parents}
+    ${languages}
     ${appearance}
     ${highScore[1]}
     ${lowScore[1]}
@@ -2566,6 +2687,28 @@ const getNPCParents = function (race) {
   return `<li>${parents}</li>`;
 };
 
+const getNPCLanguages = function (race, npcClass, background) {
+  let languageList = ``;
+  for (let i = 0; i < languageByRace.get(race).length; i++) {
+    languageList += `<li>${languageByRace.get(race)[i]}</li>`;
+  }
+
+  if (background > 0) {
+    for (let i = 0; i < background; i++) {
+      const roll = Math.trunc(Math.random() * languages.length);
+      languageList += `<li>${languages[roll]}</li>`;
+    }
+  }
+
+  if (npcClass === `Druid`) {
+    languageList += `<li>Druidic</li>`;
+  } else if (npcClass === `Rogue`) {
+    languageList += `<li>Thieves' Cant</li>`;
+  }
+
+  return `<ul>${languageList}</ul>`;
+};
+
 const getSimpleAppearance = function () {
   const roll = Math.trunc(Math.random() * randomNPCAppearance.size) + 1;
   return `<li>${randomNPCAppearance.get(roll)}</li>`;
@@ -2722,7 +2865,15 @@ const getNPCClass = function (highAbility, lowAbility) {
   const lowIndex = classList.indexOf(lowAbility);
   const npcClass = classGrid[highIndex][lowIndex];
 
-  return `<li>${npcClass}</li>`;
+  return `
+  <li>${npcClass}</li>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  `;
 };
 
 btnGenerateSimpleNPC.addEventListener(`click`, generateSimpleNPC);
