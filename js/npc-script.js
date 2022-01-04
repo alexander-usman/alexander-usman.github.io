@@ -18,7 +18,7 @@ const languageByRace = new Map([
   [`Dwarf`, [`Common`, `Dwarvish`]],
   [`Elf`, [`Common`, `Elvish`]],
   [`Gnome`, [`Common`, `Gnomish`]],
-  [`Half-Elf`, [`Common`]],
+  [`Half-Elf`, [`Common`, `Elvish`]],
   [`Halfling`, [`Common`, `Halfling`]],
   [`Half-Orc`, [`Common`, `Orc`]],
   [`Human`, [`Common`]],
@@ -2691,9 +2691,20 @@ const getNPCLanguages = function (race, npcClass, background) {
     languageList += `<li>${languageByRace.get(race)[i]}</li>`;
   }
 
+  if (race === `Human` || race === `Half-Elf`) {
+    while (i < 1) {
+      const roll = Math.trunc(Math.random() * languages.length) + 1;
+      if (languageList.includes(`<li>${languages[roll]}</li>`)) {
+        // Don't add a language, so don't increment the counter.
+      } else {
+        languageList += `<li>${languages[roll]}</li>`;
+        i++;
+      }
+    }
+  }
+
   if (background > 0) {
     let i = 0;
-
     while (i < background) {
       const roll = Math.trunc(Math.random() * languages.length) + 1;
       if (languageList.includes(`<li>${languages[roll]}</li>`)) {
