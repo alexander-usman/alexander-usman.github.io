@@ -2787,7 +2787,7 @@ const getNPCTools = function (backgroundTools) {
       }
     }
   } else {
-    return;
+    return null;
   }
 
   return `<li>You can use: </li><ul>${toolList}</ul>`;
