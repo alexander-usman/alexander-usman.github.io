@@ -2310,13 +2310,11 @@ const generateComplexNPC = function () {
   const mannerism = getNPCMannerism();
   const interactionTrait = getNPCInteractionTrait();
   const background = getNPCBackground();
-  const trimmedBackground = stripListMarkup(background[0]);
   const npcClass = getNPCClass(highScore[0], lowScore[0]);
-  const trimmedClass = stripListMarkup(npcClass);
   const languages = getNPCLanguages(
     trimmedRace,
-    trimmedClass,
-    backgrounds.get(trimmedBackground).languages
+    npcClass[0],
+    backgrounds.get(background[0]).languages
   );
 
   resultsDiv.innerHTML = `
@@ -2333,7 +2331,7 @@ const generateComplexNPC = function () {
     ${mannerism}
     ${interactionTrait}
     ${background[1]}
-    ${npcClass}
+    ${npcClass[1]}
   `;
 };
 
@@ -2868,7 +2866,9 @@ const getNPCClass = function (highAbility, lowAbility) {
   const lowIndex = classList.indexOf(lowAbility);
   const npcClass = classGrid[highIndex][lowIndex];
 
-  return `
+  return [
+    npcClass,
+    `
   <li>${npcClass}</li>
   <ul>
     <li></li>
@@ -2876,7 +2876,8 @@ const getNPCClass = function (highAbility, lowAbility) {
     <li></li>
     <li></li>
   </ul>
-  `;
+  `,
+  ];
 };
 
 btnGenerateSimpleNPC.addEventListener(`click`, generateSimpleNPC);
