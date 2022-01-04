@@ -2085,6 +2085,7 @@ const backgrounds = new Map([
 const classGrid = [
   // High Strength
   [
+    `Error: Strength`,
     `Fighter`, // Low Dexterity
     `Paladin`, // Low Constitution
     `Barbarian`, // Low Intelligence
@@ -2094,6 +2095,7 @@ const classGrid = [
   // High Dexterity
   [
     `Ranger`, // Low Strength
+    `Error: Dexterity`,
     `Rogue`, // Low Constitution
     `Monk`, // Low Intelligence
     `Rogue`, // Low Wisdom
@@ -2103,6 +2105,7 @@ const classGrid = [
   [
     `Ranger`, // Low Strength
     `Fighter`, // Low Dexterity
+    `Error: Constitution`,
     `Barbarian`, // Low Intelligence
     `Sorcerer`, // Low Wisdom
     `Paladin`, // Low Charisma
@@ -2112,6 +2115,7 @@ const classGrid = [
     `Rogue`, // Low Strength
     `Druid`, // Low Dexterity
     `Wizard`, // Low Constitution
+    `Error: Intelligence`,
     `Warlock`, // Low Wisdom
     `Wizard`, // Low Charisma
   ],
@@ -2121,6 +2125,7 @@ const classGrid = [
     `Cleric`, // Low Dexterity
     `Monk`, // Low Constitution
     `Cleric`, // Low Intelligence
+    `Error: Wisdom`,
     `Druid`, // Low Charisma
   ],
   // High Charisma
@@ -2130,6 +2135,7 @@ const classGrid = [
     `Bard`, // Low Constitution
     `Paladin`, // Low Intelligence
     `Bard`, // Low Wisdom
+    `Error: Charisma`,
   ],
 ];
 
@@ -2703,14 +2709,6 @@ const getNPCBackground = function () {
 };
 
 const getNPCClass = function (highAbility, lowAbility) {
-  const classList = new Map([
-    [`Strength`, 0],
-    [`Dexterity`, 1],
-    [`Constitution`, 2],
-    [`Intelligence`, 3],
-    [`Wisdom`, 4],
-    [`Charisma`, 5],
-  ]);
   const highIndex = classList.get(highAbility);
   const lowIndex = classList.get(lowAbility);
   const npcClass = classGrid[highIndex][lowIndex];
