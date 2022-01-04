@@ -2518,7 +2518,6 @@ const getNPCName = function (race = `Human`, gender = `Male`) {
           result += `${namesTieflingFemale[firstNameRoll]} `;
         }
       }
-
       break;
 
     default:
@@ -2716,16 +2715,16 @@ const getNPCBackground = function () {
 };
 
 const getNPCClass = function (highAbility, lowAbility) {
-  const classList = [
-    `Strength`,
-    `Dexterity`,
-    `Constitution`,
-    `Intelligence`,
-    `Wisdom`,
-    `Charisma`,
-  ];
-  const highIndex = classList.findIndex(highAbility);
-  const lowIndex = classList.findIndex(lowAbility);
+  const classList = new Map([
+    [`Strength`, 0],
+    [`Dexterity`, 1],
+    [`Constitution`, 2],
+    [`Intelligence`, 3],
+    [`Wisdom`, 4],
+    [`Charisma`, 5],
+  ]);
+  const highIndex = classList.get(highAbility);
+  const lowIndex = classList.get(lowAbility);
   const npcClass = classGrid[highIndex][lowIndex];
 
   return `<li>${npcClass}</li>`;
