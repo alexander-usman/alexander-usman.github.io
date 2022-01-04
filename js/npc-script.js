@@ -2692,9 +2692,16 @@ const getNPCLanguages = function (race, npcClass, background) {
   }
 
   if (background > 0) {
-    for (let i = 0; i < background; i++) {
-      const roll = Math.trunc(Math.random() * languages.length);
-      languageList += `<li>${languages[roll]}</li>`;
+    let i = 0;
+
+    while (i < background) {
+      const roll = Math.trunc(Math.random() * languages.length) + 1;
+      if (languageList.includes(`<li>${languages[roll]}</li>`)) {
+        // Don't add a language, so don't increment the counter.
+      } else {
+        languageList += `<li>${languages[roll]}</li>`;
+        i++;
+      }
     }
   }
 
