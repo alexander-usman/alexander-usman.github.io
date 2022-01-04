@@ -2464,7 +2464,7 @@ const getNPCName = function (race = `Human`, gender = `Male`) {
   return `<li>${result}</li>`;
 };
 
-getNPCParents = function (race) {
+const getNPCParents = function (race) {
   let parents = ``;
   let roll = 0;
   switch (race) {
