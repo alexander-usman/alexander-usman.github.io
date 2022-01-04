@@ -2371,6 +2371,7 @@ const generateComplexNPC = function () {
     ${interactionTrait}
     ${background[1]}
     ${npcClass[1]}
+    </ul>
   `;
 };
 
@@ -2765,7 +2766,7 @@ const getNPCLanguages = function (race, npcClass, background) {
     languageList += `<li>Thieves' Cant</li>`;
   }
 
-  return `<ul>${languageList}</ul>`;
+  return `<li>You Speak: </li><ul>${languageList}</ul>`;
 };
 
 const getNPCTools = function (backgroundTools) {
@@ -2789,7 +2790,7 @@ const getNPCTools = function (backgroundTools) {
     return;
   }
 
-  return `<ul>${toolList}</ul>`;
+  return `<li>You can use: </li><ul>${toolList}</ul>`;
 };
 
 const getSimpleAppearance = function () {
