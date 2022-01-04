@@ -2783,7 +2783,7 @@ const getNPCTools = function (backgroundTools) {
         const roll = Math.trunc(Math.random() * gamingSets.length);
         toolList += `<li>${gamingSets[roll]}</li>`;
       } else {
-        toolList += `<li>${toolList[i]}</li>`;
+        toolList += `<li>${backgroundTools[i]}</li>`;
       }
     }
   } else {
