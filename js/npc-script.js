@@ -2083,65 +2083,53 @@ const backgrounds = new Map([
 ]);
 
 const classGrid = [
+  // High Strength
   [
-    // High Strength
-    [
-      `Fighter`, // Low Dexterity
-      `Paladin`, // Low Constitution
-      `Barbarian`, // Low Intelligence
-      `Brbarian`, // Low Wisdom
-      `Fighter`, // Low Charisma
-    ],
+    `Fighter`, // Low Dexterity
+    `Paladin`, // Low Constitution
+    `Barbarian`, // Low Intelligence
+    `Brbarian`, // Low Wisdom
+    `Fighter`, // Low Charisma
   ],
+  // High Dexterity
   [
-    // High Dexterity
-    [
-      `Ranger`, // Low Strength
-      `Rogue`, // Low Constitution
-      `Monk`, // Low Intelligence
-      `Rogue`, // Low Wisdom
-      `Fighter`, // Low Charisma
-    ],
+    `Ranger`, // Low Strength
+    `Rogue`, // Low Constitution
+    `Monk`, // Low Intelligence
+    `Rogue`, // Low Wisdom
+    `Fighter`, // Low Charisma
   ],
+  // High Constitution
   [
-    // High Constitution
-    [
-      `Ranger`, // Low Strength
-      `Fighter`, // Low Dexterity
-      `Barbarian`, // Low Intelligence
-      `Sorcerer`, // Low Wisdom
-      `Paladin`, // Low Charisma
-    ],
+    `Ranger`, // Low Strength
+    `Fighter`, // Low Dexterity
+    `Barbarian`, // Low Intelligence
+    `Sorcerer`, // Low Wisdom
+    `Paladin`, // Low Charisma
   ],
+  // High Intelligence
   [
-    // High Intelligence
-    [
-      `Rogue`, // Low Strength
-      `Druid`, // Low Dexterity
-      `Wizard`, // Low Constitution
-      `Warlock`, // Low Wisdom
-      `Wizard`, // Low Charisma
-    ],
+    `Rogue`, // Low Strength
+    `Druid`, // Low Dexterity
+    `Wizard`, // Low Constitution
+    `Warlock`, // Low Wisdom
+    `Wizard`, // Low Charisma
   ],
+  // High Wisdom
   [
-    // High Wisdom
-    [
-      `Druid`, // Low Strength
-      `Cleric`, // Low Dexterity
-      `Monk`, // Low Constitution
-      `Cleric`, // Low Intelligence
-      `Druid`, // Low Charisma
-    ],
+    `Druid`, // Low Strength
+    `Cleric`, // Low Dexterity
+    `Monk`, // Low Constitution
+    `Cleric`, // Low Intelligence
+    `Druid`, // Low Charisma
   ],
+  // High Charisma
   [
-    // High Charisma
-    [
-      `Warlock`, // Low Strength
-      `Sorcerer`, // Low Dexterity
-      `Bard`, // Low Constitution
-      `Paladin`, // Low Intelligence
-      `Bard`, // Low Wisdom
-    ],
+    `Warlock`, // Low Strength
+    `Sorcerer`, // Low Dexterity
+    `Bard`, // Low Constitution
+    `Paladin`, // Low Intelligence
+    `Bard`, // Low Wisdom
   ],
 ];
 
