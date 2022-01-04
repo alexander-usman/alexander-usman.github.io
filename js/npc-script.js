@@ -2506,6 +2506,7 @@ const getNPCParents = function (race) {
       }
       break;
   }
+  return `<li>${parents}</li>`;
 };
 
 const getSimpleAppearance = function () {
