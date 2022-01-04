@@ -2697,7 +2697,7 @@ const getNPCLanguages = function (race, npcClass, background) {
   if (race === `Human` || race === `Half-Elf`) {
     let i = 0;
     while (i < 1) {
-      const roll = Math.trunc(Math.random() * languages.length) + 1;
+      const roll = Math.trunc(Math.random() * languages.length);
       if (languageList.includes(`<li>${languages[roll]}</li>`)) {
         // Don't add a language, so don't increment the counter.
       } else {
@@ -2710,7 +2710,7 @@ const getNPCLanguages = function (race, npcClass, background) {
   if (background > 0) {
     let i = 0;
     while (i < background) {
-      const roll = Math.trunc(Math.random() * languages.length) + 1;
+      const roll = Math.trunc(Math.random() * languages.length);
       if (languageList.includes(`<li>${languages[roll]}</li>`)) {
         // Don't add a language, so don't increment the counter.
       } else {
