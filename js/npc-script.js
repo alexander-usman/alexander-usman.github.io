@@ -2126,7 +2126,7 @@ const generateSimpleNPC = function () {
   `;
 };
 
-const getComplexNPC = function () {
+const generateComplexNPC = function () {
   const race = getNPCRace();
   const trimmedRace = stripListMarkup(race);
   const gender = getNPCGender();
