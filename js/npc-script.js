@@ -2686,6 +2686,9 @@ const getNPCParents = function (race) {
 };
 
 const getNPCLanguages = function (race, npcClass, background) {
+  if (race.includes(`Human`)) {
+    race = `Human`;
+  }
   let languageList = ``;
   for (let i = 0; i < languageByRace.get(race).length; i++) {
     languageList += `<li>${languageByRace.get(race)[i]}</li>`;
