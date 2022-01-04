@@ -2766,7 +2766,7 @@ const getNPCLanguages = function (race, npcClass, background) {
     languageList += `<li>Thieves' Cant</li>`;
   }
 
-  return `<li>You Speak: </li><ul>${languageList}</ul>`;
+  return `<li>You speak: </li><ul>${languageList}</ul>`;
 };
 
 const getNPCTools = function (backgroundTools) {
