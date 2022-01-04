@@ -2615,8 +2615,9 @@ const getNPCFlaw = function () {
 };
 
 const getNPCBackground = function () {
-  const roll = Math.trunc(Math.random() * backgrounds.keys().length);
-  return `<li>${backgrounds.get(backgrounds.keys()[roll])}</li>`;
+  const roll = Math.trunc(Math.random() * backgrounds.size);
+  console.log(roll);
+  return `<li>${Array.from(backgrounds.keys())[roll]}</li>`;
 };
 
 btnGenerateSimpleNPC.addEventListener(`click`, generateSimpleNPC);
