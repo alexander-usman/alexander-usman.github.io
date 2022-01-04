@@ -2310,7 +2310,7 @@ const generateComplexNPC = function () {
   const mannerism = getNPCMannerism();
   const interactionTrait = getNPCInteractionTrait();
   const background = getNPCBackground();
-  const trimmedBackground = stripListMarkup(background);
+  const trimmedBackground = stripListMarkup(background[0]);
   const npcClass = getNPCClass(highScore[0], lowScore[0]);
   const trimmedClass = stripListMarkup(npcClass);
   const languages = getNPCLanguages(
@@ -2332,7 +2332,7 @@ const generateComplexNPC = function () {
     ${talent}
     ${mannerism}
     ${interactionTrait}
-    ${background}
+    ${background[1]}
     ${npcClass}
   `;
 };
@@ -2835,7 +2835,9 @@ const getNPCBackground = function () {
     Math.random() * backgrounds.get(background).flaw.length
   );
 
-  return `
+  return [
+    background,
+    `
   <li>${background}</li>
   <ul>
     <li>Trait One: ${
@@ -2848,7 +2850,8 @@ const getNPCBackground = function () {
     <li>Bond: ${backgrounds.get(background).bond[rollBond]}</li>
     <li>Flaw: ${backgrounds.get(background).flaw[rollFlaw]}</li>
   </ul>
-  `;
+  `,
+  ];
 };
 
 const getNPCClass = function (highAbility, lowAbility) {
