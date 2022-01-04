@@ -2203,7 +2203,7 @@ const generateComplexNPC = function () {
   const mannerism = getNPCMannerism();
   const interactionTrait = getNPCInteractionTrait();
   const background = getNPCBackground();
-  const npcClass = getNPCClass();
+  const npcClass = getNPCClass(highScore[0], lowScore[0]);
 
   resultsDiv.innerHTML = `
     <ul>
@@ -2715,7 +2715,7 @@ const getNPCBackground = function () {
   `;
 };
 
-getNPCClass = function (highAbility, lowAbility) {
+const getNPCClass = function (highAbility, lowAbility) {
   const classList = [
     `Strength`,
     `Dexterity`,
