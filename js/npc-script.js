@@ -2615,9 +2615,39 @@ const getNPCFlaw = function () {
 };
 
 const getNPCBackground = function () {
-  const roll = Math.trunc(Math.random() * backgrounds.size);
-  console.log(roll);
-  return `<li>${Array.from(backgrounds.keys())[roll]}</li>`;
+  const rollBackground = Math.trunc(Math.random() * backgrounds.size);
+  const background = Array.from(backgrounds.keys())[rollBackground];
+
+  const rollFirstTrait = Math.trunc(
+    Math.random() * backgrounds.get(background).personality.length
+  );
+  const rollSecondTrait = Math.trunc(
+    Math.random() * backgrounds.get(background).personality.length
+  );
+  const rollIdeal = Math.trunc(
+    Math.random() * backgrounds.get(background).ideal.length
+  );
+  const rollBond = Math.trunc(
+    Math.random() * backgrounds.get(background).bond.length
+  );
+  const rollFlaw = Math.trunc(
+    Math.random() * backgrounds.get(background).flaw.length
+  );
+
+  return `
+  <li>${background}</li>
+  <ul>
+    <li>Trait One: ${
+      backgrounds.get(background).personality[rollFirstTrait]
+    }</li>
+    <li>Traait Two: ${
+      backgrounds.get(background).personality[rollSecondTrait]
+    }</li>
+    <li>Ideal: ${backgrounds.get(background).ideal[rollIdeal]}</li>
+    <li>Bond: ${backgrounds.get(background).bond[rollBond]}</li>
+    <li>Flaw: ${backgrounds.get(background).flaw[rollFlaw]}</li>
+  </ul>
+  `;
 };
 
 btnGenerateSimpleNPC.addEventListener(`click`, generateSimpleNPC);
