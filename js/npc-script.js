@@ -2082,6 +2082,69 @@ const backgrounds = new Map([
   ],
 ]);
 
+const classGrid = [
+  [
+    // High Strength
+    [
+      [`Fighter`], // Low Dexterity
+      [`Paladin`], // Low Constitution
+      [`Barbarian`], // Low Intelligence
+      [`Brbarian`], // Low Wisdom
+      [`Fighter`], // Low Charisma
+    ],
+  ],
+  [
+    // High Dexterity
+    [
+      [`Ranger`], // Low Strength
+      [`Rogue`], // Low Constitution
+      [`Monk`], // Low Intelligence
+      [`Rogue`], // Low Wisdom
+      [`Fighter`], // Low Charisma
+    ],
+  ],
+  [
+    // High Constitution
+    [
+      [`Ranger`], // Low Strength
+      [`Fighter`], // Low Dexterity
+      [`Barbarian`], // Low Intelligence
+      [`Sorcerer`], // Low Wisdom
+      [`Paladin`], // Low Charisma
+    ],
+  ],
+  [
+    // High Intelligence
+    [
+      [`Rogue`], // Low Strength
+      [`Druid`], // Low Dexterity
+      [`Wizard`], // Low Constitution
+      [`Warlock`], // Low Wisdom
+      [`Wizard`], // Low Charisma
+    ],
+  ],
+  [
+    // High Wisdom
+    [
+      [`Druid`], // Low Strength
+      [`Cleric`], // Low Dexterity
+      [`Monk`], // Low Constitution
+      [`Cleric`], // Low Intelligence
+      [`Druid`], // Low Charisma
+    ],
+  ],
+  [
+    // High Charisma
+    [
+      [`Warlock`], // Low Strength
+      [`Sorcerer`], // Low Dexterity
+      [`Bard`], // Low Constitution
+      [`Paladin`], // Low Intelligence
+      [`Bard`], // Low Wisdom
+    ],
+  ],
+];
+
 const resultsDiv = document.querySelector(`.results`);
 const btnGenerateSimpleNPC = document.querySelector(`.btnGenerateSimpleNPC`);
 const btnGenerateComplexNPC = document.querySelector(`.btnGenerateComplexNPC`);
@@ -2114,8 +2177,8 @@ const generateSimpleNPC = function () {
     ${name}
     ${parents}
     ${appearance}
-    ${highScore[0]}: ${highScore[1]}
-    ${lowScore[0]}: ${lowScore[1]}
+    ${highScore[1]}
+    ${lowScore[1]}
     ${talent}
     ${mannerism}
     ${interactionTrait}
@@ -2140,6 +2203,7 @@ const generateComplexNPC = function () {
   const mannerism = getNPCMannerism();
   const interactionTrait = getNPCInteractionTrait();
   const background = getNPCBackground();
+  const npcClass = getNPCClass();
 
   resultsDiv.innerHTML = `
     <ul>
@@ -2148,13 +2212,13 @@ const generateComplexNPC = function () {
     ${name}
     ${parents}
     ${appearance}
-    ${highScore[0]}: ${highScore[1]}
-    ${lowScore[0]}: ${lowScore[1]}
+    ${highScore[1]}
+    ${lowScore[1]}
     ${talent}
     ${mannerism}
     ${interactionTrait}
     ${background}
-    </ul>
+    ${npcClass}
   `;
 };
 
@@ -2649,6 +2713,22 @@ const getNPCBackground = function () {
     <li>Flaw: ${backgrounds.get(background).flaw[rollFlaw]}</li>
   </ul>
   `;
+};
+
+getNPCClass = function (highAbility, lowAbility) {
+  const classList = [
+    `Strength`,
+    `Dexterity`,
+    `Constitution`,
+    `Intelligence`,
+    `Wisdom`,
+    `Charisma`,
+  ];
+  const highIndex = classList.findIndex(highAbility);
+  const lowIndex = classList.findIndex(lowAbility);
+  const npcClass = classGrid[highIndex][lowIndex];
+
+  return `<li>${npcClass}</li>`;
 };
 
 btnGenerateSimpleNPC.addEventListener(`click`, generateSimpleNPC);
