@@ -1373,6 +1373,35 @@ const namesHumanTuramiSurname = [
   `Pisacar`,
   `Ramondo`,
 ];
+// Parent Tables
+const parentsHalfElf = new Map([
+  [5, `One parent was an elf and the other was a human.`],
+  [6, `One parent was an elf and the other was a half-elf.`],
+  [7, `One parent was a human and the other was a half-elf.`],
+  [8, `Both parents were half-elves.`],
+]);
+
+const parentsHalfOrc = new Map([
+  [3, `One parent was an orc and the other was a human.`],
+  [5, `One parent was an orc and the other was a half-orc.`],
+  [7, `One parent was a human and the other was a half-orc.`],
+  [8, `Both parents were half-orcs.`],
+]);
+
+const parentsTiefling = new Map([
+  [
+    4,
+    `Both parents were humans, their infernal heritage dormant until you came along.`,
+  ],
+  [6, `One parent was a tiefling and the other was a human.`],
+  [7, `One parent was a tiefling and the other was a devil.`],
+  [8, `One parent was a human and the other was a devil.`],
+]);
+
+const parentsOther = new Map([
+  [95, `You know who your parents are or were.`],
+  [100, `You do not know who your parents are or were.`],
+]);
 
 const randomNPCAppearance = new Map([
   [1, `Distinctive jewelry: earrings, necklace, circlet, bracelets`],
@@ -1558,6 +1587,7 @@ const generateSimpleNPC = function () {
   const gender = getNPCGender();
   const trimmedGender = stripListMarkup(gender);
   const name = getNPCName(trimmedRace, trimmedGender);
+  const parents = getNPCParents(trimmedRace);
   const appearance = getSimpleAppearance();
   const highScore = getNPCHighAbility();
   const lowScore = getNPCLowAbility(highScore[0]);
@@ -1573,6 +1603,7 @@ const generateSimpleNPC = function () {
     ${race}
     ${gender}
     ${name}
+    ${parents}
     ${appearance}
     ${highScore[0]}: ${highScore[1]}
     ${lowScore[0]}: ${lowScore[1]}
@@ -1891,6 +1922,49 @@ const getNPCName = function (race = `Human`, gender = `Male`) {
   return `<li>${result}</li>`;
 };
 
+getNPCParents = function (race) {
+  let parents = ``;
+  switch (race) {
+    case `Half-Elf`:
+      const roll = Math.trunc(Math.random() * parentsHalfElf.size) + 1;
+      for (const [k, v] of parentsHalfElf) {
+        if (roll <= k) {
+          parents += parentsHalfElf.get(k);
+          break;
+        }
+      }
+      break;
+    case `Half-Orc`:
+      const roll = Math.trunc(Math.random() * parentsHalfElf.size) + 1;
+      for (const [k, v] of parentsHalfOrc) {
+        if (roll <= k) {
+          parents += parentsHalfOrc.get(k);
+          break;
+        }
+      }
+      break;
+    case `Tiefling`:
+      const roll = Math.trunc(Math.random() * parentsHalfElf.size) + 1;
+      for (const [k, v] of parentsTiefling) {
+        if (roll <= k) {
+          parents += parentsTiefling.get(k);
+          break;
+        }
+      }
+      break;
+
+    default:
+      const roll = Math.trunc(Math.random() * parentsOther.size) + 1;
+      for (const [k, v] of parentsOther) {
+        if (roll <= k) {
+          parents += parentsOther.get(k);
+          break;
+        }
+      }
+      break;
+  }
+};
+
 const getSimpleAppearance = function () {
   const roll = Math.trunc(Math.random() * randomNPCAppearance.size) + 1;
   return `<li>${randomNPCAppearance.get(roll)}</li>`;
@@ -1912,7 +1986,7 @@ const getNPCLowAbility = function (highAbility) {
     Math.trunc(Math.random() * randomNPCLowAbility.get(roll).length - 1) + 1;
 
   if (randomNPCLowAbility.get(roll)[0] === highAbility) {
-    getNPCLowAbility(highAbility);
+    return getNPCLowAbility(highAbility);
   }
   return [
     randomNPCLowAbility.get(roll)[0],

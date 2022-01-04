@@ -1827,6 +1827,12 @@ const generateQuestHook = function () {
   dWhat = questTable.length;
   const roll = Math.trunc(Math.random() * dWhat);
 
+  if (hookType != `Other` && roll === 10) {
+    const firstRoll = Math.trunc(Math.random() * dWhat);
+    const secondRoll = Math.trunc(Math.random() * dWhat);
+    return `<li>${questTable[firstRoll]}, ${questTable[secondRoll]}</li>`;
+  }
+
   resultsDiv.innerHTML = `
     Quest Hook: ${questTable[roll]}
   `;
