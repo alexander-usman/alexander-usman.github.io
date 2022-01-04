@@ -2718,8 +2718,8 @@ const getNPCClass = function (highAbility, lowAbility) {
     `Charisma`,
   ];
 
-  const highIndex = classList.findIndex(highAbility);
-  const lowIndex = classList.findIndex(lowAbility);
+  const highIndex = classList.indexOf(highAbility);
+  const lowIndex = classList.indexOf(lowAbility);
   const npcClass = classGrid[highIndex][lowIndex];
 
   return `<li>${npcClass}</li>`;
