@@ -2403,7 +2403,8 @@ const generateSimpleNPC = function () {
 
   resultsDiv.innerHTML = `
     <ul>
-    ${race + ` - ` + subrace}
+    ${race}
+    ${subrace}
     ${gender}
     ${name}
     ${appearance}
