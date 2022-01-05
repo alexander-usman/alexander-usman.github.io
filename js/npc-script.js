@@ -2830,7 +2830,7 @@ const getNPCSiblings = function (npcRace) {
       siblingList += siblingInfo;
     }
   } else {
-    siblingList += `You have no siblings.`;
+    siblingList += `<li>You have no siblings</li>`;
   }
 
   return `<li>Siblings: <ul>${siblingList}</ul></li>`;
