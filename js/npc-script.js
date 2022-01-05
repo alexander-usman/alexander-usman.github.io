@@ -3077,7 +3077,7 @@ const getNPCBirthplace = function () {
 
 const getNPCSiblings = function (npcRace, npcSubrace) {
   let siblingList = ``;
-  const roll = rollXDX(1, 10);
+  let roll = rollXDX(1, 10);
   let numSiblings = 0;
 
   if (npcRace === `Elf` || npcRace === `Dwarf`) {
