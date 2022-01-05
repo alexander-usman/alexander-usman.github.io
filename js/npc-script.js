@@ -2841,7 +2841,7 @@ const getNPCSiblings = function (npcRace) {
 };
 
 const getSiblingFirstName = function (npcName) {
-  return npcName.replace(/^([^\s]+) |\((.*?)\)/, ``);
+  return npcName.match(/^([^\s]+) |\((.*?)\)/, ``).toString();
 };
 
 const getNPCLanguages = function (race, npcClass, background) {
