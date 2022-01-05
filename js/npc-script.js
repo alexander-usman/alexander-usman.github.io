@@ -2443,7 +2443,12 @@ const generateComplexNPC = function () {
     backgrounds.get(background[0]).languages
   );
   const tools = getNPCTools(backgrounds.get(background[0]).tools);
-  const origin = getNPCOrigin(trimmedRace, background[0], npcClass[0]);
+  const origin = getNPCOrigin(
+    trimmedRace,
+    background[0],
+    npcClass[0],
+    subrace[0]
+  );
 
   resultsDiv.innerHTML = `
     <ul>
@@ -2802,10 +2807,10 @@ const getNPCName = function (
   return `<li>${result}</li>`;
 };
 
-const getNPCOrigin = function (npcRace, npcBackground, npcClass) {
+const getNPCOrigin = function (npcRace, npcBackground, npcClass, npcSubrace) {
   const parents = getNPCParents(npcRace);
   const birthplace = getNPCBirthplace();
-  const siblings = getNPCSiblings(npcRace);
+  const siblings = getNPCSiblings(npcRace, npcSubrace);
 
   return `
   <li> Origin: 
@@ -2875,7 +2880,7 @@ const getNPCBirthplace = function () {
   return `<li>${birthplace}</li>`;
 };
 
-const getNPCSiblings = function (npcRace) {
+const getNPCSiblings = function (npcRace, npcSubrace) {
   let siblingList = ``;
   const roll = rollXDX(1, 10);
   let numSiblings = 0;
@@ -2897,9 +2902,10 @@ const getNPCSiblings = function (npcRace) {
       const siblingGender = getNPCGender();
       const siblingFullName = getNPCName(
         npcRace,
-        stripListMarkup(siblingGender)
+        stripListMarkup(siblingGender),
+        npcSubrace
       );
-      const siblingName = getSiblingFirstName(siblingFullName, npcRace);
+      const siblingName = getSiblingFirstName(siblingFullName);
       const birthOrderRoll = rollXDX(1, 12);
       let siblingOrder = ``;
       if (birthOrderRoll <= 2) {
@@ -2926,7 +2932,7 @@ const getNPCSiblings = function (npcRace) {
   return `<li>Siblings: <ul>${siblingList}</ul></li>`;
 };
 
-const getSiblingFirstName = function (npcName, npcRace) {
+const getSiblingFirstName = function (npcName) {
   let firstPart = ``;
   let secondPart = ``;
   firstPart += npcName.slice(0, npcName.indexOf(` `));
