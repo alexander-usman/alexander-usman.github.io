@@ -2418,7 +2418,9 @@ const generateSimpleNPC = function () {
 };
 
 const generateComplexNPC = function () {
-  const race = getNPCRace();
+  const wholeRace = getNPCRace();
+  const raceRoll = wholeRace[0];
+  const race = wholeRace[1];
   const trimmedRace = stripListMarkup(race);
   const subrace = getNPCSubrace(trimmedRace);
   const gender = getNPCGender();
@@ -2470,7 +2472,7 @@ const getNPCRace = function () {
   //   return `<li>${randomNPCRace.get(roll)} - ${humanType}</li>`;
   // }
 
-  return `<li>${randomNPCRace.get(roll)}</li>`;
+  return [roll, `<li>${randomNPCRace.get(roll)}</li>`];
 };
 
 const getNPCSubrace = function (npcRace) {
@@ -3117,7 +3119,7 @@ const getNPCBackground = function () {
     <li>Trait One: ${
       backgrounds.get(background).personality[rollFirstTrait]
     }</li>
-    <li>Traait Two: ${
+    <li>Trait Two: ${
       backgrounds.get(background).personality[rollSecondTrait]
     }</li>
     <li>Ideal: ${backgrounds.get(background).ideal[rollIdeal]}</li>
