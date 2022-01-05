@@ -2404,7 +2404,7 @@ const generateSimpleNPC = function () {
   resultsDiv.innerHTML = `
     <ul>
     ${race}
-    ${subrace}
+    ${subrace[1]}
     ${gender}
     ${name}
     ${appearance}
@@ -2428,7 +2428,7 @@ const generateComplexNPC = function () {
   const subrace = getNPCSubrace(raceRoll);
   const gender = getNPCGender();
   const trimmedGender = stripListMarkup(gender);
-  const name = getNPCName(trimmedRace, trimmedGender);
+  const name = getNPCName(trimmedRace, trimmedGender, subrace);
   const appearance = getSimpleAppearance();
   const highScore = getNPCHighAbility();
   const lowScore = getNPCLowAbility(highScore[0]);
@@ -2448,7 +2448,7 @@ const generateComplexNPC = function () {
   resultsDiv.innerHTML = `
     <ul>
     ${race}
-    ${subrace}
+    ${subrace[1]}
     ${gender}
     ${name}
     ${languages}
@@ -2481,7 +2481,7 @@ const getNPCSubrace = function (npcRace) {
   } else {
     subrace += `No subrace`;
   }
-  return `<ul><li>${subrace}</li></ul>`;
+  return [subrace, `<ul><li>${subrace}</li></ul>`];
 };
 
 const getNPCGender = function () {
@@ -2501,7 +2501,7 @@ const getNPCName = function (race = `Human`, gender = `Male`, subrace = ``) {
   let childNameRoll = 0;
   let namedBy = 0;
 
-  if (subrace != ``) {
+  if (subrace != `No subrace`) {
     race += ` - ${subrace}`;
   }
 
