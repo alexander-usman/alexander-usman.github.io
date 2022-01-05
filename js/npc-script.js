@@ -2396,7 +2396,6 @@ const generateComplexNPC = function () {
     ${race}
     ${gender}
     ${name}
-    ${parents}
     ${languages}
     ${tools}
     ${appearance}
@@ -2406,6 +2405,7 @@ const generateComplexNPC = function () {
     ${mannerism}
     ${interactionTrait}
     ${background[1]}
+    ${origin}
     ${npcClass[1]}
     </ul>
   `;
