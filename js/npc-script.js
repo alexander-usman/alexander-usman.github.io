@@ -2809,7 +2809,11 @@ const getNPCSiblings = function (npcRace) {
     for (let i = 0; i < numSiblings; i++) {
       let siblingInfo = ``;
       const siblingGender = getNPCGender();
-      const siblingName = getNPCName(npcRace, stripListMarkup(siblingGender));
+      const siblingFullName = getNPCName(
+        npcRace,
+        stripListMarkup(siblingGender)
+      );
+      const siblingName = getSiblingFirstName(siblingFullName);
       const birthOrderRoll = rollXDX(1, 12);
       let siblingOrder = ``;
       if (birthOrderRoll <= 2) {
@@ -2834,6 +2838,10 @@ const getNPCSiblings = function (npcRace) {
   }
 
   return `<li>Siblings: <ul>${siblingList}</ul></li>`;
+};
+
+const getSiblingFirstName = function (npcName) {
+  return npcName.replace(/^([^\s]+) |\((.*?)\)/, ``);
 };
 
 const getNPCLanguages = function (race, npcClass, background) {
