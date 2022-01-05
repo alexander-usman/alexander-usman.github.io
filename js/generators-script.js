@@ -1515,7 +1515,52 @@ const otherGoals = [
   `Interfere with the operation of a business.`,
   `Rescue a character, monster, or object from a natural or unnatural disaster.`,
 ];
+// Tavern Name Tables
+const tavernFirst = [
+  `The Silver`,
+  `The Golden`,
+  `The Staggering`,
+  `The Laughing`,
+  `The Prancing`,
+  `The Gilded`,
+  `The Running`,
+  `The Howling`,
+  `The Slaughtered`,
+  `The Leering`,
+  `The Drunken`,
+  `The Leaping`,
+  `The Roaring`,
+  `The Frowning`,
+  `The Lonely`,
+  `The Wandering`,
+  `The Mysterious`,
+  `The Barking`,
+  `The Black`,
+  `The Gleaming`,
+];
 
+const tavernSecond = [
+  `Eel`,
+  `Dolphin`,
+  `Dwarf`,
+  `Pegasus`,
+  `Pony`,
+  `Rose`,
+  `Stag`,
+  `Wolf`,
+  `Lamb`,
+  `Demon`,
+  `Goat`,
+  `Spirit`,
+  `Horde`,
+  `Jester`,
+  `Mountain`,
+  `Eagle`,
+  `Satyr`,
+  `Dog`,
+  `Spider`,
+  `Star`,
+];
 // HTML Elements
 const resultsDiv = document.querySelector(`.results`);
 const btnGenerateIndividualLoot = document.querySelector(
@@ -1526,6 +1571,7 @@ const btnGenerateHoardLoot = document.querySelector(
 );
 const btnGenerateRandomItem = document.querySelector(`.btnGenerateRandomItem`);
 const btnGenerateQuestHook = document.querySelector(`.btnGenerateQuestHook`);
+const btnGenerateTavernName = document.querySelector(`.btnGenerateTavernName`);
 
 const generateIndividualLoot = function () {
   const numMonsters = Number(
@@ -1834,7 +1880,18 @@ const generateQuestHook = function () {
   }
 
   resultsDiv.innerHTML = `
-    <h3>Quest Hook</h3> <ul>${questTable[roll]}</ul>
+    <h3>Quest Hook</h3> <ul><li>${questTable[roll]}</li></ul>
+  `;
+};
+
+const generateTavernName = function () {
+  const firstRoll = Math.trunc(Math.random() * tavernFirst.length);
+  const secondRoll = Math.trunc(Math.random() * tavernSecond.length);
+
+  resultsDiv.innerHTML = `
+    <h3>Tavern Name</h3> <ul><li>${
+      tavernFirst[firstRoll] + ` ` + tavernSecond[secondRoll]
+    }</li></ul>
   `;
 };
 
@@ -1972,3 +2029,4 @@ btnGenerateIndividualLoot.addEventListener(`click`, generateIndividualLoot);
 btnGenerateHoardLoot.addEventListener(`click`, generateTreasureHoard);
 btnGenerateRandomItem.addEventListener(`click`, generateRandomItem);
 btnGenerateQuestHook.addEventListener(`click`, generateQuestHook);
+btnGenerateTavernName.addEventListener(`click`, generateTavernName);
