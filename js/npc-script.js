@@ -2477,7 +2477,6 @@ const getNPCSubrace = function (npcRace) {
       Math.random() * randomNPCRace.get(npcRace)[1].length
     );
     subrace += randomNPCRace.get(npcRace)[1][roll];
-    return subrace;
   } else {
     subrace += `No subrace`;
   }
