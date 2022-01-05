@@ -3337,10 +3337,50 @@ const getNPCBackground = function () {
     Math.random() * backgrounds.get(background).flaw.length
   );
 
+  let rollSpecialty = -1;
+  let specialty = ``;
+  if (backgrounds.get(background).hasOwnProperty(`scheme`)) {
+    rollSpecialty = Math.trunc(
+      Math.random() * backgrounds.get(background).scheme.length
+    );
+    specialty += backgrounds.get(background).scheme[rollSpecialty];
+  } else if (backgrounds.get(background).hasOwnProperty(`specialty`)) {
+    rollSpecialty = Math.trunc(
+      Math.random() * backgrounds.get(background).specialty.length
+    );
+    specialty += backgrounds.get(background).specialty[rollSpecialty];
+  } else if (backgrounds.get(background).hasOwnProperty(`routine`)) {
+    rollSpecialty = Math.trunc(
+      Math.random() * backgrounds.get(background).routine.length
+    );
+    specialty += backgrounds.get(background).routine[rollSpecialty];
+  } else if (backgrounds.get(background).hasOwnProperty(`defininigEvent`)) {
+    rollSpecialty = Math.trunc(
+      Math.random() * backgrounds.get(background).definingEvent.length
+    );
+  } else if (backgrounds.get(background).hasOwnProperty(`guildBusiness`)) {
+    rollSpecialty = Math.trunc(
+      Math.random() * backgrounds.get(background).guildBusiness.length
+    );
+    specialty += backgrounds.get(background).guildBusiness[rollSpecialty];
+  } else if (backgrounds.get(background).hasOwnProperty(`lifeOfSeclusion`)) {
+    rollSpecialty = Math.trunc(
+      Math.random() * backgrounds.get(background).lifeOfSeclusion.length
+    );
+    specialty += backgrounds.get(background).lifeOfSeclusion[rollSpecialty];
+  } else if (backgrounds.get(background).hasOwnProperty(`origin`)) {
+    rollSpecialty = Math.trunc(
+      Math.random() * backgrounds.get(background).origin.length
+    );
+    specialty += backgrounds.get(background).origin[rollSpecialty];
+  } else {
+    specialty = `No specialty`;
+  }
+
   return [
     background,
     `
-  <li>${background}</li>
+  <li>${background} - ${specialty}</li>
   <ul>
     <li>Trait One: ${
       backgrounds.get(background).personality[rollFirstTrait]
@@ -3351,6 +3391,7 @@ const getNPCBackground = function () {
     <li>Ideal: ${backgrounds.get(background).ideal[rollIdeal]}</li>
     <li>Bond: ${backgrounds.get(background).bond[rollBond]}</li>
     <li>Flaw: ${backgrounds.get(background).flaw[rollFlaw]}</li>
+    <li>Equipment: ${backgrounds.get(background).equipment}</li>
   </ul>
   `,
   ];
