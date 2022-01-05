@@ -2,15 +2,48 @@
 // Random NPC Tables
 // Race Tables
 const randomNPCRace = new Map([
-  [1, [`Dragonborn`]],
-  [2, [`Dwarf`]],
-  [3, [`Elf`]],
-  [4, [`Gnome`]],
-  [5, [`Half-Elf`]],
-  [6, [`Halfling`]],
-  [7, [`Half-Orc`]],
-  [8, [`Human`]],
-  [9, [`Tiefling`]],
+  [
+    1,
+    [
+      `Dragonborn`,
+      [
+        `Black`,
+        `Blue`,
+        `Brass`,
+        `Bronze`,
+        `Copper`,
+        `Gold`,
+        `Green`,
+        `Red`,
+        `Silver`,
+        `White`,
+      ],
+    ],
+  ],
+  [2, [`Dwarf`, [`Hill`, `Mountain`]]],
+  [3, [`Elf`, [`High`, `Wood`, `Drow`]]],
+  [4, [`Gnome`, [`Forest`, `Rock`]]],
+  [5, [`Half-Elf`, []]],
+  [6, [`Halfling`, [`Lightfoot`, `Stout`]]],
+  [7, [`Half-Orc`, []]],
+  [
+    8,
+    [
+      `Human`,
+      [
+        `Calishite`,
+        `Chondathan`,
+        `Damaran`,
+        `Illuskan`,
+        `Mulan`,
+        `Rashemi`,
+        `Shou`,
+        `Tethyrian`,
+        `Turami`,
+      ],
+    ],
+  ],
+  [9, [`Tiefling`, []]],
 ]);
 
 const languageByRace = new Map([
@@ -23,6 +56,20 @@ const languageByRace = new Map([
   [`Half-Orc`, [`Common`, `Orc`]],
   [`Human`, [`Common`]],
   [`Tiefling`, [`Common`, `Infernal`]],
+]);
+
+const heightWeightBySubrace = new Map([
+  [
+    [`Dragonborn`, [`Common`, `Draconic`]],
+    [`Dwarf`, [`Common`, `Dwarvish`]],
+    [`Elf`, [`Common`, `Elvish`]],
+    [`Gnome`, [`Common`, `Gnomish`]],
+    [`Half-Elf`, [`Common`, `Elvish`]],
+    [`Halfling`, [`Common`, `Halfling`]],
+    [`Half-Orc`, [`Common`, `Orc`]],
+    [`Human`, [`Common`]],
+    [`Tiefling`, [`Common`, `Infernal`]],
+  ],
 ]);
 
 const randomHumanType = new Map([
@@ -2338,6 +2385,7 @@ const rollXDX = function (numDice = 1, dWhat = 6, modifier = 0) {
 const generateSimpleNPC = function () {
   const race = getNPCRace();
   const trimmedRace = stripListMarkup(race);
+  const subrace = getNPCSubrace(trimmedRace);
   const gender = getNPCGender();
   const trimmedGender = stripListMarkup(gender);
   const name = getNPCName(trimmedRace, trimmedGender);
@@ -2353,7 +2401,7 @@ const generateSimpleNPC = function () {
 
   resultsDiv.innerHTML = `
     <ul>
-    ${race}
+    ${race + ` - ` + subrace}
     ${gender}
     ${name}
     ${appearance}
@@ -2372,6 +2420,7 @@ const generateSimpleNPC = function () {
 const generateComplexNPC = function () {
   const race = getNPCRace();
   const trimmedRace = stripListMarkup(race);
+  const subrace = getNPCSubrace(trimmedRace);
   const gender = getNPCGender();
   const trimmedGender = stripListMarkup(gender);
   const name = getNPCName(trimmedRace, trimmedGender);
@@ -2393,7 +2442,7 @@ const generateComplexNPC = function () {
 
   resultsDiv.innerHTML = `
     <ul>
-    ${race}
+    ${race + ` - ` + subrace}
     ${gender}
     ${name}
     ${languages}
@@ -2414,14 +2463,25 @@ const generateComplexNPC = function () {
 const getNPCRace = function () {
   const roll = Math.trunc(Math.random() * randomNPCRace.size) + 1;
 
-  if (randomNPCRace.get(roll)[0] === `Human`) {
-    const humanType = randomHumanType.get(
-      Math.trunc(Math.random() * randomHumanType.size) + 1
-    );
-    return `<li>${randomNPCRace.get(roll)} - ${humanType}</li>`;
-  }
+  // if (randomNPCRace.get(roll)[0] === `Human`) {
+  //   const humanType = randomHumanType.get(
+  //     Math.trunc(Math.random() * randomHumanType.size) + 1
+  //   );
+  //   return `<li>${randomNPCRace.get(roll)} - ${humanType}</li>`;
+  // }
 
   return `<li>${randomNPCRace.get(roll)}</li>`;
+};
+
+const getNPCSubrace = function (npcRace) {
+  if (randomNPCRace.get(npcRace)[1] != []) {
+    const roll = Math.trunc(
+      Math.random() * randomNPCRace.get(npcRace)[1].length
+    );
+    const subrace = randomNPCRace.get(npcRace)[1][roll];
+    return subrace;
+  }
+  return `No subrace`;
 };
 
 const getNPCGender = function () {
@@ -2434,12 +2494,16 @@ const getNPCGender = function () {
   }
 };
 
-const getNPCName = function (race = `Human`, gender = `Male`) {
+const getNPCName = function (race = `Human`, gender = `Male`, subrace = ``) {
   let result = ``;
   let firstNameRoll = 0;
   let lastNameRoll = 0;
   let childNameRoll = 0;
   let namedBy = 0;
+
+  if (subrace != ``) {
+    race += ` - ${subrace}`;
+  }
 
   switch (race) {
     case `Dragonborn`:
