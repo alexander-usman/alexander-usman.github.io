@@ -2510,7 +2510,16 @@ const getNPCName = function (
   }
 
   switch (race) {
-    case `Dragonborn`:
+    case `Dragonborn - Black`:
+    case `Dragonborn - Blue`:
+    case `Dragonborn - Brass`:
+    case `Dragonborn - Bronze`:
+    case `Dragonborn - Copper`:
+    case `Dragonborn - Gold`:
+    case `Dragonborn - Green`:
+    case `Dragonborn - Red`:
+    case `Dragonborn - Silver`:
+    case `Dragonborn - White`:
       if (gender === `Male`) {
         firstNameRoll = Math.trunc(Math.random() * namesDragonbornMale.length);
         result += `${namesDragonbornMale[firstNameRoll]} `;
@@ -2524,7 +2533,8 @@ const getNPCName = function (
       result += `${namesDragonbornClan[lastNameRoll]}`;
       break;
 
-    case `Dwarf`:
+    case `Dwarf - Hill`:
+    case `Dwarf - Mountain`:
       if (gender === `Male`) {
         firstNameRoll = Math.trunc(Math.random() * namesDwarfMale.length);
         result += `${namesDwarfMale[firstNameRoll]} `;
@@ -2536,7 +2546,8 @@ const getNPCName = function (
       result += `${namesDwarfClan[lastNameRoll]}`;
       break;
 
-    case `Elf`:
+    case `Elf - High`:
+    case `Elf - Wood`:
       if (gender === `Male`) {
         firstNameRoll = Math.trunc(Math.random() * namesElfAdultMale.length);
         result += `${namesElfAdultMale[firstNameRoll]} `;
@@ -2550,7 +2561,8 @@ const getNPCName = function (
       result += ` (Child name: ${namesElfChild[childNameRoll]})`;
       break;
 
-    case `Gnome`:
+    case `Gnome - Forest`:
+    case `Gnome - Rock`:
       if (gender === `Male`) {
         firstNameRoll = Math.trunc(Math.random() * namesGnomeMale.length);
         result += `${namesGnomeMale[firstNameRoll]} `;
@@ -2568,13 +2580,19 @@ const getNPCName = function (
         result += getNPCName(`Human - ${randomHumanType.get(namedBy)}`, gender);
         return result;
       } else {
-        result += getNPCName(`Elf`, gender);
+        const elfType = rollXDX(1, 2);
+        if (elfType === 1) {
+          result += getNPCName(`Elf`, gender, `High`);
+        } else {
+          result += getNPCName(`Elf`, gender, `Wood`);
+        }
         return result;
       }
 
       break;
 
-    case `Halfling`:
+    case `Halfling - Lightfoot`:
+    case `Halfling - Stout`:
       if (gender === `Male`) {
         firstNameRoll = Math.trunc(Math.random() * namesHalflingMale.length);
         result += `${namesHalflingMale[firstNameRoll]} `;
@@ -2776,7 +2794,6 @@ const getNPCName = function (
         }
       }
       break;
-
     default:
       break;
   }
