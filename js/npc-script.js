@@ -2722,7 +2722,7 @@ const getNPCOrigin = function (npcRace, npcBackground, npcClass) {
   const siblings = getNPCSiblings(npcRace);
 
   return `
-  <li>
+  <li> Origin: 
     <ul>
       ${parents}
       ${birthplace}
