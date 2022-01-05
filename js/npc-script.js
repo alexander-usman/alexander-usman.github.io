@@ -2403,7 +2403,7 @@ const generateSimpleNPC = function () {
 
   resultsDiv.innerHTML = `
     <ul>
-    ${race[0] + ` - ` + subrace}
+    ${race + ` - ` + subrace}
     ${gender}
     ${name}
     ${appearance}
@@ -2446,7 +2446,7 @@ const generateComplexNPC = function () {
 
   resultsDiv.innerHTML = `
     <ul>
-    ${race[0] + ` - ` + subrace}
+    ${race + ` - ` + subrace}
     ${gender}
     ${name}
     ${languages}
@@ -2474,7 +2474,7 @@ const getNPCRace = function () {
   //   return `<li>${randomNPCRace.get(roll)} - ${humanType}</li>`;
   // }
 
-  return [roll, `<li>${randomNPCRace.get(roll)}</li>`];
+  return [roll, `<li>${randomNPCRace.get(roll)[0]}</li>`];
 };
 
 const getNPCSubrace = function (npcRace) {
