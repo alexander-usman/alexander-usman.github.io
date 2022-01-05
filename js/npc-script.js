@@ -2718,9 +2718,7 @@ const getNPCName = function (race = `Human`, gender = `Male`) {
 
 const getNPCOrigin = function (npcRace, npcBackground, npcClass) {
   const parents = getNPCParents(npcRace);
-
-  let roll = Math.trunc(Math.random() * birthplaces.length);
-  const birthplace = `<li>${birthplaces[roll]}</li>`;
+  const birthplace = getNPCBirthplace();
   const siblings = getNPCSiblings(npcRace);
 
   return `
@@ -2779,6 +2777,18 @@ const getNPCParents = function (race) {
   return `<li>${parents}</li>`;
 };
 
+const getNPCBirthplace = function () {
+  let birthplace = ``;
+  const roll = rollXDX(1, 100);
+  for (const [k, v] of birthplaces) {
+    if (roll <= k) {
+      birthplace += `${v}`;
+      break;
+    }
+  }
+  return `<li>${birthplace}</li>`;
+};
+
 const getNPCSiblings = function (npcRace) {
   let siblingList = ``;
   const roll = rollXDX(1, 10);
@@ -2823,7 +2833,7 @@ const getNPCSiblings = function (npcRace) {
     siblingList += `You have no siblings.`;
   }
 
-  return `<li><ul>${siblingList}</ul></li>`;
+  return `<li>Siblings: <ul>${siblingList}</ul></li>`;
 };
 
 const getNPCLanguages = function (race, npcClass, background) {
