@@ -2843,12 +2843,12 @@ const getNPCSiblings = function (npcRace) {
 const getSiblingFirstName = function (npcName, npcRace) {
   let firstPart = ``;
   let secondPart = ``;
-  firstPart += npcName.slice(0, indexOf(` `));
+  firstPart += npcName.slice(0, npcName.indexOf(` `));
 
   if (npcName.includes(`(`)) {
     secondPart += npcName.slice(npcName.indexOf(`(`), npcName.indexOf(`)`) + 1);
   }
-  return `${firstPart + secondPart}`;
+  return `${firstPart + ` ` + secondPart}`;
 };
 
 const getNPCLanguages = function (race, npcClass, background) {
