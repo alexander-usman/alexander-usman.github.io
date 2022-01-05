@@ -1834,7 +1834,7 @@ const generateQuestHook = function () {
   }
 
   resultsDiv.innerHTML = `
-    Quest Hook: ${questTable[roll]}
+    <h3>Quest Hook</h3> ${questTable[roll]}
   `;
 };
 
