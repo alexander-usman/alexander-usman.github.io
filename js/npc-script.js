@@ -2494,7 +2494,11 @@ const getNPCGender = function () {
   }
 };
 
-const getNPCName = function (race = `Human`, gender = `Male`, subrace = ``) {
+const getNPCName = function (
+  race = `Human`,
+  gender = `Male`,
+  subrace = `No subrace`
+) {
   let result = ``;
   let firstNameRoll = 0;
   let lastNameRoll = 0;
