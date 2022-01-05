@@ -2446,7 +2446,8 @@ const generateComplexNPC = function () {
 
   resultsDiv.innerHTML = `
     <ul>
-    ${race + ` - ` + subrace}
+    ${race}
+    ${subrace}
     ${gender}
     ${name}
     ${languages}
@@ -2466,26 +2467,21 @@ const generateComplexNPC = function () {
 
 const getNPCRace = function () {
   const roll = Math.trunc(Math.random() * randomNPCRace.size) + 1;
-
-  // if (randomNPCRace.get(roll)[0] === `Human`) {
-  //   const humanType = randomHumanType.get(
-  //     Math.trunc(Math.random() * randomHumanType.size) + 1
-  //   );
-  //   return `<li>${randomNPCRace.get(roll)} - ${humanType}</li>`;
-  // }
-
   return [roll, `<li>${randomNPCRace.get(roll)[0]}</li>`];
 };
 
 const getNPCSubrace = function (npcRace) {
+  let subrace = ``;
   if (randomNPCRace.get(npcRace)[1].length > 0) {
     const roll = Math.trunc(
       Math.random() * randomNPCRace.get(npcRace)[1].length
     );
-    const subrace = randomNPCRace.get(npcRace)[1][roll];
+    subrace += randomNPCRace.get(npcRace)[1][roll];
     return subrace;
+  } else {
+    subrace += `No subrace`;
   }
-  return `No subrace`;
+  return `<ul><li>${subrace}</li></ul>`;
 };
 
 const getNPCGender = function () {
