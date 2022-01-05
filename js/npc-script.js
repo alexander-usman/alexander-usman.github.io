@@ -58,20 +58,6 @@ const languageByRace = new Map([
   [`Tiefling`, [`Common`, `Infernal`]],
 ]);
 
-const heightWeightBySubrace = new Map([
-  [
-    [`Dragonborn`, [`Common`, `Draconic`]],
-    [`Dwarf`, [`Common`, `Dwarvish`]],
-    [`Elf`, [`Common`, `Elvish`]],
-    [`Gnome`, [`Common`, `Gnomish`]],
-    [`Half-Elf`, [`Common`, `Elvish`]],
-    [`Halfling`, [`Common`, `Halfling`]],
-    [`Half-Orc`, [`Common`, `Orc`]],
-    [`Human`, [`Common`]],
-    [`Tiefling`, [`Common`, `Infernal`]],
-  ],
-]);
-
 const randomHumanType = new Map([
   [1, `Calishite`],
   [2, `Chondathan`],
@@ -1721,6 +1707,7 @@ const backgrounds = new Map([
         `I am suspicious of strangers and suspect the worst of them.`,
         `Once I pick a goal, I become obsessed with it to the detriment of everything else in my life.`,
       ],
+      equipment: `A holy symbol (a gift to you when you entered the priesthood), a prayer book or prayer wheel, 5 sticks of incense, vestments, a set of common clothes, and a belt pouch containing 15 gp`,
     },
   ],
   [
@@ -1762,6 +1749,15 @@ const backgrounds = new Map([
         `I'm too greedy for my own good. I can't resist taking a risk if there's money involved.`,
         `I can't resist swindling people who are more powerful than me.`,
         `I hate to admit it and will hate myself for it, but I'll run and preserve my own hide if the going gets tough.`,
+      ],
+      equipment: `A set of fine clothes, a disguise kit, tools of the con of your choice (ten stoppered bottles filled with colored liquid, a set o f weighted dice, a deck of marked cards, or a signet ring of an imaginary duke), and a belt pouch containing 15 gp`,
+      scheme: [
+        `I cheat at games of chance.`,
+        `I shave coins or forge documents.`,
+        `I insinuate myself into people’s lives to prey on their weakness and secure their fortunes.`,
+        `I put on new identities like clothes.`,
+        `I run sleight-of-hand cons on street corners.`,
+        `I convince people that worthless junk is worth their hard-earned money.`,
       ],
     },
   ],
@@ -1805,6 +1801,17 @@ const backgrounds = new Map([
         `I turn tail and run when things go bad.`,
         `An innocent person is in prison for a crime that I committed. I'm okay with that.`,
       ],
+      equipment: `A crowbar, a set of dark common clothes including a hood, and a belt pouch containing 15 gp`,
+      specialty: [
+        `Blackmailer`,
+        `Burglar`,
+        `Enforcer`,
+        `Fence`,
+        `Highway Robber`,
+        `hired Killer`,
+        `Pickpocket`,
+        `Smuggler`,
+      ],
     },
   ],
   [
@@ -1846,6 +1853,19 @@ const backgrounds = new Map([
         `I once satirized a noble who still wants my head. It was a mistake that I will likely repeat.`,
         `I have trouble keeping my true feelings hidden. My sharp tongue lands me in trouble.`,
         `Despite my best efforts, I am unreliable to my friends.`,
+      ],
+      equipment: `A musical instrument (one of your choice), the favor of an admirer (love letter, lock o f hair, or trinket), a costume, and a belt pouch containing 15 gp`,
+      routine: [
+        `Actor`,
+        `Dancer`,
+        `Fire-Eater`,
+        `Jester`,
+        `Juggler`,
+        `Instrumentalist`,
+        `poet`,
+        `Singer`,
+        `Storyteller`,
+        `Tumbler`,
       ],
     },
   ],
@@ -1889,6 +1909,19 @@ const backgrounds = new Map([
         `Secretly, I believe that things would be better if I were a tyrant lording over the land.`,
         `I have trouble trusting in my allies.`,
       ],
+      equipment: `A set of artisan’s tools (one of your choice), a shovel, an iron pot, a set of common clothes, and a belt pouch containing 10 gp`,
+      definingEvent: [
+        `I stood up to a tyrant’s agents.`,
+        `I saved people during a natural disaster.`,
+        `I stood alone against a terrible monster.`,
+        `I stole from a corrupt merchant to help the poor.`,
+        `I led a militia to fight off an invading army.`,
+        `I broke into a tyrant’s castle and stole weapons to arm the people.`,
+        `I trained the peasantry to use farm implements as weapons against a tyrant’s soldiers.`,
+        ` A lord rescinded an unpopular decree after I led a symbolic act of protect against it.`,
+        `A celestial, fey, or similar creature gave me a blessing or revealed my secret origin.`,
+        `Recruited into a lord’s army, I rose to leadership and was commended for my heroism.`,
+      ],
     },
   ],
   [
@@ -1930,6 +1963,29 @@ const backgrounds = new Map([
         `I'm never satisfied with what I have--I always want more.`,
         `I would kill to acquire a noble title.`,
         `I'm horribly jealous of anyone who outshines my handiwork. Everywhere I go, I'm surrounded by rivals.`,
+      ],
+      equipment: `A set o f artisan’s tools (one of your choice), a letter of introduction from your guild, a set of traveler’s clothes, and a belt pouch containing 15 gp`,
+      guildBusiness: [
+        `Alchemists and apothecaries`,
+        `Armorers, locksmiths, and finesmiths`,
+        `Brewers, distillers, and vintners`,
+        `Calligraphers, scribes, and scriveners`,
+        `Carpenters, roofers, and plasterers`,
+        `Cartographers, surveyors, and chart-makers`,
+        `Cobblers and shoemakers`,
+        `Cooks and bakers`,
+        `Glassblowers and glaziers`,
+        `Jewelers and gemcutters`,
+        `Leatherworkers, skinners, and tanners`,
+        `Masons and stonecutters`,
+        `Painters, limners, and sign-makers`,
+        `Potters and tile-makers`,
+        `Shipwrights and sailmakers`,
+        `Smiths and metal-forgers`,
+        `Tinkers, pewterers, and casters`,
+        `Wagon-makers and wheelwrights`,
+        `Weavers and dyers`,
+        `Woodcarvers, coopers, and bowyers`,
       ],
     },
   ],
@@ -1973,6 +2029,17 @@ const backgrounds = new Map([
         `I'd risk too much to uncover a lost bit of knowledge.`,
         `I like keeping secrets and won't share them with anyone.`,
       ],
+      equipment: `A scroll case stuffed full of notes from your studies or prayers, a winter blanket, a set of common clothes, an herbalism kit, and 5 gp`,
+      lifeOfSeclusion: [
+        `I was searching for spiritual enlightenment.`,
+        `I was partaking of communal living in accordance with the dictates of a religious order.`,
+        `I was exiled for a crime I didn’t commit.`,
+        `I retreated from society after a life-altering event.`,
+        `I needed a quiet place to work on my art, literature, music, or manifesto.`,
+        `I needed to commune with nature, far from civilization.`,
+        `I was the caretaker of an ancient ruin or relic.`,
+        `I was a pilgrim in search of a person, place, or relic of spiritual significance`,
+      ],
     },
   ],
   [
@@ -2015,6 +2082,7 @@ const backgrounds = new Map([
         `In fact, the world does revolve around me.`,
         `By my words and actions, I often bring shame to my family.`,
       ],
+      equipment: `A set of fine clothes, a signet ring, a scroll of pedigree, and a purse containing 25 gp`,
     },
   ],
   [
@@ -2056,6 +2124,19 @@ const backgrounds = new Map([
         `I am slow to trust members of other races.`,
         `Violence is my answer to almost any challenge.`,
         `Don't expect me to save those who can't save themselves. It is nature's way that the strong thrive and the weak perish.`,
+      ],
+      equipment: `A staff, a hunting trap, a trophy from an animal you killed, a set of traveler’s clothes, and a belt pouch containing 10 gp`,
+      origin: [
+        `Forester`,
+        `Trapper`,
+        `Homesteader`,
+        `Guide`,
+        `Exile or Outcast`,
+        `Bounty Hunter`,
+        `Pilgrim`,
+        `Tribal Nomad`,
+        `Hunter-Gatherer`,
+        `Tribal Marauder`,
       ],
     },
   ],
@@ -2099,6 +2180,17 @@ const backgrounds = new Map([
         `I speak without really thinking through my words, invariably insulting others.`,
         `I can't keep a secret to save my life, or anyone else's.`,
       ],
+      equipment: `: A bottle of black ink, a quill, a small knife, a letter from a dead colleague posing a question you have not yet been able to answer, a set of common clothes, and a belt pouch containing 10 gp`,
+      specialty: [
+        `Alchemist`,
+        `Astronomer`,
+        `Discredited Academic`,
+        `Librarian`,
+        `Professor`,
+        `Researcher`,
+        `Wizard's Apprentice`,
+        `Scribe`,
+      ],
     },
   ],
   [
@@ -2141,6 +2233,7 @@ const backgrounds = new Map([
         `I can't help but pocket loose coins and other trinkets I come across.`,
         `My pride will probably lead to my destruction.`,
       ],
+      equipment: `A belaying pin (club), 50 feet of silk rope, a lucky charm such as a rabbit foot or a small stone with a hole in the center (or you may roll for a random trinket on the Trinkets table in chapter 5), a set of common clothes, and a belt pouch containing 10 gp`,
     },
   ],
   [
@@ -2182,6 +2275,17 @@ const backgrounds = new Map([
         `My hatred of my enemies is blind and unreasoning.`,
         `I obey the law, even if the law causes misery.`,
         `I'd rather eat my armor than admit when I'm wrong.`,
+      ],
+      equipment: `An insignia of rank, a trophy taken from a fallen enemy (a dagger, broken blade, or piece of a banner), a set of bone dice or deck of cards, a set of common clothes, and a belt pouch containing 10 gp`,
+      specialty: [
+        `Officer`,
+        `Scout`,
+        `Infantry`,
+        `Cavalry`,
+        `Healer`,
+        `Quartermaster`,
+        `Standard Bearer`,
+        `Support Staff (cook, blacksmith, or the like)`,
       ],
     },
   ],
@@ -2225,6 +2329,7 @@ const backgrounds = new Map([
         `It's not stealing if I need it more than someone else.`,
         `People who don't take care of themselves get what they deserve.`,
       ],
+      equipment: `A small knife, a map of the city you grew up in, a pet mouse, a token to remember your parents by, a set of common clothes, and a belt pouch containing 10 gp`,
     },
   ],
 ]);
@@ -2303,7 +2408,97 @@ const birthplaces = new Map([
   [99, `On an Inner Plane of your choice`],
   [100, `On an Outer Plane of your choice`],
 ]);
+// Suplemental Tables
+const d100Alignments = new Map([
+  [3, `Chaotic Evil`],
+  [6, `Chaotic Neutral`],
+  [10, `Lawful Evil`],
+  [16, `Neutral Evil`],
+  [24, `Neutral`],
+  [30, `Neutral Good`],
+  [32, `Lawful good`],
+  [34, `Lawful Neutral`],
+  [35, `Chaotic Good`],
+  [36, `Chaotic Neutral`],
+]);
 
+const causesOfDeath = [
+  `Unknown`,
+  `Murdred`,
+  `Killed in battle`,
+  `Accident related to class or occupation`,
+  `Natural cause`,
+  `Natural causes`,
+  `Apparent suicide`,
+  `Torn apart by a wild animal or a natural disaster`,
+  `Consumed by a  monster`,
+  `Executted for a crime or tortured to death`,
+  `Bizzare event, such as being hit by a meteorite, struck down by an angry god, or killed by a hatching Slaad egg`,
+  ``,
+];
+
+const d100Classes = new Map([
+  [7, `Barbarian`],
+  [14, `Bard`],
+  [29, `Cleric`],
+  [36, `Druid`],
+  [52, `Fighter`],
+  [58, `Monk`],
+  [64, `Paladin`],
+  [70, `Ranger`],
+  [84, `Rogue`],
+  [89, `Sorcerer`],
+  [94, `Warlock`],
+  [100, `Wizard`],
+]);
+
+const d100Occupations = new Map([
+  [5, `Academic`],
+  [10, `Adventurer`],
+  [11, `Aristocrat`],
+  [26, `Artisan or Guild Member`],
+  [31, `Criminal`],
+  [36, `Entertainer`],
+  [38, `Exile, Hermit, or Refugee`],
+  [43, `Explorer or Wanderer`],
+  [55, `Farmer or Herder`],
+  [60, `Hunter or Trapper`],
+  [75, `Labourer`],
+  [80, `Merchant`],
+  [85, `Politician or Beurocrat`],
+  [90, `Priest`],
+  [95, `Sailor`],
+  [100, `Soldier`],
+]);
+
+const d100Races = new Map([
+  [40, `Human`],
+  [50, `Dwarf`],
+  [60, `Elf`],
+  [70, `Halfling`],
+  [75, `Dragonborn`],
+  [80, `Gnome`],
+  [85, `Half-Elf`],
+  [90, `Half-Orc`],
+  [95, `Tiefling`],
+  [100, `DM's Choice`],
+]);
+
+const relationships = new Map([
+  [4, `Hostile`],
+  [10, `Friendly`],
+  [12, `Indifferent`],
+]);
+
+const statuses = new Map([
+  [1, `Dead`],
+  [3, `Missing or unknown`],
+  [6, `Alive, but doing poorly`],
+  [10, `Alive and well`],
+  [13, `Alive and quite successful`],
+  [15, `Alive and infamous`],
+  [16, `Alive and famous`],
+]);
 // Class Tables
 const classGrid = [
   // High Strength
@@ -2884,6 +3079,11 @@ const getNPCSiblings = function (npcRace, npcSubrace) {
   let siblingList = ``;
   const roll = rollXDX(1, 10);
   let numSiblings = 0;
+
+  if (npcRace === `Elf` || npcRace === `Dwarf`) {
+    roll -= 2;
+  }
+
   if (roll <= 2) {
     numSiblings = 0;
   } else if (roll >= 3 && roll <= 4) {
