@@ -2383,9 +2383,11 @@ const rollXDX = function (numDice = 1, dWhat = 6, modifier = 0) {
 };
 
 const generateSimpleNPC = function () {
-  const race = getNPCRace();
+  const wholeRace = getNPCRace();
+  const raceRoll = wholeRace[0];
+  const race = wholeRace[1];
   const trimmedRace = stripListMarkup(race);
-  const subrace = getNPCSubrace(trimmedRace);
+  const subrace = getNPCSubrace(raceRoll);
   const gender = getNPCGender();
   const trimmedGender = stripListMarkup(gender);
   const name = getNPCName(trimmedRace, trimmedGender);
@@ -2401,7 +2403,7 @@ const generateSimpleNPC = function () {
 
   resultsDiv.innerHTML = `
     <ul>
-    ${race + ` - ` + subrace}
+    ${race[0] + ` - ` + subrace}
     ${gender}
     ${name}
     ${appearance}
@@ -2422,7 +2424,7 @@ const generateComplexNPC = function () {
   const raceRoll = wholeRace[0];
   const race = wholeRace[1];
   const trimmedRace = stripListMarkup(race);
-  const subrace = getNPCSubrace(trimmedRace);
+  const subrace = getNPCSubrace(raceRoll);
   const gender = getNPCGender();
   const trimmedGender = stripListMarkup(gender);
   const name = getNPCName(trimmedRace, trimmedGender);
@@ -2444,7 +2446,7 @@ const generateComplexNPC = function () {
 
   resultsDiv.innerHTML = `
     <ul>
-    ${race + ` - ` + subrace}
+    ${race[0] + ` - ` + subrace}
     ${gender}
     ${name}
     ${languages}
@@ -2476,7 +2478,7 @@ const getNPCRace = function () {
 };
 
 const getNPCSubrace = function (npcRace) {
-  if (randomNPCRace.get(npcRace)[1] != []) {
+  if (randomNPCRace.get(npcRace)[1].length > 0) {
     const roll = Math.trunc(
       Math.random() * randomNPCRace.get(npcRace)[1].length
     );
