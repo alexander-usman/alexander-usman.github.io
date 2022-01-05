@@ -2231,7 +2231,33 @@ const languages = [
   `Halfling`,
   `Orc`,
 ];
+// Origins Tables
+const birthplaces = new Map([
+  [50, `Home`],
+  [55, `Home of a family friend.`],
+  [63, `Home of a healer or midwife`],
+  [65, `Carriage, cart or wagon`],
+  [68, `Barn, shed, or other outbuilding`],
+  [70, `Cave`],
+  [72, `Field`],
+  [74, `Forest`],
+  [77, `Temple`],
+  [80, `Alley or street`],
+  [82, `Brothel, tavern or inn`],
+  [84, `Castle, keep, tower, or palace`],
+  [85, `Sewer or rubbish heap`],
+  [88, `Among people of a different race`],
+  [91, `On board a boat or ship`],
+  [93, `In a prison, or in the headquarters of a secret organisation`],
+  [95, `In a sage's laboratory`],
+  [96, `In the Feywild`],
+  [97, `In the Shadowfell`],
+  [98, `On the Astral or Ethereal Plane`],
+  [99, `On an Inner Plane of your choice`],
+  [100, `On an Outer Plane of your choice`],
+]);
 
+// Class Tables
 const classGrid = [
   // High Strength
   [
@@ -2297,13 +2323,24 @@ const stripListMarkup = function (input) {
   return input.slice(4, -5);
 };
 
+const rollXDX = function (numDice = 1, dWhat = 6, modifier = 0) {
+  let roll = 0;
+
+  for (let i = 0; i < numDice; i++) {
+    roll += Math.trunc(Math.random() * dWhat) + 1;
+  }
+
+  roll += modifier;
+
+  return roll;
+};
+
 const generateSimpleNPC = function () {
   const race = getNPCRace();
   const trimmedRace = stripListMarkup(race);
   const gender = getNPCGender();
   const trimmedGender = stripListMarkup(gender);
   const name = getNPCName(trimmedRace, trimmedGender);
-  const parents = getNPCParents(trimmedRace);
   const appearance = getSimpleAppearance();
   const highScore = getNPCHighAbility();
   const lowScore = getNPCLowAbility(highScore[0]);
@@ -2319,7 +2356,6 @@ const generateSimpleNPC = function () {
     ${race}
     ${gender}
     ${name}
-    ${parents}
     ${appearance}
     ${highScore[1]}
     ${lowScore[1]}
@@ -2339,7 +2375,6 @@ const generateComplexNPC = function () {
   const gender = getNPCGender();
   const trimmedGender = stripListMarkup(gender);
   const name = getNPCName(trimmedRace, trimmedGender);
-  const parents = getNPCParents(trimmedRace);
   const appearance = getSimpleAppearance();
   const highScore = getNPCHighAbility();
   const lowScore = getNPCLowAbility(highScore[0]);
@@ -2354,6 +2389,7 @@ const generateComplexNPC = function () {
     backgrounds.get(background[0]).languages
   );
   const tools = getNPCTools(backgrounds.get(background[0]).tools);
+  const origin = getNPCOrigin(trimmedRace, background[0], npcClass[0]);
 
   resultsDiv.innerHTML = `
     <ul>
@@ -2389,11 +2425,11 @@ const getNPCRace = function () {
 };
 
 const getNPCGender = function () {
-  const roll = Math.trunc(Math.random() * 2);
+  const roll = rollXDX(1, 2);
 
-  if (roll === 0) {
+  if (roll === 1) {
     return `<li>Male</li>`;
-  } else if (roll === 1) {
+  } else if (roll === 2) {
     return `<li>Female</li>`;
   }
 };
@@ -2680,6 +2716,24 @@ const getNPCName = function (race = `Human`, gender = `Male`) {
   return `<li>${result}</li>`;
 };
 
+const getNPCOrigin = function (npcRace, npcBackground, npcClass) {
+  const parents = getNPCParents(npcRace);
+
+  let roll = Math.trunc(Math.random() * birthplaces.length);
+  const birthplace = `<li>${birthplaces[roll]}</li>`;
+  const siblings = getNPCSiblings(npcRace);
+
+  return `
+  <li>
+    <ul>
+      ${parents}
+      ${birthplace}
+      ${siblings}
+    </ul>
+  </li>
+  `;
+};
+
 const getNPCParents = function (race) {
   let parents = ``;
   let roll = 0;
@@ -2723,6 +2777,53 @@ const getNPCParents = function (race) {
       break;
   }
   return `<li>${parents}</li>`;
+};
+
+const getNPCSiblings = function (npcRace) {
+  let siblingList = ``;
+  const roll = rollXDX(1, 10);
+  let numSiblings = 0;
+  if (roll <= 2) {
+    numSiblings = 0;
+  } else if (roll >= 3 && roll <= 4) {
+    numSiblings = rollXDX(1, 3);
+  } else if (roll >= 5 && roll <= 6) {
+    numSiblings = rollXDX(1, 4, 1);
+  } else if (roll >= 7 && roll <= 8) {
+    numSiblings = rollXDX(1, 6, 2);
+  } else if (roll >= 9 && roll <= 10) {
+    numSiblings = rollXDX(1, 8, 3);
+  }
+
+  if (numSiblings > 0) {
+    for (let i = 0; i < numSiblings; i++) {
+      let siblingInfo = ``;
+      const siblingGender = getNPCGender();
+      const siblingName = getNPCName(npcRace, stripListMarkup(siblingGender));
+      const birthOrderRoll = rollXDX(1, 12);
+      let siblingOrder = ``;
+      if (birthOrderRoll <= 2) {
+        siblingOrder += `<li>Twin, triplet, or quadruplet</li>`;
+      } else if (birthOrderRoll >= 3 && birthOrderRoll <= 4) {
+        siblingOrder += `<li>Older</li>`;
+      } else if (birthOrderRoll >= 5 && birthOrderRoll <= 6) {
+        siblingOrder += `<li>Younger</li>`;
+      }
+      siblingInfo += `
+      <li>Sibling ${i + 1}</li>
+      <ul>
+        ${siblingName}
+        ${siblingGender}
+        ${siblingOrder}
+      </ul>
+    `;
+      siblingList += siblingInfo;
+    }
+  } else {
+    siblingList += `You have no siblings.`;
+  }
+
+  return `<li><ul>${siblingList}</ul></li>`;
 };
 
 const getNPCLanguages = function (race, npcClass, background) {
