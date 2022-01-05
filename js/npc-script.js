@@ -2546,6 +2546,7 @@ const getNPCName = function (
       result += `${namesDwarfClan[lastNameRoll]}`;
       break;
 
+    case `Elf - Drow`:
     case `Elf - High`:
     case `Elf - Wood`:
       if (gender === `Male`) {
