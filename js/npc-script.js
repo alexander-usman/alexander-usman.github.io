@@ -2814,9 +2814,9 @@ const getNPCSiblings = function (npcRace) {
       let siblingOrder = ``;
       if (birthOrderRoll <= 2) {
         siblingOrder += `<li>Twin, triplet, or quadruplet</li>`;
-      } else if (birthOrderRoll >= 3 && birthOrderRoll <= 4) {
+      } else if (birthOrderRoll >= 3 && birthOrderRoll <= 7) {
         siblingOrder += `<li>Older</li>`;
-      } else if (birthOrderRoll >= 5 && birthOrderRoll <= 6) {
+      } else if (birthOrderRoll >= 8 && birthOrderRoll <= 12) {
         siblingOrder += `<li>Younger</li>`;
       }
       siblingInfo += `
