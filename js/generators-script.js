@@ -1,26 +1,25 @@
 "use strict";
+// HTML Elements
+const resultsDiv = document.querySelector(`.results`);
+const btnGenerateIndividualLoot = document.querySelector(
+  `.btnGenerateIndividualLoot`
+);
+const btnGenerateHoardLoot = document.querySelector(
+  `.btnGenerateTreasureHoardLoot`
+);
+const btnGenerateRandomItem = document.querySelector(`.btnGenerateRandomItem`);
+const btnGenerateQuestHook = document.querySelector(`.btnGenerateQuestHook`);
+const btnGenerateTavernName = document.querySelector(`.btnGenerateTavernName`);
+const btnGenerateViciousMockery = document.querySelector(
+  `.btnGenerateViciousMockery`
+);
+const selectPantheon = document.querySelector(`.selectPantheon`);
+const selectGod = document.querySelector(`.selectGod`);
+const btnGenerateReligiousOath = document.querySelector(
+  `.btnGenerateReligiousOath`
+);
 
 window.onload = function () {
-  // HTML Elements
-  const resultsDiv = document.querySelector(`.results`);
-  const btnGenerateIndividualLoot = document.querySelector(
-    `.btnGenerateIndividualLoot`
-  );
-  const btnGenerateHoardLoot = document.querySelector(
-    `.btnGenerateTreasureHoardLoot`
-  );
-  const btnGenerateRandomItem = document.querySelector(
-    `.btnGenerateRandomItem`
-  );
-  const btnGenerateQuestHook = document.querySelector(`.btnGenerateQuestHook`);
-  const btnGenerateTavernName = document.querySelector(
-    `.btnGenerateTavernName`
-  );
-  const btnGenerateViciousMockery = document.querySelector(
-    `.btnGenerateViciousMockery`
-  );
-  const selectPantheon = document.querySelector(`.selectPantheon`);
-  const selectGod = document.querySelector(`.selectGod`);
   for (let item in godsObject) {
     selectPantheon.options[selectPantheon.options.length] = new Option(
       item,
@@ -35,10 +34,6 @@ window.onload = function () {
       selectGod.options[selectGod.options.length] = new Option(item, item);
     }
   };
-
-  const btnGenerateReligiousOath = document.querySelector(
-    `.btnGenerateReligiousOath`
-  );
 };
 
 // Item
