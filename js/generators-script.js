@@ -395,14 +395,14 @@ const generateReligiousOath = function () {
   let oath = ``;
   const rollDeity = Math.trunc(Math.random() * godsOfTheForgottenRealms.size);
   const deity = Array.from(godsOfTheForgottenRealms.keys())[rollDeity];
-  const typeRoll = Math.trunc(Math.random * 1) + 1;
+  const typeRoll = Math.trunc(Math.random() * 3) + 1;
   let firstRoll = 0;
 
   switch (typeRoll) {
     case 1:
       firstRoll =
         Math.trunc(
-          Math.random * godsOfTheForgottenRealms.get(deity).shortSymbol.size
+          Math.random() * godsOfTheForgottenRealms.get(deity).shortSymbol.size
         ) + 1;
       oath += `By the ${
         godsOfTheForgottenRealms.get(deity).shortSymbol[firstRoll]
@@ -411,7 +411,7 @@ const generateReligiousOath = function () {
     case 2:
       firstRoll =
         Math.trunc(
-          Math.random * godsOfTheForgottenRealms.get(deity).shortSymbol.size
+          Math.random() * godsOfTheForgottenRealms.get(deity).shortSymbol.size
         ) + 1;
       oath += `By the ${
         godsOfTheForgottenRealms.get(deity).shortSymbol[firstRoll]
@@ -420,7 +420,7 @@ const generateReligiousOath = function () {
     case 3:
       firstRoll =
         Math.trunc(
-          Math.random * godsOfTheForgottenRealms.get(deity).shortSymbol.size
+          Math.random() * godsOfTheForgottenRealms.get(deity).shortSymbol.size
         ) + 1;
       oath += `By ${deity}'s ${
         godsOfTheForgottenRealms.get(deity).shortSymbol[firstRoll]
