@@ -13,6 +13,9 @@ const btnGenerateTavernName = document.querySelector(`.btnGenerateTavernName`);
 const btnGenerateViciousMockery = document.querySelector(
   `.btnGenerateViciousMockery`
 );
+const btnGenerateReligiousOath = document.querySelector(
+  `.btnGenerateReligiousOath`
+);
 // Item
 const generateIndividualLoot = function () {
   const numMonsters = Number(
@@ -568,3 +571,4 @@ btnGenerateRandomItem.addEventListener(`click`, generateRandomItem);
 btnGenerateQuestHook.addEventListener(`click`, generateQuestHook);
 btnGenerateTavernName.addEventListener(`click`, generateTavernName);
 btnGenerateViciousMockery.addEventListener(`click`, generateViciousMockery);
+btnGenerateReligiousOath.addEventListener(`click`, generateReligiousOath);
