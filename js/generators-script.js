@@ -1572,7 +1572,10 @@ const btnGenerateHoardLoot = document.querySelector(
 const btnGenerateRandomItem = document.querySelector(`.btnGenerateRandomItem`);
 const btnGenerateQuestHook = document.querySelector(`.btnGenerateQuestHook`);
 const btnGenerateTavernName = document.querySelector(`.btnGenerateTavernName`);
-
+const btnGenerateViciousMockery = document.querySelector(
+  `.btnGenerateViciousMockery`
+);
+// Item
 const generateIndividualLoot = function () {
   const numMonsters = Number(
     document.querySelector(`.individualLootGenerator .monsterCount`).value
@@ -1853,7 +1856,7 @@ const generateRandomItem = function () {
     </ul>
   `;
 };
-
+// Quests
 const generateQuestHook = function () {
   const hookType = document.querySelector(
     `.questHookGenerator .questHookType`
@@ -1883,7 +1886,7 @@ const generateQuestHook = function () {
     <h3>Quest Hook</h3> <ul><li>${questTable[roll]}</li></ul>
   `;
 };
-
+// Places
 const generateTavernName = function () {
   const firstRoll = Math.trunc(Math.random() * tavernFirst.length);
   const secondRoll = Math.trunc(Math.random() * tavernSecond.length);
@@ -1894,7 +1897,31 @@ const generateTavernName = function () {
     }</li></ul>
   `;
 };
+// Phrases
+const generateViciousMockery = function () {
+  let insult = ``;
+  let typeRoll = Math.trunc(Math.random() * 2) + 1;
+  let firstRoll = 0;
+  let secondRoll = 0;
 
+  switch (typeRoll) {
+    case 1:
+      firstRoll = Math.trunc(Math.random() * negativeAdjectives.length);
+      secondRoll = Math.trunc(Math.random() * negativeNouns.length);
+      insult += `You ${negativeAdjectives[firstRoll]} ${negativeNouns[secondRoll]}`;
+      break;
+    case 2:
+      firstRoll = Math.trunc(Math.random() * negativeNouns.length);
+      insult += `You fight lika a(n) ${negativeNouns[secondRoll]}`;
+      break;
+    default:
+      break;
+  }
+
+  resultsDiv.innerHTML = `
+    <h3>Vicious Mockery</h3> ${insult}
+  `;
+};
 const getCoins = function (numRolls, dWhat, multiplier, currency) {
   let total = 0;
   let resultString = ``;
