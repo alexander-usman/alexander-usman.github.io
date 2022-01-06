@@ -1908,11 +1908,25 @@ const generateViciousMockery = function () {
     case 1:
       firstRoll = Math.trunc(Math.random() * negativeAdjectives.length);
       secondRoll = Math.trunc(Math.random() * negativeNouns.length);
-      insult += `You ${negativeAdjectives[firstRoll]} ${negativeNouns[secondRoll]}`;
+      insult += `You ${negativeAdjectives[
+        firstRoll
+      ].toLowerCase()} ${negativeNouns[secondRoll].toLowerCase()}`;
       break;
     case 2:
       firstRoll = Math.trunc(Math.random() * negativeNouns.length);
-      insult += `You fight lika a(n) ${negativeNouns[secondRoll]}`;
+      if (
+        insult[0] === `A` ||
+        insult[0] === `E` ||
+        insult[0] === `I` ||
+        insult[0] === `O` ||
+        insult[0] === `U`
+      ) {
+        insult += `You fight like an ${negativeNouns[
+          secondRoll
+        ].toLowerCase()}`;
+      } else {
+        insult += `You fight like a ${negativeNouns[secondRoll].toLowerCase()}`;
+      }
       break;
     default:
       break;
