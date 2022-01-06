@@ -3117,7 +3117,7 @@ const godsOfTheForgottenRealms = new Map([
     },
   ],
 ]);
-
+//TODO: Add the rest of the Greyhawk pantheon.
 const godsOfGreyhawk = new Map([
   [
     `Beory`,
