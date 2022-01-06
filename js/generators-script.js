@@ -2057,3 +2057,4 @@ btnGenerateHoardLoot.addEventListener(`click`, generateTreasureHoard);
 btnGenerateRandomItem.addEventListener(`click`, generateRandomItem);
 btnGenerateQuestHook.addEventListener(`click`, generateQuestHook);
 btnGenerateTavernName.addEventListener(`click`, generateTavernName);
+btnGenerateViciousMockery.addEventListener(`click`, generateViciousMockery);
