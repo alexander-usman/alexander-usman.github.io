@@ -19,8 +19,8 @@ window.onload = function () {
   const btnGenerateViciousMockery = document.querySelector(
     `.btnGenerateViciousMockery`
   );
-  const selectPantheon = document.querySelector(`selectPantheon`);
-  const selectGod = document.querySelector(`selectGod`);
+  const selectPantheon = document.querySelector(`.selectPantheon`);
+  const selectGod = document.querySelector(`.selectGod`);
   for (let item in godsObject) {
     selectPantheon.options[selectPantheon.options.length] = new Option(
       item,

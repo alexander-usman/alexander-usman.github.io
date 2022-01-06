@@ -3120,7 +3120,6 @@ const godsOfTheForgottenRealms = new Map([
 
 const godsObject = {
   "Gods of the Forgotten Realms": [
-    `Any`,
     `Auril, goddess of winter`,
     `Azuth, god of wizards`,
     `Bane, god of tyrant`,
@@ -3156,7 +3155,7 @@ const godsObject = {
     `Torm, god of courage and self-sacrifice`,
     `Tymora, goddess of good fortune`,
     `Umberlee, goddess of the sea`,
-    `Waukeen, goddess of trade`,
+    [`Waukeen, goddess of trade`],
   ],
   "Gods of Greyhawk": [`Any`],
 };
