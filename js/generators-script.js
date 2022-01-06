@@ -1900,9 +1900,10 @@ const generateTavernName = function () {
 // Phrases
 const generateViciousMockery = function () {
   let insult = ``;
-  let typeRoll = Math.trunc(Math.random() * 2) + 1;
+  let typeRoll = Math.trunc(Math.random() * 3) + 1;
   let firstRoll = 0;
   let secondRoll = 0;
+  let thirdRoll = 0;
 
   switch (typeRoll) {
     case 1:
@@ -1910,7 +1911,7 @@ const generateViciousMockery = function () {
       secondRoll = Math.trunc(Math.random() * negativeNouns.length);
       insult += `You ${negativeAdjectives[
         firstRoll
-      ].toLowerCase()} ${negativeNouns[secondRoll].toLowerCase()}`;
+      ].toLowerCase()} ${negativeNouns[secondRoll].toLowerCase()}!`;
       break;
     case 2:
       firstRoll = Math.trunc(Math.random() * negativeNouns.length);
@@ -1921,10 +1922,24 @@ const generateViciousMockery = function () {
         negativeNouns[firstRoll] === `O` ||
         negativeNouns[firstRoll] === `U`
       ) {
-        insult += `You fight like an ${negativeNouns[firstRoll].toLowerCase()}`;
+        insult += `You fight like an ${negativeNouns[
+          firstRoll
+        ].toLowerCase()}!`;
       } else {
-        insult += `You fight like a ${negativeNouns[firstRoll].toLowerCase()}`;
+        insult += `You fight like a ${negativeNouns[firstRoll].toLowerCase()}!`;
       }
+      break;
+    case 3:
+      firstRoll = Math.trunc(
+        Math.random() * shakespeareanInsultsPartOne.length
+      );
+      secondRoll = Math.trunc(
+        Math.random() * shakespeareanInsultsPartTwo.length
+      );
+      thirdRoll = Math.trunc(
+        Math.random() * shakespeareanInsultsPartThree.length
+      );
+      insult += `Thou ${shakespeareanInsultsPartOne[firstRoll]} ${shakespeareanInsultsPartTwo[secondRoll]} ${shakespeareanInsultsPartThree[thirdRoll]}!`;
       break;
     default:
       break;
