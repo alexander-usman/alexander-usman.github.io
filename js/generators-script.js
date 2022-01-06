@@ -416,36 +416,63 @@ const generateViciousMockery = function () {
 };
 
 const generateReligiousOath = function () {
+  const whichPantheon = document.querySelector(
+    `.religiousOathGenerator .selectPantheon`
+  ).value;
+  const whichGod = document.querySelector(
+    `.religiousOathGenerator .selectGod`
+  ).value;
+
   let oath = ``;
-  const rollDeity = Math.trunc(Math.random() * godsOfTheForgottenRealms.size);
-  const deity = Array.from(godsOfTheForgottenRealms.keys())[rollDeity];
+
+  let rollDeity = 0;
+  let rollPantheon = 0;
+  let pantheon = null;
+  let deity = ``;
+
   const typeRoll = Math.trunc(Math.random() * 3) + 1;
   let firstRoll = 0;
+
+  if (whichPantheon === `Gods of the Forgotten Realms`) {
+    pantheon = godsOfTheForgottenRealms;
+    if (whichGod === `Select a god`) {
+      rollDeity = Math.trunc(Math.random() * pantheon.size);
+      deity += Array.from(pantheon.keys())[rollDeity];
+    } else {
+      deity += whichGod;
+    }
+  } else if (whichPantheon === `Gods of Greyhawk`) {
+    pantheon = godsOfGreyhawk;
+    if (whichGod === `Select a god`) {
+      deity += Array.from(pantheon.keys())[rollDeity];
+    } else {
+      deity += whichGod;
+    }
+  } else if (whichPantheon === `Select a Pantheon`) {
+    rollPantheon = Math.trunc(Math.random() * pantheonList.length);
+    pantheon = pantheonList[rollPantheon];
+  }
 
   switch (typeRoll) {
     case 1:
       firstRoll = Math.trunc(
-        Math.random() * godsOfTheForgottenRealms.get(deity).shortSymbol.length
+        Math.random() * pantheon.get(deity).shortSymbol.length
       );
       oath += `By the ${
-        godsOfTheForgottenRealms.get(deity).shortSymbol[firstRoll]
+        pantheon.get(deity).shortSymbol[firstRoll]
       } of ${deity}!`;
       break;
     case 2:
       firstRoll = Math.trunc(
-        Math.random() * godsOfTheForgottenRealms.get(deity).shortSymbol.length
+        Math.random() * pantheon.get(deity).shortSymbol.length
       );
-      oath += `By the ${
-        godsOfTheForgottenRealms.get(deity).shortSymbol[firstRoll]
-      }!`;
+      oath += `By the ${pantheon.get(deity).shortSymbol[firstRoll]}!`;
       break;
     case 3:
       firstRoll = Math.trunc(
-        Math.random() * godsOfTheForgottenRealms.get(deity).shortSymbol.length
+        Math.random() * pantheon.get(deity).shortSymbol.length
       );
-      oath += `By ${deity}'s ${
-        godsOfTheForgottenRealms.get(deity).shortSymbol[firstRoll]
-      }!`;
+      oath += `By ${deity}'s ${pantheon.get(deity).shortSymbol[firstRoll]}!`;
       break;
     default:
       break;
