@@ -451,6 +451,8 @@ const generateReligiousOath = function () {
   } else if (whichPantheon === `Select a Pantheon`) {
     rollPantheon = Math.trunc(Math.random() * pantheonList.length);
     pantheon = pantheonList[rollPantheon];
+    rollDeity = Math.trunc(Math.random() * pantheon.size);
+    deity += Array.from(pantheon.keys())[rollDeity];
   }
 
   switch (typeRoll) {
