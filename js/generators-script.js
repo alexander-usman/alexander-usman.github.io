@@ -444,11 +444,12 @@ const generateReligiousOath = function () {
   } else if (whichPantheon === `Gods of Greyhawk`) {
     pantheon = godsOfGreyhawk;
     if (whichGod === `Select a god`) {
+      rollDeity = Math.trunc(Math.random() * pantheon.size);
       deity += Array.from(pantheon.keys())[rollDeity];
     } else {
       deity += whichGod;
     }
-  } else if (whichPantheon === `Gods of the Dragonlance`) {
+  } else if (whichPantheon === `Gods of Dragonlance`) {
     pantheon = godsOfDragonlance;
     if (whichGod === `Select a god`) {
       rollDeity = Math.trunc(Math.random() * pantheon.size);

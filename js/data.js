@@ -3382,7 +3382,7 @@ const godsOfGreyhawk = new Map([
 
 const godsOfDragonlance = new Map([
   [
-    `paladine`,
+    `Paladine`,
     {
       epitaph: `god ff rulers and guardians`,
       alignment: `LG`,
