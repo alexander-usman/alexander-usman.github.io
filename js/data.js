@@ -2720,6 +2720,403 @@ const tavernSecond = [
   `Spider`,
   `Star`,
 ];
+// God Tables
+const godsOfTheForgottenRealms = new Map([
+  [
+    `Auril`,
+    {
+      epitaph: `godess of winter`,
+      alignment: `NE`,
+      domain: [`Nature`, `Tempest`],
+      symbol: `Six-pointed snowflake`,
+      shortSymbol: [`snowflake`],
+    },
+  ],
+  [
+    `Azuth`,
+    {
+      epitaph: `god of wizards`,
+      alignment: `LN`,
+      domain: [`Knowledge`],
+      symbol: `Left hand pointing upward, outlined in fire`,
+      shortSymbol: [`flaming hand`, `burning hand`, `pointed finger`],
+    },
+  ],
+  [
+    `Bane`,
+    {
+      epitaph: `god of tyranny`,
+      alignment: `LE`,
+      domain: [`War`],
+      symbol: `Upright black right hand, thumb and fingers together`,
+      shortSymbol: [`black hand`, `black palm`],
+    },
+  ],
+  [
+    `Beshaba`,
+    {
+      epitaph: `godess of misfortune`,
+      alignment: `CE`,
+      domain: [`Trickery`],
+      symbol: `Black antlers`,
+      shortSymbol: [`antlers`, `black antlers`],
+    },
+  ],
+  [
+    `Bhaal`,
+    {
+      epitaph: `god of murder`,
+      alignment: `NE`,
+      domain: [`Death`],
+      symbol: `Skull surrounded by a ring of blood droplets`,
+      shortSymbol: [`skull`, `bloody skull`, `blood-ringed skull`],
+    },
+  ],
+  [
+    `Chauntea`,
+    {
+      epitaph: ` goddess of agriculture`,
+      alignment: `NG`,
+      domain: [`Life`],
+      symbol: `Sheaf of grain or a blooming rose over grain`,
+      shortSymbol: [`grain`, `rose`, `blooming rose`],
+    },
+  ],
+  [
+    `Cyric`,
+    {
+      epitaph: `god of lies`,
+      alignment: `CE`,
+      domain: [`Trickery`],
+      symbol: `White jawless skull on black or purple sunburst`,
+      shortSymbol: [`skull`, `pale skull`, `jawless skull`, `sunburst`],
+    },
+  ],
+  [
+    `Deneir`,
+    {
+      epitaph: `god of writing`,
+      alignment: `NG`,
+      domain: [`Knowledge`],
+      symbol: ` Lit candle above an open eye`,
+      shortSymbol: [`candle`, `lit candle`, `open eye`],
+    },
+  ],
+  [
+    `Eldath`,
+    {
+      epitaph: `goddess of peace`,
+      alignment: `NG`,
+      domain: [`Life`, `Nature`],
+      symbol: `Waterfall plunging into still pool`,
+      shortSymbol: [`waterfall`, `cascade`, `pool`, `still pool`],
+    },
+  ],
+  [
+    `Gond`,
+    {
+      epitaph: `god of craft`,
+      alignment: `N`,
+      domain: [`Knowledge`],
+      symbol: `Toothed cog with four spokes`,
+      shortSymbol: [`cog`, `spoked cog`, `toothed cog`, `cog and spokes`],
+    },
+  ],
+  [
+    `Helm`,
+    {
+      epitaph: `god of protection`,
+      alignment: `LN`,
+      domain: [`Life`, `Light`],
+      symbol: `Staring eye on upright left gauntlet`,
+      shortSymbol: [`eye`, `gauntlet`, `iron fist`, `left fist`, `staring eye`],
+    },
+  ],
+  [
+    `Ilmater`,
+    {
+      epitaph: `god of endurance`,
+      alignment: `LG`,
+      domain: [`Life`],
+      symbol: `Hands bound at the wrist with red cord`,
+      shortSymbol: [`hands`, `bound hands`, `cord`, `red cord`],
+    },
+  ],
+  [
+    `Kelemvor`,
+    {
+      epitaph: `god of the dead`,
+      alignment: `LN`,
+      domain: [`Death`],
+      symbol: `Upright skeletal arm holding balanced scales`,
+      shortSymbol: [
+        `arm`,
+        `skeletal arm`,
+        `scales`,
+        `balanced scales`,
+        `arm and scales`,
+      ],
+    },
+  ],
+  [
+    `Lathander`,
+    {
+      epitaph: `god of birth and renewal`,
+      alignment: `NG`,
+      domain: [`Life`, `Light`],
+      symbol: `Road traveling into a sunrise`,
+      shortSymbol: [`road`, `rising sun`, `well-lit road`],
+    },
+  ],
+  [
+    `Leira`,
+    {
+      epitaph: `goddess of illusion`,
+      alignment: `CN`,
+      domain: [`Trickery`],
+      symbol: `Point-down triangle containing a swirl of mist`,
+      shortSymbol: [`mist`, `mists`, `swirling mist`],
+    },
+  ],
+  [
+    `Lliira`,
+    {
+      epitaph: `goddess of joy`,
+      alignment: `CG`,
+      domain: [`Life`],
+      symbol: `Triangle of three six-pointed stars`,
+      shortSymbol: [`stars`, `six-pointed stars`],
+    },
+  ],
+  [
+    `Loviatar`,
+    {
+      epitaph: `goddess of pain`,
+      alignment: `LE`,
+      domain: [`Death`],
+      symbol: `Nine-tailed barbed scourge`,
+      shortSymbol: [`scourge`, `barbed scourge`, `nine-tailed scourge`],
+    },
+  ],
+  [
+    `Malar`,
+    {
+      epitaph: `god of the hunt`,
+      alignment: `CE`,
+      domain: [`Nature`],
+      symbol: `Clawed paw`,
+      shortSymbol: [`claws`, `paw`, `clawed paw`],
+    },
+  ],
+  [
+    `Mask`,
+    {
+      epitaph: `god of thieves`,
+      alignment: `CN`,
+      domain: [`Trickery`],
+      symbol: `Black mask`,
+      shortSymbol: [`mask`, `black mask`],
+    },
+  ],
+  [
+    `Mielikki`,
+    {
+      epitaph: `goddess of forests`,
+      alignment: `NG`,
+      domain: [`Nature`],
+      symbol: `Unicorn’s head`,
+      shortSymbol: [`unicorn`],
+    },
+  ],
+  [
+    `Milil`,
+    {
+      epitaph: `god of poetry song`,
+      alignment: `NG`,
+      domain: [`Light`],
+      symbol: `Five-stringed harp made of leaves`,
+      shortSymbol: [`harp`, `leafy harp`, `five-stringed harp`],
+    },
+  ],
+  [
+    `Myrkul`,
+    {
+      epitaph: `god of death`,
+      alignment: `NE`,
+      domain: [`Death`],
+      symbol: `White human skull`,
+      shortSymbol: [`skull`, `white skull`, `pale skull`],
+    },
+  ],
+  [
+    `Mystra`,
+    {
+      epitaph: `Mystra`,
+      alignment: `NG`,
+      domain: [`Knowledge`],
+      symbol: `Circle of seven stars, or nine stars encircling a flowing red mist, or a single star`,
+      shortSymbol: [`seven stars`, `nine stars`, `mist`, `red mist`, `star`],
+    },
+  ],
+  [
+    `Oghma`,
+    {
+      epitaph: `god of knowledge`,
+      alignment: `N`,
+      domain: [`Knowledge`],
+      symbol: `Blank scroll`,
+      shortSymbol: [`scroll`, `blank scroll`],
+    },
+  ],
+  [
+    `Savras`,
+    {
+      epitaph: `god of divination and fate`,
+      alignment: `LN`,
+      domain: [`Knowledge`],
+      symbol: `Crystal ball containing many kinds of eyes`,
+      shortSymbol: [`ball`, `crystal ball`, `eyes`, `many eyes`],
+    },
+  ],
+  [
+    `Selune`,
+    {
+      epitaph: ` goddess of the moon`,
+      alignment: `CG`,
+      domain: [`Knowledge`, `Life`],
+      symbol: `Pair of eyes surrounded by seven stars`,
+      shortSymbol: [`eyes`, `stars`, `seven stars`],
+    },
+  ],
+  [
+    `Shar`,
+    {
+      epitaph: `goddess of darkness and loss`,
+      alignment: `NE`,
+      domain: [`Death`, `Trickery`],
+      symbol: `Black disk encircled with a border`,
+      shortSymbol: [`disk`, `black disk`],
+    },
+  ],
+  [
+    `Silvanus`,
+    {
+      epitaph: `god of wild nature`,
+      alignment: `N`,
+      domain: [`Nature`],
+      symbol: `Oak leaf`,
+      shortSymbol: [`leaf`, `oak leaf`],
+    },
+  ],
+  [
+    `Sune`,
+    {
+      epitaph: `goddess of love and beauty`,
+      alignment: `CG`,
+      domain: [`Life`, `Light`],
+      symbol: `Face of a beautiful red-haired woman`,
+      shortSymbol: [`face`, `beautiful face`, `red hair`],
+    },
+  ],
+  [
+    `Talona`,
+    {
+      epitaph: ` goddess of disease and poison`,
+      alignment: `CE`,
+      domain: [`Death`],
+      symbol: `Three teardrops on a triangle`,
+      shortSymbol: [`tears`, `three tears`],
+    },
+  ],
+  [
+    `Talos`,
+    {
+      epitaph: `god of storms`,
+      alignment: `CE`,
+      domain: [`Tempst`],
+      symbol: `Three lightning bolts radiating from a central point`,
+      shortSymbol: [`lightning bolts`, `bolts`, `three bolts`],
+    },
+  ],
+  [
+    `Tempus`,
+    {
+      epitaph: `god of war`,
+      alignment: `N`,
+      domain: [`War`],
+      symbol: `Upright flaming sword`,
+      shortSymbol: [
+        `sword`,
+        `upright sword`,
+        `flaming sword`,
+        `burning sword`,
+        `burning blade`,
+      ],
+    },
+  ],
+  [
+    `Torm`,
+    {
+      epitaph: `god of courage and self-sacrifice`,
+      alignment: `LG`,
+      domain: [`War`],
+      symbol: `White right gauntlet`,
+      shortSymbol: [
+        `gauntlet`,
+        `iron fist`,
+        `white gauntlet`,
+        `right gauntlet`,
+        `right fist`,
+      ],
+    },
+  ],
+  [
+    `Tymora`,
+    {
+      epitaph: `goddess of good fortune`,
+      alignment: `CG`,
+      domain: [`Trickery`],
+      symbol: `Face-up coin`,
+      shortSymbol: [`coin`, `face-up coin`, `lucky coin`],
+    },
+  ],
+  [
+    `Tyr`,
+    {
+      epitaph: `god of justice`,
+      alignment: `LG`,
+      domain: [`War`],
+      symbol: `Balanced scales resting on a warhammer`,
+      shortSymbol: [
+        `scales`,
+        `hammer`,
+        `warhammer`,
+        `hammer and scales`,
+        `balanced scales`,
+      ],
+    },
+  ],
+  [
+    `Umberlee`,
+    {
+      epitaph: `goddess of the sea`,
+      alignment: `CE`,
+      domain: [`Tempest`],
+      symbol: `Wave curling left and right`,
+      shortSymbol: [`wave`, `heaving wave`, `great wave`],
+    },
+  ],
+  [
+    `Waukeen`,
+    {
+      epitaph: `goddess of trade`,
+      alignment: `N`,
+      domain: [`Knowledge`, `Trickery`],
+      symbol: `Upright coin with Waukeen’s profile facing left`,
+      shortSymbol: [`coin`, `profitable coin`],
+    },
+  ],
+]);
 
 // Random NPC Tables
 // Race Tables
@@ -4187,35 +4584,6 @@ const namesHumanTuramiSurname = [
   `Pisacar`,
   `Ramondo`,
 ];
-// Parent Tables
-const parentsHalfElf = new Map([
-  [5, `One parent was an elf and the other was a human.`],
-  [6, `One parent was an elf and the other was a half-elf.`],
-  [7, `One parent was a human and the other was a half-elf.`],
-  [8, `Both parents were half-elves.`],
-]);
-
-const parentsHalfOrc = new Map([
-  [3, `One parent was an orc and the other was a human.`],
-  [5, `One parent was an orc and the other was a half-orc.`],
-  [7, `One parent was a human and the other was a half-orc.`],
-  [8, `Both parents were half-orcs.`],
-]);
-
-const parentsTiefling = new Map([
-  [
-    4,
-    `Both parents were humans, their infernal heritage dormant until you came along.`,
-  ],
-  [6, `One parent was a tiefling and the other was a human.`],
-  [7, `One parent was a tiefling and the other was a devil.`],
-  [8, `One parent was a human and the other was a devil.`],
-]);
-
-const parentsOther = new Map([
-  [95, `You know who your parents are or were.`],
-  [100, `You do not know who your parents are or were.`],
-]);
 // Appearance Tables
 const randomNPCAppearance = new Map([
   [1, `Distinctive jewelry: earrings, necklace, circlet, bracelets`],
@@ -5106,6 +5474,35 @@ const languages = [
   `Orc`,
 ];
 // Origins Tables
+const parentsHalfElf = new Map([
+  [5, `One parent was an elf and the other was a human.`],
+  [6, `One parent was an elf and the other was a half-elf.`],
+  [7, `One parent was a human and the other was a half-elf.`],
+  [8, `Both parents were half-elves.`],
+]);
+
+const parentsHalfOrc = new Map([
+  [3, `One parent was an orc and the other was a human.`],
+  [5, `One parent was an orc and the other was a half-orc.`],
+  [7, `One parent was a human and the other was a half-orc.`],
+  [8, `Both parents were half-orcs.`],
+]);
+
+const parentsTiefling = new Map([
+  [
+    4,
+    `Both parents were humans, their infernal heritage dormant until you came along.`,
+  ],
+  [6, `One parent was a tiefling and the other was a human.`],
+  [7, `One parent was a tiefling and the other was a devil.`],
+  [8, `One parent was a human and the other was a devil.`],
+]);
+
+const parentsOther = new Map([
+  [95, `You know who your parents are or were.`],
+  [100, `You do not know who your parents are or were.`],
+]);
+
 const birthplaces = new Map([
   [50, `Home`],
   [55, `Home of a family friend.`],

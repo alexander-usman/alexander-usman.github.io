@@ -338,7 +338,7 @@ const generateTavernName = function () {
 // Phrases
 const generateViciousMockery = function () {
   let insult = ``;
-  let typeRoll = Math.trunc(Math.random() * 3) + 1;
+  const typeRoll = Math.trunc(Math.random() * 3) + 1;
   let firstRoll = 0;
   let secondRoll = 0;
   let thirdRoll = 0;
@@ -387,6 +387,51 @@ const generateViciousMockery = function () {
     <h3>Vicious Mockery</h3> ${insult}
   `;
 };
+
+const generateReligiousOath = function () {
+  let oath = ``;
+  const rollDeity = Math.trunc(Math.random() * godsOfTheForgottenRealms.size);
+  const deity = Array.from(godsOfTheForgottenRealms.keys())[rollDeity];
+  const typeRoll = Math.trunc(Math.random * 1) + 1;
+  let firstRoll = 0;
+
+  switch (rollType) {
+    case 1:
+      firstRoll =
+        Math.trunc(
+          Math.random * godsOfTheForgottenRealms.get(deity).shortSymbol.size
+        ) + 1;
+      oath += `By the ${
+        godsOfTheForgottenRealms.get(deity).shortSymbol[firstRoll]
+      } of ${deity}!`;
+      break;
+    case 2:
+      firstRoll =
+        Math.trunc(
+          Math.random * godsOfTheForgottenRealms.get(deity).shortSymbol.size
+        ) + 1;
+      oath += `By the ${
+        godsOfTheForgottenRealms.get(deity).shortSymbol[firstRoll]
+      }!`;
+      break;
+    case 3:
+      firstRoll =
+        Math.trunc(
+          Math.random * godsOfTheForgottenRealms.get(deity).shortSymbol.size
+        ) + 1;
+      oath += `By ${deity}'s ${
+        godsOfTheForgottenRealms.get(deity).shortSymbol[firstRoll]
+      }!`;
+      break;
+    default:
+      break;
+  }
+
+  resultsDiv.innerHTML = `
+    <h3>Religious Oath</h3> ${oath}
+  `;
+};
+
 const getCoins = function (numRolls, dWhat, multiplier, currency) {
   let total = 0;
   let resultString = ``;
