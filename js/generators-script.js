@@ -14,8 +14,11 @@ const btnGenerateViciousMockery = document.querySelector(
   `.btnGenerateViciousMockery`
 );
 const selectPantheon = document.querySelector(`selectPantheon`);
-for (let item) in godsObject) {
-  selectPantheon.options[selectPantheon.options.length] = new Option(item, item);
+for (let item in godsObject) {
+  selectPantheon.options[selectPantheon.options.length] = new Option(
+    item,
+    item
+  );
 }
 const btnGenerateReligiousOath = document.querySelector(
   `.btnGenerateReligiousOath`
