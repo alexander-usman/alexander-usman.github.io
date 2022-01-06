@@ -1915,17 +1915,15 @@ const generateViciousMockery = function () {
     case 2:
       firstRoll = Math.trunc(Math.random() * negativeNouns.length);
       if (
-        negativeNouns[secondRoll] === `A` ||
-        negativeNouns[secondRoll] === `E` ||
-        negativeNouns[secondRoll] === `I` ||
-        negativeNouns[secondRoll] === `O` ||
-        negativeNouns[secondRoll] === `U`
+        negativeNouns[firstRoll] === `A` ||
+        negativeNouns[firstRoll] === `E` ||
+        negativeNouns[firstRoll] === `I` ||
+        negativeNouns[firstRoll] === `O` ||
+        negativeNouns[firstRoll] === `U`
       ) {
-        insult += `You fight like an ${negativeNouns[
-          secondRoll
-        ].toLowerCase()}`;
+        insult += `You fight like an ${negativeNouns[firstRoll].toLowerCase()}`;
       } else {
-        insult += `You fight like a ${negativeNouns[secondRoll].toLowerCase()}`;
+        insult += `You fight like a ${negativeNouns[firstRoll].toLowerCase()}`;
       }
       break;
     default:
