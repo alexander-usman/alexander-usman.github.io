@@ -1915,11 +1915,11 @@ const generateViciousMockery = function () {
     case 2:
       firstRoll = Math.trunc(Math.random() * negativeNouns.length);
       if (
-        insult[0] === `A` ||
-        insult[0] === `E` ||
-        insult[0] === `I` ||
-        insult[0] === `O` ||
-        insult[0] === `U`
+        negativeNouns[secondRoll] === `A` ||
+        negativeNouns[secondRoll] === `E` ||
+        negativeNouns[secondRoll] === `I` ||
+        negativeNouns[secondRoll] === `O` ||
+        negativeNouns[secondRoll] === `U`
       ) {
         insult += `You fight like an ${negativeNouns[
           secondRoll
