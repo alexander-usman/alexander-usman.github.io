@@ -3117,7 +3117,7 @@ const godsOfTheForgottenRealms = new Map([
     },
   ],
 ]);
-//TODO: Add the rest of the Greyhawk pantheon.
+
 const godsOfGreyhawk = new Map([
   [
     `Beory`,
@@ -3129,9 +3129,471 @@ const godsOfGreyhawk = new Map([
       shortSymbol: [`disk`, `green disk`],
     },
   ],
+  [
+    `Boccob`,
+    {
+      epitaph: `god of magic`,
+      alignment: `N`,
+      domain: [`Knowledge`],
+      symbol: `Eye within a pentagram`,
+      shortSymbol: [`eye`, `pentagram`],
+    },
+  ],
+  [
+    `Celestian`,
+    {
+      epitaph: ` god of stars and wanderers`,
+      alignment: `N`,
+      domain: [`Knowledge`],
+      symbol: `Arc of seven stars inside a circle`,
+      shortSymbol: [`stars`],
+    },
+  ],
+  [
+    `Ehlonna`,
+    {
+      epitaph: `goddess of woodlands`,
+      alignment: `NG`,
+      domain: [`Life`, `Nature`],
+      symbol: `Unicorn horn`,
+      shortSymbol: [`horn`, `unicorn`],
+    },
+  ],
+  [
+    `Erythnu`,
+    {
+      epitaph: `god of envy and slaughter`,
+      alignment: `CE`,
+      domain: [`War`],
+      symbol: ` Blood drop`,
+      shortSymbol: [`blood`, `blood drop`],
+    },
+  ],
+  [
+    `Fharlanghn`,
+    {
+      epitaph: `god of horizons and travel`,
+      alignment: `NG`,
+      domain: [`Knowledge`, `Trickery`],
+      symbol: `Circle crossed by a curved horizon line`,
+      shortSymbol: [`horizon`],
+    },
+  ],
+  [
+    `Heironeous`,
+    {
+      epitaph: `god of chivalry and valor`,
+      alignment: `LG`,
+      domain: [`War`],
+      symbol: `Lightning bolt`,
+      shortSymbol: [`bolt`, `lightning`, `lightning bolt`],
+    },
+  ],
+  [
+    `Hextor`,
+    {
+      epitaph: `god of war and discord`,
+      alignment: `LE`,
+      domain: [`War`],
+      symbol: `Six arrows facing downward in a fan`,
+      shortSymbol: [`arrows`, `six arrows`, `fanned arrows`],
+    },
+  ],
+  [
+    `Kord`,
+    {
+      epitaph: `god of athletics and sport`,
+      alignment: `CG`,
+      domain: [`Tempest`, `War`],
+      symbol: `Four spears and four maces radiating out from a central point`,
+      shortSymbol: [`spears`, `maces`, `spears and maces`],
+    },
+  ],
+  [
+    `Istus`,
+    {
+      epitaph: ` goddess of fate and destiny`,
+      alignment: `N`,
+      domain: [`Knowledge`],
+      symbol: `Weaver's spindle with three strands`,
+      shortSymbol: [
+        `spindle`,
+        `strands`,
+        `first strand`,
+        `second strand`,
+        `third strand`,
+      ],
+    },
+  ],
+  [
+    `Iuz`,
+    {
+      epitaph: `god of pain and oppression`,
+      alignment: `CE`,
+      domain: [`Death`],
+      symbol: `Grinning human skull`,
+      shortSymbol: [`skull`, `grinning skull`],
+    },
+  ],
+  [
+    `Nerull`,
+    {
+      epitaph: `god of death`,
+      alignment: `NE`,
+      domain: [`Death`],
+      symbol: `Skull with either a sickle or a scythe`,
+      shortSymbol: [
+        `skull`,
+        `scythe`,
+        `sickle`,
+        `skull and sickle`,
+        `skull and scythe`,
+      ],
+    },
+  ],
+  [
+    `Obad-Hai`,
+    {
+      epitaph: `god of nature`,
+      alignment: `N`,
+      domain: [`Nature`],
+      symbol: `Oak leaf and acorn`,
+      shortSymbol: [`leaf`, `oak leaf`, `acorn`],
+    },
+  ],
+  [
+    `Olidammara`,
+    {
+      epitaph: `god of revelry`,
+      alignment: `CN`,
+      domain: [`Trickery`],
+      symbol: `Laughing mask`,
+      shortSymbol: [`mask`, `laughing mask`],
+    },
+  ],
+  [
+    `Pelor`,
+    {
+      epitaph: `god of the sun and healing`,
+      alignment: `NG`,
+      domain: [`Life`, `Light`],
+      symbol: `Sun`,
+      shortSymbol: [`light`, `sun`],
+    },
+  ],
+  [
+    `Pholtus`,
+    {
+      epitaph: `god of light and law`,
+      alignment: `LG`,
+      domain: [`Light`],
+      symbol: `Silver sun or full moon partially eclipsed by a smaller crescent moon`,
+      shortSymbol: [
+        `sun`,
+        `silver sun`,
+        `moon`,
+        `full moon`,
+        `crescent moon`,
+        `twin moons`,
+      ],
+    },
+  ],
+  [
+    `Ralishaz`,
+    {
+      epitaph: `god of ill luck and insanity`,
+      alignment: `CN`,
+      domain: [`Trickery`],
+      symbol: `Three bone fate-casting sticks`,
+      shortSymbol: [`bones`, `three bones`, `sticks`, `fate-sticks`],
+    },
+  ],
+  [
+    `Rao`,
+    {
+      epitaph: `god of peace and reason`,
+      alignment: `LG`,
+      domain: [`Knowledge`],
+      symbol: `White heart`,
+      shortSymbol: [`heart`, `white heart`, `pure heart`],
+    },
+  ],
+  [
+    `St. Cuthbert`,
+    {
+      epitaph: `god of common sense and zeal`,
+      alignment: `LN`,
+      domain: [`Knowledge`],
+      symbol: `Circle at the center of a starburst of lines`,
+      shortSymbol: [`starburst`, `star`, `circle`],
+    },
+  ],
+  [
+    `Tharizdun`,
+    {
+      epitaph: `god of eternal darkness`,
+      alignment: `CE`,
+      domain: [`Trickery`],
+      symbol: `dark spiral or inverted ziggurat`,
+      shortSymbol: [`spiral`, `dark spiral`, `ziggurat`],
+    },
+  ],
+  [
+    `Trithereon`,
+    {
+      epitaph: `god of liberty and retribution`,
+      alignment: `CG`,
+      domain: [`War`],
+      symbol: `Triskelion`,
+      shortSymbol: [`triskelion`, `three spirals`],
+    },
+  ],
+  [
+    `Ulaa`,
+    {
+      epitaph: `godess of hills and mountains`,
+      alignment: `LG`,
+      domain: [`Life`, `War`],
+      symbol: `Mountain with a circle at its heart`,
+      shortSymbol: [`mountain`, `circle`],
+    },
+  ],
+  [
+    `Vecna`,
+    {
+      epitaph: `god of evil secrets`,
+      alignment: `NE`,
+      domain: [`Knowledge`],
+      symbol: `Hand with eye in the palm`,
+      shortSymbol: [`hand`, `eye`, `palm`, `eyed palm`],
+    },
+  ],
+  [
+    `Wee Jas`,
+    {
+      epitaph: `godess of magic and death`,
+      alignment: `LN`,
+      domain: [`Death`, `Knowledge`],
+      symbol: `Red skull in front of  a fireball`,
+      shortSymbol: [`skull`, `red skull`, `fireball`, `flame`],
+    },
+  ],
+]);
+
+const godsOfDragonlance = new Map([
+  [
+    `paladine`,
+    {
+      epitaph: `god ff rulers and guardians`,
+      alignment: `LG`,
+      domain: [`War`],
+      symbol: `Silver triangle`,
+      shortSymbol: [`triangle`, `silver triangle`],
+    },
+  ],
+  [
+    `Branchala`,
+    {
+      epitaph: `god of music`,
+      alignment: `NG`,
+      domain: [`Light`],
+      symbol: `Bard's harp`,
+      shortSymbol: [`harp`],
+    },
+  ],
+  [
+    `Habbakuk`,
+    {
+      epitaph: `god of animals and the sea`,
+      alignment: `NG`,
+      domain: [`Nature`, `Tempest`],
+      symbol: `Blue bird`,
+      shortSymbol: [`bird`, `blue bird`],
+    },
+  ],
+  [
+    `Kiri-Jolith`,
+    {
+      epitaph: `god of honour and war`,
+      alignment: `LG`,
+      domain: [`War`],
+      symbol: `Bison's horns`,
+      shortSymbol: [`horns`],
+    },
+  ],
+  [
+    `Majere`,
+    {
+      epitaph: `god of meditation and order`,
+      alignment: `LG`,
+      domain: [`KNowledge`],
+      symbol: `Copper spider`,
+      shortSymbol: [`spider`, `copper spider`],
+    },
+  ],
+  [
+    `Mishakal`,
+    {
+      epitaph: `godess of healing`,
+      alignment: `LG`,
+      domain: [`Knowledge`, `Life`],
+      symbol: `Blue infinity sign`,
+      shortSymbol: [`sign`, `symbol`],
+    },
+  ],
+  [
+    `Solinari`,
+    {
+      epitaph: `god of good magic`,
+      alignment: `LG`,
+      domain: [`No Clerics`],
+      symbol: `White circle or sphere`,
+      shortSymbol: [`circle`, `sphere`, `white circle`, `white sphere`],
+    },
+  ],
+  [
+    `Gilean`,
+    {
+      epitaph: `god of knowledge`,
+      alignment: `N`,
+      domain: [`Knowledge`],
+      symbol: `Open book`,
+      shortSymbol: [`book`, `open book`],
+    },
+  ],
+  [
+    `Chioslev`,
+    {
+      epitaph: `godess of nature`,
+      alignment: `N`,
+      domain: [`Nature`],
+      symbol: `Feather`,
+      shortSymbol: [`feather`],
+    },
+  ],
+  [
+    `Reorx`,
+    {
+      epitaph: `god of craft`,
+      alignment: `N`,
+      domain: [`Knowledge`],
+      symbol: `Forging hammer`,
+      shortSymbol: [`hammer`, `heavy hammer`, `forging hammer`],
+    },
+  ],
+  [
+    `Shinare`,
+    {
+      epitaph: `godess of wealth and trade`,
+      alignment: `N`,
+      domain: [`Knowledge`, `Trickery`],
+      symbol: `Griffon's wing`,
+      shortSymbol: [`wing`, `griffon's wing`],
+    },
+  ],
+  [
+    `Sirrion`,
+    {
+      epitaph: `god of fire and change`,
+      alignment: `N`,
+      domain: [`Nature`],
+      symbol: `Multi-colored fire`,
+      shortSymbol: [`fire`, `flame`, `flames`],
+    },
+  ],
+  [
+    `Zivilyn`,
+    {
+      epitaph: `god of wisdom`,
+      alignment: `N`,
+      domain: [`Knowledge`],
+      symbol: `Great green or gold tree`,
+      shortSymbol: [
+        `tree`,
+        `great tree`,
+        `green tree`,
+        `gold tree`,
+        "golden tree",
+      ],
+    },
+  ],
+  [
+    `Lunitari`,
+    {
+      epitaph: `goddess of neutral magic`,
+      alignment: `N`,
+      domain: [`No Clerics`],
+      symbol: `Red circle or sphere`,
+      shortSymbol: [`circle`, `sphere`, `red circle`, `red sphere`],
+    },
+  ],
+  [
+    `Takhisis`,
+    {
+      epitaph: `goddess of night and hatred`,
+      alignment: `LE`,
+      domain: [`Death`],
+      symbol: `Black crescent`,
+      shortSymbol: [`crescent`, `black crescent`],
+    },
+  ],
+  [
+    `Chemosh`,
+    {
+      epitaph: `god of the undead`,
+      alignment: `LE`,
+      domain: [`Death`],
+      symbol: `Yellow skull`,
+      shortSymbol: [`skull`, `yellow skull`],
+    },
+  ],
+  [
+    `Hiddukel`,
+    {
+      epitaph: `god of lies and greed`,
+      alignment: `CE`,
+      domain: [`Trickery`],
+      symbol: `Broken merchant’s scales`,
+      shortSymbol: [`scales`, `broken scales`],
+    },
+  ],
+  [
+    `Morgion`,
+    {
+      epitaph: ` god of disease and secrecy`,
+      alignment: `NE`,
+      domain: [`Death`],
+      symbol: `Stylized red condor`,
+      shortSymbol: [`condor`, `red condor`],
+    },
+  ],
+  [
+    `Zeboim`,
+    {
+      epitaph: `goddess of the sea and storms`,
+      alignment: `CE`,
+      domain: [`Tempest`],
+      symbol: `Turtle shell`,
+      shortSymbol: [`shell`, `turtle shell`],
+    },
+  ],
+  [
+    `Nuitari`,
+    {
+      epitaph: `god of evil magic`,
+      alignment: `LE`,
+      domain: [`No Clerics`],
+      symbol: `Black circle or sphere`,
+      shortSymbol: [`circle`, `sphere`, `black circle`, `black sphere`],
+    },
+  ],
 ]);
 // Pantheon list for random pantheons
-const pantheonList = [godsOfTheForgottenRealms, godsOfGreyhawk];
+const pantheonList = [
+  godsOfTheForgottenRealms,
+  godsOfGreyhawk,
+  godsOfDragonlance,
+];
 // God Object for generateReligiousOath
 const godsObject = {
   "Gods of the Forgotten Realms": [
@@ -3198,6 +3660,29 @@ const godsObject = {
     `Ulaa`,
     `Vecna `,
     `Wee Jas`,
+  ],
+  "Gods of Dragonlance": [
+    `Branchala`,
+    `Habbakuk`,
+    `Kiri-Jolith`,
+    `Majere`,
+    `Mishakal`,
+    `Paladine`,
+    `Solinari`,
+    `Chislev`,
+    `Gilean`,
+    `Lunitari`,
+    `Reorx`,
+    `Shinare`,
+    `Sirrion`,
+    `Zivilyn`,
+    `Chemosh`,
+    `Hiddukel`,
+    `Morgion`,
+    `Nuitari`,
+    `Sargonnas`,
+    `Takhisis`,
+    `Zeboim`,
   ],
 };
 // Random NPC Tables
