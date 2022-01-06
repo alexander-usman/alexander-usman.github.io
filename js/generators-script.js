@@ -30,8 +30,12 @@ window.onload = function () {
     //empty Chapters- and Topics- dropdowns
     selectGod.length = 1;
     //display correct values
-    for (let item in godsObject[this.value]) {
-      selectGod.options[selectGod.options.length] = new Option(item, item);
+    let godsList = godsObject[this.value];
+    for (let i = 0; i < godsList.length; i++) {
+      selectGod.options[selectGod.options.length] = new Option(
+        godsList[i],
+        godsList[i]
+      );
     }
   };
 };

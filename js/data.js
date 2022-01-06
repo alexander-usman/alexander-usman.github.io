@@ -3120,7 +3120,7 @@ const godsOfTheForgottenRealms = new Map([
 
 const godsObject = {
   "Gods of the Forgotten Realms": [
-    [`Auril, goddess of winter`],
+    `Auril, goddess of winter`,
     `Azuth, god of wizards`,
     `Bane, god of tyrant`,
     `Beshaba, goddess of misfortune`,
