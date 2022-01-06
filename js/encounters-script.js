@@ -1,16 +1,4 @@
 "use strict";
-const divResultsPartyThreshold = document.querySelector(
-  `.resultsPartyThreshold`
-);
-const divResultsMonsterEXP = document.querySelector(`.resultsMonsterEXP`);
-const divResultsDifficulty = document.querySelector(`.resultsDifficulty`);
-
-const btnCalculate = document.querySelector(`.btnCalculate`);
-const btnAddMonster = document.querySelector(`.btnAddMonster`);
-const btnRemoveMonster = document.querySelector(`.btnRemoveMonster`);
-
-let rowCountMonster = 1;
-let rowCountPlayer = 1;
 
 const thresholdsByLevel = [
   [25, 50, 75, 100],
@@ -122,6 +110,19 @@ const optionText = `
         <option value="29">29</option>
         <option value="30">30</option>
       `;
+
+const divResultsPartyThreshold = document.querySelector(
+  `.resultsPartyThreshold`
+);
+const divResultsMonsterEXP = document.querySelector(`.resultsMonsterEXP`);
+const divResultsDifficulty = document.querySelector(`.resultsDifficulty`);
+
+const btnCalculate = document.querySelector(`.btnCalculate`);
+const btnAddMonster = document.querySelector(`.btnAddMonster`);
+const btnRemoveMonster = document.querySelector(`.btnRemoveMonster`);
+
+let rowCountMonster = 1;
+let rowCountPlayer = 1;
 
 const calculateThresholds = function (numPlayers, playerLevel) {
   let easy = 0;
