@@ -3158,6 +3158,7 @@ const godsObject = {
     `Umberlee, goddess of the sea`,
     `Waukeen, goddess of trade`,
   ],
+  "Gods of Greyhawk": [`Any`],
 };
 // Random NPC Tables
 // Race Tables

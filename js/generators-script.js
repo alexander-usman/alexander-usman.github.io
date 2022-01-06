@@ -1,28 +1,46 @@
 "use strict";
-// HTML Elements
-const resultsDiv = document.querySelector(`.results`);
-const btnGenerateIndividualLoot = document.querySelector(
-  `.btnGenerateIndividualLoot`
-);
-const btnGenerateHoardLoot = document.querySelector(
-  `.btnGenerateTreasureHoardLoot`
-);
-const btnGenerateRandomItem = document.querySelector(`.btnGenerateRandomItem`);
-const btnGenerateQuestHook = document.querySelector(`.btnGenerateQuestHook`);
-const btnGenerateTavernName = document.querySelector(`.btnGenerateTavernName`);
-const btnGenerateViciousMockery = document.querySelector(
-  `.btnGenerateViciousMockery`
-);
-const selectPantheon = document.querySelector(`selectPantheon`);
-for (let item in godsObject) {
-  selectPantheon.options[selectPantheon.options.length] = new Option(
-    item,
-    item
+
+window.onload = function () {
+  // HTML Elements
+  const resultsDiv = document.querySelector(`.results`);
+  const btnGenerateIndividualLoot = document.querySelector(
+    `.btnGenerateIndividualLoot`
   );
-}
-const btnGenerateReligiousOath = document.querySelector(
-  `.btnGenerateReligiousOath`
-);
+  const btnGenerateHoardLoot = document.querySelector(
+    `.btnGenerateTreasureHoardLoot`
+  );
+  const btnGenerateRandomItem = document.querySelector(
+    `.btnGenerateRandomItem`
+  );
+  const btnGenerateQuestHook = document.querySelector(`.btnGenerateQuestHook`);
+  const btnGenerateTavernName = document.querySelector(
+    `.btnGenerateTavernName`
+  );
+  const btnGenerateViciousMockery = document.querySelector(
+    `.btnGenerateViciousMockery`
+  );
+  const selectPantheon = document.querySelector(`selectPantheon`);
+  for (let item in godsObject) {
+    selectPantheon.options[selectPantheon.options.length] = new Option(
+      item,
+      item
+    );
+  }
+  selectPantheon.onchange = function () {
+    //empty Chapters- and Topics- dropdowns
+    chapterSel.length = 1;
+    topicSel.length = 1;
+    //display correct values
+    for (let item in godsObject[this.value]) {
+      topicSel.options[topicSel.options.length] = new Option(item, item);
+    }
+  };
+
+  const btnGenerateReligiousOath = document.querySelector(
+    `.btnGenerateReligiousOath`
+  );
+};
+
 // Item
 const generateIndividualLoot = function () {
   const numMonsters = Number(
