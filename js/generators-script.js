@@ -20,6 +20,7 @@ window.onload = function () {
     `.btnGenerateViciousMockery`
   );
   const selectPantheon = document.querySelector(`selectPantheon`);
+  const selectGod = document.querySelector(`selectGod`);
   for (let item in godsObject) {
     selectPantheon.options[selectPantheon.options.length] = new Option(
       item,
@@ -29,10 +30,9 @@ window.onload = function () {
   selectPantheon.onchange = function () {
     //empty Chapters- and Topics- dropdowns
     chapterSel.length = 1;
-    topicSel.length = 1;
     //display correct values
     for (let item in godsObject[this.value]) {
-      topicSel.options[topicSel.options.length] = new Option(item, item);
+      selectGod.options[selectGod.options.length] = new Option(item, item);
     }
   };
 
