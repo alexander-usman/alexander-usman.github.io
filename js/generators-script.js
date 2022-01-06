@@ -398,7 +398,7 @@ const generateReligiousOath = function () {
   const typeRoll = Math.trunc(Math.random * 1) + 1;
   let firstRoll = 0;
 
-  switch (rollType) {
+  switch (typeRoll) {
     case 1:
       firstRoll =
         Math.trunc(
