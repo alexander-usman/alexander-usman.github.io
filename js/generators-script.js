@@ -29,7 +29,7 @@ window.onload = function () {
   }
   selectPantheon.onchange = function () {
     //empty Chapters- and Topics- dropdowns
-    chapterSel.length = 1;
+    selectGod.length = 1;
     //display correct values
     for (let item in godsObject[this.value]) {
       selectGod.options[selectGod.options.length] = new Option(item, item);
