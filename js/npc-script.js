@@ -448,6 +448,7 @@ const getNPCOrigin = function (npcRace, npcBackground, npcClass, npcSubrace) {
   const parents = getNPCParents(npcRace);
   const birthplace = getNPCBirthplace();
   const siblings = getNPCSiblings(npcRace, npcSubrace);
+  const family = getNPCFamily();
 
   return `
   <li> Origin: 
@@ -455,6 +456,7 @@ const getNPCOrigin = function (npcRace, npcBackground, npcClass, npcSubrace) {
       ${parents}
       ${birthplace}
       ${siblings}
+      ${family}
     </ul>
   </li>
   `;
@@ -583,6 +585,18 @@ const getSiblingFirstName = function (npcName) {
     secondPart += npcName.slice(npcName.indexOf(`(`), npcName.indexOf(`)`) + 1);
   }
   return `${firstPart + ` ` + secondPart}`;
+};
+
+const getNPCFamily = function () {
+  let family = ``;
+  const rollFamily = rollXDX(1, 100);
+
+  for (const [k, v] of familyOptions) {
+    if (rollFamily <= k) {
+      family += familyOptions.get(k);
+      break;
+    }
+  }
 };
 
 const getNPCLanguages = function (race, npcClass, background) {

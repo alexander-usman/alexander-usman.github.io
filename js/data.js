@@ -6582,7 +6582,53 @@ const birthplaces = new Map([
   [99, `On an Inner Plane of your choice`],
   [100, `On an Outer Plane of your choice`],
 ]);
-// Suplemental Tables
+
+const familyOptions = new Map([
+  [1, `None`],
+  [2, `Institution, such as an asylum`],
+  [3, `Temple`],
+  [5, `Orphanage`],
+  [7, `Guardian`],
+  [
+    15,
+    `Paternal or maternal aunt, uncle, or both: or extended family such as a tribe or clan`,
+  ],
+  [25, `Paternal or maternal grandparent(s)`],
+  [35, `Adoptive family (same or different race)`],
+  [55, `Single father or stepfather`],
+  [75, `Single mother or stepmother`],
+  [100, `Mother and father`],
+]);
+
+const absentParent = [
+  `Your parent died`,
+  `Your parent was imprisoned, enslaved, or otherwise taken away.`,
+  `Your parent abandoned you.`,
+  `Your parent disapeared to an unknown fate`,
+];
+
+const familyLifestyle = new Map([
+  [1, [`Wretched`, -40]],
+  [3, [`Squalid`, -20]],
+  [6, [`Poor`, -10]],
+  [10, [`Modest`, 0]],
+  [13, [`Comfortable`, 10]],
+  [15, [`Wealthy`, 20]],
+  [16, [`Aristocratic`, 40]],
+]);
+
+const childhoodHome = new Map([
+  [0, `On the streets`],
+  [20, `In a run-down shack`],
+  [30, `No permanent residence; you moved around a lot`],
+  [40, `Encampment or village in the wilderness`],
+  [50, `Apartment in a run down neighbourhood`],
+  [70, `Small house`],
+  [90, `Large house`],
+  [110, `Mansion`],
+  [140, `Palace or castle`],
+]);
+// Supplemental Tables
 const d100Alignments = new Map([
   [3, `Chaotic Evil`],
   [6, `Chaotic Neutral`],
@@ -6590,7 +6636,7 @@ const d100Alignments = new Map([
   [16, `Neutral Evil`],
   [24, `Neutral`],
   [30, `Neutral Good`],
-  [32, `Lawful good`],
+  [32, `Lawful Good`],
   [34, `Lawful Neutral`],
   [35, `Chaotic Good`],
   [36, `Chaotic Neutral`],
@@ -6608,7 +6654,6 @@ const causesOfDeath = [
   `Consumed by a  monster`,
   `Executted for a crime or tortured to death`,
   `Bizzare event, such as being hit by a meteorite, struck down by an angry god, or killed by a hatching Slaad egg`,
-  ``,
 ];
 
 const d100Classes = new Map([
