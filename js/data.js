@@ -3771,12 +3771,272 @@ const godsOfEberron = new Map([
     },
   ],
 ]);
+
+const godsOfNonHumans = new Map([
+  [
+    `Bahamut`,
+    {
+      epitaph: `dragon god of good`,
+      alignment: `LG`,
+      domain: [`Life`, `War`],
+      symbol: `Dragon’s head in profile`,
+      shortSymbol: [
+        `head`,
+        `teeth`,
+        `fangs`,
+        `breath`,
+        `eyes`,
+        `claws`,
+        `visage`,
+      ],
+    },
+  ],
+  [
+    `Blibdoolpoolp`,
+    {
+      epitaph: `kuo-toa goddess`,
+      alignment: `NE`,
+      domain: [`Death`],
+      symbol: `Lobster head or black pearl`,
+      shortSymbol: [`lobster`, `lobster's head`, `pearl`, `black pearl`],
+    },
+  ],
+  [
+    `Corellon Larethian`,
+    {
+      epitaph: `elf deity of art and magic `,
+      alignment: `CG`,
+      domain: [`Light`],
+      symbol: `Quarter moon or starburst`,
+      shortSymbol: [`moon`, `quarter moon`, `starburst`],
+    },
+  ],
+  [
+    `Deep Sashelas`,
+    {
+      epitaph: `elf god of the sea`,
+      alignment: `CG`,
+      domain: [`Nature`, `Tempest`],
+      symbol: `Dolphin`,
+      shortSymbol: [`dolphin`],
+    },
+  ],
+  [
+    `Eadro`,
+    {
+      epitaph: `merfolk deity of the sea`,
+      alignment: `N`,
+      domain: [`Nature`, `Tempest`],
+      symbol: `Spiral design`,
+      shortSymbol: [`spiral`],
+    },
+  ],
+  [
+    `Garl Glittergold`,
+    {
+      epitaph: `gnome god of trickery and wiles`,
+      alignment: `LG`,
+      domain: [`Trickery`],
+      symbol: `Gold nugget`,
+      shortSymbol: [`nugget`, `gold nugget`],
+    },
+  ],
+  [
+    `Grolantor`,
+    {
+      epitaph: `hill giant god of war`,
+      alignment: `CE`,
+      domain: [`War`],
+      symbol: `Wooden club`,
+      shortSymbol: [`club`, `wooden club`, `big club`],
+    },
+  ],
+  [
+    `Gruumsh`,
+    {
+      epitaph: `orc god of storms and war`,
+      alignment: `CE`,
+      domain: [`Tempest`, `War`],
+      symbol: `Unblinking eye`,
+      shortSymbol: [`eye`, `unblinking eye`],
+    },
+  ],
+  [
+    `Hruggek`,
+    {
+      epitaph: `bugbear god of violence `,
+      alignment: `CE`,
+      domain: [`War`],
+      symbol: `Morningstar`,
+      shortSymbol: [`morningstar`],
+    },
+  ],
+  [
+    `Kurtulmak`,
+    {
+      epitaph: `kobold god of war and mining`,
+      alignment: `LE`,
+      domain: [`War`],
+      symbol: `Gnome skull`,
+      shortSymbol: [`skull`, `gnome-skull`],
+    },
+  ],
+  [
+    `Laogzed`,
+    {
+      epitaph: `troglodyte god of hunger`,
+      alignment: `CE`,
+      domain: [`Death`],
+      symbol: `Image of the lizard/toad god`,
+      shortSymbol: [`image`],
+    },
+  ],
+  [
+    `Lolth`,
+    {
+      epitaph: `drow goddess of spiders`,
+      alignment: `CE`,
+      domain: [`Trickery`],
+      symbol: `Spider`,
+      shortSymbol: [`spider`],
+    },
+  ],
+  [
+    `Maglubiyet`,
+    {
+      epitaph: `goblinoid god of war`,
+      alignment: `LE`,
+      domain: [`War`],
+      symbol: `Bloody axe`,
+      shortSymbol: [`axe`, `bloody axe`],
+    },
+  ],
+  [
+    `Moradin`,
+    {
+      epitaph: `dwarf god of creation`,
+      alignment: `LG`,
+      domain: [`Knowledge`],
+      symbol: `Hammer and anvil`,
+      shortSymbol: [`hammer`, `anvil`, `hammer and anvil`],
+    },
+  ],
+  [
+    `Rillifane Rallathil`,
+    {
+      epitaph: `wood elf god of nature`,
+      alignment: `CG`,
+      domain: [`Nature`],
+      symbol: `Oak`,
+      shortSymbol: [`oak`],
+    },
+  ],
+  [
+    `Sehanine Moonbow`,
+    {
+      epitaph: `elf goddess of the moon`,
+      alignment: `CG`,
+      domain: [`Trickery`],
+      symbol: `Crescent moon`,
+      shortSymbol: [`moon`, `crescent moon`],
+    },
+  ],
+  [
+    `Sekolah`,
+    {
+      epitaph: `sahuagin god of the hunt`,
+      alignment: `LE`,
+      domain: [`Nature`, `Tempest`],
+      symbol: `Shark`,
+      shortSymbol: [`shark`, `shark's teeth`, `shark's fins`, `shark's maw`],
+    },
+  ],
+  [
+    `Semuanya`,
+    {
+      epitaph: `lizardfolk deity of survival`,
+      alignment: `N`,
+      domain: [`Life`],
+      symbol: `Egg`,
+      shortSymbol: [`egg`, `shell`, `yolk`, `white`],
+    },
+  ],
+  [
+    `Skerrit`,
+    {
+      epitaph: `centaur and satyr god of nature`,
+      alignment: `N`,
+      domain: [`Nature`],
+      symbol: `Oak growing from acorn`,
+      shortSymbol: [`oak`, `acorn`, `growing oak`],
+    },
+  ],
+  [
+    `Skoraeus Stonebones`,
+    {
+      epitaph: `god of stone giants and art`,
+      alignment: `N`,
+      domain: [`Knowledge`],
+      symbol: `Stalactite`,
+      shortSymbol: [`stalactite`],
+    },
+  ],
+  [
+    `Surtur`,
+    {
+      epitaph: `god of fire giants and craft `,
+      alignment: `LE`,
+      domain: [`Knowledge`, `War`],
+      symbol: `Flaming sword`,
+      shortSymbol: [`sword`, `flaming sword`, `mighty flaming sword`],
+    },
+  ],
+  [
+    `Thrym`,
+    {
+      epitaph: `god of frost giants and strength`,
+      alignment: `CE`,
+      domain: [`War`],
+      symbol: `White double-bladed axe`,
+      shortSymbol: [`axe`, `mighty axe`, `white axe`],
+    },
+  ],
+  [
+    `Tiamat`,
+    {
+      epitaph: `dragon goddess of evil `,
+      alignment: `LE`,
+      domain: [`Trickery`],
+      symbol: `Dragon head with five claw marks`,
+      shortSymbol: [
+        `head`,
+        `teeth`,
+        `fangs`,
+        `breath`,
+        `eyes`,
+        `claws`,
+        `clawed visage`,
+      ],
+    },
+  ],
+  [
+    `Yondalla`,
+    {
+      epitaph: `halfling goddess of fertility and protection`,
+      alignment: `LG`,
+      domain: [`Life`],
+      symbol: `Shield`,
+      shortSymbol: [`shield`],
+    },
+  ],
+]);
 // Pantheon list for random pantheons
 const pantheonList = [
   godsOfTheForgottenRealms,
   godsOfGreyhawk,
   godsOfDragonlance,
   godsOfEberron,
+  godsOfNonHumans,
 ];
 // God Object for generateReligiousOath
 const godsObject = {
@@ -3885,6 +4145,32 @@ const godsObject = {
     `The Shadow`,
     `The Traveller`,
     `The Silver Flame`,
+  ],
+  "Gods of Non-Humans": [
+    `Bahamut`,
+    `Blibdoolpoolp`,
+    `Corellon Larethian`,
+    `Deep Sashelas`,
+    `Eadro`,
+    `Garl Glittergold`,
+    `Grolantor`,
+    `Gruumsh`,
+    `Hruggek`,
+    `Kurtulmak`,
+    `Laogzed`,
+    `Lolth`,
+    `Maglubiyet`,
+    `Moradin`,
+    `Rillifane Rallathil`,
+    `Sehanine Moonbow`,
+    `Sekolah`,
+    `Semuanya`,
+    `Skerrit`,
+    `Skoraeus Stonebones`,
+    `Surtur`,
+    `Thrym`,
+    `Tiamat`,
+    `Yondalla`,
   ],
 };
 // Random NPC Tables
