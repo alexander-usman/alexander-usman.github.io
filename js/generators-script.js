@@ -457,6 +457,14 @@ const generateReligiousOath = function () {
     } else {
       deity += whichGod;
     }
+  } else if (whichPantheon === `Gods of Eberron`) {
+    pantheon = godsOfEberron;
+    if (whichGod === `Select a god`) {
+      rollDeity = Math.trunc(Math.random() * pantheon.size);
+      deity += Array.from(pantheon.keys())[rollDeity];
+    } else {
+      deity += whichGod;
+    }
   } else if (whichPantheon === `Select a Pantheon`) {
     rollPantheon = Math.trunc(Math.random() * pantheonList.length);
     pantheon = pantheonList[rollPantheon];

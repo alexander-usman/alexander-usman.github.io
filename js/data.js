@@ -3588,11 +3588,195 @@ const godsOfDragonlance = new Map([
     },
   ],
 ]);
+
+const godsOfEberron = new Map([
+  [
+    `Arawai`,
+    {
+      epitaph: `godess of fertility`,
+      alignment: `NG`,
+      domain: [`Life`, `Nature`],
+      symbol: `Sheaf of wheat tied with green ribbon`,
+      shortSymbol: [`sheaf`, `wheat`, `tied sheaf`, `grain`],
+    },
+  ],
+  [
+    `Aureon`,
+    {
+      epitaph: `god of law and knowledge`,
+      alignment: `LN`,
+      domain: [`Knowledge`],
+      symbol: `Open tome`,
+      shortSymbol: [`tome`, `open tome`],
+    },
+  ],
+  [
+    `Balinor`,
+    {
+      epitaph: `god of beasts and the hunt`,
+      alignment: `N`,
+      domain: [`Life`, `Nature`],
+      symbol: `Pair of antlers`,
+      shortSymbol: [`antlers`],
+    },
+  ],
+  [
+    `Boldrei`,
+    {
+      epitaph: `godess of community and home`,
+      alignment: `LG`,
+      domain: [`Life`],
+      symbol: `Fire in a stone hearth`,
+      shortSymbol: [
+        `fire`,
+        `hearth`,
+        `heated hearth`,
+        `stone hearth`,
+        `warming flames`,
+      ],
+    },
+  ],
+  [
+    `Dol Arrah`,
+    {
+      epitaph: `godess of sunlight and honour`,
+      alignment: `LG`,
+      domain: [`Light`, `War`],
+      symbol: `Rising sun`,
+      shortSymbol: [`sun`, `dawning sun`, `rising sun`],
+    },
+  ],
+  [
+    `Dol Dorn`,
+    {
+      epitaph: `god of strength at arms`,
+      alignment: `CG`,
+      domain: [`War`],
+      symbol: `Longsword crossed over a shield`,
+      shortSymbol: [
+        `sword`,
+        `shield`,
+        `mighty sword`,
+        `blade`,
+        `longsword`,
+        `mighty shield`,
+      ],
+    },
+  ],
+  [
+    `Kol Korran`,
+    {
+      epitaph: `god of trade and wealth`,
+      alignment: `N`,
+      domain: [`Trickery`],
+      symbol: `Nine-sided gold coin`,
+      shortSymbol: [
+        `coin`,
+        `gold coin`,
+        `golden coin`,
+        `nine-sided coin`,
+        `many-sided coin`,
+      ],
+    },
+  ],
+  [
+    `Olladra`,
+    {
+      epitaph: `goddess of good fortune`,
+      alignment: `NG`,
+      domain: [`Life`, `Trickery`],
+      symbol: `Domino`,
+      shortSymbol: [`domino`],
+    },
+  ],
+  [
+    `Onatar`,
+    {
+      epitaph: `god of craft`,
+      alignment: `NG`,
+      domain: [` Knowledge`],
+      symbol: `Crossed hammer and tongs`,
+      shortSymbol: [`hammer`, `tongs`, `hammer and tongs`, `tools`],
+    },
+  ],
+  [
+    `The Devourer`,
+    {
+      epitaph: `god of nature’s wrath`,
+      alignment: `NE`,
+      domain: [`Tempest`],
+      symbol: `Bundle of five sharpened bones`,
+      shortSymbol: [`bones`, `five bones`, `many bones`, `sharpened bones`],
+    },
+  ],
+  [
+    `The Fury`,
+    {
+      epitaph: `goddess of wrath and madness`,
+      alignment: `NE`,
+      domain: [` War`],
+      symbol: `Winged wyrm with woman’s head and upper body`,
+      shortSymbol: [`wyrm`, `winged wyrm`],
+    },
+  ],
+  [
+    `The Keeper`,
+    {
+      epitaph: `god of greed and death`,
+      alignment: `NE`,
+      domain: [`Death`],
+      symbol: `Dragonshard stone in the shape of a fang`,
+      shortSymbol: [`dragonshard`, `fang`, `stone fang`],
+    },
+  ],
+  [
+    `The Mockery`,
+    {
+      epitaph: `god of violence and treachery`,
+      alignment: `NE`,
+      domain: [`War`],
+      symbol: `Five blood-spattered tools
+`,
+      shortSymbol: [`bloody tools`, `five tools`, `many tools`],
+    },
+  ],
+  [
+    `The Shadow`,
+    {
+      epitaph: `god of dark magic`,
+      alignment: `CE`,
+      domain: [`Knowledge`],
+      symbol: `Obsidian tower`,
+      shortSymbol: [`tower`, `obsidian tower`, `black tower`],
+    },
+  ],
+  [
+    `The Traveler`,
+    {
+      epitaph: `deity of chaos and change`,
+      alignment: `CN`,
+      domain: [`Knowledge`, `Trickery`],
+      symbol: `Four crossed, rune-inscribed bones`,
+      shortSymbol: [`bones`, `crossed bones`, `carved bones`, `rune-bones`],
+    },
+  ],
+  [
+    `The Silver Flame`,
+    {
+      epitaph: `deity of protection and good`,
+      alignment: `LG`,
+      domain: [`Light`, `Life`, `War`],
+      symbol: `Flame drawn on silver or molded from silver`,
+      shortSymbol: [`flame`, `silver flame`],
+    },
+  ],
+]);
 // Pantheon list for random pantheons
 const pantheonList = [
   godsOfTheForgottenRealms,
   godsOfGreyhawk,
   godsOfDragonlance,
+  godsOfEberron,
 ];
 // God Object for generateReligiousOath
 const godsObject = {
@@ -3683,6 +3867,24 @@ const godsObject = {
     `Sargonnas`,
     `Takhisis`,
     `Zeboim`,
+  ],
+  "Gods of Eberron": [
+    `Arawai`,
+    `Aureon`,
+    `Balinor`,
+    `Boldrei`,
+    `Dol Arrah`,
+    `Dol Dorn`,
+    `Kol Koran`,
+    `Olladra`,
+    `Onatar`,
+    `The Devourer`,
+    `The Fury`,
+    `The Keeper`,
+    `The Mockery`,
+    `The Shadow`,
+    `The Traveller`,
+    `The Silver Flame`,
   ],
 };
 // Random NPC Tables
