@@ -589,14 +589,40 @@ const getSiblingFirstName = function (npcName) {
 
 const getNPCFamily = function () {
   let family = ``;
-  const rollFamily = rollXDX(1, 100);
+  let lifestyleMod = 0;
+  const rollFamilyOptions = rollXDX(1, 100);
+  const rollLifestyle = rollXDX(1, 16);
+  const rollHome = rollXDX(1, 100);
 
   for (const [k, v] of familyOptions) {
-    if (rollFamily <= k) {
-      family += familyOptions.get(k);
+    if (rollFamilyOptions <= k) {
+      if (rollFamilyOptions <= 75) {
+        const rollAbsentParents = rollXDX(1, 4, -1);
+        family += `<li>${familyOptions.get(k)} - ${
+          absentParent[rollAbsentParents]
+        }</li>`;
+      } else {
+        family += `<li>${familyOptions.get(k)[0]}</li>`;
+        lifestyleMod = familyOptions.get(k)[1];
+      }
       break;
     }
   }
+
+  for (const [k, v] of familyLifestyle) {
+    if (rollLifestyle <= k) {
+      family += `<li>${familyLifestyle.get(k)}</li>`;
+      break;
+    }
+  }
+
+  for (const [k, v] of childhoodHome) {
+    if (rollHome + lifestyleMod <= k) {
+      family += `<li>${childhoodHome.get(v)}</li>`;
+    }
+  }
+
+  return `<ul>${family}</ul>`;
 };
 
 const getNPCLanguages = function (race, npcClass, background) {

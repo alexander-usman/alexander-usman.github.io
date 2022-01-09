@@ -6601,10 +6601,10 @@ const familyOptions = new Map([
 ]);
 
 const absentParent = [
-  `Your parent died`,
-  `Your parent was imprisoned, enslaved, or otherwise taken away.`,
-  `Your parent abandoned you.`,
-  `Your parent disapeared to an unknown fate`,
+  `Your parent(s) died`,
+  `Your parent(s) was imprisoned, enslaved, or otherwise taken away.`,
+  `Your parent(s) abandoned you.`,
+  `Your parent(s) disapeared to an unknown fate`,
 ];
 
 const familyLifestyle = new Map([
