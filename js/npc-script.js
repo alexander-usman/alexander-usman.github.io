@@ -602,8 +602,8 @@ const getNPCFamily = function () {
           absentParent[rollAbsentParents]
         }</li>`;
       } else {
-        family += `<li>${familyOptions.get(k)[0]}</li>`;
-        lifestyleMod = familyOptions.get(k)[1];
+        family += `<li>${familyOptions.get(k)[0][0]}</li>`;
+        lifestyleMod = familyOptions.get(k)[0][1];
       }
       break;
     }
@@ -619,6 +619,7 @@ const getNPCFamily = function () {
   for (const [k, v] of childhoodHome) {
     if (rollHome + lifestyleMod <= k) {
       family += `<li>${childhoodHome.get(v)}</li>`;
+      break;
     }
   }
 
