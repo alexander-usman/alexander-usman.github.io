@@ -601,9 +601,10 @@ const getNPCFamily = function () {
         family += `<li>${familyOptions.get(k)} - ${
           absentParent[rollAbsentParents]
         }</li>`;
+        lifestyleMod = familyOptions.get(k);
       } else {
-        family += `<li>${familyOptions.get(k)[0]}</li>`;
-        lifestyleMod = familyOptions.get(k)[0];
+        family += `<li>${familyOptions.get(k)}</li>`;
+        lifestyleMod = familyOptions.get(k);
       }
       break;
     }
