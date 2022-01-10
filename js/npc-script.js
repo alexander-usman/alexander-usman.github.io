@@ -528,7 +528,27 @@ const getNPCStats = function (
   // Get racial bonuses.
   const racialBonus = getNPCStatBonuses(npcRace, npcSubrace);
   for (let l = 0; l < racialBonus.length; l++) {
-    statsMap.set(racialBonus[l][0], racialBonus[l][0] + racialBonus[l][1]);
+    if (racialBonus[l][0] === `Random`) {
+      // Account for Half-Elf bonus to any stat but Charisma.
+      statsList = [
+        `Strength`,
+        `Dexterity`,
+        `Constitution`,
+        `Intelligence`,
+        `Wisdom`,
+      ];
+      roll = rollXDX(1, statsList.length, -1);
+      statsMap.set(
+        statsList[roll],
+        statsMap.get(statsList[roll]) + Number(racialBonus[l][1])
+      );
+      statsList = removeFirst(statsList, statsList[roll]);
+    } else {
+      statsMap.set(
+        racialBonus[l][0],
+        statsMap.get(racialBonus[l][0]) + Number(racialBonus[l][1])
+      );
+    }
   }
 
   for (const [k, v] of statsMap) {
