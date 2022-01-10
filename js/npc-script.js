@@ -19,6 +19,12 @@ const rollXDX = function (numDice = 1, dWhat = 6, modifier = 0) {
   return roll;
 };
 
+function arrayRemove(arr, value) {
+  return arr.filter(function (item) {
+    return item != value;
+  });
+}
+
 const generateSimpleNPC = function () {
   const wholeRace = getNPCRace();
   const raceRoll = wholeRace[0];
@@ -86,7 +92,7 @@ const generateComplexNPC = function () {
     npcClass[0],
     subrace[0]
   );
-  const stats = getNPCStats(npcClass, highScore[0], lowScore[0]);
+  const stats = getNPCStats(npcClass[0], highScore[0], lowScore[0]);
 
   resultsDiv.innerHTML = `
     <ul>
@@ -449,6 +455,23 @@ const getNPCName = function (
 const getNPCStats = function (npcClass, highScore, lowScore) {
   let stats = [];
   let roll = [];
+  let statsMap = new Map([
+    [`Strength`, 0],
+    [`Dexterity`, 0],
+    [`Constitution`, 0],
+    [`Intelligence`, 0],
+    [`Wisdom `, 0],
+    [`Charisma`, 0],
+  ]);
+
+  let statsList = [
+    `Strength`,
+    `Dexterity`,
+    `Constitution`,
+    `Intelligence`,
+    `Wisdom `,
+    `Charisma`,
+  ];
 
   for (let i = 0; i < 6; i++) {
     for (let j = 0; j < 4; j++) {
@@ -467,9 +490,27 @@ const getNPCStats = function (npcClass, highScore, lowScore) {
     roll = [];
   }
 
-  console.log(npcClass, highScore, lowScore);
+  stats.sort(function (a, b) {
+    return b - a;
+  });
 
-  return stats;
+  // Make sure the high and low scores match the ones that were already chosen.
+  statsMap[highScore] = stats[0];
+  stats.shift();
+  statsList = arrayRemove(statsList, highScore);
+  statsMap[lowScore] = stats[stats.length - 1];
+  stats.pop;
+  statsList = arrayRemove(statsList, lowScore);
+  // Randomise the rest.
+  while (statsList.length >= 1) {
+    const keyRoll = rollXDX(1, statsList.length, -1);
+    const valueRoll = rollXDX(1, stats.length, -1);
+    statsMap[(statsList[keyRoll] = stats[valueRoll])];
+    statsList = arrayRemove(statsList, statsList[keyRoll]);
+    stats = arrayRemove(stats, stats[valueRoll]);
+  }
+
+  return statsMap;
 };
 
 const getNPCOrigin = function (npcRace, npcBackground, npcClass, npcSubrace) {
@@ -909,7 +950,7 @@ const getNPCBackground = function () {
 };
 
 const getNPCClass = function (highAbility, lowAbility) {
-  const classList = [
+  const statList = [
     `Strength`,
     `Dexterity`,
     `Constitution`,
@@ -918,8 +959,8 @@ const getNPCClass = function (highAbility, lowAbility) {
     `Charisma`,
   ];
 
-  const highIndex = classList.indexOf(highAbility);
-  const lowIndex = classList.indexOf(lowAbility);
+  const highIndex = statList.indexOf(highAbility);
+  const lowIndex = statList.indexOf(lowAbility);
   const npcClass = classGrid[highIndex][lowIndex];
 
   return [
