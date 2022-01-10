@@ -4386,7 +4386,7 @@ const statsByRace = new Map([
     [
       [`Strength`, 1],
       [`Dexterity`, 1],
-      [`Constitution`],
+      [`Constitution`, 1],
       [`Wisdom`, 1],
       [`Intelligence`, 1],
       [`Charisma`, 1],
@@ -4397,7 +4397,7 @@ const statsByRace = new Map([
     [
       [`Strength`, 1],
       [`Dexterity`, 1],
-      [`Constitution`],
+      [`Constitution`, 1],
       [`Wisdom`, 1],
       [`Intelligence`, 1],
       [`Charisma`, 1],
@@ -4408,7 +4408,7 @@ const statsByRace = new Map([
     [
       [`Strength`, 1],
       [`Dexterity`, 1],
-      [`Constitution`],
+      [`Constitution`, 1],
       [`Wisdom`, 1],
       [`Intelligence`, 1],
       [`Charisma`, 1],
@@ -4419,7 +4419,7 @@ const statsByRace = new Map([
     [
       [`Strength`, 1],
       [`Dexterity`, 1],
-      [`Constitution`],
+      [`Constitution`, 1],
       [`Wisdom`, 1],
       [`Intelligence`, 1],
       [`Charisma`, 1],
@@ -4430,7 +4430,7 @@ const statsByRace = new Map([
     [
       [`Strength`, 1],
       [`Dexterity`, 1],
-      [`Constitution`],
+      [`Constitution`, 1],
       [`Wisdom`, 1],
       [`Intelligence`, 1],
       [`Charisma`, 1],
@@ -4441,7 +4441,7 @@ const statsByRace = new Map([
     [
       [`Strength`, 1],
       [`Dexterity`, 1],
-      [`Constitution`],
+      [`Constitution`, 1],
       [`Wisdom`, 1],
       [`Intelligence`, 1],
       [`Charisma`, 1],
@@ -4452,7 +4452,7 @@ const statsByRace = new Map([
     [
       [`Strength`, 1],
       [`Dexterity`, 1],
-      [`Constitution`],
+      [`Constitution`, 1],
       [`Wisdom`, 1],
       [`Intelligence`, 1],
       [`Charisma`, 1],
@@ -4463,7 +4463,7 @@ const statsByRace = new Map([
     [
       [`Strength`, 1],
       [`Dexterity`, 1],
-      [`Constitution`],
+      [`Constitution`, 1],
       [`Wisdom`, 1],
       [`Intelligence`, 1],
       [`Charisma`, 1],
@@ -4474,7 +4474,7 @@ const statsByRace = new Map([
     [
       [`Strength`, 1],
       [`Dexterity`, 1],
-      [`Constitution`],
+      [`Constitution`, 1],
       [`Wisdom`, 1],
       [`Intelligence`, 1],
       [`Charisma`, 1],
