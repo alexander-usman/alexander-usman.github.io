@@ -459,7 +459,7 @@ const getNPCStats = function (npcClass, highScore, lowScore) {
       return b - a;
     });
     roll.pop();
-    const total = 0;
+    let total = 0;
     for (let k = 0; k < roll.length; k++) {
       total += roll[k];
     }
