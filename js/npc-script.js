@@ -496,17 +496,18 @@ const getNPCStats = function (npcClass, highScore, lowScore) {
   });
 
   // Make sure the high and low scores match the ones that were already chosen.
-  statsMap[highScore] = stats[0];
+  statsMap(highScore, stats[0]);
   stats.shift();
   statsList = arrayRemove(statsList, highScore);
-  statsMap[lowScore] = stats[stats.length - 1];
+  statsMap.set(lowScore, stats[stats.length - 1]);
   stats.pop;
   statsList = arrayRemove(statsList, lowScore);
   // Randomise the rest.
   while (statsList.length >= 1) {
     const keyRoll = rollXDX(1, statsList.length, -1);
     const valueRoll = rollXDX(1, stats.length, -1);
-    statsMap[(statsList[keyRoll] = stats[valueRoll])];
+
+    statsMap.set(statsList[keyRoll], stats[valueRoll]);
     statsList = arrayRemove(statsList, statsList[keyRoll]);
     stats = arrayRemove(stats, stats[valueRoll]);
   }
