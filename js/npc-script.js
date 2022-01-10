@@ -7,6 +7,12 @@ const stripListMarkup = function (input) {
   return input.slice(4, -5);
 };
 
+function removeFirst(arr, element) {
+  const index = arr.indexOf(element);
+  if (index === -1) return arr;
+  return [...arr.slice(0, index), ...arr.slice(index + 1)];
+}
+
 const rollXDX = function (numDice = 1, dWhat = 6, modifier = 0) {
   let roll = 0;
 
@@ -18,12 +24,6 @@ const rollXDX = function (numDice = 1, dWhat = 6, modifier = 0) {
 
   return roll;
 };
-
-function arrayRemove(arr, value) {
-  return arr.filter(function (item) {
-    return item != value;
-  });
-}
 
 const generateSimpleNPC = function () {
   const wholeRace = getNPCRace();
@@ -497,13 +497,13 @@ const getNPCStats = function (npcClass, highScore, lowScore) {
   });
   statsMap.set(highScore, stats[0]);
   stats.shift();
-  statsList = arrayRemove(statsList, highScore);
+  statsList = removeFirst(statsList, highScore);
   stats.sort(function (a, b) {
     return b - a;
   });
   statsMap.set(lowScore, stats[stats.length - 1]);
   stats.pop;
-  statsList = arrayRemove(statsList, lowScore);
+  statsList = removeFirst(statsList, lowScore);
   // Randomise the rest.
   while (statsList.length >= 1) {
     const keyRoll = rollXDX(1, statsList.length, -1);
@@ -511,7 +511,7 @@ const getNPCStats = function (npcClass, highScore, lowScore) {
 
     statsMap.set(statsList[keyRoll], stats[valueRoll]);
     statsList = arrayRemove(statsList, statsList[keyRoll]);
-    stats = arrayRemove(stats, stats[valueRoll]);
+    stats = removeFirst(stats, stats[valueRoll]);
   }
 
   for (const [k, v] of statsMap) {
