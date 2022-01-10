@@ -470,7 +470,7 @@ const getNPCStats = function (npcClass, highScore, lowScore) {
     `Dexterity`,
     `Constitution`,
     `Intelligence`,
-    `Wisdom `,
+    `Wisdom`,
     `Charisma`,
   ];
 
