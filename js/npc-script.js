@@ -547,8 +547,8 @@ const getNPCStatBonuses = function (
   }
 
   let bonusList = [];
-  for (let i = 0; i < languageByRace.get(npcRace).length; i++) {
-    bonusList += languageByRace.get(npcRace)[i];
+  for (let i = 0; i < statsByRace.get(npcRace).length; i++) {
+    bonusList += statsByRace.get(npcRace)[i];
   }
 
   return bonusList;
