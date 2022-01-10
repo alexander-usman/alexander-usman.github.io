@@ -447,8 +447,8 @@ const getNPCName = function (
 };
 
 const getNPCStats = function (npcClass, highScore, lowScore) {
-  stats = [];
-  roll = [];
+  let stats = [];
+  let roll = [];
 
   for (let i = 0; i < 6; i++) {
     stats.push(rollXDX(3, 6));
