@@ -4232,6 +4232,262 @@ const languageByRace = new Map([
   [`Tiefling`, [`Common`, `Infernal`]],
 ]);
 
+const statsByRace = new Map([
+  [
+    `Dragonborn - Black`,
+    [
+      [`Strength`, 2],
+      [`Charisma`, 1],
+    ],
+  ],
+  [
+    `Dragonborn - Blue`,
+    [
+      [`Strength`, 2],
+      [`Charisma`, 1],
+    ],
+  ],
+  [
+    `Dragonborn - Brass`,
+    [
+      [`Strength`, 2],
+      [`Charisma`, 1],
+    ],
+  ],
+  [
+    `Dragonborn - Bronze`,
+    [
+      [`Strength`, 2],
+      [`Charisma`, 1],
+    ],
+  ],
+  [
+    `Dragonborn - Copper`,
+    [
+      [`Strength`, 2],
+      [`Charisma`, 1],
+    ],
+  ],
+  [
+    `Dragonborn - Gold`,
+    [
+      [`Strength`, 2],
+      [`Charisma`, 1],
+    ],
+  ],
+  [
+    `Dragonborn - Green`,
+    [
+      [`Strength`, 2],
+      [`Charisma`, 1],
+    ],
+  ],
+  [
+    `Dragonborn - Red`,
+    [
+      [`Strength`, 2],
+      [`Charisma`, 1],
+    ],
+  ],
+  [
+    `Dragonborn - Silver`,
+    [
+      [`Strength`, 2],
+      [`Charisma`, 1],
+    ],
+  ],
+  [
+    `Dragonborn - White`,
+    [
+      [`Strength`, 2],
+      [`Charisma`, 1],
+    ],
+  ],
+  [
+    `Dwarf - Hill`,
+    [
+      [`Constitution`, 2],
+      [`Wisdom`, 1],
+    ],
+  ],
+  [
+    `Dwarf - Mountain`,
+    [
+      [`Constitution`, 2],
+      [`Strength`, 2],
+    ],
+  ],
+  [`Elf - Drow`],
+  ,
+  [
+    [`Dexterity`, 2],
+    [`Charisma`, 1],
+  ],
+  [
+    `Elf - High`,
+    [
+      [`Dexterity`, 2],
+      [`Intelligence`, 1],
+    ],
+  ],
+  [
+    `Elf - Wood`,
+    [
+      [`Dexterity`, 2],
+      [`Wisdom`, 1],
+    ],
+  ],
+  [
+    `Gnome - Forest`,
+    [
+      [`Intelligence`, 2],
+      [`Dexterity`, 1],
+    ],
+  ],
+  [
+    `Gnome - Rock`,
+    [
+      [`Intelligence`, 2],
+      [`Constitution`, 1],
+    ],
+  ],
+  [
+    `Half-Elf`,
+    [
+      [`Charisma`, 2],
+      [`Random`, 1],
+      [`Random`, 1],
+    ],
+  ],
+  [
+    `Halfling - Lightfoot`,
+    [
+      [`Dexterity`, 2],
+      [`Charisma`, 1],
+    ],
+  ],
+  [
+    `Halfling - Stout`,
+    [
+      [`Dexterity`, 2],
+      [`Constitution`, 1],
+    ],
+  ],
+  [
+    `Half-Orc`,
+    [
+      [`Strength`, 2],
+      [`Constitution`, 1],
+    ],
+  ],
+  [
+    `Human - Calishite`,
+    [
+      [`Strength`, 1],
+      [`Dexterity`, 1],
+      [`Constitution`],
+      [`Wisdom`, 1],
+      [`Intelligence`, 1],
+      [`Charisma`, 1],
+    ],
+  ],
+  [
+    `Human - Chondathan`,
+    [
+      [`Strength`, 1],
+      [`Dexterity`, 1],
+      [`Constitution`],
+      [`Wisdom`, 1],
+      [`Intelligence`, 1],
+      [`Charisma`, 1],
+    ],
+  ],
+  [
+    `Human - Damaran`,
+    [
+      [`Strength`, 1],
+      [`Dexterity`, 1],
+      [`Constitution`],
+      [`Wisdom`, 1],
+      [`Intelligence`, 1],
+      [`Charisma`, 1],
+    ],
+  ],
+  [
+    `Human - Illuskan`,
+    [
+      [`Strength`, 1],
+      [`Dexterity`, 1],
+      [`Constitution`],
+      [`Wisdom`, 1],
+      [`Intelligence`, 1],
+      [`Charisma`, 1],
+    ],
+  ],
+  [
+    `Human - Mulan`,
+    [
+      [`Strength`, 1],
+      [`Dexterity`, 1],
+      [`Constitution`],
+      [`Wisdom`, 1],
+      [`Intelligence`, 1],
+      [`Charisma`, 1],
+    ],
+  ],
+  [
+    `Human - Rashemi`,
+    [
+      [`Strength`, 1],
+      [`Dexterity`, 1],
+      [`Constitution`],
+      [`Wisdom`, 1],
+      [`Intelligence`, 1],
+      [`Charisma`, 1],
+    ],
+  ],
+  [
+    `Human - Shou`,
+    [
+      [`Strength`, 1],
+      [`Dexterity`, 1],
+      [`Constitution`],
+      [`Wisdom`, 1],
+      [`Intelligence`, 1],
+      [`Charisma`, 1],
+    ],
+  ],
+  [
+    `Human - Tethyrian`,
+    [
+      [`Strength`, 1],
+      [`Dexterity`, 1],
+      [`Constitution`],
+      [`Wisdom`, 1],
+      [`Intelligence`, 1],
+      [`Charisma`, 1],
+    ],
+  ],
+  [
+    `Human - Turami`,
+    [
+      [`Strength`, 1],
+      [`Dexterity`, 1],
+      [`Constitution`],
+      [`Wisdom`, 1],
+      [`Intelligence`, 1],
+      [`Charisma`, 1],
+    ],
+  ],
+  [
+    `Tiefling`,
+    [
+      [`Charisma`, 2],
+      [`Intelligence`, 1],
+    ],
+  ],
+]);
+
 const randomHumanType = new Map([
   [1, `Calishite`],
   [2, `Chondathan`],
@@ -6528,6 +6784,35 @@ const languages = [
   `Halfling`,
   `Orc`,
 ];
+// Class tables
+const classes = new Map([
+  [
+    `Barbarian`,
+    {
+      hitpoints: [1, 12],
+      armour: [`light`, `medium`, `shields`],
+      weapons: [`simple`, `martial`],
+      tools: [],
+      savingThrows: [`Strength`, `Constitution`],
+      numSkills: 2,
+      skills: [
+        `Animal Handling`,
+        `Athletics`,
+        `Intimidation`,
+        `Nature`,
+        `Perception`,
+        `Survival`,
+      ],
+      equipment: [
+        `Greataxe or any martial melee weapon`,
+        `two Handaxes or any simple weapon`,
+        `Explorer's Pack`,
+        `four Javelins`,
+      ],
+    },
+  ],
+]);
+
 // Origins Tables
 const parentsHalfElf = new Map([
   [5, `One parent was an elf and the other was a human.`],

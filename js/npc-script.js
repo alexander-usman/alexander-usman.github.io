@@ -7,11 +7,11 @@ const stripListMarkup = function (input) {
   return input.slice(4, -5);
 };
 
-function removeFirst(arr, element) {
+const removeFirst = function (arr, element) {
   const index = arr.indexOf(element);
   if (index === -1) return arr;
   return [...arr.slice(0, index), ...arr.slice(index + 1)];
-}
+};
 
 const rollXDX = function (numDice = 1, dWhat = 6, modifier = 0) {
   let roll = 0;
@@ -92,7 +92,13 @@ const generateComplexNPC = function () {
     npcClass[0],
     subrace[0]
   );
-  const stats = getNPCStats(npcClass[0], highScore[0], lowScore[0]);
+  const stats = getNPCStats(
+    trimmedRace,
+    subRace[0],
+    npcClass[0],
+    highScore[0],
+    lowScore[0]
+  );
 
   resultsDiv.innerHTML = `
     <ul>
@@ -452,7 +458,13 @@ const getNPCName = function (
   return `<li>${result}</li>`;
 };
 
-const getNPCStats = function (npcClass, highScore, lowScore) {
+const getNPCStats = function (
+  npcRace,
+  npcSubrace,
+  npcClass,
+  highScore,
+  lowScore
+) {
   let stats = [];
   let roll = [];
   let result = ``;
@@ -513,12 +525,33 @@ const getNPCStats = function (npcClass, highScore, lowScore) {
     statsList = removeFirst(statsList, statsList[keyRoll]);
     stats = removeFirst(stats, stats[valueRoll]);
   }
+  // Get racial bonuses.
+  racialBonus = getNPCStatBonuses(npcRace, npcSubrace);
+  for (let l = 0; l < racialBonus.length; l++) {
+    statsMap.set(racialBonus[l][0], racialBonus[l][0] + racialBonus[l][1]);
+  }
 
   for (const [k, v] of statsMap) {
     result += `<li>${k}: ${v}</li>`;
   }
 
   return [Array.from(statsMap), `<li>Stats: </li><ul>${result}</ul>`];
+};
+
+const getNPCStatBonuses = function (
+  npcRace = `Human`,
+  npcSubrace = `No subrace`
+) {
+  if (npcSubrace != `No subrace`) {
+    npcRace += ` - ${subrace}`;
+  }
+
+  let bonusList = [];
+  for (let i = 0; i < languageByRace.get(npcRace).length; i++) {
+    bonusList += languageByRace.get(npcRace)[i];
+  }
+
+  return bonusList;
 };
 
 const getNPCOrigin = function (npcRace, npcBackground, npcClass, npcSubrace) {
