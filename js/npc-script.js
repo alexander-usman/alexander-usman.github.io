@@ -451,7 +451,6 @@ const getNPCStats = function (npcClass, highScore, lowScore) {
   let roll = [];
 
   for (let i = 0; i < 6; i++) {
-    stats.push(rollXDX(3, 6));
     for (let j = 0; j < 4; j++) {
       roll.push(rollXDX(1, 6));
     }
