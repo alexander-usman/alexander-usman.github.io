@@ -526,7 +526,7 @@ const getNPCStats = function (
     stats = removeFirst(stats, stats[valueRoll]);
   }
   // Get racial bonuses.
-  racialBonus = getNPCStatBonuses(npcRace, npcSubrace);
+  const racialBonus = getNPCStatBonuses(npcRace, npcSubrace);
   for (let l = 0; l < racialBonus.length; l++) {
     statsMap.set(racialBonus[l][0], racialBonus[l][0] + racialBonus[l][1]);
   }
