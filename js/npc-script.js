@@ -100,7 +100,7 @@ const generateComplexNPC = function () {
     ${subrace[1]}
     ${gender}
     ${name}
-    ${stats}
+    ${stats[1]}
     ${languages}
     ${tools}
     ${appearance}
@@ -516,7 +516,7 @@ const getNPCStats = function (npcClass, highScore, lowScore) {
     result += `<li>${k}: ${v}</li>`;
   }
 
-  return [Array.from(statsMap), `<ul>${result}</ul>`];
+  return [Array.from(statsMap), `<ul>Stats: ${result}</ul>`];
 };
 
 const getNPCOrigin = function (npcRace, npcBackground, npcClass, npcSubrace) {
