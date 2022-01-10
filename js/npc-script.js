@@ -463,6 +463,8 @@ const getNPCStats = function (npcClass, highScore, lowScore) {
       total += roll[k];
     }
     stats.push(total);
+    total = 0;
+    roll = [];
   }
 
   console.log(npcClass, highScore, lowScore);
