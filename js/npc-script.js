@@ -510,7 +510,7 @@ const getNPCStats = function (npcClass, highScore, lowScore) {
     const valueRoll = rollXDX(1, stats.length, -1);
 
     statsMap.set(statsList[keyRoll], stats[valueRoll]);
-    statsList = arrayRemove(statsList, statsList[keyRoll]);
+    statsList = removeFirst(statsList, statsList[keyRoll]);
     stats = removeFirst(stats, stats[valueRoll]);
   }
 
