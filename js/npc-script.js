@@ -94,7 +94,7 @@ const generateComplexNPC = function () {
   );
   const stats = getNPCStats(
     trimmedRace,
-    subRace[0],
+    subrace[0],
     npcClass[0],
     highScore[0],
     lowScore[0]
