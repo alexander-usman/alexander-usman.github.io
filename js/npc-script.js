@@ -455,6 +455,7 @@ const getNPCName = function (
 const getNPCStats = function (npcClass, highScore, lowScore) {
   let stats = [];
   let roll = [];
+  let result = ``;
   let statsMap = new Map([
     [`Strength`, 0],
     [`Dexterity`, 0],
@@ -510,7 +511,10 @@ const getNPCStats = function (npcClass, highScore, lowScore) {
     stats = arrayRemove(stats, stats[valueRoll]);
   }
 
-  return statsMap;
+  return [
+    Array.from(statsMap),
+    `<ul>${Array.from(statsMap, ([k, v]) => `<li>${k}: ${v}</li>`)}</ul>`,
+  ];
 };
 
 const getNPCOrigin = function (npcRace, npcBackground, npcClass, npcSubrace) {
