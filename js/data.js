@@ -6602,7 +6602,7 @@ const familyOptions = new Map([
 
 const absentParent = [
   `Your parent(s) died`,
-  `Your parent(s) was imprisoned, enslaved, or otherwise taken away.`,
+  `Your parent(s) was/were imprisoned, enslaved, or otherwise taken away.`,
   `Your parent(s) abandoned you.`,
   `Your parent(s) disapeared to an unknown fate`,
 ];

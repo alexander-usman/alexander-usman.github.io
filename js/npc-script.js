@@ -86,6 +86,7 @@ const generateComplexNPC = function () {
     npcClass[0],
     subrace[0]
   );
+  const stats = getNPCStats(npcClass, highScore[0], lowScore[0]);
 
   resultsDiv.innerHTML = `
     <ul>
@@ -93,6 +94,7 @@ const generateComplexNPC = function () {
     ${subrace[1]}
     ${gender}
     ${name}
+    ${stats}
     ${languages}
     ${tools}
     ${appearance}
@@ -442,6 +444,31 @@ const getNPCName = function (
   }
 
   return `<li>${result}</li>`;
+};
+
+const getNPCStats = function (npcClass, highScore, lowScore) {
+  stats = [];
+  roll = [];
+
+  for (let i = 0; i < 6; i++) {
+    stats.push(rollXDX(3, 6));
+    for (let j = 0; j < 4; j++) {
+      roll.push(rollXDX(1, 6));
+    }
+    roll.sort(function (a, b) {
+      return b - a;
+    });
+    roll.pop();
+    const total = 0;
+    for (let k = 0; k < roll.length; k++) {
+      total += roll[k];
+    }
+    stats.push(total);
+  }
+
+  console.log(npcClass, highScore, lowScore);
+
+  return stats;
 };
 
 const getNPCOrigin = function (npcRace, npcBackground, npcClass, npcSubrace) {
