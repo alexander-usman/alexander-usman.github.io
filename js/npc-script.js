@@ -491,14 +491,16 @@ const getNPCStats = function (npcClass, highScore, lowScore) {
     roll = [];
   }
 
+  // Make sure the high and low scores match the ones that were already chosen.
   stats.sort(function (a, b) {
     return b - a;
   });
-
-  // Make sure the high and low scores match the ones that were already chosen.
   statsMap.set(highScore, stats[0]);
   stats.shift();
   statsList = arrayRemove(statsList, highScore);
+  stats.sort(function (a, b) {
+    return b - a;
+  });
   statsMap.set(lowScore, stats[stats.length - 1]);
   stats.pop;
   statsList = arrayRemove(statsList, lowScore);
