@@ -496,7 +496,7 @@ const getNPCStats = function (npcClass, highScore, lowScore) {
   });
 
   // Make sure the high and low scores match the ones that were already chosen.
-  statsMap(highScore, stats[0]);
+  statsMap.set(highScore, stats[0]);
   stats.shift();
   statsList = arrayRemove(statsList, highScore);
   statsMap.set(lowScore, stats[stats.length - 1]);
