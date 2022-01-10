@@ -516,7 +516,7 @@ const getNPCStats = function (npcClass, highScore, lowScore) {
     result += `<li>${k}: ${v}</li>`;
   }
 
-  return [Array.from(statsMap), `<ul>Stats: ${result}</ul>`];
+  return [Array.from(statsMap), `<li>Stats: </li><ul>${result}</ul>`];
 };
 
 const getNPCOrigin = function (npcRace, npcBackground, npcClass, npcSubrace) {
