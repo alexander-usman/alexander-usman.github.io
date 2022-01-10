@@ -461,7 +461,7 @@ const getNPCStats = function (npcClass, highScore, lowScore) {
     [`Dexterity`, 0],
     [`Constitution`, 0],
     [`Intelligence`, 0],
-    [`Wisdom `, 0],
+    [`Wisdom`, 0],
     [`Charisma`, 0],
   ]);
 
@@ -512,10 +512,11 @@ const getNPCStats = function (npcClass, highScore, lowScore) {
     stats = arrayRemove(stats, stats[valueRoll]);
   }
 
-  return [
-    Array.from(statsMap),
-    `<ul>${Array.from(statsMap, ([k, v]) => `<li>${k}: ${v}</li>`)}</ul>`,
-  ];
+  for (const [k, v] of statsMap) {
+    result += `<li>${k}: ${v}</li>`;
+  }
+
+  return [Array.from(statsMap), `<ul>${result}</ul>`];
 };
 
 const getNPCOrigin = function (npcRace, npcBackground, npcClass, npcSubrace) {
