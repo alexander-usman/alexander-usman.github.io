@@ -4317,11 +4317,12 @@ const statsByRace = new Map([
       [`Strength`, 2],
     ],
   ],
-  [`Elf - Drow`],
-  ,
   [
-    [`Dexterity`, 2],
-    [`Charisma`, 1],
+    `Elf - Drow`,
+    [
+      [`Dexterity`, 2],
+      [`Charisma`, 1],
+    ],
   ],
   [
     `Elf - High`,
