@@ -543,7 +543,7 @@ const getNPCStatBonuses = function (
   npcSubrace = `No subrace`
 ) {
   if (npcSubrace != `No subrace`) {
-    npcRace += ` - ${subrace}`;
+    npcRace += ` - ${npcSubrace}`;
   }
 
   let bonusList = [];
