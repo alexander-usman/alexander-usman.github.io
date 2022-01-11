@@ -4,6 +4,7 @@ const resultsDiv = document.querySelector(`.results`);
 const btnGenerateSimpleNPC = document.querySelector(`.btnGenerateSimpleNPC`);
 const btnGenerateComplexNPC = document.querySelector(`.btnGenerateComplexNPC`);
 // Global
+const simpleNPCs = [];
 const complexNPCs = [];
 
 // Helper Functions
@@ -30,70 +31,57 @@ const rollXDX = function (numDice = 1, dWhat = 6, modifier = 0) {
 };
 
 const generateSimpleNPC = function () {
-  const wholeRace = getNPCRace();
-  const raceRoll = wholeRace[0];
-  const race = wholeRace[1];
-  const trimmedRace = stripListMarkup(race);
-  const subrace = getNPCSubrace(raceRoll);
-  const gender = getNPCGender();
-  const trimmedGender = stripListMarkup(gender);
-  const name = getNPCName(trimmedRace, trimmedGender, subrace[0]);
-  const appearance = getSimpleAppearance();
-  const highScore = getNPCHighAbility();
-  const lowScore = getNPCLowAbility(highScore[0]);
-  const talent = getNPCTalent();
-  const mannerism = getNPCMannerism();
-  const interactionTrait = getNPCInteractionTrait();
-  const ideal = getNPCIdeal();
-  const bond = getNPCBond();
-  const flaw = getNPCFlaw();
-
+  const newNPC = new SimpleNPC();
+  simpleNPCs.push(newNPC);
   resultsDiv.innerHTML = `
-    <ul>
-    ${race}
-    ${subrace[1]}
-    ${gender}
-    ${name}
-    ${appearance}
-    ${highScore[1]}
-    ${lowScore[1]}
-    ${talent}
-    ${mannerism}
-    ${interactionTrait}
-    ${ideal}
-    ${bond}
-    ${flaw}
-    </ul>
+    ${newNPC.toPrettyHTML()}
   `;
 };
 
 const generateComplexNPC = function () {
   const newNPC = new ComplexNPC();
 
-  // resultsDiv.innerHTML = `
-  //   <ul>
-  //   ${newNPC.race}
-  //   ${newNPC.subrace[1]}
-  //   ${newNPC.gender}
-  //   ${newNPC.name}
-  //   ${newNPC.stats[1]}
-  //   ${newNPC.languages}
-  //   ${newNPC.tools}
-  //   ${newNPC.appearance}
-  //   ${newNPC.highScore[1]}
-  //   ${newNPC.lowScore[1]}
-  //   ${newNPC.talent}
-  //   ${newNPC.mannerism}
-  //   ${newNPC.interactionTrait}
-  //   ${newNPC.background[1]}
-  //   ${newNPC.origin}
-  //   ${newNPC.npcClass[2]}
-  //   </ul>
-  // `;
+  complexNPCs.push(newNPC);
 
   resultsDiv.innerHTML = `
     ${newNPC.toPrettyHTML()}
   `;
+};
+
+const SimpleNPC = function () {
+  const wholeRace = getNPCRace();
+  this.raceRoll = wholeRace[0];
+  this.race = wholeRace[1];
+  this.subrace = getNPCSubrace(this.raceRoll);
+  this.gender = getNPCGender();
+  this.name = getNPCName(this.race, this.gender, this.subrace);
+  this.highScore = getNPCHighAbility();
+  this.lowScore = getNPCLowAbility(this.highScore[0]);
+  this.talent = getNPCTalent();
+  this.mannerism = getNPCMannerism();
+  this.interactionTrait = getNPCInteractionTrait();
+  this.appearance = getSimpleAppearance();
+  this.ideal = getNPCIdeal();
+  this.bond = getNPCBond();
+  this.flaw = getNPCFlaw();
+  this.toPrettyHTML = function () {
+    return `
+    <ul>
+    <li>${this.race}</li>
+    <ul><li>${this.subrace}</li></ul>
+    <li>${this.gender}</li>
+    <li>${this.name}<li>
+    <li>${this.appearance}</li>
+    ${this.highScore[1]}
+    ${this.lowScore[1]}
+    <li>${this.talent}</li>
+    <li>${this.mannerism}</li>
+    <li>${this.interactionTrait}</li>
+    <li>${ideal}</li>
+    <li>${bond}</li>
+    <li>${flaw}</li>
+    </ul>`;
+  };
 };
 
 const ComplexNPC = function () {
@@ -948,17 +936,17 @@ const getNPCBond = function () {
   if (roll === 10) {
     const firstRoll = Math.trunc(Math.random() * randomNPCBonds.size - 1) + 1;
     const secondRoll = Math.trunc(Math.random() * randomNPCBonds.size - 1) + 1;
-    return `<li>${randomNPCBonds.get(firstRoll)}, ${randomNPCBonds.get(
+    return `${randomNPCBonds.get(firstRoll)}, ${randomNPCBonds.get(
       secondRoll
-    )}</li>`;
+    )}`;
   }
 
-  return `<li>${randomNPCBonds.get(roll)}</li>`;
+  return `${randomNPCBonds.get(roll)}`;
 };
 
 const getNPCFlaw = function () {
   const roll = Math.trunc(Math.random() * randomNPCFlaws.size) + 1;
-  return `<li>${randomNPCFlaws.get(roll)}`;
+  return `${randomNPCFlaws.get(roll)}`;
 };
 
 const getNPCBackground = function () {
