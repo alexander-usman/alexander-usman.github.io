@@ -34,7 +34,7 @@ const generateSimpleNPC = function () {
   const newNPC = new SimpleNPC();
   simpleNPCs.push(newNPC);
   resultsDiv.innerHTML = `
-    ${newNPC.toPrettyHTML()}
+    ${newNPC.toHTML()}
   `;
 };
 
@@ -64,7 +64,7 @@ const SimpleNPC = function () {
   this.ideal = getNPCIdeal();
   this.bond = getNPCBond();
   this.flaw = getNPCFlaw();
-  this.toPrettyHTML = function () {
+  this.toHTML = function () {
     return `
     <ul>
     <li>${this.race}</li>
