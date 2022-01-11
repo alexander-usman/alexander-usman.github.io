@@ -66,7 +66,7 @@ const SimpleNPC = function () {
     <li>${this.race}</li>
     <ul><li>${this.subrace}</li></ul>
     <li>${this.gender}</li>
-    <li>${this.name}<li>
+    <li>${this.name}</li>
     <li>${this.appearance}</li>
     ${this.highScore[1]}
     ${this.lowScore[1]}
@@ -124,7 +124,7 @@ const ComplexNPC = function () {
     <li>${this.race}</li>
     <ul><li>${this.subrace}</li></ul>
     <li>${this.gender}</li>
-    <li>${this.name}<li>
+    <li>${this.name}</li>
     ${allStats[1]}
     <li>You speak: </li><ul>${this.languages}</ul>
     <li>You can use: </li><ul>${this.tools}</ul>
