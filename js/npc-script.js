@@ -134,7 +134,7 @@ const ComplexNPC = function () {
     return `
     <ul>
     <li>${newNPC.race}</li>
-    <ul><li>${newNPC.subrace}</ul></li>
+    <ul><li>${newNPC.subrace}</li></ul>
     <li>${newNPC.gender}</li>
     <li>${newNPC.name}<li>
     ${allStats[1]}
