@@ -93,23 +93,21 @@ const generateComplexNPC = function () {
 };
 
 const ComplexNPC = function () {
-  this.wholeRace = getNPCRace();
-  this.raceRoll = this.wholeRace[0];
-  this.race = this.wholeRace[1];
-  this.trimmedRace = stripListMarkup(this.race);
+  const wholeRace = getNPCRace();
+  this.raceRoll = wholeRace[0];
+  this.race = wholeRace[1];
   this.subrace = getNPCSubrace(this.raceRoll);
   this.gender = getNPCGender();
-  this.trimmedGender = stripListMarkup(this.gender);
-  this.name = getNPCName(this.trimmedRace, this.trimmedGender, this.subrace[0]);
-  this.appearance = getSimpleAppearance();
+  this.name = getNPCName(this.race, this.gender, this.subrace);
   this.highScore = getNPCHighAbility();
   this.lowScore = getNPCLowAbility(this.highScore[0]);
-  this.stats = getNPCStats(
-    this.trimmedRace,
-    this.subrace[0],
+  const allStats = getNPCStats(
+    this.race,
+    this.subrace,
     this.highScore[0],
     this.lowScore[0]
   );
+  this.stats = allStats[0];
   this.talent = getNPCTalent();
   this.mannerism = getNPCMannerism();
   this.interactionTrait = getNPCInteractionTrait();
@@ -120,22 +118,44 @@ const ComplexNPC = function () {
     this.stats[0]
   );
   this.languages = getNPCLanguages(
-    this.trimmedRace,
+    this.race,
     this.npcClass[0],
     backgrounds.get(this.background[0]).languages
   );
   this.tools = getNPCTools(backgrounds.get(this.background[0]).tools);
+  this.appearance = getSimpleAppearance();
   this.origin = getNPCOrigin(
-    this.trimmedRace,
+    this.race,
     this.background[0],
     this.npcClass[0],
-    this.subrace[0]
+    this.subrace
   );
+  this.toPrettyHTML = function () {
+    return `
+    <ul>
+    <li>${newNPC.race}</li>
+    <ul><li>${newNPC.subrace}</ul></li>
+    <li>${newNPC.gender}</li>
+    <li>${newNPC.name}<li>
+    ${allStats[1]}
+    <li>You speak: </li><ul>${newNPC.languages}</ul>
+    <li>You can use: </li><ul>${newNPC.tools}</ul>
+    <li>${newNPC.appearance}</li>
+    ${newNPC.highScore[1]}
+    ${newNPC.lowScore[1]}
+    <li>${newNPC.talent}</li>
+    <li>${newNPC.mannerism}</li>
+    <li>${newNPC.interactionTrait}</li>
+    ${newNPC.background[1]}
+    ${newNPC.origin}
+    ${newNPC.npcClass[2]}
+    </ul>`;
+  };
 };
 
 const getNPCRace = function () {
   const roll = Math.trunc(Math.random() * randomNPCRace.size) + 1;
-  return [roll, `<li>${randomNPCRace.get(roll)[0]}</li>`];
+  return [roll, `${randomNPCRace.get(roll)[0]}`];
 };
 
 const getNPCSubrace = function (npcRace) {
@@ -148,16 +168,16 @@ const getNPCSubrace = function (npcRace) {
   } else {
     subrace += `No subrace`;
   }
-  return [subrace, `<ul><li>${subrace}</li></ul>`];
+  return subrace;
 };
 
 const getNPCGender = function () {
   const roll = rollXDX(1, 2);
 
   if (roll === 1) {
-    return `<li>Male</li>`;
+    return `Male`;
   } else if (roll === 2) {
-    return `<li>Female</li>`;
+    return `Female`;
   }
 };
 
@@ -466,7 +486,7 @@ const getNPCName = function (
       break;
   }
 
-  return `<li>${result}</li>`;
+  return `${result}`;
 };
 
 const getNPCStats = function (npcRace, npcSubrace, highScore, lowScore) {
@@ -804,7 +824,7 @@ const getNPCLanguages = function (race, npcClass, background) {
     languageList += `<li>Thieves' Cant</li>`;
   }
 
-  return `<li>You speak: </li><ul>${languageList}</ul>`;
+  return languageList;
 };
 
 const getNPCTools = function (backgroundTools) {
@@ -828,12 +848,12 @@ const getNPCTools = function (backgroundTools) {
     return null;
   }
 
-  return `<li>You can use: </li><ul>${toolList}</ul>`;
+  return toolList;
 };
 
 const getSimpleAppearance = function () {
   const roll = Math.trunc(Math.random() * randomNPCAppearance.size) + 1;
-  return `<li>${randomNPCAppearance.get(roll)}</li>`;
+  return randomNPCAppearance.get(roll);
 };
 
 const getNPCHighAbility = function () {
@@ -862,17 +882,17 @@ const getNPCLowAbility = function (highAbility) {
 
 const getNPCTalent = function () {
   const roll = Math.trunc(Math.random() * randomNPCTalents.size) + 1;
-  return `<li>${randomNPCTalents.get(roll)}</li>`;
+  return randomNPCTalents.get(roll);
 };
 
 const getNPCMannerism = function () {
   const roll = Math.trunc(Math.random() * randomNPCMannerisms.size) + 1;
-  return `<li>${randomNPCMannerisms.get(roll)}</li>`;
+  return randomNPCMannerisms.get(roll);
 };
 
 const getNPCInteractionTrait = function () {
   const roll = Math.trunc(Math.random() * randomNPCInteractionTraits.size) + 1;
-  return `<li>${randomNPCInteractionTraits.get(roll)}</li>`;
+  return randomNPCInteractionTraits.get(roll);
 };
 
 const getNPCIdeal = function () {
