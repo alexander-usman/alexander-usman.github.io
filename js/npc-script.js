@@ -70,25 +70,29 @@ const generateSimpleNPC = function () {
 const generateComplexNPC = function () {
   const newNPC = new ComplexNPC();
 
+  // resultsDiv.innerHTML = `
+  //   <ul>
+  //   ${newNPC.race}
+  //   ${newNPC.subrace[1]}
+  //   ${newNPC.gender}
+  //   ${newNPC.name}
+  //   ${newNPC.stats[1]}
+  //   ${newNPC.languages}
+  //   ${newNPC.tools}
+  //   ${newNPC.appearance}
+  //   ${newNPC.highScore[1]}
+  //   ${newNPC.lowScore[1]}
+  //   ${newNPC.talent}
+  //   ${newNPC.mannerism}
+  //   ${newNPC.interactionTrait}
+  //   ${newNPC.background[1]}
+  //   ${newNPC.origin}
+  //   ${newNPC.npcClass[2]}
+  //   </ul>
+  // `;
+
   resultsDiv.innerHTML = `
-    <ul>
-    ${newNPC.race}
-    ${newNPC.subrace[1]}
-    ${newNPC.gender}
-    ${newNPC.name}
-    ${newNPC.stats[1]}
-    ${newNPC.languages}
-    ${newNPC.tools}
-    ${newNPC.appearance}
-    ${newNPC.highScore[1]}
-    ${newNPC.lowScore[1]}
-    ${newNPC.talent}
-    ${newNPC.mannerism}
-    ${newNPC.interactionTrait}
-    ${newNPC.background[1]}
-    ${newNPC.origin}
-    ${newNPC.npcClass[2]}
-    </ul>
+    ${newNPC.toPrettyHTML()}
   `;
 };
 
