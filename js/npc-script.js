@@ -1,8 +1,12 @@
 "use strict";
+// DOM Elements
 const resultsDiv = document.querySelector(`.results`);
 const btnGenerateSimpleNPC = document.querySelector(`.btnGenerateSimpleNPC`);
 const btnGenerateComplexNPC = document.querySelector(`.btnGenerateComplexNPC`);
+// Global
+const complexNPCs = [];
 
+// Helper Functions
 const stripListMarkup = function (input) {
   return input.slice(4, -5);
 };
@@ -64,62 +68,60 @@ const generateSimpleNPC = function () {
 };
 
 const generateComplexNPC = function () {
-  const wholeRace = getNPCRace();
-  const raceRoll = wholeRace[0];
-  const race = wholeRace[1];
-  const trimmedRace = stripListMarkup(race);
-  const subrace = getNPCSubrace(raceRoll);
-  const gender = getNPCGender();
-  const trimmedGender = stripListMarkup(gender);
-  const name = getNPCName(trimmedRace, trimmedGender, subrace[0]);
-  const appearance = getSimpleAppearance();
-  const highScore = getNPCHighAbility();
-  const lowScore = getNPCLowAbility(highScore[0]);
-  const talent = getNPCTalent();
-  const mannerism = getNPCMannerism();
-  const interactionTrait = getNPCInteractionTrait();
-  const background = getNPCBackground();
-  const npcClass = getNPCClass(highScore[0], lowScore[0]);
-  const languages = getNPCLanguages(
+  const newNPC = new ComplexNPC();
+
+  resultsDiv.innerHTML = `
+    <ul>
+    ${newNPC.race}
+    ${newNPC.subrace[1]}
+    ${newNPC.gender}
+    ${newNPC.name}
+    ${newNPC.stats[1]}
+    ${newNPC.languages}
+    ${newNPC.tools}
+    ${newNPC.appearance}
+    ${newNPC.highScore[1]}
+    ${newNPC.lowScore[1]}
+    ${newNPC.talent}
+    ${newNPC.mannerism}
+    ${newNPC.interactionTrait}
+    ${newNPC.background[1]}
+    ${newNPC.origin}
+    ${newNPC.npcClass[2]}
+    </ul>
+  `;
+};
+
+const ComplexNPC = function () {
+  this.wholeRace = getNPCRace();
+  this.raceRoll = wholeRace[0];
+  this.race = wholeRace[1];
+  this.trimmedRace = stripListMarkup(race);
+  this.subrace = getNPCSubrace(raceRoll);
+  this.gender = getNPCGender();
+  this.trimmedGender = stripListMarkup(gender);
+  this.name = getNPCName(trimmedRace, trimmedGender, subrace[0]);
+  this.appearance = getSimpleAppearance();
+  this.highScore = getNPCHighAbility();
+  this.lowScore = getNPCLowAbility(highScore[0]);
+  this.stats = getNPCStats(trimmedRace, subrace[0], highScore[0], lowScore[0]);
+  this.talent = getNPCTalent();
+  this.mannerism = getNPCMannerism();
+  this.interactionTrait = getNPCInteractionTrait();
+  this.background = getNPCBackground();
+  this.npcClass = getNPCClass(highScore[0], lowScore[0], stats[0]);
+  this.languages = getNPCLanguages(
     trimmedRace,
     npcClass[0],
     backgrounds.get(background[0]).languages
   );
-  const tools = getNPCTools(backgrounds.get(background[0]).tools);
-  const origin = getNPCOrigin(
+  this.tools = getNPCTools(backgrounds.get(background[0]).tools);
+  this.origin = getNPCOrigin(
     trimmedRace,
     background[0],
     npcClass[0],
     subrace[0]
   );
-  const stats = getNPCStats(
-    trimmedRace,
-    subrace[0],
-    npcClass[0],
-    highScore[0],
-    lowScore[0]
-  );
-
-  resultsDiv.innerHTML = `
-    <ul>
-    ${race}
-    ${subrace[1]}
-    ${gender}
-    ${name}
-    ${stats[1]}
-    ${languages}
-    ${tools}
-    ${appearance}
-    ${highScore[1]}
-    ${lowScore[1]}
-    ${talent}
-    ${mannerism}
-    ${interactionTrait}
-    ${background[1]}
-    ${origin}
-    ${npcClass[1]}
-    </ul>
-  `;
 };
 
 const getNPCRace = function () {
@@ -458,13 +460,7 @@ const getNPCName = function (
   return `<li>${result}</li>`;
 };
 
-const getNPCStats = function (
-  npcRace,
-  npcSubrace,
-  npcClass,
-  highScore,
-  lowScore
-) {
+const getNPCStats = function (npcRace, npcSubrace, highScore, lowScore) {
   let stats = [];
   let roll = [];
   let result = ``;
@@ -520,7 +516,6 @@ const getNPCStats = function (
   while (statsList.length >= 1) {
     const keyRoll = rollXDX(1, statsList.length, -1);
     const valueRoll = rollXDX(1, stats.length, -1);
-
     statsMap.set(statsList[keyRoll], stats[valueRoll]);
     statsList = removeFirst(statsList, statsList[keyRoll]);
     stats = removeFirst(stats, stats[valueRoll]);
@@ -1013,7 +1008,7 @@ const getNPCBackground = function () {
   ];
 };
 
-const getNPCClass = function (highAbility, lowAbility) {
+const getNPCClass = function (highAbility, lowAbility, npcStatArray) {
   const statList = [
     `Strength`,
     `Dexterity`,
@@ -1027,12 +1022,15 @@ const getNPCClass = function (highAbility, lowAbility) {
   const lowIndex = statList.indexOf(lowAbility);
   const npcClass = classGrid[highIndex][lowIndex];
 
+  const level = rollXDX(1, 20);
+
   return [
     npcClass,
+    classes.get(npcClass),
     `
   <li>${npcClass}</li>
   <ul>
-    <li></li>
+    <li>Hitpoints: ${classes.get(npcClass).hitpoints[1]}</li>
     <li></li>
     <li></li>
     <li></li>

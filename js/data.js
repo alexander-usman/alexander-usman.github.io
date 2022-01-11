@@ -755,7 +755,6 @@ const negativeAdjectives = [
   `Wretched`,
   `Yellow`,
 ];
-
 const negativeNouns = [
   `Addict`,
   `Alcoholic`,
@@ -899,7 +898,6 @@ const negativeNouns = [
   `Vandal`,
   `Weakling`,
 ];
-
 const shakespeareanInsultsPartOne = [
   "artless",
   "bawdy",
@@ -987,7 +985,6 @@ const shakespeareanInsultsPartOne = [
   "degenerate",
   "meddling",
 ];
-
 const shakespeareanInsultsPartTwo = [
   "base-court",
   "prick-eared",
@@ -1054,7 +1051,6 @@ const shakespeareanInsultsPartTwo = [
   "long-tongued",
   "toad-spotted",
 ];
-
 const shakespeareanInsultsPartThree = [
   "baggage",
   "barnacle",
@@ -1157,7 +1153,6 @@ const shakespeareanInsultsPartThree = [
   "misbegotten-divel",
   "mildewed-ear",
 ];
-
 // Individual Loot Tables
 const individualLootTableCR0 = new Map([
   [30, [[5, 6, 1, `cp`]]], // Roll below 30 and recieve 5D6 * 1 Copper Pieces.
@@ -2697,7 +2692,6 @@ const tavernFirst = [
   `The Black`,
   `The Gleaming`,
 ];
-
 const tavernSecond = [
   `Eel`,
   `Dolphin`,
@@ -3117,7 +3111,6 @@ const godsOfTheForgottenRealms = new Map([
     },
   ],
 ]);
-
 const godsOfGreyhawk = new Map([
   [
     `Beory`,
@@ -3379,7 +3372,6 @@ const godsOfGreyhawk = new Map([
     },
   ],
 ]);
-
 const godsOfDragonlance = new Map([
   [
     `Paladine`,
@@ -3588,7 +3580,6 @@ const godsOfDragonlance = new Map([
     },
   ],
 ]);
-
 const godsOfEberron = new Map([
   [
     `Arawai`,
@@ -3771,7 +3762,6 @@ const godsOfEberron = new Map([
     },
   ],
 ]);
-
 const godsOfNonHumans = new Map([
   [
     `Bahamut`,
@@ -4219,7 +4209,6 @@ const randomNPCRace = new Map([
   ],
   [9, [`Tiefling`, []]],
 ]);
-
 const languageByRace = new Map([
   [`Dragonborn`, [`Common`, `Draconic`]],
   [`Dwarf`, [`Common`, `Dwarvish`]],
@@ -4231,7 +4220,6 @@ const languageByRace = new Map([
   [`Human`, [`Common`]],
   [`Tiefling`, [`Common`, `Infernal`]],
 ]);
-
 const statsByRace = new Map([
   [
     `Dragonborn - Black`,
@@ -4488,7 +4476,6 @@ const statsByRace = new Map([
     ],
   ],
 ]);
-
 const randomHumanType = new Map([
   [1, `Calishite`],
   [2, `Chondathan`],
@@ -4500,7 +4487,6 @@ const randomHumanType = new Map([
   [8, `Tethyrian`],
   [9, `Turami`],
 ]);
-
 // Name Lists
 const namesDragonbornFemale = [
   `Akra`,
@@ -4554,7 +4540,6 @@ const namesDragonbornFemale = [
   `Vezera`,
   `Zykroff`,
 ];
-
 const namesDragonbornMale = [
   `Adrex`,
   `Arjhan`,
@@ -4607,7 +4592,6 @@ const namesDragonbornMale = [
   `Vrondiss`,
   `Zedaar`,
 ];
-
 const namesDragonbornClan = [
   `Akhamberylliax`,
   `Argenthrixus`,
@@ -4660,7 +4644,6 @@ const namesDragonbornClan = [
   `Yarjerit`,
   `Zzzxaaxthroth`,
 ];
-
 const namesDwarfFemale = [
   `Anbera`,
   `Arlin`,
@@ -4713,7 +4696,6 @@ const namesDwarfFemale = [
   `Whurdred`,
   `Yurgunn`,
 ];
-
 const namesDwarfMale = [
   `Adrik`,
   `Alberich`,
@@ -4766,7 +4748,6 @@ const namesDwarfMale = [
   `Vondal`,
   `Whurbin`,
 ];
-
 const namesDwarfClan = [
   `Aranore`,
   `Balderk`,
@@ -4819,7 +4800,6 @@ const namesDwarfClan = [
   `Trueblood`,
   `Ungart`,
 ];
-
 const namesElfChild = [
   `Ael`,
   `Ang`,
@@ -4872,7 +4852,6 @@ const namesElfChild = [
   `Wil`,
   `Za`,
 ];
-
 const namesElfAdultFemale = [
   `Adre`,
   `Ahinar`,
@@ -4925,7 +4904,6 @@ const namesElfAdultFemale = [
   `Valna`,
   `Xanaphia`,
 ];
-
 const namesElfAdultMale = [
   `Adran`,
   `Aelar`,
@@ -4978,7 +4956,6 @@ const namesElfAdultMale = [
   `Vanuath`,
   `Varis`,
 ];
-
 const namesElfFamily = [
   `Aloro`,
   `Amakiir`,
@@ -5031,7 +5008,6 @@ const namesElfFamily = [
   `Xistsrith`,
   `Yaeldrin`,
 ];
-
 const namesGnomeFemale = [
   `Abalaba`,
   `Bimpnottin`,
@@ -5084,7 +5060,6 @@ const namesGnomeFemale = [
   `Yebe`,
   `Zanna`,
 ];
-
 const namesGnomeMale = [
   `Alston`,
   `Alvyn`,
@@ -5137,7 +5112,6 @@ const namesGnomeMale = [
   `Zaffrab`,
   `Zook`,
 ];
-
 const namesGnomeClan = [
   `Albaratie`,
   `Bafflestone`,
@@ -5190,7 +5164,6 @@ const namesGnomeClan = [
   `Welber`,
   `Wildwander`,
 ];
-
 const namesHalflingFemale = [
   `Alain`,
   `Andry`,
@@ -5243,7 +5216,6 @@ const namesHalflingFemale = [
   `Wella`,
   `Willow`,
 ];
-
 const namesHalflingMale = [
   `Alton`,
   `Ander`,
@@ -5296,7 +5268,6 @@ const namesHalflingMale = [
   `Wenner`,
   `Wes`,
 ];
-
 const namesHalflingFamily = [
   `Appleblossom`,
   `Bigheart`,
@@ -5349,7 +5320,6 @@ const namesHalflingFamily = [
   `Wildheart`,
   `Wiseacre`,
 ];
-
 const namesOrcFemale = [
   `Ahra`,
   `Baggi`,
@@ -5402,7 +5372,6 @@ const namesOrcFemale = [
   `Yevelda`,
   `Zagga`,
 ];
-
 const namesOrcMale = [
   `Argran`,
   `Brak`,
@@ -5455,7 +5424,6 @@ const namesOrcMale = [
   `Yurk`,
   `Zed`,
 ];
-
 const namesTieflingFemale = [
   `Akta`,
   `Anakis`,
@@ -5508,7 +5476,6 @@ const namesTieflingFemale = [
   `Vepar`,
   `Verin`,
 ];
-
 const namesTieflingMale = [
   `Abad`,
   `Ahrim`,
@@ -5561,7 +5528,6 @@ const namesTieflingMale = [
   `Zepar`,
   `Zephan`,
 ];
-
 const namesTieflingVirtue = [
   `Ambition`,
   `Art`,
@@ -5614,7 +5580,6 @@ const namesTieflingVirtue = [
   `Weary`,
   `Wit`,
 ];
-
 const namesHumanCalishiteMale = [
   `Aseir`,
   `Bardeid`,
@@ -5624,7 +5589,6 @@ const namesHumanCalishiteMale = [
   `Sudeiman`,
   `Zasheir,`,
 ];
-
 const namesHumanCalishiteFemale = [
   `Atala`,
   `Ceidil`,
@@ -5635,7 +5599,6 @@ const namesHumanCalishiteFemale = [
   `Yasheira`,
   `Zasheida`,
 ];
-
 const namesHumanCalishiteSurname = [
   `Basha`,
   `Dumein`,
@@ -5645,7 +5608,6 @@ const namesHumanCalishiteSurname = [
   `Pashar`,
   `Rein`,
 ];
-
 const namesHumanChondathanMale = [
   `Darvin`,
   `Dorn`,
@@ -5658,7 +5620,6 @@ const namesHumanChondathanMale = [
   `Randal`,
   `Stedd`,
 ];
-
 const namesHumanChondathanFemale = [
   `Arveene`,
   `Esvele`,
@@ -5670,7 +5631,6 @@ const namesHumanChondathanFemale = [
   `Shandri`,
   `Tessele`,
 ];
-
 const namesHumanChondathanSurname = [
   `Amblecrown`,
   `Buckman`,
@@ -5679,7 +5639,6 @@ const namesHumanChondathanSurname = [
   `Greycastle`,
   `Tallstag`,
 ];
-
 const namesHumanDamaranMale = [
   `Bor`,
   `Fodel`,
@@ -5693,7 +5652,6 @@ const namesHumanDamaranMale = [
   `Pavel`,
   `Sergor`,
 ];
-
 const namesHumanDamaranFemale = [
   `Alethra`,
   `Kara`,
@@ -5704,7 +5662,6 @@ const namesHumanDamaranFemale = [
   `Tana`,
   `Zora`,
 ];
-
 const namesHumanDamaranSurname = [
   `Bersk`,
   `Chernin`,
@@ -5715,7 +5672,6 @@ const namesHumanDamaranSurname = [
   `Shemov`,
   `Starag`,
 ];
-
 const namesHumanIlluskanMale = [
   `Ander`,
   `Blath`,
@@ -5729,7 +5685,6 @@ const namesHumanIlluskanMale = [
   `Taman`,
   `Urth`,
 ];
-
 const namesHumanIlluskanFemale = [
   `Amafrey`,
   `Betha`,
@@ -5740,7 +5695,6 @@ const namesHumanIlluskanFemale = [
   `Silifrey`,
   `Westra`,
 ];
-
 const namesHumanIlluskanSurname = [
   `Brightwood`,
   `Helder`,
@@ -5749,7 +5703,6 @@ const namesHumanIlluskanSurname = [
   `Stormwind`,
   `Windrivver`,
 ];
-
 const namesHumanMulanMale = [
   `Aoth`,
   `Bareris`,
@@ -5761,7 +5714,6 @@ const namesHumanMulanMale = [
   `Thazar-De`,
   `Urhur`,
 ];
-
 const namesHumanMulanFemale = [
   `Arizima`,
   `Chathi`,
@@ -5773,7 +5725,6 @@ const namesHumanMulanFemale = [
   `Umara`,
   `Zolis`,
 ];
-
 const namesHumanMulanSurname = [
   `Ankhalab`,
   `Anskuld`,
@@ -5783,7 +5734,6 @@ const namesHumanMulanSurname = [
   `Sepret`,
   `Uuthrakt`,
 ];
-
 const namesHumanRashemiMale = [
   `Borivik`,
   `Faurgar`,
@@ -5794,7 +5744,6 @@ const namesHumanRashemiMale = [
   `Shaumar`,
   `Vladislak`,
 ];
-
 const namesHumanRashemiFemale = [
   `Fyevarra`,
   `Hulmarra`,
@@ -5805,7 +5754,6 @@ const namesHumanRashemiFemale = [
   `Tammith`,
   `Yuldra`,
 ];
-
 const namesHumanRashemiSurname = [
   `Chergoba`,
   `Dyernina`,
@@ -5814,7 +5762,6 @@ const namesHumanRashemiSurname = [
   `Stayanoga`,
   `Ulmokina`,
 ];
-
 const namesHumanShouMale = [
   `An`,
   `Chen`,
@@ -5830,7 +5777,6 @@ const namesHumanShouMale = [
   `Shui`,
   `Wen`,
 ];
-
 const namesHumanShouFemale = [
   `Bai`,
   `Chao`,
@@ -5841,7 +5787,6 @@ const namesHumanShouFemale = [
   `Shui`,
   `Tai`,
 ];
-
 const namesHumanShouSurname = [
   `Chien`,
   `Huang`,
@@ -5856,13 +5801,9 @@ const namesHumanShouSurname = [
   `Tan`,
   `Wan`,
 ];
-
 const namesHumanTethyrianMale = namesHumanChondathanMale;
-
 const namesHumanTethyrianFemale = namesHumanChondathanFemale;
-
 const namesHumanTethyrianSurname = namesHumanChondathanSurname;
-
 const namesHumanTuramiMale = [
   `Anton`,
   `Diero`,
@@ -5873,7 +5814,6 @@ const namesHumanTuramiMale = [
   `Salazar`,
   `Umbero`,
 ];
-
 const namesHumanTuramiFemale = [
   `Balama`,
   `Dona`,
@@ -5885,7 +5825,6 @@ const namesHumanTuramiFemale = [
   `Selise`,
   `Vonda`,
 ];
-
 const namesHumanTuramiSurname = [
   `Agosto`,
   `Astorio`,
@@ -5928,7 +5867,6 @@ const randomNPCHighAbility = new Map([
   [5, [`Wisdom`, `Perceptive`, `Spiritual`, `Insightful`]],
   [6, [`Charisma`, `Persuasive`, `Forceful`, `A born leader`]],
 ]);
-
 const randomNPCLowAbility = new Map([
   [1, [`Strength`, `Feeble`, `Scrawny`]],
   [2, [`Dexterity`, `Clumsy`, `Fumbling`]],
@@ -5960,7 +5898,6 @@ const randomNPCTalents = new Map([
   [19, `Skilled dancer`],
   [20, `Knows thieves' cant`],
 ]);
-
 const randomNPCMannerisms = new Map([
   [1, `Prone to singing, whistling, or humming quietly `],
   [2, `Speaks in rhyme or some other peculiar way`],
@@ -5983,7 +5920,6 @@ const randomNPCMannerisms = new Map([
   [19, `Bites fingernails`],
   [20, `Twirls hair or tugs beard`],
 ]);
-
 const randomNPCInteractionTraits = new Map([
   [1, `Argumentative`],
   [2, `Arrogant`],
@@ -6039,7 +5975,6 @@ const randomNPCIdeals = new Map([
     ],
   ],
 ]);
-
 const randomNPCBonds = new Map([
   [1, `Dedicated to fulfilling a personal life goal`],
   [2, `Protective of close family members`],
@@ -6052,7 +5987,6 @@ const randomNPCBonds = new Map([
   [9, `Out for revenge`],
   [10, `Roll twice, ignoring results of 10`],
 ]);
-
 const randomNPCFlaws = new Map([
   [1, `Forbidden love or susceptibility to romance`],
   [2, `Enjoys decadent pleasures`],
@@ -6067,7 +6001,6 @@ const randomNPCFlaws = new Map([
   [11, `Possession of forbidden lore`],
   [12, `Foolhardy bravery`],
 ]);
-
 const backgrounds = new Map([
   [
     `Acolyte`,
@@ -6735,7 +6668,6 @@ const backgrounds = new Map([
     },
   ],
 ]);
-
 const gamingSets = [
   `Dice Set`,
   `Dragonchess Set`,
@@ -6761,7 +6693,6 @@ const artisansTools = [
   `Weaver’s Tools `,
   `Woodcarver's Tools`,
 ];
-
 const musicalInstruments = [
   `Bagpipes`,
   `Drum`,
@@ -6774,7 +6705,6 @@ const musicalInstruments = [
   `Shawm`,
   `Viol`,
 ];
-
 const languages = [
   `Common`,
   `Dwarvish`,
@@ -6785,35 +6715,6 @@ const languages = [
   `Halfling`,
   `Orc`,
 ];
-// Class tables
-const classes = new Map([
-  [
-    `Barbarian`,
-    {
-      hitpoints: [1, 12],
-      armour: [`light`, `medium`, `shields`],
-      weapons: [`simple`, `martial`],
-      tools: [],
-      savingThrows: [`Strength`, `Constitution`],
-      numSkills: 2,
-      skills: [
-        `Animal Handling`,
-        `Athletics`,
-        `Intimidation`,
-        `Nature`,
-        `Perception`,
-        `Survival`,
-      ],
-      equipment: [
-        `Greataxe or any martial melee weapon`,
-        `two Handaxes or any simple weapon`,
-        `Explorer's Pack`,
-        `four Javelins`,
-      ],
-    },
-  ],
-]);
-
 // Origins Tables
 const parentsHalfElf = new Map([
   [5, `One parent was an elf and the other was a human.`],
@@ -6821,14 +6722,12 @@ const parentsHalfElf = new Map([
   [7, `One parent was a human and the other was a half-elf.`],
   [8, `Both parents were half-elves.`],
 ]);
-
 const parentsHalfOrc = new Map([
   [3, `One parent was an orc and the other was a human.`],
   [5, `One parent was an orc and the other was a half-orc.`],
   [7, `One parent was a human and the other was a half-orc.`],
   [8, `Both parents were half-orcs.`],
 ]);
-
 const parentsTiefling = new Map([
   [
     4,
@@ -6838,12 +6737,10 @@ const parentsTiefling = new Map([
   [7, `One parent was a tiefling and the other was a devil.`],
   [8, `One parent was a human and the other was a devil.`],
 ]);
-
 const parentsOther = new Map([
   [95, `You know who your parents are or were.`],
   [100, `You do not know who your parents are or were.`],
 ]);
-
 const birthplaces = new Map([
   [50, `Home`],
   [55, `Home of a family friend.`],
@@ -6868,7 +6765,6 @@ const birthplaces = new Map([
   [99, `On an Inner Plane of your choice`],
   [100, `On an Outer Plane of your choice`],
 ]);
-
 const familyOptions = new Map([
   [1, `None`],
   [2, `Institution, such as an asylum`],
@@ -6885,14 +6781,12 @@ const familyOptions = new Map([
   [75, `Single mother or stepmother`],
   [100, `Mother and father`],
 ]);
-
 const absentParent = [
   `Your parent(s) died`,
   `Your parent(s) was/were imprisoned, enslaved, or otherwise taken away.`,
   `Your parent(s) abandoned you.`,
   `Your parent(s) disapeared to an unknown fate`,
 ];
-
 const familyLifestyle = new Map([
   [1, [`Wretched`, -40]],
   [3, [`Squalid`, -20]],
@@ -6902,7 +6796,6 @@ const familyLifestyle = new Map([
   [15, [`Wealthy`, 20]],
   [16, [`Aristocratic`, 40]],
 ]);
-
 const childhoodHome = new Map([
   [0, `On the streets`],
   [20, `In a run-down shack`],
@@ -6927,7 +6820,6 @@ const d100Alignments = new Map([
   [35, `Chaotic Good`],
   [36, `Chaotic Neutral`],
 ]);
-
 const causesOfDeath = [
   `Unknown`,
   `Murdred`,
@@ -6941,7 +6833,6 @@ const causesOfDeath = [
   `Executted for a crime or tortured to death`,
   `Bizzare event, such as being hit by a meteorite, struck down by an angry god, or killed by a hatching Slaad egg`,
 ];
-
 const d100Classes = new Map([
   [7, `Barbarian`],
   [14, `Bard`],
@@ -6956,7 +6847,6 @@ const d100Classes = new Map([
   [94, `Warlock`],
   [100, `Wizard`],
 ]);
-
 const d100Occupations = new Map([
   [5, `Academic`],
   [10, `Adventurer`],
@@ -6975,7 +6865,6 @@ const d100Occupations = new Map([
   [95, `Sailor`],
   [100, `Soldier`],
 ]);
-
 const d100Races = new Map([
   [40, `Human`],
   [50, `Dwarf`],
@@ -6988,13 +6877,11 @@ const d100Races = new Map([
   [95, `Tiefling`],
   [100, `DM's Choice`],
 ]);
-
 const relationships = new Map([
   [4, `Hostile`],
   [10, `Friendly`],
   [12, `Indifferent`],
 ]);
-
 const statuses = new Map([
   [1, `Dead`],
   [3, `Missing or unknown`],
@@ -7061,3 +6948,363 @@ const classGrid = [
     `Error: Charisma`,
   ],
 ];
+const classes = new Map([
+  [
+    `Barbarian`,
+    {
+      hitpoints: 12,
+      armour: [`light`, `medium`, `shields`],
+      weapons: [`simple`, `martial`],
+      tools: [],
+      savingThrows: [`Strength`, `Constitution`],
+      numSkills: 2,
+      skills: [
+        `Animal Handling`,
+        `Athletics`,
+        `Intimidation`,
+        `Nature`,
+        `Perception`,
+        `Survival`,
+      ],
+      equipment: [
+        `Greataxe or any martial melee weapon`,
+        `two Handaxes or any simple weapon`,
+        `Explorer's Pack`,
+        `four Javelins`,
+      ],
+    },
+  ],
+  [
+    `Bard`,
+    {
+      hitpoints: 8,
+      armour: [`light`],
+      weapons: [
+        `simple`,
+        `hand crossbows`,
+        `longswords`,
+        `rapiers`,
+        `shortswords`,
+      ],
+      tools: [`Musical Instrument`, `Musical Instrument`, `Musical Instrument`],
+      savingThrows: [`Dexterity`, `Charisma`],
+      numSkills: 3,
+      skills: [
+        `Acrobatics`,
+        `Animal Handling`,
+        `Arcana`,
+        `Athletics`,
+        `Deception`,
+        `History`,
+        `Insight`,
+        `Intimidation`,
+        `Investigation`,
+        `Medicine`,
+        `Nature`,
+        `Perception`,
+        `Performance`,
+        `Persuasion`,
+        `Religion`,
+        `Sleight of Hand`,
+        `Stealth`,
+        `Survival`,
+      ],
+      equipment: [
+        `Rapier, Longsword or any simple weapon`,
+        `Diplomat's Pack or Explorer's Pack`,
+        `Lute or any Musical Instrument`,
+        `Leather Armour`,
+        `Dagger`,
+      ],
+    },
+  ],
+  [
+    `Cleric`,
+    {
+      hitpoints: 8,
+      armour: [`light`, `medium`, `shields`],
+      weapons: [`simple`],
+      tools: [],
+      savingThrows: [`Wisdom`, `Charisma`],
+      numSkills: 2,
+      skills: [`History`, `Insight`, `Medicine`, `Persuasion`, `Religion`],
+      equipment: [
+        `Mace or Warhammer (if proficient)`,
+        `scale mail or leather armour or chain mail (if proficient)`,
+        `Light crossbow and 20 bolts or any simple weapon`,
+        `Priest's Pack or Explorer's Pack`,
+        `Shield`,
+        `Holy Symbol`,
+      ],
+    },
+  ],
+  [
+    `Druid`,
+    {
+      hitpoints: 8,
+      armour: [`light`, `medium`, `shields`],
+      weapons: [
+        `clubs`,
+        `daggers`,
+        `darts`,
+        `maces`,
+        `quaterstaves`,
+        `scimitars`,
+        `sickles`,
+        `slings`,
+        `spears`,
+      ],
+      tools: [`Herbalism Kit`],
+      savingThrows: [`Intelligence`, `Wisdom`],
+      numSkills: 2,
+      skills: [
+        `Arcana`,
+        `Animal Handling`,
+        `Insight`,
+        `Medicine`,
+        `Nature`,
+        `Perception`,
+        `Religion`,
+        `Survival`,
+      ],
+      equipment: [
+        `Wooden Shield or any simple weapon`,
+        `Scimitar or any simple melee weapon`,
+        `Leather Armour`,
+        `Explorer's Pack`,
+        `Druidic Focus`,
+      ],
+    },
+  ],
+  [
+    `Fighter`,
+    {
+      hitpoints: 10,
+      armour: [`light`, `medium`, `heavy`, `shields`],
+      weapons: [`simple`, `martial`],
+      tools: [],
+      savingThrows: [`Strength`, `Constitution`],
+      numSkills: 2,
+      skills: [
+        `Acrobatics`,
+        `Animal Handling`,
+        `Athletics`,
+        `History`,
+        `Insight`,
+        `Intimidation`,
+        `Perception`,
+        `Survival`,
+      ],
+      equipment: [
+        `Chainmail or Leather Armour, a Longbow, and 20 arrows`,
+        `Light Crossbow and 20 Bolts or two Handaxes`,
+        `Dungeoneer's Pack or Explorer's Pack`,
+      ],
+    },
+  ],
+  [
+    `Monk`,
+    {
+      hitpoints: 8,
+      armour: [],
+      weapons: [`simple`, `shortswords`],
+      tools: [`Artisan's Tools or Musical Instrument`],
+      savingThrows: [`Strength`, `Dexterity`],
+      numSkills: 2,
+      skills: [
+        `Acrobatics`,
+        `Athletics`,
+        `History`,
+        `Insight`,
+        `Religion`,
+        `Stealth`,
+      ],
+      equipment: [
+        `Shortsword or any simple weapon`,
+        `Dungeoneer's Pack or Explorer's Pack`,
+        `ten Darts`,
+      ],
+    },
+  ],
+  [
+    `Paladin`,
+    {
+      hitpoints: 10,
+      armour: [`light`, `medium`, `heavy`, `shields`],
+      weapons: [`simple`, `martial`],
+      tools: [],
+      savingThrows: [`Wisdom`, `Charisma`],
+      numSkills: 2,
+      skills: [
+        `Athletics`,
+        `Insight`,
+        `Intimidation`,
+        `Medicine`,
+        `Persuasion`,
+        `Religion`,
+      ],
+      equipment: [
+        `any martial weapon and a shield or any two martial weapons`,
+        `five Javelins or any simple melee weapon`,
+        `Priest's Pack or Explorer's Pack`,
+        `Chain Mail`,
+        `Holy Symbol`,
+      ],
+    },
+  ],
+  [
+    `Ranger`,
+    {
+      hitpoints: 10,
+      armour: [`light`, `medium`, `shields`],
+      weapons: [`simple`, `martial`],
+      tools: [],
+      savingThrows: [`Strength`, `Dexterity`],
+      numSkills: 3,
+      skills: [
+        `Animal Handling`,
+        `Athletics`,
+        `Insight`,
+        `Investigation`,
+        `Nature`,
+        `Perception`,
+        `Stealth`,
+        `Survival`,
+      ],
+      equipment: [
+        `Scale Mail or Leather Armour`,
+        `two Shortswords or two simple melee weapons`,
+        `Dungeoneer's Pack or Explorer's Pack`,
+        `Longbow, quiver and 20 Arrows`,
+      ],
+    },
+  ],
+  [
+    `Rogue`,
+    {
+      hitpoints: 8,
+      armour: [`light`],
+      weapons: [
+        `simple`,
+        `hand crossbows`,
+        `longswords`,
+        `rapiers`,
+        `shortswords`,
+      ],
+      tools: [`Thieves' Tools`],
+      savingThrows: [`Dexterity`, `Intelligence`],
+      numSkills: 4,
+      skills: [
+        `Acrobatics`,
+        `Athletics`,
+        `Deception`,
+        `Insight`,
+        `Intimidation`,
+        `Investigation`,
+        `Perception`,
+        `Performance`,
+        `Persuasion`,
+        `Sleight of Hand`,
+        `Stealth`,
+      ],
+      equipment: [
+        `Rapier or Shortsword`,
+        `Shortbow, Quiver and 20 Arrows or Shortsword`,
+        `Burglar's Pack or Dungeoneer's Pack or Explorer's Pack`,
+        `Leather Armour`,
+        `two Daggers`,
+        `Thieves' Tools`,
+      ],
+    },
+  ],
+  [
+    `Sorcerer`,
+    {
+      hitpoints: 6,
+      armour: [],
+      weapons: [
+        `daggers`,
+        `darts`,
+        `light crossbows`,
+        `quaterstaves`,
+        `slings`,
+      ],
+      tools: [],
+      savingThrows: [`Constitution`, `Charisma`],
+      numSkills: 2,
+      skills: [
+        `Arcana`,
+        `Deception`,
+        `Insight`,
+        `Intimidation`,
+        `Persuasion`,
+        `Religion`,
+      ],
+      equipment: [
+        `Light Crossbow and 20 Bolts or any simple weapon`,
+        `Component Pouch or Arcane Focus`,
+        `Dungeoneer's Pack or Explorer's Pack`,
+        `two Daggers`,
+      ],
+    },
+  ],
+  [
+    `Warlock`,
+    {
+      hitpoints: 8,
+      armour: [`light`],
+      weapons: [`simple`],
+      tools: [],
+      savingThrows: [`Wisdom`, `Charisma`],
+      numSkills: 2,
+      skills: [
+        `Arcana`,
+        `Deception`,
+        `History`,
+        `Intimidation`,
+        `Investigation`,
+        `Nature`,
+        `Religion`,
+      ],
+      equipment: [
+        `Light Crossbow and 20 Bolts or any simple weapon`,
+        `Component Pouch or Arcane Focus`,
+        `Scholar's Pack or Dungeoneer's Pack`,
+        `Leather Armour`,
+        `any simple weapon`,
+        `two Daggers`,
+      ],
+    },
+  ],
+  [
+    `Wizard`,
+    {
+      hitpoints: 6,
+      armour: [],
+      weapons: [
+        `daggers`,
+        `darts`,
+        `light crossbows`,
+        `quaterstaves`,
+        `slings`,
+      ],
+      tools: [],
+      savingThrows: [`Intelligence`, `Wisdom`],
+      numSkills: 2,
+      skills: [
+        `Arcana`,
+        `History`,
+        `Insight`,
+        `Investigation`,
+        `Medicine`,
+        `Religion`,
+      ],
+      equipment: [
+        `Quaterstaff or Dagger`,
+        `Component Pouch or Arcane Focus`,
+        `Scholar's Pack or Explorer's Pack`,
+        `Spellbook`,
+      ],
+    },
+  ],
+]);
