@@ -93,34 +93,43 @@ const generateComplexNPC = function () {
 };
 
 const ComplexNPC = function () {
-  this.wholeRace = getNPCRace();
-  this.raceRoll = wholeRace[0];
-  this.race = wholeRace[1];
-  this.trimmedRace = stripListMarkup(race);
-  this.subrace = getNPCSubrace(raceRoll);
+  this.wholeRace = this.getNPCRace();
+  this.raceRoll = this.wholeRace[0];
+  this.race = this.wholeRace[1];
+  this.trimmedRace = stripListMarkup(this.race);
+  this.subrace = getNPCSubrace(this.raceRoll);
   this.gender = getNPCGender();
-  this.trimmedGender = stripListMarkup(gender);
-  this.name = getNPCName(trimmedRace, trimmedGender, subrace[0]);
+  this.trimmedGender = stripListMarkup(this.gender);
+  this.name = getNPCName(this.trimmedRace, this.trimmedGender, this.subrace[0]);
   this.appearance = getSimpleAppearance();
   this.highScore = getNPCHighAbility();
-  this.lowScore = getNPCLowAbility(highScore[0]);
-  this.stats = getNPCStats(trimmedRace, subrace[0], highScore[0], lowScore[0]);
+  this.lowScore = getNPCLowAbility(this.highScore[0]);
+  this.stats = getNPCStats(
+    this.trimmedRace,
+    this.subrace[0],
+    this.highScore[0],
+    this.lowScore[0]
+  );
   this.talent = getNPCTalent();
   this.mannerism = getNPCMannerism();
   this.interactionTrait = getNPCInteractionTrait();
   this.background = getNPCBackground();
-  this.npcClass = getNPCClass(highScore[0], lowScore[0], stats[0]);
+  this.npcClass = getNPCClass(
+    this.highScore[0],
+    this.lowScore[0],
+    this.stats[0]
+  );
   this.languages = getNPCLanguages(
-    trimmedRace,
-    npcClass[0],
-    backgrounds.get(background[0]).languages
+    this.trimmedRace,
+    this.npcClass[0],
+    this.backgrounds.get(background[0]).languages
   );
   this.tools = getNPCTools(backgrounds.get(background[0]).tools);
   this.origin = getNPCOrigin(
-    trimmedRace,
-    background[0],
-    npcClass[0],
-    subrace[0]
+    this.trimmedRace,
+    this.background[0],
+    this.npcClass[0],
+    this.subrace[0]
   );
 };
 
