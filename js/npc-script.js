@@ -73,7 +73,7 @@ const SimpleNPC = function () {
     <li>${this.talent}</li>
     <li>${this.mannerism}</li>
     <li>${this.interactionTrait}</li>
-    <li>${this.ideal}</li>
+    ${this.ideal}
     <li>${this.bond}</li>
     <li>${this.flaw}</li>
     </ul>`;
