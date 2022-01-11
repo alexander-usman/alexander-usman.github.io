@@ -137,22 +137,22 @@ const ComplexNPC = function () {
   this.toPrettyHTML = function () {
     return `
     <ul>
-    <li>${newNPC.race}</li>
-    <ul><li>${newNPC.subrace}</li></ul>
-    <li>${newNPC.gender}</li>
-    <li>${newNPC.name}<li>
+    <li>${this.race}</li>
+    <ul><li>${this.subrace}</li></ul>
+    <li>${this.gender}</li>
+    <li>${this.name}<li>
     ${allStats[1]}
-    <li>You speak: </li><ul>${newNPC.languages}</ul>
-    <li>You can use: </li><ul>${newNPC.tools}</ul>
-    <li>${newNPC.appearance}</li>
-    ${newNPC.highScore[1]}
-    ${newNPC.lowScore[1]}
-    <li>${newNPC.talent}</li>
-    <li>${newNPC.mannerism}</li>
-    <li>${newNPC.interactionTrait}</li>
-    ${newNPC.background[1]}
-    ${newNPC.origin}
-    ${newNPC.npcClass[2]}
+    <li>You speak: </li><ul>${this.languages}</ul>
+    <li>You can use: </li><ul>${this.tools}</ul>
+    <li>${this.appearance}</li>
+    ${this.highScore[1]}
+    ${this.lowScore[1]}
+    <li>${this.talent}</li>
+    <li>${this.mannerism}</li>
+    <li>${this.interactionTrait}</li>
+    ${this.background[1]}
+    ${this.origin}
+    ${this.npcClass[2]}
     </ul>`;
   };
 };
