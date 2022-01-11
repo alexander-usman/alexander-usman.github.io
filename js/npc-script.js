@@ -93,7 +93,7 @@ const generateComplexNPC = function () {
 };
 
 const ComplexNPC = function () {
-  this.wholeRace = this.getNPCRace();
+  this.wholeRace = getNPCRace();
   this.raceRoll = this.wholeRace[0];
   this.race = this.wholeRace[1];
   this.trimmedRace = stripListMarkup(this.race);
@@ -122,7 +122,7 @@ const ComplexNPC = function () {
   this.languages = getNPCLanguages(
     this.trimmedRace,
     this.npcClass[0],
-    this.backgrounds.get(background[0]).languages
+    this.backgrounds.get(this.background[0]).languages
   );
   this.tools = getNPCTools(backgrounds.get(background[0]).tools);
   this.origin = getNPCOrigin(
