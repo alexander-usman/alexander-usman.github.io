@@ -8,10 +8,6 @@ const simpleNPCs = [];
 const complexNPCs = [];
 
 // Helper Functions
-const stripListMarkup = function (input) {
-  return input.slice(4, -5);
-};
-
 const removeFirst = function (arr, element) {
   const index = arr.indexOf(element);
   if (index === -1) return arr;
@@ -34,7 +30,7 @@ const generateSimpleNPC = function () {
   const newNPC = new SimpleNPC();
   simpleNPCs.push(newNPC);
   resultsDiv.innerHTML = `
-    ${newNPC.toHTML()}
+    ${newNPC.toPrettyHTML()}
   `;
 };
 
@@ -64,7 +60,7 @@ const SimpleNPC = function () {
   this.ideal = getNPCIdeal();
   this.bond = getNPCBond();
   this.flaw = getNPCFlaw();
-  this.toHTML = function () {
+  this.toPrettyHTML = function () {
     return `
     <ul>
     <li>${this.race}</li>
@@ -287,11 +283,12 @@ const getNPCName = function (
     case `Half-Orc`:
       namedBy = Math.trunc(Math.random() * 18) + 1;
       if (namedBy <= 9) {
-        result += `${stripListMarkup(
-          getNPCName(`Human - ${randomHumanType.get(namedBy)}`, gender)
+        result += `${getNPCName(
+          `Human - ${randomHumanType.get(namedBy)}`,
+          gender
         )}`;
-        result += ` (${stripListMarkup(getNPCName(`Orc`, gender))})`;
-        return `<li>${result}</li>`;
+        result += ` (${getNPCName(`Orc`, gender)})`;
+        return `${result}`;
       } else {
         result += getNPCName(`Orc`, gender);
         return result;
@@ -693,11 +690,7 @@ const getNPCSiblings = function (npcRace, npcSubrace) {
     for (let i = 0; i < numSiblings; i++) {
       let siblingInfo = ``;
       const siblingGender = getNPCGender();
-      const siblingFullName = getNPCName(
-        npcRace,
-        stripListMarkup(siblingGender),
-        npcSubrace
-      );
+      const siblingFullName = getNPCName(npcRace, siblingGender, npcSubrace);
       const siblingName = getSiblingFirstName(siblingFullName);
       const birthOrderRoll = rollXDX(1, 12);
       let siblingOrder = ``;
