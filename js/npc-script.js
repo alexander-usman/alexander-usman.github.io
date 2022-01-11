@@ -122,9 +122,9 @@ const ComplexNPC = function () {
   this.languages = getNPCLanguages(
     this.trimmedRace,
     this.npcClass[0],
-    this.backgrounds.get(this.background[0]).languages
+    backgrounds.get(this.background[0]).languages
   );
-  this.tools = getNPCTools(backgrounds.get(background[0]).tools);
+  this.tools = getNPCTools(backgrounds.get(this.background[0]).tools);
   this.origin = getNPCOrigin(
     this.trimmedRace,
     this.background[0],
