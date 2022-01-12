@@ -697,7 +697,7 @@ const getNPCRacialStats = function (
 };
 
 const getStatModifier = function (stat) {
-  modifier = Math.floor((stat - 10) / 2);
+  const modifier = Math.floor((stat - 10) / 2);
 
   if (modifier >= 0) {
     return `+ ${modifier}`;
