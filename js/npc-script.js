@@ -141,12 +141,16 @@ const ComplexNPC = function () {
   );
   this.tools = getNPCTools(backgrounds.get(this.background).tools);
   this.appearance = getSimpleAppearance();
-  this.origin = getNPCOrigin(
+  const origin = getNPCOrigin(
     this.race,
     this.background[0],
     this.npcClass[0],
     this.subrace
   );
+  this.parents = origin[0];
+  this.birthplace = origin[1];
+  this.siblings = origin[2];
+  this.family = origin[3];
   this.toPrettyHTML = function () {
     return `
     <ul>
@@ -186,6 +190,19 @@ const ComplexNPC = function () {
       <ul>
         ${result}
       </ul>
+    `;
+  };
+  this.displayOrigin = function () {
+    return `
+    <li>
+      Origin:
+      <ul>
+        <li>${this.parents}</li>
+        <li>${this.birthplace}</li>
+        <li>${this.siblings}</li>
+        <li>${this.family}</li>
+      </ul>
+    </li>
     `;
   };
 };
@@ -645,16 +662,7 @@ const getNPCOrigin = function (npcRace, npcBackground, npcClass, npcSubrace) {
   const siblings = getNPCSiblings(npcRace, npcSubrace);
   const family = getNPCFamily();
 
-  return `
-  <li> Origin: 
-    <ul>
-      ${parents}
-      ${birthplace}
-      ${siblings}
-      ${family}
-    </ul>
-  </li>
-  `;
+  return [parents, birthplace, siblings, family];
 };
 
 const getNPCParents = function (race) {
@@ -699,7 +707,7 @@ const getNPCParents = function (race) {
       }
       break;
   }
-  return `<li>${parents}</li>`;
+  return parents;
 };
 
 const getNPCBirthplace = function () {
@@ -711,7 +719,7 @@ const getNPCBirthplace = function () {
       break;
     }
   }
-  return `<li>${birthplace}</li>`;
+  return birthplace;
 };
 
 const getNPCSiblings = function (npcRace, npcSubrace) {
@@ -750,21 +758,16 @@ const getNPCSiblings = function (npcRace, npcSubrace) {
       } else if (birthOrderRoll >= 8 && birthOrderRoll <= 12) {
         siblingOrder += `<li>Younger</li>`;
       }
-      siblingInfo += `
-      <li>Sibling ${i + 1}</li>
-      <ul>
-        ${siblingName}
-        ${siblingGender}
-        ${siblingOrder}
-      </ul>
-    `;
+      siblingInfo += {
+        order: i + 1,
+        name: siblingName,
+        gender: siblingGender,
+        order: siblingOrder,
+      };
       siblingList += siblingInfo;
     }
-  } else {
-    siblingList += `<li>You have no siblings</li>`;
   }
-
-  return `<li>Siblings: <ul>${siblingList}</ul></li>`;
+  return siblingList;
 };
 
 const getSiblingFirstName = function (npcName) {
