@@ -102,12 +102,33 @@ const ComplexNPC = function () {
   this.wholeBackground = getNPCBackground();
   this.background = this.wholeBackground[0];
   this.specialty = this.wholeBackground[1];
-  this.firstTrait = backgrounds.get(background).personality[rollFirstTrait];
-  this.secondTrait = backgrounds.get(background).personality[rollSecondTrait];
-  this.ideal = backgrounds.get(background).ideal[rollIdeal];
-  this.bond = backgrounds.get(background).bond[rollBond];
-  this.flaw = backgrounds.get(background).flaw[rollFlaw];
-  this.equipment = backgrounds.get(background).equipment;
+
+  const rollFirstTrait = Math.trunc(
+    Math.random() * backgrounds.get(this.background).personality.length
+  );
+  const rollSecondTrait = Math.trunc(
+    Math.random() * backgrounds.get(this.background).personality.length
+  );
+  const rollIdeal = Math.trunc(
+    Math.random() * backgrounds.get(this.background).ideal.length
+  );
+  const rollBond = Math.trunc(
+    Math.random() * backgrounds.get(this.background).bond.length
+  );
+  const rollFlaw = Math.trunc(
+    Math.random() * backgrounds.get(this.background).flaw.length
+  );
+
+  this.firstTrait = backgrounds.get(this.background).personality[
+    rollFirstTrait
+  ];
+  this.secondTrait = backgrounds.get(this.background).personality[
+    rollSecondTrait
+  ];
+  this.ideal = backgrounds.get(this.background).ideal[rollIdeal];
+  this.bond = backgrounds.get(this.background).bond[rollBond];
+  this.flaw = backgrounds.get(this.background).flaw[rollFlaw];
+  this.equipment = backgrounds.get(this.background).equipment;
   this.npcClass = getNPCClass(
     this.highScore[0],
     this.lowScore[0],
