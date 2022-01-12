@@ -700,7 +700,7 @@ const getStatModifier = function (stat) {
   const modifier = Math.floor((stat - 10) / 2);
 
   if (modifier >= 0) {
-    return `+ ${modifier}`;
+    return `+${modifier}`;
   } else {
     return `${modifier}`;
   }
