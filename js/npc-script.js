@@ -747,7 +747,7 @@ const getNPCBirthplace = function () {
 };
 
 const getNPCSiblings = function (npcRace, npcSubrace) {
-  let siblingList = ``;
+  let siblingList = [];
   let roll = rollXDX(1, 10);
   let numSiblings = 0;
 
@@ -769,7 +769,7 @@ const getNPCSiblings = function (npcRace, npcSubrace) {
 
   if (numSiblings > 0) {
     for (let i = 0; i < numSiblings; i++) {
-      let siblingInfo = [];
+      let siblingInfo = {};
       const siblingGender = getNPCGender();
       const siblingFullName = getNPCName(npcRace, siblingGender, npcSubrace);
       const siblingName = getSiblingFirstName(siblingFullName);
