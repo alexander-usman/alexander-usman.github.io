@@ -89,13 +89,12 @@ const ComplexNPC = function () {
   this.name = getNPCName(this.race, this.gender, this.subrace);
   this.highScore = getNPCHighAbility();
   this.lowScore = getNPCLowAbility(this.highScore[0]);
-  const allStats = getNPCStats(
+  this.stats = getNPCStats(
     this.race,
     this.subrace,
     this.highScore[0],
     this.lowScore[0]
   );
-  this.stats = allStats[0];
   this.talent = getNPCTalent();
   this.mannerism = getNPCMannerism();
   this.interactionTrait = getNPCInteractionTrait();
@@ -134,6 +133,7 @@ const ComplexNPC = function () {
     this.lowScore[0],
     this.stats[0]
   );
+  this.level = rollXDX(1, 20);
   this.languages = getNPCLanguages(
     this.race,
     this.npcClass[0],
@@ -232,6 +232,17 @@ const ComplexNPC = function () {
         <li>${this.family.lifestyle}</li>
         <li>${this.family.childhooHome}</li>
       </ul>
+    `;
+  };
+  this.displayClass = function () {
+    return `
+      <li>${npcClass.name} - ${level}</li>
+    <ul>
+      <li>Hitpoints: ${classes.get(npcClass).hitpoints}</li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
     `;
   };
 };
@@ -578,12 +589,12 @@ const getNPCStats = function (npcRace, npcSubrace, highScore, lowScore) {
   let roll = [];
   let result = ``;
   let statsMap = new Map([
-    [`Strength`, 0],
-    [`Dexterity`, 0],
-    [`Constitution`, 0],
-    [`Intelligence`, 0],
-    [`Wisdom`, 0],
-    [`Charisma`, 0],
+    [`Strength`, [0, ``]],
+    [`Dexterity`, [0, ``]],
+    [`Constitution`, [0, ``]],
+    [`Intelligence`, [0, ``]],
+    [`Wisdom`, [0, ``]],
+    [`Charisma`, [0, ``]],
   ]);
 
   let statsList = [
@@ -616,13 +627,13 @@ const getNPCStats = function (npcRace, npcSubrace, highScore, lowScore) {
   stats.sort(function (a, b) {
     return b - a;
   });
-  statsMap.set(highScore, stats[0]);
+  statsMap.set(highScore[0], stats[0]);
   stats.shift();
   statsList = removeFirst(statsList, highScore);
   stats.sort(function (a, b) {
     return b - a;
   });
-  statsMap.set(lowScore, stats[stats.length - 1]);
+  statsMap.set(lowScore[0], stats[stats.length - 1]);
   stats.pop;
   statsList = removeFirst(statsList, lowScore);
   // Randomise the rest.
@@ -634,7 +645,7 @@ const getNPCStats = function (npcRace, npcSubrace, highScore, lowScore) {
     stats = removeFirst(stats, stats[valueRoll]);
   }
   // Get racial bonuses.
-  const racialBonus = getNPCStatBonuses(npcRace, npcSubrace);
+  const racialBonus = getNPCRacialStats(npcRace, npcSubrace);
   statsList = [
     `Strength`,
     `Dexterity`,
@@ -660,13 +671,13 @@ const getNPCStats = function (npcRace, npcSubrace, highScore, lowScore) {
   }
 
   for (const [k, v] of statsMap) {
-    result += `<li>${k}: ${v}</li>`;
+    k.set(v[1], getStatModifier(v[0]));
   }
 
-  return [Array.from(statsMap), `<li>Stats: </li><ul>${result}</ul>`];
+  return Array.from(statsMap);
 };
 
-const getNPCStatBonuses = function (
+const getNPCRacialStats = function (
   npcRace = `Human`,
   npcSubrace = `No subrace`
 ) {
@@ -683,6 +694,16 @@ const getNPCStatBonuses = function (
   }
 
   return bonusList;
+};
+
+const getStatModifier = function (stat) {
+  modifier = Math.floor((stat - 10) / 2);
+
+  if (modifier >= 0) {
+    return `+ ${modifier}`;
+  } else {
+    return `- ${modifier}`;
+  }
 };
 
 const getNPCOrigin = function (npcRace, npcBackground, npcClass, npcSubrace) {
@@ -1100,21 +1121,7 @@ const getNPCClass = function (highAbility, lowAbility, npcStatArray) {
   const lowIndex = statList.indexOf(lowAbility);
   const npcClass = classGrid[highIndex][lowIndex];
 
-  const level = rollXDX(1, 20);
-
-  return [
-    npcClass,
-    classes.get(npcClass),
-    `
-  <li>${npcClass} - ${level}</li>
-  <ul>
-    <li>Hitpoints: ${classes.get(npcClass).hitpoints}</li>
-    <li></li>
-    <li></li>
-    <li></li>
-  </ul>
-  `,
-  ];
+  return classes.get(npcClass);
 };
 
 btnGenerateSimpleNPC.addEventListener(`click`, generateSimpleNPC);

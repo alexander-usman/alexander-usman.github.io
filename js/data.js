@@ -6992,6 +6992,7 @@ const classes = new Map([
   [
     `Barbarian`,
     {
+      name: `Barbarian`,
       hitpoints: 12,
       armour: [`light`, `medium`, `shields`],
       weapons: [`simple`, `martial`],
@@ -7017,6 +7018,7 @@ const classes = new Map([
   [
     `Bard`,
     {
+      name: `Bard`,
       hitpoints: 8,
       armour: [`light`],
       weapons: [
@@ -7061,6 +7063,7 @@ const classes = new Map([
   [
     `Cleric`,
     {
+      name: `Cleric`,
       hitpoints: 8,
       armour: [`light`, `medium`, `shields`],
       weapons: [`simple`],
@@ -7081,6 +7084,7 @@ const classes = new Map([
   [
     `Druid`,
     {
+      name: `Druid`,
       hitpoints: 8,
       armour: [`light`, `medium`, `shields`],
       weapons: [
@@ -7119,6 +7123,7 @@ const classes = new Map([
   [
     `Fighter`,
     {
+      name: `Fighter`,
       hitpoints: 10,
       armour: [`light`, `medium`, `heavy`, `shields`],
       weapons: [`simple`, `martial`],
@@ -7145,6 +7150,7 @@ const classes = new Map([
   [
     `Monk`,
     {
+      name: `Monk`,
       hitpoints: 8,
       armour: [],
       weapons: [`simple`, `shortswords`],
@@ -7169,6 +7175,7 @@ const classes = new Map([
   [
     `Paladin`,
     {
+      name: `Paladin`,
       hitpoints: 10,
       armour: [`light`, `medium`, `heavy`, `shields`],
       weapons: [`simple`, `martial`],
@@ -7195,6 +7202,7 @@ const classes = new Map([
   [
     `Ranger`,
     {
+      name: `Ranger`,
       hitpoints: 10,
       armour: [`light`, `medium`, `shields`],
       weapons: [`simple`, `martial`],
@@ -7222,6 +7230,7 @@ const classes = new Map([
   [
     `Rogue`,
     {
+      name: `Rogue`,
       hitpoints: 8,
       armour: [`light`],
       weapons: [
@@ -7260,6 +7269,7 @@ const classes = new Map([
   [
     `Sorcerer`,
     {
+      name: `Sorcerer`,
       hitpoints: 6,
       armour: [],
       weapons: [
@@ -7291,6 +7301,7 @@ const classes = new Map([
   [
     `Warlock`,
     {
+      name: `Warlock`,
       hitpoints: 8,
       armour: [`light`],
       weapons: [`simple`],
@@ -7319,6 +7330,7 @@ const classes = new Map([
   [
     `Wizard`,
     {
+      name: `Wizard`,
       hitpoints: 6,
       armour: [],
       weapons: [
