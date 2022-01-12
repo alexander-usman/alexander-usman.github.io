@@ -99,7 +99,15 @@ const ComplexNPC = function () {
   this.talent = getNPCTalent();
   this.mannerism = getNPCMannerism();
   this.interactionTrait = getNPCInteractionTrait();
-  this.background = getNPCBackground();
+  this.wholeBackground = getNPCBackground();
+  this.background = this.wholeBackground[0];
+  this.specialty = this.wholeBackground[1];
+  this.firstTrait = backgrounds.get(background).personality[rollFirstTrait];
+  this.secondTrait = backgrounds.get(background).personality[rollSecondTrait];
+  this.ideal = backgrounds.get(background).ideal[rollIdeal];
+  this.bond = backgrounds.get(background).bond[rollBond];
+  this.flaw = backgrounds.get(background).flaw[rollFlaw];
+  this.equipment = backgrounds.get(background).equipment;
   this.npcClass = getNPCClass(
     this.highScore[0],
     this.lowScore[0],
@@ -134,10 +142,30 @@ const ComplexNPC = function () {
     <li>${this.talent}</li>
     <li>${this.mannerism}</li>
     <li>${this.interactionTrait}</li>
-    ${this.background[1]}
+    <li>${background} - ${specialty}</li>
+      <ul>
+        <li>Trait One: ${this.firstTrait}</li>
+        <li>Trait Two: ${this.secondTrait}</li>
+        <li>Ideal: ${this.ideal}</li>
+        <li>Bond: ${this.bond}</li>
+        <li>Flaw: ${this.flaw}</li>
+        <li>Equipment: ${this.equipment}</li>
+      </ul>
     ${this.origin}
     ${this.npcClass[2]}
     </ul>`;
+  };
+  this.displayStats = function () {
+    result = ``;
+    for (const [k, v] of this.stats) {
+      result += `<li>${k}: ${v}</li>`;
+    }
+    return `
+      <li>Stats: </li>
+      <ul>
+        ${result}
+      </ul>
+    `;
   };
 };
 
@@ -1002,24 +1030,7 @@ const getNPCBackground = function () {
     specialty = `No specialty`;
   }
 
-  return [
-    background,
-    `
-  <li>${background} - ${specialty}</li>
-  <ul>
-    <li>Trait One: ${
-      backgrounds.get(background).personality[rollFirstTrait]
-    }</li>
-    <li>Trait Two: ${
-      backgrounds.get(background).personality[rollSecondTrait]
-    }</li>
-    <li>Ideal: ${backgrounds.get(background).ideal[rollIdeal]}</li>
-    <li>Bond: ${backgrounds.get(background).bond[rollBond]}</li>
-    <li>Flaw: ${backgrounds.get(background).flaw[rollFlaw]}</li>
-    <li>Equipment: ${backgrounds.get(background).equipment}</li>
-  </ul>
-  `,
-  ];
+  return [background, specialty];
 };
 
 const getNPCClass = function (highAbility, lowAbility, npcStatArray) {
