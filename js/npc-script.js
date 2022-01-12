@@ -199,8 +199,8 @@ const ComplexNPC = function () {
       <ul>
         <li>${this.parents}</li>
         <li>${this.birthplace}</li>
-        <li>${this.displaySiblings}</li>
-        <li>${this.displayFamily}</li>
+        <li>${this.displaySiblings()}</li>
+        <li>${this.displayFamily()}</li>
       </ul>
     </li>
     `;
