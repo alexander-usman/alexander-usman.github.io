@@ -177,7 +177,7 @@ const ComplexNPC = function () {
     </ul>`;
   };
   this.displayStats = function () {
-    const result = ``;
+    let result = ``;
     for (const [k, v] of this.stats) {
       result += `<li>${k}: ${v}</li>`;
     }

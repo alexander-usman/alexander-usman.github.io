@@ -2610,6 +2610,7 @@ const commonMagicalItems = [
   `Wand of Scowls`,
   `Wand of Smiles`,
 ];
+const simpleMeleeWeapons = [];
 // Quest Hook Tables
 const dungeonGoals = [
   `Stop the dungeon's monstrous inhabitants from raiding the surface world. `,
