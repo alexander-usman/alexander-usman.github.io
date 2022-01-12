@@ -670,8 +670,8 @@ const getNPCStats = function (npcRace, npcSubrace, highScore, lowScore) {
     }
   }
 
-  for (const [k, [v1, v2]] of statsMap) {
-    statsMap.set(k, [v1, getStatModifier(v1)]);
+  for (const [k, v] of statsMap) {
+    statsMap.set(k, [v, getStatModifier(v)]);
   }
 
   return Array.from(statsMap);
