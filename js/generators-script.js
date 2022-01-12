@@ -654,21 +654,22 @@ const getCommonMagicalItem = function () {
 
 const getWeapon = function (weaponType) {
   let result = ``;
+  let roll = 0;
   switch (weaponType) {
     case `Simple Melee Weapon`:
-      const roll = Math.trunc(Math.random() * simpleMeleeWeapons.length);
+      roll = Math.trunc(Math.random() * simpleMeleeWeapons.length);
       result = `<li>${simpleMeleeWeapons[roll]}</li>`;
       break;
     case `Simple Ranged Weapon`:
-      const roll = Math.trunc(Math.random() * simpleRangedWeapons.length);
+      roll = Math.trunc(Math.random() * simpleRangedWeapons.length);
       result = `<li>${simpleRangedWeapons[roll]}</li>`;
       break;
     case `Martial Melee Weapon`:
-      const roll = Math.trunc(Math.random() * martialMeleeWeapons.length);
+      roll = Math.trunc(Math.random() * martialMeleeWeapons.length);
       result = `<li>${martialMeleeWeapons[roll]}</li>`;
       break;
     case `Martial Ranged Weapon`:
-      const roll = Math.trunc(Math.random() * martialRangedWeapons.length);
+      roll = Math.trunc(Math.random() * martialRangedWeapons.length);
       result = `<li>${martialRangedWeapons[roll]}</li>`;
     default:
       break;
