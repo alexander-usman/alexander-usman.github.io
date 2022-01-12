@@ -702,7 +702,7 @@ const getStatModifier = function (stat) {
   if (modifier >= 0) {
     return `+ ${modifier}`;
   } else {
-    return `- ${modifier}`;
+    return `${modifier}`;
   }
 };
 
