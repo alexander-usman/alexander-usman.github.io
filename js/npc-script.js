@@ -206,8 +206,15 @@ const ComplexNPC = function () {
     `;
   };
   this.displaySiblings = function () {
+    let result = ``;
+    for (const k of this.siblings) {
+      result += `<li>${k}</li>`;
+    }
     return `
-      <li>${this.siblings}</li>
+      <li>Stats: </li>
+      <ul>
+        ${result}
+      </ul>
     `;
   };
   this.displayFamily = function () {
