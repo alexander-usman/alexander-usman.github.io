@@ -154,7 +154,7 @@ const ComplexNPC = function () {
     <ul><li>${this.subrace}</li></ul>
     <li>${this.gender}</li>
     <li>${this.name}</li>
-    ${allStats[1]}
+    ${this.displayStats()}
     <li>You speak: </li><ul>${this.languages}</ul>
     <li>You can use: </li><ul>${this.tools}</ul>
     <li>${this.appearance}</li>
