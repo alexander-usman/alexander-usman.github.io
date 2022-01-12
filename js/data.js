@@ -2610,7 +2610,46 @@ const commonMagicalItems = [
   `Wand of Scowls`,
   `Wand of Smiles`,
 ];
-const simpleMeleeWeapons = [];
+const simpleMeleeWeapons = [
+  `Club`,
+  `Dagger`,
+  `Greatclub`,
+  `Handaxe`,
+  `Javelin`,
+  `Light hammer`,
+  `Mace`,
+  `Quaterstaff`,
+  `Sickle`,
+  `Spear`,
+];
+const simpleRangedWeapons = [`Light Crossbow`, `Dart`, `Shortbow`, `Sling`];
+const martialMeleeWeapons = [
+  `Battleaxe`,
+  `Flail`,
+  `Glaive`,
+  `Greataxe`,
+  `Greatsword`,
+  `Halberd`,
+  `Lance`,
+  `Longsword`,
+  `Maul`,
+  `Morningstar`,
+  `Pike`,
+  `Rapier`,
+  `Scimitar`,
+  `Shortsword`,
+  `Trident`,
+  `War pick`,
+  `Warhammer`,
+  `Whip`,
+];
+const martialRangedWeapons = [
+  `Blowgun`,
+  `Hand Crossbow`,
+  `Heavy Crossbow`,
+  `Longbow`,
+  `Net`,
+];
 // Quest Hook Tables
 const dungeonGoals = [
   `Stop the dungeon's monstrous inhabitants from raiding the surface world. `,
