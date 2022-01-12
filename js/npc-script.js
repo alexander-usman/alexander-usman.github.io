@@ -199,8 +199,8 @@ const ComplexNPC = function () {
       <ul>
         <li>${this.parents}</li>
         <li>${this.birthplace}</li>
-        <li>${this.displaySiblings()}</li>
-        <li>${this.displayFamily()}</li>
+        ${this.displaySiblings()}
+        ${this.displayFamily()}
       </ul>
     </li>
     `;
@@ -209,7 +209,7 @@ const ComplexNPC = function () {
     let result = ``;
     for (const k of this.siblings) {
       result += `
-      <li>Sibling ${k.number}</li>
+      <li>Sibling ${k.number}:</li>
       <ul>
       <li>${k.name}</li>
       <li>${k.gender}</li>
@@ -226,7 +226,12 @@ const ComplexNPC = function () {
   };
   this.displayFamily = function () {
     return `
-      <li>${this.family}</li>
+      <li>Famliy: </li>
+      <ul>
+        <li>${this.family.options}</li>
+        <li>${this.family.lifestyle}</li>
+        <li>${this.family.childhooHome}</li>
+      </ul>
     `;
   };
 };
@@ -836,7 +841,7 @@ const getNPCFamily = function () {
 
   for (const [k, v] of childhoodHome) {
     if (rollHome + family.lifestyleMod <= k) {
-      family += `<li>${childhoodHome.get(k)}</li>`;
+      family.childhooHome = ${childhoodHome.get(k)};
       break;
     }
   }
