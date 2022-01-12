@@ -199,10 +199,20 @@ const ComplexNPC = function () {
       <ul>
         <li>${this.parents}</li>
         <li>${this.birthplace}</li>
-        <li>${this.siblings}</li>
-        <li>${this.family}</li>
+        <li>${this.displaySiblings}</li>
+        <li>${this.displayFamily}</li>
       </ul>
     </li>
+    `;
+  };
+  this.displaySiblings = function () {
+    return `
+      <li>${this.siblings}</li>
+    `;
+  };
+  this.displayFamily = function () {
+    return `
+      <li>${this.family}</li>
     `;
   };
 };
@@ -782,7 +792,7 @@ const getSiblingFirstName = function (npcName) {
 };
 
 const getNPCFamily = function () {
-  let family = ``;
+  let family = {};
   let lifestyleMod = 0;
   const rollFamilyOptions = rollXDX(1, 100);
   const rollLifestyle = rollXDX(1, 16);
@@ -792,11 +802,11 @@ const getNPCFamily = function () {
     if (rollFamilyOptions <= k) {
       if (rollFamilyOptions <= 75) {
         const rollAbsentParents = rollXDX(1, 4, -1);
-        family += `<li>${familyOptions.get(k)} - ${
+        family.options = `${familyOptions.get(k)} - ${
           absentParent[rollAbsentParents]
-        }</li>`;
+        }`;
       } else {
-        family += `<li>${familyOptions.get(k)}</li>`;
+        family.options = `${familyOptions.get(k)}`;
       }
       break;
     }
@@ -804,20 +814,20 @@ const getNPCFamily = function () {
 
   for (const [k, v] of familyLifestyle) {
     if (rollLifestyle <= k) {
-      family += `<li>${familyLifestyle.get(k)[0]}</li>`;
-      lifestyleMod = familyLifestyle.get(k)[1];
+      family.lifestyle = `${familyLifestyle.get(k)[0]}`;
+      family.lifestyleMod = familyLifestyle.get(k)[1];
       break;
     }
   }
 
   for (const [k, v] of childhoodHome) {
-    if (rollHome + lifestyleMod <= k) {
+    if (rollHome + family.lifestyleMod <= k) {
       family += `<li>${childhoodHome.get(k)}</li>`;
       break;
     }
   }
 
-  return `<ul>${family}</ul>`;
+  return family;
 };
 
 const getNPCLanguages = function (race, npcClass, background) {
