@@ -207,11 +207,18 @@ const ComplexNPC = function () {
   };
   this.displaySiblings = function () {
     let result = ``;
-    for (const k of this.siblings) {
-      result += `<li>${k}</li>`;
+    for (const [k] of this.siblings) {
+      result += `
+      <li>Sibling ${k.number}</li>
+      <ul>
+      <li>${k.name}</li>
+      <li>${k.gender}</li>
+      <li>${k.order}</li>
+      </ul>
+      `;
     }
     return `
-      <li>Stats: </li>
+      <li>Siblings: </li>
       <ul>
         ${result}
       </ul>
@@ -775,8 +782,8 @@ const getNPCSiblings = function (npcRace, npcSubrace) {
       } else if (birthOrderRoll >= 8 && birthOrderRoll <= 12) {
         siblingOrder += `<li>Younger</li>`;
       }
-      siblingInfo += {
-        order: i + 1,
+      siblingInfo = {
+        number: i + 1,
         name: siblingName,
         gender: siblingGender,
         order: siblingOrder,
