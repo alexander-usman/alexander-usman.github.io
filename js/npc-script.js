@@ -841,7 +841,7 @@ const getNPCFamily = function () {
 
   for (const [k, v] of childhoodHome) {
     if (rollHome + family.lifestyleMod <= k) {
-      family.childhooHome = ${childhoodHome.get(k)};
+      family.childhooHome = `${childhoodHome.get(k)}`;
       break;
     }
   }
