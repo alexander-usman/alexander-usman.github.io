@@ -1106,9 +1106,9 @@ const getNPCClass = function (highAbility, lowAbility, npcStatArray) {
     npcClass,
     classes.get(npcClass),
     `
-  <li>${npcClass}</li>
+  <li>${npcClass} - ${level}</li>
   <ul>
-    <li>Hitpoints: ${classes.get(npcClass).hitpoints[1]}</li>
+    <li>Hitpoints: ${classes.get(npcClass).hitpoints}</li>
     <li></li>
     <li></li>
     <li></li>
