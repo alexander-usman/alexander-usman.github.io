@@ -163,7 +163,7 @@ const ComplexNPC = function () {
     <li>${this.talent}</li>
     <li>${this.mannerism}</li>
     <li>${this.interactionTrait}</li>
-    <li>${background} - ${specialty}</li>
+    <li>${this.background} - ${this.specialty}</li>
       <ul>
         <li>Trait One: ${this.firstTrait}</li>
         <li>Trait Two: ${this.secondTrait}</li>
