@@ -176,7 +176,7 @@ const ComplexNPC = function () {
         <li>Flaw: ${this.flaw}</li>
         <li>Equipment: ${this.equipment}</li>
       </ul>
-    ${this.origin}
+    ${this.displayOrigin()}
     ${this.npcClass[2]}
     </ul>`;
   };
