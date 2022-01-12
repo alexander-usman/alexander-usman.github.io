@@ -627,13 +627,13 @@ const getNPCStats = function (npcRace, npcSubrace, highScore, lowScore) {
   stats.sort(function (a, b) {
     return b - a;
   });
-  statsMap.get(highScore).push([stats[0], ``]);
+  statsMap.get(highScore)[0] = stats[0];
   stats.shift();
   statsList = removeFirst(statsList, highScore);
   stats.sort(function (a, b) {
     return b - a;
   });
-  statsMap.get(lowScore).push([stats[stats.length - 1], ``]);
+  statsMap.get(lowScore)[0] = stats[stats.length - 1];
   stats.pop;
   statsList = removeFirst(statsList, lowScore);
   // Randomise the rest.
