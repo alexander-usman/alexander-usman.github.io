@@ -769,7 +769,7 @@ const getNPCSiblings = function (npcRace, npcSubrace) {
 
   if (numSiblings > 0) {
     for (let i = 0; i < numSiblings; i++) {
-      let siblingInfo = ``;
+      let siblingInfo = [];
       const siblingGender = getNPCGender();
       const siblingFullName = getNPCName(npcRace, siblingGender, npcSubrace);
       const siblingName = getSiblingFirstName(siblingFullName);
@@ -788,7 +788,7 @@ const getNPCSiblings = function (npcRace, npcSubrace) {
         gender: siblingGender,
         order: siblingOrder,
       };
-      siblingList += siblingInfo;
+      siblingList.push(siblingInfo);
     }
   }
   return siblingList;
