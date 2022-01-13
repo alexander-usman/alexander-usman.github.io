@@ -1107,7 +1107,8 @@ const getNPCSkills = function (skills = [], npcClass = classes.get(`Fighter`)) {
   while (i < npcClass.numSkills) {
     const roll = rollXDX(1, npcClass.skills.length, -1);
     if (skills.includes(npcClass.skills[roll])) {
-      // Don't add the skill, or decrement the i ++    } else {
+      // Don't add the skill, or decrement i ++
+    } else {
       skills.push(npcClass.skills[roll]);
       i++;
     }
