@@ -101,7 +101,6 @@ const ComplexNPC = function () {
   this.wholeBackground = getNPCBackground();
   this.background = this.wholeBackground[0];
   this.specialty = this.wholeBackground[1];
-
   const rollFirstTrait = Math.trunc(
     Math.random() * backgrounds.get(this.background).personality.length
   );
@@ -117,7 +116,6 @@ const ComplexNPC = function () {
   const rollFlaw = Math.trunc(
     Math.random() * backgrounds.get(this.background).flaw.length
   );
-
   this.firstTrait = backgrounds.get(this.background).personality[
     rollFirstTrait
   ];
@@ -134,6 +132,11 @@ const ComplexNPC = function () {
     this.stats[0]
   );
   this.level = rollXDX(1, 20);
+  this.hitpoints = this.getHitpoints(
+    this.level,
+    this.npcClass.hitpoints,
+    this.stats.get(`Constitution`)[1]
+  );
   this.languages = getNPCLanguages(
     this.race,
     this.npcClass[0],
@@ -177,7 +180,7 @@ const ComplexNPC = function () {
         <li>Equipment: ${this.equipment}</li>
       </ul>
     ${this.displayOrigin()}
-    ${this.npcClass[2]}
+    ${this.displayClass()}
     </ul>`;
   };
   this.displayStats = function () {
@@ -236,14 +239,25 @@ const ComplexNPC = function () {
   };
   this.displayClass = function () {
     return `
-      <li>${npcClass.name} - ${level}</li>
+      <li>${npcClass.name} - ${this.level}</li>
     <ul>
-      <li>Hitpoints: ${classes.get(npcClass).hitpoints}</li>
+      <li>Hitpoints: ${this.hitpoints}</li>
       <li></li>
       <li></li>
       <li></li>
     </ul>
     `;
+  };
+  this.getHitpoints = function (level, hitDice, modifier) {
+    // Set hitpoints to max for level 1.
+    const total = hitDice + modifier;
+    level -= 1;
+
+    for (let i = 0; i < level; i++) {
+      total += rollXDX(1, hitDice, modifier);
+    }
+
+    this.hitpoints = total;
   };
 };
 
