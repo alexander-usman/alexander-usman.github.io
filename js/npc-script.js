@@ -121,7 +121,7 @@ const ComplexNPC = function () {
     this.lowScore[0],
     this.stats[0]
   );
-  this.skills = getNPCSkills(this.background.skills, this.npcClass);
+  this.skills = getNPCSkills(this.background, this.npcClass);
   this.level = rollXDX(1, 20);
   this.getHitpoints = function (level, hitDice, modifier) {
     // Set hitpoints to max for level 1.
@@ -146,12 +146,7 @@ const ComplexNPC = function () {
   );
   this.tools = getNPCTools(this.background.tools);
   this.appearance = getSimpleAppearance();
-  const origin = getNPCOrigin(
-    this.race,
-    this.background[0],
-    this.npcClass[0],
-    this.subrace
-  );
+  const origin = getNPCOrigin(this.race, this.npcClass[0], this.subrace);
   this.parents = origin[0];
   this.birthplace = origin[1];
   this.siblings = origin[2];
@@ -1100,9 +1095,10 @@ const getNPCClass = function (highAbility, lowAbility, npcStatArray) {
   const lowIndex = statList.indexOf(lowAbility);
   const npcClass = classGrid[highIndex][lowIndex];
 
-  return classes.get(npcClass);
+  return classes.get(npcClass); //thisfine
 };
-const getNPCSkills = function (skills, npcClass) {
+const getNPCSkills = function (background, npcClass) {
+  let skills = background.skills;
   let i = 0;
   while (i < npcClass.numSkills) {
     const roll = rollXDX(1, npcClass.skills.length, -1);
