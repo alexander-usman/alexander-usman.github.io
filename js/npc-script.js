@@ -121,7 +121,7 @@ const ComplexNPC = function () {
     this.lowScore[0],
     this.stats[0]
   );
-  this.skills = getNPCSkills(this.background.skills, this.npcClasss);
+  this.skills = getNPCSkills(this.background.skills, this.npcClass);
   this.level = rollXDX(1, 20);
   this.getHitpoints = function (level, hitDice, modifier) {
     // Set hitpoints to max for level 1.
