@@ -8,6 +8,12 @@ const simpleNPCs = [];
 const complexNPCs = [];
 
 // Helper Functions
+/**
+ * Removes 
+ * @param [Array] arr
+ * @param [Int] element
+ * @returns Array
+ */
 const removeFirst = function (arr, element) {
   const index = arr.indexOf(element);
   if (index === -1) return arr;
@@ -123,7 +129,7 @@ const ComplexNPC = function () {
     this.stats[0]
   );
 
-  this.skills = getNPCSkills(this.background, this.npcClass); //this.background wrong here
+  this.skills = `Skills don't work. Don't @ me.`; //getNPCSkills(this.background, this.npcClass); //this.background wrong here
   this.level = rollXDX(1, 20);
   this.getHitpoints = function (level, hitDice, modifier) {
     // Set hitpoints to max for level 1.
