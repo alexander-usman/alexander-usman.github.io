@@ -1072,9 +1072,9 @@ const getNPCFlaw = function () {
 
 const getNPCBackground = function () {
   const rollBackground = Math.trunc(Math.random() * backgrounds.size);
-  const background = backgrounds.get(
-    Array.from(backgrounds.keys())[rollBackground]
-  );
+  const background = {
+    ...backgrounds.get(Array.from(backgrounds.keys())[rollBackground]),
+  };
 
   let rollSpecialty = -1;
   let specialty = ``;
