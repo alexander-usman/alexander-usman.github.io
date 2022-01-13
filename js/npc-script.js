@@ -99,8 +99,8 @@ const ComplexNPC = function () {
   this.mannerism = getNPCMannerism();
   this.interactionTrait = getNPCInteractionTrait();
   const wholeBackground = getNPCBackground();
-  this.background = this.wholeBackground[0];
-  this.background.specialty = this.wholeBackground[1];
+  this.background = wholeBackground[0];
+  this.background.specialty = wholeBackground[1];
   const rollFirstTrait = Math.trunc(
     Math.random() * this.background.personality.length
   );
