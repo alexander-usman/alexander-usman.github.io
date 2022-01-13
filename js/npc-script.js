@@ -245,7 +245,7 @@ const ComplexNPC = function () {
   };
   this.getHitpoints = function (level, hitDice, modifier) {
     // Set hitpoints to max for level 1.
-    const total = hitDice + modifier;
+    let total = hitDice + modifier;
     level -= 1;
 
     for (let i = 0; i < level; i++) {
