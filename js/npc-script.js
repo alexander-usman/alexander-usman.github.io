@@ -1102,7 +1102,7 @@ const getNPCClass = function (highAbility, lowAbility, npcStatArray) {
 
   return classes.get(npcClass);
 };
-const getNPCSkills = function (skills = [], npcClass = classes.get(`Fighter`)) {
+const getNPCSkills = function (skills, npcClass) {
   let i = 0;
   while (i < npcClass.numSkills) {
     const roll = rollXDX(1, npcClass.skills.length, -1);
