@@ -132,11 +132,6 @@ const ComplexNPC = function () {
     this.stats[0]
   );
   this.level = rollXDX(1, 20);
-  this.hitpoints = this.getHitpoints(
-    this.level,
-    this.npcClass.hitpoints,
-    this.stats.indexOf(`Constitution`)[1]
-  );
   this.languages = getNPCLanguages(
     this.race,
     this.npcClass[0],
@@ -259,6 +254,11 @@ const ComplexNPC = function () {
 
     this.hitpoints = total;
   };
+  this.hitpoints = this.getHitpoints(
+    this.level,
+    this.npcClass.hitpoints,
+    this.stats.indexOf(`Constitution`)[1]
+  );
 };
 
 const getNPCRace = function () {
