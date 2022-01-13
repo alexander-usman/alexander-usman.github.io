@@ -116,21 +116,18 @@ const ComplexNPC = function () {
   const rollFlaw = Math.trunc(
     Math.random() * backgrounds.get(this.background).flaw.length
   );
-  this.firstTrait = backgrounds.get(this.background).personality[
-    rollFirstTrait
-  ];
-  this.secondTrait = backgrounds.get(this.background).personality[
-    rollSecondTrait
-  ];
-  this.ideal = backgrounds.get(this.background).ideal[rollIdeal];
-  this.bond = backgrounds.get(this.background).bond[rollBond];
-  this.flaw = backgrounds.get(this.background).flaw[rollFlaw];
-  this.equipment = backgrounds.get(this.background).equipment;
+  this.firstTrait = this.background.personality[rollFirstTrait];
+  this.secondTrait = this.background.personality[rollSecondTrait];
+  this.ideal = this.background.ideal[rollIdeal];
+  this.bond = this.background.bond[rollBond];
+  this.flaw = this.background.flaw[rollFlaw];
+  this.equipment = this.background.equipment;
   this.npcClass = getNPCClass(
     this.highScore[0],
     this.lowScore[0],
     this.stats[0]
   );
+  this.skills = getNPCSkills(this.background.skills, this.npcClasss);
   this.level = rollXDX(1, 20);
   this.getHitpoints = function (level, hitDice, modifier) {
     // Set hitpoints to max for level 1.
@@ -253,7 +250,7 @@ const ComplexNPC = function () {
       <li>${this.npcClass.name} - ${this.level}</li>
     <ul>
       <li>Hitpoints: ${this.hitpoints}</li>
-      <li></li>
+      <li>Skills: ${this.skills}</li>
       <li></li>
       <li></li>
     </ul>
@@ -1060,7 +1057,9 @@ const getNPCFlaw = function () {
 
 const getNPCBackground = function () {
   const rollBackground = Math.trunc(Math.random() * backgrounds.size);
-  const background = Array.from(backgrounds.keys())[rollBackground];
+  const background = backgrounds.get(
+    Array.from(backgrounds.keys())[rollBackground]
+  );
 
   const rollFirstTrait = Math.trunc(
     Math.random() * backgrounds.get(background).personality.length
@@ -1136,6 +1135,20 @@ const getNPCClass = function (highAbility, lowAbility, npcStatArray) {
   const npcClass = classGrid[highIndex][lowIndex];
 
   return classes.get(npcClass);
+};
+const getNPCSkills = function (skills = [], npcClass = classes.get(`Fighter`)) {
+  let counter = npcClass.numSkills;
+  while (counter > 0) {
+    const roll = rollXDX(1, npcClass.skills.length, -1);
+    if (skills.includes(npcClass.skills[roll])) {
+      // Don't add the skill, or decrement the counter.
+    } else {
+      skills.push(npcClass.skills[roll]);
+      counter--;
+    }
+  }
+
+  return skills;
 };
 
 btnGenerateSimpleNPC.addEventListener(`click`, generateSimpleNPC);

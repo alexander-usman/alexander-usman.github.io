@@ -6045,6 +6045,7 @@ const backgrounds = new Map([
   [
     `Acolyte`,
     {
+      name: `Acolyte`,
       skills: [`Insight`, `Religion`],
       tools: [],
       languages: 2,
@@ -6088,6 +6089,7 @@ const backgrounds = new Map([
   [
     `Charlatan`,
     {
+      name: `Charlatan`,
       skills: [`Deception`, `Sleight of Hand`],
       tools: [`Disguise Kit`, `Forgery Kit`],
       languages: 0,
@@ -6139,6 +6141,7 @@ const backgrounds = new Map([
   [
     `Criminal`,
     {
+      name: `Criminal`,
       skills: [`Deception`, `Stealth`],
       tools: [`Gaming Set`, `Thieves' Tools`],
       languages: 0,
@@ -6192,6 +6195,7 @@ const backgrounds = new Map([
   [
     `Entertainer`,
     {
+      name: `Entertainer`,
       skills: [`Acrobatics`, `Performance`],
       tools: [`Disguise Kit`, `Musical Instrument`],
       languages: 0,
@@ -6247,6 +6251,7 @@ const backgrounds = new Map([
   [
     `Folk Hero`,
     {
+      name: `Folk Hero`,
       skills: [`Animal Handling`, `Survival`],
       tools: [`Artisan's Tools`, `Vehicles (Land)`],
       languages: 0,
@@ -6302,6 +6307,7 @@ const backgrounds = new Map([
   [
     `Guild Artisan`,
     {
+      name: `Guild Artisan`,
       skills: [`Insight`, `Persuasion`],
       tools: [`Artisan's Tools`],
       languages: 1,
@@ -6367,6 +6373,7 @@ const backgrounds = new Map([
   [
     `Hermit`,
     {
+      name: `Hermit`,
       skills: [`Medicine`, `Religion`],
       tools: [`Herbalism Kit`],
       languages: 1,
@@ -6420,6 +6427,7 @@ const backgrounds = new Map([
   [
     `Noble`,
     {
+      name: `Noble`,
       skills: [`History`, `Persuasion`],
       tools: [`Gaming Set`],
       languages: 1,
@@ -6463,6 +6471,7 @@ const backgrounds = new Map([
   [
     `Outlander`,
     {
+      name: `Outlander`,
       skills: [`Athletics`, `Survival`],
       tools: [`Musical Instrument`],
       languages: 1,
@@ -6518,6 +6527,7 @@ const backgrounds = new Map([
   [
     `Sage`,
     {
+      name: `Sage`,
       skills: [`Arcana`, `History`],
       tools: [],
       languages: 2,
@@ -6571,6 +6581,7 @@ const backgrounds = new Map([
   [
     `Sailor`,
     {
+      name: `Sailor`,
       skills: [`Athletics`, `Perception`],
       tools: [`Navigator's Tools`, `Vehicles (Water)`],
       languages: 0,
@@ -6614,6 +6625,7 @@ const backgrounds = new Map([
   [
     `Soldier`,
     {
+      name: `Soldier`,
       skills: [`Athletics`, `Intimidation`],
       tools: [`Gaming Set`, `Vehicles (Land)`],
       languages: 0,
@@ -6667,6 +6679,7 @@ const backgrounds = new Map([
   [
     `Urchin`,
     {
+      name: `Urchin`,
       skills: [`Sleight of Hand`, `Stealth`],
       tools: [`Disguise Kit`, `Thieves' Tools`],
       languages: 0,
