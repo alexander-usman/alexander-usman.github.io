@@ -725,7 +725,7 @@ const getStatModifier = function (stat) {
   }
 };
 
-const getNPCOrigin = function (npcRace, npcBackground, npcClass, npcSubrace) {
+const getNPCOrigin = function (npcRace, npcClass, npcSubrace) {
   const parents = getNPCParents(npcRace);
   const birthplace = getNPCBirthplace();
   const siblings = getNPCSiblings(npcRace, npcSubrace);
