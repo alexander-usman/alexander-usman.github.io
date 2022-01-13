@@ -99,6 +99,7 @@ const ComplexNPC = function () {
   this.mannerism = getNPCMannerism();
   this.interactionTrait = getNPCInteractionTrait();
   const wholeBackground = getNPCBackground();
+
   this.background = wholeBackground[0];
   this.background.specialty = wholeBackground[1];
   const rollFirstTrait = Math.trunc(
@@ -121,7 +122,8 @@ const ComplexNPC = function () {
     this.lowScore[0],
     this.stats[0]
   );
-  this.skills = getNPCSkills(this.background, this.npcClass);
+
+  this.skills = getNPCSkills(this.background, this.npcClass); //this.background wrong here
   this.level = rollXDX(1, 20);
   this.getHitpoints = function (level, hitDice, modifier) {
     // Set hitpoints to max for level 1.
@@ -1095,21 +1097,21 @@ const getNPCClass = function (highAbility, lowAbility, npcStatArray) {
   const lowIndex = statList.indexOf(lowAbility);
   const npcClass = classGrid[highIndex][lowIndex];
 
-  return classes.get(npcClass); //thisfine
+  return classes.get(npcClass);
 };
 const getNPCSkills = function (background, npcClass) {
-  let skills = background.skills;
+  let skillsButOnlyInTheFunction = background.skills;
   let i = 0;
   while (i < npcClass.numSkills) {
     const roll = rollXDX(1, npcClass.skills.length, -1);
-    if (skills.includes(npcClass.skills[roll])) {
+    if (skillsButOnlyInTheFunction.includes(npcClass.skills[roll])) {
     } else {
-      skills.push(npcClass.skills[roll]);
+      skillsButOnlyInTheFunction.push(npcClass.skills[roll]);
       i++;
     }
   }
 
-  return skills;
+  return skillsButOnlyInTheFunction;
 };
 
 btnGenerateSimpleNPC.addEventListener(`click`, generateSimpleNPC);
