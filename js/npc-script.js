@@ -37,7 +37,7 @@ const generateSimpleNPC = function () {
 const generateComplexNPC = function () {
   const newNPC = new ComplexNPC();
 
-  complexNPCs.push(newNPC);
+  // complexNPCs.push(newNPC);
 
   resultsDiv.innerHTML = `
     ${newNPC.toPrettyHTML()}
@@ -98,9 +98,9 @@ const ComplexNPC = function () {
   this.talent = getNPCTalent();
   this.mannerism = getNPCMannerism();
   this.interactionTrait = getNPCInteractionTrait();
-  this.wholeBackground = getNPCBackground();
+  const wholeBackground = getNPCBackground();
   this.background = this.wholeBackground[0];
-  this.specialty = this.wholeBackground[1];
+  this.background.specialty = this.wholeBackground[1];
   const rollFirstTrait = Math.trunc(
     Math.random() * this.background.personality.length
   );
@@ -172,7 +172,7 @@ const ComplexNPC = function () {
     <li>${this.talent}</li>
     <li>${this.mannerism}</li>
     <li>${this.interactionTrait}</li>
-    <li>${this.background} - ${this.specialty}</li>
+    <li>${this.background.name} - ${this.background.specialty}</li>
       <ul>
         <li>Trait One: ${this.firstTrait}</li>
         <li>Trait Two: ${this.secondTrait}</li>
@@ -1103,14 +1103,13 @@ const getNPCClass = function (highAbility, lowAbility, npcStatArray) {
   return classes.get(npcClass);
 };
 const getNPCSkills = function (skills = [], npcClass = classes.get(`Fighter`)) {
-  let counter = npcClass.numSkills;
-  while (counter > 0) {
+  let i = 0;
+  while (i < npcClass.numSkills) {
     const roll = rollXDX(1, npcClass.skills.length, -1);
     if (skills.includes(npcClass.skills[roll])) {
-      // Don't add the skill, or decrement the counter.
-    } else {
+      // Don't add the skill, or decrement the i ++    } else {
       skills.push(npcClass.skills[roll]);
-      counter--;
+      i++;
     }
   }
 
