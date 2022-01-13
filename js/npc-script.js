@@ -140,7 +140,7 @@ const ComplexNPC = function () {
     this.stats[0]
   );
 
-  this.skills = `Skills don't work. Don't @ me.`; //getNPCSkills(this.background, this.npcClass); //this.background wrong here
+  this.skills = getNPCSkills(this.background, this.npcClass);
   this.level = rollXDX(1, 20);
   this.getHitpoints = function (level, hitDice, modifier) {
     // Set hitpoints to max for level 1.
@@ -1121,7 +1121,7 @@ const getNPCClass = function (highAbility, lowAbility, npcStatArray) {
   const lowIndex = statList.indexOf(lowAbility);
   const npcClass = classGrid[highIndex][lowIndex];
 
-  return classes.get(npcClass);
+  return { ...classes.get(npcClass) };
 };
 const getNPCSkills = function (background, npcClass) {
   let skillsButOnlyInTheFunction = background.skills;
