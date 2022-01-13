@@ -9,9 +9,9 @@ const complexNPCs = [];
 
 // Helper Functions
 /**
- * Removes 
+ * Removes the first occurence of element in a provided array and returns the result.
  * @param [Array] arr
- * @param [Int] element
+ * @param [Any] element
  * @returns Array
  */
 const removeFirst = function (arr, element) {
@@ -20,6 +20,13 @@ const removeFirst = function (arr, element) {
   return [...arr.slice(0, index), ...arr.slice(index + 1)];
 };
 
+/**
+ * Rolls numDice number of dWhat-sided dice, adds the provided modifier and returns the result.
+ * @param [number] numDice = how many dice to roll
+ * @param [number] dWhat = what number sided dice
+ * @param [number] modifier
+ * @returns [number] Roll result
+ */
 const rollXDX = function (numDice = 1, dWhat = 6, modifier = 0) {
   let roll = 0;
 
@@ -32,19 +39,23 @@ const rollXDX = function (numDice = 1, dWhat = 6, modifier = 0) {
   return roll;
 };
 
+/**
+ * Generates a simple NPC, pushes it to the simpleNPCs list, and adds the results to the HTML.
+ */
 const generateSimpleNPC = function () {
   const newNPC = new SimpleNPC();
-  simpleNPCs.push(newNPC);
+  // simpleNPCs.push(newNPC);
   resultsDiv.innerHTML = `
     ${newNPC.toPrettyHTML()}
   `;
 };
 
+/**
+ * Generates a complex NPC, pushes it to the complexNPCs list, and adds the results to the HTML.
+ */
 const generateComplexNPC = function () {
   const newNPC = new ComplexNPC();
-
   // complexNPCs.push(newNPC);
-
   resultsDiv.innerHTML = `
     ${newNPC.toPrettyHTML()}
   `;
