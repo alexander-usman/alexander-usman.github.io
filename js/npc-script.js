@@ -132,6 +132,22 @@ const ComplexNPC = function () {
     this.stats[0]
   );
   this.level = rollXDX(1, 20);
+  this.getHitpoints = function (level, hitDice, modifier) {
+    // Set hitpoints to max for level 1.
+    let total = hitDice + modifier;
+    level -= 1;
+
+    for (let i = 0; i < level; i++) {
+      total += rollXDX(1, hitDice, modifier);
+    }
+
+    this.hitpoints = total;
+  };
+  this.hitpoints = this.getHitpoints(
+    this.level,
+    this.npcClass.hitpoints,
+    this.stats.indexOf(`Constitution`)[1]
+  );
   this.languages = getNPCLanguages(
     this.race,
     this.npcClass[0],
@@ -243,22 +259,6 @@ const ComplexNPC = function () {
     </ul>
     `;
   };
-  this.getHitpoints = function (level, hitDice, modifier) {
-    // Set hitpoints to max for level 1.
-    let total = hitDice + modifier;
-    level -= 1;
-
-    for (let i = 0; i < level; i++) {
-      total += rollXDX(1, hitDice, modifier);
-    }
-
-    this.hitpoints = total;
-  };
-  this.hitpoints = this.getHitpoints(
-    this.level,
-    this.npcClass.hitpoints,
-    this.stats.indexOf(`Constitution`)[1]
-  );
 };
 
 const getNPCRace = function () {
