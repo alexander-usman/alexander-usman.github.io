@@ -102,20 +102,14 @@ const ComplexNPC = function () {
   this.background = this.wholeBackground[0];
   this.specialty = this.wholeBackground[1];
   const rollFirstTrait = Math.trunc(
-    Math.random() * backgrounds.get(this.background).personality.length
+    Math.random() * this.background.personality.length
   );
   const rollSecondTrait = Math.trunc(
-    Math.random() * backgrounds.get(this.background).personality.length
+    Math.random() * this.background.personality.length
   );
-  const rollIdeal = Math.trunc(
-    Math.random() * backgrounds.get(this.background).ideal.length
-  );
-  const rollBond = Math.trunc(
-    Math.random() * backgrounds.get(this.background).bond.length
-  );
-  const rollFlaw = Math.trunc(
-    Math.random() * backgrounds.get(this.background).flaw.length
-  );
+  const rollIdeal = Math.trunc(Math.random() * this.background.ideal.length);
+  const rollBond = Math.trunc(Math.random() * this.background.bond.length);
+  const rollFlaw = Math.trunc(Math.random() * this.background.flaw.length);
   this.firstTrait = this.background.personality[rollFirstTrait];
   this.secondTrait = this.background.personality[rollSecondTrait];
   this.ideal = this.background.ideal[rollIdeal];
@@ -148,9 +142,9 @@ const ComplexNPC = function () {
   this.languages = getNPCLanguages(
     this.race,
     this.npcClass[0],
-    backgrounds.get(this.background).languages
+    this.background.languages
   );
-  this.tools = getNPCTools(backgrounds.get(this.background).tools);
+  this.tools = getNPCTools(this.background.tools);
   this.appearance = getSimpleAppearance();
   const origin = getNPCOrigin(
     this.race,
@@ -1061,58 +1055,30 @@ const getNPCBackground = function () {
     Array.from(backgrounds.keys())[rollBackground]
   );
 
-  // const rollFirstTrait = Math.trunc(
-  //   Math.random() * backgrounds.get(background).personality.length
-  // );
-  // const rollSecondTrait = Math.trunc(
-  //   Math.random() * backgrounds.get(background).personality.length
-  // );
-  // const rollIdeal = Math.trunc(
-  //   Math.random() * backgrounds.get(background).ideal.length
-  // );
-  // const rollBond = Math.trunc(
-  //   Math.random() * backgrounds.get(background).bond.length
-  // );
-  // const rollFlaw = Math.trunc(
-  //   Math.random() * backgrounds.get(background).flaw.length
-  // );
-
   let rollSpecialty = -1;
   let specialty = ``;
-  if (backgrounds.get(background).hasOwnProperty(`scheme`)) {
+  if (background.hasOwnProperty(`scheme`)) {
+    rollSpecialty = Math.trunc(Math.random() * background.scheme.length);
+    specialty += background.scheme[rollSpecialty];
+  } else if (background.hasOwnProperty(`specialty`)) {
+    rollSpecialty = Math.trunc(Math.random() * background.specialty.length);
+    specialty += background.specialty[rollSpecialty];
+  } else if (background.hasOwnProperty(`routine`)) {
+    rollSpecialty = Math.trunc(Math.random() * background.routine.length);
+    specialty += background.routine[rollSpecialty];
+  } else if (background.hasOwnProperty(`defininigEvent`)) {
+    rollSpecialty = Math.trunc(Math.random() * background.definingEvent.length);
+  } else if (background.hasOwnProperty(`guildBusiness`)) {
+    rollSpecialty = Math.trunc(Math.random() * background.guildBusiness.length);
+    specialty += background.guildBusiness[rollSpecialty];
+  } else if (background.hasOwnProperty(`lifeOfSeclusion`)) {
     rollSpecialty = Math.trunc(
-      Math.random() * backgrounds.get(background).scheme.length
+      Math.random() * background.lifeOfSeclusion.length
     );
-    specialty += backgrounds.get(background).scheme[rollSpecialty];
-  } else if (backgrounds.get(background).hasOwnProperty(`specialty`)) {
-    rollSpecialty = Math.trunc(
-      Math.random() * backgrounds.get(background).specialty.length
-    );
-    specialty += backgrounds.get(background).specialty[rollSpecialty];
-  } else if (backgrounds.get(background).hasOwnProperty(`routine`)) {
-    rollSpecialty = Math.trunc(
-      Math.random() * backgrounds.get(background).routine.length
-    );
-    specialty += backgrounds.get(background).routine[rollSpecialty];
-  } else if (backgrounds.get(background).hasOwnProperty(`defininigEvent`)) {
-    rollSpecialty = Math.trunc(
-      Math.random() * backgrounds.get(background).definingEvent.length
-    );
-  } else if (backgrounds.get(background).hasOwnProperty(`guildBusiness`)) {
-    rollSpecialty = Math.trunc(
-      Math.random() * backgrounds.get(background).guildBusiness.length
-    );
-    specialty += backgrounds.get(background).guildBusiness[rollSpecialty];
-  } else if (backgrounds.get(background).hasOwnProperty(`lifeOfSeclusion`)) {
-    rollSpecialty = Math.trunc(
-      Math.random() * backgrounds.get(background).lifeOfSeclusion.length
-    );
-    specialty += backgrounds.get(background).lifeOfSeclusion[rollSpecialty];
-  } else if (backgrounds.get(background).hasOwnProperty(`origin`)) {
-    rollSpecialty = Math.trunc(
-      Math.random() * backgrounds.get(background).origin.length
-    );
-    specialty += backgrounds.get(background).origin[rollSpecialty];
+    specialty += background.lifeOfSeclusion[rollSpecialty];
+  } else if (background.hasOwnProperty(`origin`)) {
+    rollSpecialty = Math.trunc(Math.random() * background.origin.length);
+    specialty += background.origin[rollSpecialty];
   } else {
     specialty = `No specialty`;
   }
