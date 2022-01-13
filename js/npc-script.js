@@ -146,7 +146,7 @@ const ComplexNPC = function () {
   this.hitpoints = this.getHitpoints(
     this.level,
     this.npcClass.hitpoints,
-    Number(this.stats[this.stats.indexOf(`Constitution`)][1])
+    Number(this.stats[2][1])
   );
   this.languages = getNPCLanguages(
     this.race,
