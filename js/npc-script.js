@@ -141,7 +141,7 @@ const ComplexNPC = function () {
       total += rollXDX(1, hitDice, modifier);
     }
 
-    this.hitpoints = total;
+    return total;
   };
   this.hitpoints = this.getHitpoints(
     this.level,
