@@ -872,7 +872,14 @@ const getNPCFamily = function () {
   return family;
 };
 
-const getNPCLanguages = function (race, npcClass, background) {
+/**
+ * Takes a race, class and langNum and returns a list of known languages.
+ * @param [String] race
+ * @param [String] npcClass
+ * @param [Int] langNum =number of languages
+ * @returns [String] Language list
+ */
+const getNPCLanguages = function (race, npcClass, langNum) {
   if (race.includes(`Human`)) {
     race = `Human`;
   }
@@ -894,9 +901,9 @@ const getNPCLanguages = function (race, npcClass, background) {
     }
   }
 
-  if (background > 0) {
+  if (langNum > 0) {
     let i = 0;
-    while (i < background) {
+    while (i < langNum) {
       const roll = Math.trunc(Math.random() * languages.length);
       if (languageList.includes(`<li>${languages[roll]}</li>`)) {
         // Don't add a language, so don't increment the counter.
@@ -1102,6 +1109,7 @@ const getNPCClass = function (highAbility, lowAbility, npcStatArray) {
 const getNPCSkills = function (background, npcClass) {
   let skillsButOnlyInTheFunction = background.skills;
   let i = 0;
+
   while (i < npcClass.numSkills) {
     const roll = rollXDX(1, npcClass.skills.length, -1);
     if (skillsButOnlyInTheFunction.includes(npcClass.skills[roll])) {
