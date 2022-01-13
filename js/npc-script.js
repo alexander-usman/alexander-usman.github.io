@@ -234,7 +234,7 @@ const ComplexNPC = function () {
   };
   this.displayClass = function () {
     return `
-      <li>${npcClass.name} - ${this.level}</li>
+      <li>${this.npcClass.name} - ${this.level}</li>
     <ul>
       <li>Hitpoints: ${this.hitpoints}</li>
       <li></li>
