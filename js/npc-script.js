@@ -1124,19 +1124,23 @@ const getNPCClass = function (highAbility, lowAbility, npcStatArray) {
   return { ...classes.get(npcClass) };
 };
 const getNPCSkills = function (background, npcClass) {
-  let skillsButOnlyInTheFunction = background.skills;
-  let i = 0;
+  console.log(background.skills, npcClass.skills);
+  const skillArray = [];
+  for (let i = 0; i < background.skills.length; i++) {
+    skillArray.push(background.skills[i]);
+  }
 
-  while (i < npcClass.numSkills) {
+  let j = 0;
+  while (j < npcClass.numSkills) {
     const roll = rollXDX(1, npcClass.skills.length, -1);
-    if (skillsButOnlyInTheFunction.includes(npcClass.skills[roll])) {
+    if (skillArray.includes(npcClass.skills[roll])) {
     } else {
-      skillsButOnlyInTheFunction.push(npcClass.skills[roll]);
-      i++;
+      skillArray.push(npcClass.skills[roll]);
+      j++;
     }
   }
 
-  return skillsButOnlyInTheFunction;
+  return skillArray;
 };
 
 btnGenerateSimpleNPC.addEventListener(`click`, generateSimpleNPC);
