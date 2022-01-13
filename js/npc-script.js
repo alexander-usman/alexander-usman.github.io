@@ -1061,21 +1061,21 @@ const getNPCBackground = function () {
     Array.from(backgrounds.keys())[rollBackground]
   );
 
-  const rollFirstTrait = Math.trunc(
-    Math.random() * backgrounds.get(background).personality.length
-  );
-  const rollSecondTrait = Math.trunc(
-    Math.random() * backgrounds.get(background).personality.length
-  );
-  const rollIdeal = Math.trunc(
-    Math.random() * backgrounds.get(background).ideal.length
-  );
-  const rollBond = Math.trunc(
-    Math.random() * backgrounds.get(background).bond.length
-  );
-  const rollFlaw = Math.trunc(
-    Math.random() * backgrounds.get(background).flaw.length
-  );
+  // const rollFirstTrait = Math.trunc(
+  //   Math.random() * backgrounds.get(background).personality.length
+  // );
+  // const rollSecondTrait = Math.trunc(
+  //   Math.random() * backgrounds.get(background).personality.length
+  // );
+  // const rollIdeal = Math.trunc(
+  //   Math.random() * backgrounds.get(background).ideal.length
+  // );
+  // const rollBond = Math.trunc(
+  //   Math.random() * backgrounds.get(background).bond.length
+  // );
+  // const rollFlaw = Math.trunc(
+  //   Math.random() * backgrounds.get(background).flaw.length
+  // );
 
   let rollSpecialty = -1;
   let specialty = ``;
