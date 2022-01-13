@@ -6939,7 +6939,7 @@ const classGrid = [
     `Fighter`, // Low Dexterity
     `Paladin`, // Low Constitution
     `Barbarian`, // Low Intelligence
-    `Brbarian`, // Low Wisdom
+    `Barbarian`, // Low Wisdom
     `Fighter`, // Low Charisma
   ],
   // High Dexterity
