@@ -1141,7 +1141,9 @@ const getNPCBackground = function () {
   }
 
   const rollDecision = rollXDX(1, 6, -1);
-  const decision = personalDecisionsBackgrounds[rollDecision];
+  const decision = personalDecisionsBackgrounds.get(background.name)[
+    rollDecision
+  ];
 
   return [background, specialty, decision];
 };
