@@ -267,7 +267,7 @@ const ComplexNPC = function () {
   this.displaySkills = function () {
     let result = ``;
     for (let i = 0; i < this.skills.length; i++) {
-      result += `<li>${skills[i]}</li>`;
+      result += `<li>${this.skills[i]}</li>`;
     }
     return `
       <li>Skills: ${this.skills}</li>
