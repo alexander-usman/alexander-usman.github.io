@@ -119,6 +119,7 @@ const ComplexNPC = function () {
 
   this.background = wholeBackground[0];
   this.background.specialty = wholeBackground[1];
+  this.background.decision = wholeBackground[2];
   const rollFirstTrait = Math.trunc(
     Math.random() * this.background.personality.length
   );
@@ -200,6 +201,7 @@ const ComplexNPC = function () {
         <li>Ideal: ${this.ideal}</li>
         <li>Bond: ${this.bond}</li>
         <li>Flaw: ${this.flaw}</li>
+        <li>Decision: ${this.background.decision}</li>
         <li>Equipment: ${this.equipment}</li>
       </ul>
     ${this.displayOrigin()}
@@ -1138,7 +1140,10 @@ const getNPCBackground = function () {
     specialty = `No specialty`;
   }
 
-  return [background, specialty];
+  const rollDecision = rollXDX(1, 6, -1);
+  const decision = personalDecisionsBackgrounds[rollDecision];
+
+  return [background, specialty, decision];
 };
 
 const getNPCClass = function (highAbility, lowAbility, npcStatArray) {
