@@ -258,10 +258,22 @@ const ComplexNPC = function () {
       <li>${this.npcClass.name} - ${this.level}</li>
     <ul>
       <li>Hitpoints: ${this.hitpoints}</li>
-      <li>Skills: ${this.skills}</li>
+      ${this.displaySkills()}
       <li></li>
       <li></li>
     </ul>
+    `;
+  };
+  this.displaySkills = function () {
+    let result = ``;
+    for (let i = 0; i < this.skills.length; i++) {
+      result += `<li>${skills[i]}</li>`;
+    }
+    return `
+      <li>Skills: ${this.skills}</li>
+      <ul>
+      ${result}
+      </ul>
     `;
   };
 };
@@ -1126,6 +1138,7 @@ const getNPCClass = function (highAbility, lowAbility, npcStatArray) {
 const getNPCSkills = function (background, npcClass) {
   console.log(background.skills, npcClass.skills);
   const skillArray = [];
+  // Copy the array across to avoid modifying the original elsewhere.
   for (let i = 0; i < background.skills.length; i++) {
     skillArray.push(background.skills[i]);
   }
