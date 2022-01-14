@@ -165,11 +165,18 @@ const ComplexNPC = function () {
   );
   this.tools = getNPCTools(this.background.tools);
   this.appearance = getSimpleAppearance();
-  const origin = getNPCOrigin(this.race, this.npcClass[0], this.subrace);
+  const origin = getNPCOrigin(
+    this.race,
+    this.subrace,
+    this.npcClass[0],
+    Number(this.stats[5][1][1].substring(1)) // Charisma modifier
+  );
+  // TODO: Make this an object.
   this.parents = origin[0];
   this.birthplace = origin[1];
   this.siblings = origin[2];
   this.family = origin[3];
+  this.memories = orign[4];
   this.toPrettyHTML = function () {
     return `
     <ul>
@@ -220,6 +227,7 @@ const ComplexNPC = function () {
         <li>${this.birthplace}</li>
         ${this.displaySiblings()}
         ${this.displayFamily()}
+        <li>${this.memories}</li>
       </ul>
     </li>
     `;
@@ -737,13 +745,14 @@ const getStatModifier = function (stat) {
   }
 };
 
-const getNPCOrigin = function (npcRace, npcClass, npcSubrace) {
+const getNPCOrigin = function (npcRace, npcSubrace, npcClass, charismaMod) {
   const parents = getNPCParents(npcRace);
   const birthplace = getNPCBirthplace();
   const siblings = getNPCSiblings(npcRace, npcSubrace);
   const family = getNPCFamily();
+  const memories = getNPCMemories(charismaMod);
 
-  return [parents, birthplace, siblings, family];
+  return [parents, birthplace, siblings, family, memories];
 };
 
 const getNPCParents = function (race) {
@@ -899,6 +908,19 @@ const getNPCFamily = function () {
   }
 
   return family;
+};
+
+const getNPCMemories = function (chaMod) {
+  const rollMemory = rollXDX(3, 6, chaMod);
+  let result = ``;
+  for (const [k, v] of childhoodMemories) {
+    if (roll <= k) {
+      result += childhoodMemories.get(k);
+      break;
+    }
+  }
+
+  return result;
 };
 
 /**

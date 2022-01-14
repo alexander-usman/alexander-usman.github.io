@@ -2655,6 +2655,21 @@ const childhoodHome = new Map([
   [110, `Mansion`],
   [140, `Palace or castle`],
 ]);
+const childhoodMemories = new Map([
+  [
+    3,
+    `I am still haunted by my childhood, when i was treated badly by my peers.`,
+  ],
+  [5, `I spent most of my childhood alone, with no cloes friends.`],
+  [8, `Others saw me as different or strange, and so I had few companions.`],
+  [12, `I had a few close friends and lived an ordinary childhood.`],
+  [15, `I had several friends and my childhood was generally a happy one.`],
+  [
+    17,
+    `I always found it easy to make friends, and I loved being around people.`,
+  ],
+  [30, `Everyone knew who  I was, and I had friends everywhere I went.`],
+]);
 // Supplemental Tables
 const d100Alignments = new Map([
   [3, `Chaotic Evil`],
