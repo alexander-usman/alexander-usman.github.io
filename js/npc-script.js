@@ -270,7 +270,7 @@ const ComplexNPC = function () {
       result += `<li>${this.skills[i]}</li>`;
     }
     return `
-      <li>Skills: ${this.skills}</li>
+      <li>Skills: </li>
       <ul>
       ${result}
       </ul>
