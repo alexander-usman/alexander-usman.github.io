@@ -176,7 +176,7 @@ const ComplexNPC = function () {
   this.birthplace = origin[1];
   this.siblings = origin[2];
   this.family = origin[3];
-  this.memories = orign[4];
+  this.memories = origin[4];
   this.toPrettyHTML = function () {
     return `
     <ul>
@@ -914,7 +914,7 @@ const getNPCMemories = function (chaMod) {
   const rollMemory = rollXDX(3, 6, chaMod);
   let result = ``;
   for (const [k, v] of childhoodMemories) {
-    if (roll <= k) {
+    if (rollMemory <= k) {
       result += childhoodMemories.get(k);
       break;
     }
