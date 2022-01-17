@@ -185,20 +185,19 @@ const ComplexNPC = function () {
   this.toPrettyHTML = function () {
     return `
     <ul>
-    <li>${this.race}</li>
-    <ul><li>${this.subrace}</li></ul>
-    <li>${this.gender}</li>
-    <li>${this.name}</li>
+    <li>Race: ${this.race} - ${this.subrace}</li>
+    <li>Gender: ${this.gender}</li>
+    <li>Name: ${this.name}</li>
     ${this.displayStats()}
     <li>You speak: </li><ul>${this.languages}</ul>
     <li>You can use: </li><ul>${this.tools}</ul>
-    <li>${this.appearance}</li>
-    ${this.highScore[1]}
-    ${this.lowScore[1]}
-    <li>${this.talent}</li>
-    <li>${this.mannerism}</li>
-    <li>${this.interactionTrait}</li>
-    <li>${this.background.name} - ${this.background.specialty}</li>
+    <li>Appearance: ${this.appearance}</li>
+    <li>High ABility: ${this.highScore[1]}</li>
+    <li>Low Ability: ${this.lowScore[1]}</li>
+    <li>Talent: ${this.talent}</li>
+    <li>Mannerism: ${this.mannerism}</li>
+    <li>Interaction Trait: ${this.interactionTrait}</li>
+    <li>Background: ${this.background.name} - ${this.background.specialty}</li>
       <ul>
         <li>Trait One: ${this.firstTrait}</li>
         <li>Trait Two: ${this.secondTrait}</li>
@@ -229,11 +228,11 @@ const ComplexNPC = function () {
     <li>
       Origin:
       <ul>
-        <li>${this.parents}</li>
-        <li>${this.birthplace}</li>
+        <li>Parents: ${this.parents}</li>
+        <li>Birthplace: ${this.birthplace}</li>
         ${this.displaySiblings()}
         ${this.displayFamily()}
-        <li>${this.memories}</li>
+        <li>Childhood Memories: ${this.memories}</li>
       </ul>
     </li>
     `;
@@ -261,9 +260,9 @@ const ComplexNPC = function () {
     return `
       <li>Famliy: </li>
       <ul>
-        <li>${this.family.options}</li>
-        <li>${this.family.lifestyle}</li>
-        <li>${this.family.childhooHome}</li>
+        <li>Raised By: ${this.family.options}</li>
+        <li>Lifestyle: ${this.family.lifestyle}</li>
+        <li>Childhood Home: ${this.family.childhooHome}</li>
       </ul>
     `;
   };
@@ -1015,7 +1014,7 @@ const getNPCHighAbility = function () {
     Math.trunc(Math.random() * randomNPCHighAbility.get(roll).length - 1) + 1; // Get an index from 1 to 3, skipping the unwanted 0th item.
   return [
     randomNPCHighAbility.get(roll)[0],
-    `<li>${randomNPCHighAbility.get(roll)[getAdjective]}</li>`,
+    randomNPCHighAbility.get(roll)[getAdjective],
   ];
 };
 
@@ -1029,7 +1028,7 @@ const getNPCLowAbility = function (highAbility) {
   }
   return [
     randomNPCLowAbility.get(roll)[0],
-    `<li>${randomNPCLowAbility.get(roll)[getAdjective]}</li>`,
+    randomNPCLowAbility.get(roll)[getAdjective],
   ];
 };
 
@@ -1169,7 +1168,6 @@ const getNPCClass = function (highAbility, lowAbility, npcStatArray) {
   return { ...classes.get(npcClass) };
 };
 const getNPCSkills = function (background, npcClass) {
-  console.log(background.skills, npcClass.skills);
   const skillArray = [];
   // Copy the array across to avoid modifying the original elsewhere.
   for (let i = 0; i < background.skills.length; i++) {
