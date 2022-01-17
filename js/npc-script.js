@@ -141,7 +141,7 @@ const ComplexNPC = function () {
     this.stats[0]
   );
   const rollDecision = rollXDX(1, 6, -1);
-  this.npcClass.decision = personalDecisionsClasses.get(background.name)[
+  this.npcClass.decision = personalDecisionsClasses.get(this.npcClass.name)[
     rollDecision
   ];
 
