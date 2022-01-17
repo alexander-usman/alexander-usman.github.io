@@ -140,6 +140,10 @@ const ComplexNPC = function () {
     this.lowScore[0],
     this.stats[0]
   );
+  const rollDecision = rollXDX(1, 6, -1);
+  this.npcClass.decision = personalDecisionsClasses.get(background.name)[
+    rollDecision
+  ];
 
   this.skills = getNPCSkills(this.background, this.npcClass);
   this.level = rollXDX(1, 20);
@@ -269,7 +273,7 @@ const ComplexNPC = function () {
     <ul>
       <li>Hitpoints: ${this.hitpoints}</li>
       ${this.displaySkills()}
-      <li></li>
+      <li>${this.npcClass.decision}</li>
       <li></li>
     </ul>
     `;
