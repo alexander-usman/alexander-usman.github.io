@@ -181,11 +181,8 @@ const ComplexNPC = function () {
     this.age
   );
   // TODO: Make this an object.
-  this.parents = origin[0];
-  this.birthplace = origin[1];
-  this.siblings = origin[2];
-  this.family = origin[3];
-  this.memories = origin[4];
+  this.siblings = origin.siblings;
+  this.family = origin.family;
   this.toPrettyHTML = function () {
     return `
     <ul>
@@ -233,11 +230,12 @@ const ComplexNPC = function () {
     <li>
       Origin:
       <ul>
-        <li>Parents: ${this.parents}</li>
-        <li>Birthplace: ${this.birthplace}</li>
+        <li>Parents: ${this.origin.parents}</li>
+        <li>Birthplace: ${this.origin.birthplace}</li>
         ${this.displaySiblings()}
         ${this.displayFamily()}
-        <li>Childhood Memories: ${this.memories}</li>
+        <li>Childhood Memories: ${this.origin.memories}</li>
+        <li>Life Events: ${this.origin.lifeEvents}</li>
       </ul>
     </li>
     `;
@@ -867,9 +865,16 @@ const getNPCOrigin = function (
   const siblings = getNPCSiblings(npcRace, npcSubrace);
   const family = getNPCFamily();
   const memories = getNPCMemories(charismaMod);
-  const lifeEvents = getNPCLifeEvents(npcAge);
+  const lifeEvents = getNPCLifeEvents(npcAge, siblings);
 
-  return [parents, birthplace, siblings, family, memories, lifeEvents];
+  return {
+    parents: parents,
+    birhtplace: birthplace,
+    siblings: siblings,
+    family: family,
+    memories: memories,
+    lifeEvents: lifeEvents,
+  };
 };
 
 const getNPCParents = function (race) {
@@ -1040,7 +1045,7 @@ const getNPCMemories = function (chaMod) {
   return result;
 };
 
-const getNPCLifeEvents = function (npcAge) {
+const getNPCLifeEvents = function (npcAge, npcSiblings) {
   const result = [];
   let maxEvents = 0;
 
@@ -1052,15 +1057,142 @@ const getNPCLifeEvents = function (npcAge) {
   }
 
   const numEvents = rollXDX(1, maxEvents);
-  for (let i = 0; i < numEvents; i++) {}
+  for (let i = 0; i < numEvents; i++) {
+    const rollEventType = rollXDX(1, 100);
+    for (const [k, v] of lifeEvents) {
+      if (rollEventType <= k) {
+        event = v;
+        break;
+      }
+    }
+    if (event === lifeEvents.get(10)) {
+      result.push(getRandomTragedy(npcSiblings));
+    } else if (event === lifeEvents.get(20)) {
+      result.push(getRandomBoon());
+    } else if (event === lifeEvents.get(30)) {
+    } else if (event === lifeEvents.get(40)) {
+    } else if (event === lifeEvents.get(50)) {
+    } else if (event === lifeEvents.get(70)) {
+    } else if (event === lifeEvents.get(75)) {
+    } else if (event === lifeEvents.get(80)) {
+    } else if (event === lifeEvents.get(85)) {
+    } else if (event === lifeEvents.get(90)) {
+    } else if (event === lifeEvents.get(95)) {
+    } else if (event === lifeEvents.get(99)) {
+    } else if (event === lifeEvents.get(100)) {
+    }
+  }
+
+  return result;
+};
+
+const getRandomTragedy = function (npcSiblings) {
+  const rollTragedyType = rollXDX(1, 12);
+  // poddible variables.
+  let randomSibling;
+  let randomRace;
+  let randomFriend;
+  let randomCauseOfDeath;
+
+  let roll = 0;
+  let seconRoll = 0;
+  let thirdRoll = 0;
+
+  switch (rollTragedyType) {
+    case 1:
+      randomSibling = npcSiblings[rollXDX(1, npcSiblings.length, -1)].name;
+      roll = rollXDX(1, causesOfDeath.length, -1);
+      randomCauseOfDeath = causesOfDeath[roll];
+      return `Your family member, ${randomSibling}, died. Cause of death: ${randomCauseOfDeath}`;
+      break;
+    case 2:
+      randomRace = getNPCRace();
+      randomFriend = getNPCName(
+        randomRace,
+        getNPCGender(),
+        getNPCSubrace(randomRace)
+      );
+      roll = rollXDX(1, causesOfDeath.length, -1);
+      randomCauseOfDeath = causesOfDeath[roll];
+      return `Your close friend, ${randomFriend}, died. Cause of death: ${randomCauseOfDeath}`;
+      break;
+    case 3:
+      return `A frindship ended bitterly, and the other person is now hostile to you.`;
+      break;
+    case 4:
+      return `You lost all your posessions in a disaster, and you had to rebuild your life.`;
+      break;
+    case 5:
+      roll = rollXDX(1, 6);
+      return `You were imprisoned for a crime you didn't commit and spent ${roll} years at hard labour, in jail, or shackled to an oar ina slave galley.`;
+      break;
+    case 6:
+      roll = rollXDX(1, 2);
+      if (roll === 1) {
+        return `War ravaged your home community, reducing everything to rubble and ruin. In the aftermat, you helped your town rebuild.`;
+      } else if (roll === 2) {
+        return `War ravaged your home community, reducing everything to rubble and ruin. In the aftermat, you moved somewhere else.`;
+      }
+      break;
+    case 7:
+      return `A lover dissapeared without a trace. You have been looking for that person ever since.`;
+      break;
+    case 8:
+      return `A terrible blight in your home community caused crops to fail, and many starved. You lost a sibling or some other family member.`;
+      break;
+    case 9:
+      return `You did something that brought terrible shame to you in the eyes of your family. They are indifferent to you at best.`;
+      break;
+    case 10:
+      roll = rollXDX(1, 2);
+      if (roll === 1) {
+        return `For a reason you were never told, you were exiled from your community. You wandered in the wilderness for a time.`;
+      } else if (roll === 2) {
+        return `For a reason you were never told, you were exiled from your community. You promptly found a new place to live.`;
+      }
+      break;
+    case 11:
+      roll = rollXDX(1, 6);
+      if (roll % 0) {
+        return `A romantic relationship ended amicably.`;
+      } else {
+        return `A romantic relationship ended with bad feelings.`;
+      }
+      break;
+    case 12:
+      let loverType = ``;
+      roll = rollXDX(1, 2);
+      if (roll === 1) {
+        loverType += `current`;
+      } else if (loverType === 2) {
+        loverType += `prospective`;
+      }
+
+      secondRoll = rollXDX(1, causesOfDeath.length, -1);
+      randomCauseOfDeath = randomCauseOfDeath = causesOfDeath[secondRoll];
+      if (randomCauseOfDeath === `Murdered`) {
+        thirdRoll = rollXDX(1, 12);
+        if (thirdRoll === 1) {
+          return `A ${loverType} lover died. Cause of death: ${causesOfDeath}. You were responsible.`;
+        }
+      }
+      return `A ${loverType} lover died. Cause of death: ${causesOfDeath}.`;
+      break;
+    default:
+      break;
+  }
+};
+
+const getRandomBoon = function () {
+  const rollBoon
 };
 
 /**
  * Takes a race, class and langNum and returns a list of known languages.
  * @param [String] race
  * @param [String] npcClass
- * @param [Int] langNum =number of languages
- * @returns [String] Language list
+ * @param [Int] langNum = number of languages
+ * @returns [String] LanguageList
  */
 const getNPCLanguages = function (race, npcClass, langNum) {
   if (race.includes(`Human`)) {
