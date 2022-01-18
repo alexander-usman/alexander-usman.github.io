@@ -177,7 +177,8 @@ const ComplexNPC = function () {
     this.race,
     this.subrace,
     this.npcClass[0],
-    Number(this.stats[5][1][1].substring(1)) // Charisma modifier
+    Number(this.stats[5][1][1].substring(1)), // Charisma modifier
+    this.age
   );
   // TODO: Make this an object.
   this.parents = origin[0];
@@ -331,7 +332,7 @@ const getNPCName = function (
   let result = ``;
   let firstNameRoll = 0;
   let lastNameRoll = 0;
-  let childNameRoll = 0;
+  let otherNameRoll = 0;
   let namedBy = 0;
 
   if (subrace != `No subrace`) {
@@ -387,8 +388,8 @@ const getNPCName = function (
       }
       lastNameRoll = Math.trunc(Math.random() * namesElfFamily.length);
       result += `${namesElfFamily[lastNameRoll]}`;
-      childNameRoll = Math.trunc(Math.random() * namesElfChild.length);
-      result += ` (Child name: ${namesElfChild[childNameRoll]})`;
+      otherNameRoll = Math.trunc(Math.random() * namesElfChild.length);
+      result += ` (Child name: ${namesElfChild[otherNameRoll]})`;
       break;
 
     case `Gnome - Forest`:
@@ -597,16 +598,6 @@ const getNPCName = function (
       result += `${namesHumanTuramiSurname[lastNameRoll]}`;
       break;
 
-    case `Orc`:
-      if (gender === `Male`) {
-        firstNameRoll = Math.trunc(Math.random() * namesOrcMale.length);
-        result += `${namesOrcMale[firstNameRoll]}`;
-      } else if (gender === `Female`) {
-        firstNameRoll = Math.trunc(Math.random() * namesOrcFemale.length);
-        result += `${namesOrcFemale[firstNameRoll]}`;
-      }
-      break;
-
     case `Tiefling`:
       namedBy = Math.trunc(Math.random() * 18) + 1;
 
@@ -625,10 +616,104 @@ const getNPCName = function (
         }
       }
       break;
+    case `Aasimar - Protector`:
+    case `Aasimar - Scourge`:
+    case `Aasimar - Fallen`:
+      result += getNPCName(`Human - ${randomHumanType.get(namedBy)}`, gender);
+      return result;
+      break;
+    case `Firbolg`:
+      if (gender === `Male`) {
+        firstNameRoll = Math.trunc(Math.random() * namesFirbolgMale.length);
+        result += `${namesFirbolgMale[firstNameRoll]} `;
+      } else if (gender === `Female`) {
+        firstNameRoll = Math.trunc(Math.random() * namesFirbolgFemale.length);
+        result += `${namesFirbolgFemale[firstNameRoll]} `;
+      }
+      break;
+    case `Goliath`:
+      if (gender === `Male`) {
+        firstNameRoll = Math.trunc(Math.random() * namesGoliathMale.length);
+        result += `${namesGoliathMale[firstNameRoll]} `;
+      } else if (gender === `Female`) {
+        firstNameRoll = Math.trunc(Math.random() * namesGoliathFemale.length);
+        result += `${namesGoliathFemale[firstNameRoll]} `;
+      }
+      lastNameRoll = Math.trunc(Math.random() * namesGoliathClan.length);
+      result += `${namesGoliathClan[lastNameRoll]}`;
+      otherNameRoll = Math.trunc(Math.random() * namesGoliathNickname.length);
+      result += ` (Nickname name: ${namesGoliathNickname[otherNameRoll]})`;
+      break;
+    case `Kenku`:
+      firstNameRoll = Math.trunc(Math.random() * namesKenku.length);
+      result += `${namesKenku[firstNameRoll]} `;
+      break;
+    case `Lizardfolk`:
+      firstNameRoll = Math.trunc(Math.random() * namesLizardfolk.length);
+      result += `${namesLizardfolk[firstNameRoll]} `;
+      break;
+    case `Tabaxi`:
+      firstNameRoll = Math.trunc(Math.random() * namesTabaxiFirst.length);
+      result += `${namesTabaxiFirst[firstNameRoll]} `;
+      lastNameRoll = Math.trunc(Math.random() * namesTabaxiClan.length);
+      result += `${namesTabaxiClan[lastNameRoll]}`;
+      break;
+    case `Triton`:
+      if (gender === `Male`) {
+        firstNameRoll = Math.trunc(Math.random() * namesTritonMale.length);
+        result += `${namesTritonMale[firstNameRoll]} `;
+      } else if (gender === `Female`) {
+        firstNameRoll = Math.trunc(Math.random() * namesTritonFemale.length);
+        result += `${namesTritonFemale[firstNameRoll]} `;
+      }
+      lastNameRoll = Math.trunc(Math.random() * namesTritonSurname.length);
+      result += `${namesTritonSurname[lastNameRoll]}`;
+      break;
+    case `Bugbear`:
+      firstNameRoll = Math.trunc(Math.random() * namesBugbearFirst.length);
+      result += `${namesBugbearFirst[firstNameRoll]} `;
+      lastNameRoll = Math.trunc(Math.random() * namesBugbearLast.length);
+      result += `${namesBugbearLast[lastNameRoll]}`;
+      break;
+    case `Goblin`:
+      if (gender === `Male`) {
+        firstNameRoll = Math.trunc(Math.random() * namesGoblinMale.length);
+        result += `${namesGoblinMale[firstNameRoll]} `;
+      } else if (gender === `Female`) {
+        firstNameRoll = Math.trunc(Math.random() * namesGoblinFemale.length);
+        result += `${namesGoblinFemale[firstNameRoll]} `;
+      }
+      lastNameRoll = Math.trunc(Math.random() * namesGoblinClan.length);
+      result += `${namesGoblinClan[lastNameRoll]}`;
+      break;
+    case `Hobgoblin`:
+      firstNameRoll = Math.trunc(Math.random() * namesHobgoblinFirst.length);
+      result += `${namesHobgoblinFirst[firstNameRoll]} `;
+      lastNameRoll = Math.trunc(Math.random() * namesHobgoblinClan.length);
+      result += `${namesHobgoblinClan[lastNameRoll]}`;
+      break;
+    case `Kobold`:
+      firstNameRoll = Math.trunc(Math.random() * namesKobold.length);
+      result += `${namesKobold[firstNameRoll]} `;
+      break;
+    case `Orc`:
+      if (gender === `Male`) {
+        firstNameRoll = Math.trunc(Math.random() * namesOrcMale.length);
+        result += `${namesOrcMale[firstNameRoll]}`;
+      } else if (gender === `Female`) {
+        firstNameRoll = Math.trunc(Math.random() * namesOrcFemale.length);
+        result += `${namesOrcFemale[firstNameRoll]}`;
+      }
+      lastNameRoll = Math.trunc(Math.random() * namesOrcEpithet.length);
+      result += `${namesOrcEpithet[lastNameRoll]}`;
+      break;
+    case `Yuan-Ti`:
+      firstNameRoll = Math.trunc(Math.random() * namesYuanTi.length);
+      result += `${namesYuanTi[firstNameRoll]} `;
+      break;
     default:
       break;
   }
-
   return `${result}`;
 };
 
@@ -770,14 +855,21 @@ const getStatModifier = function (stat) {
   }
 };
 
-const getNPCOrigin = function (npcRace, npcSubrace, npcClass, charismaMod) {
+const getNPCOrigin = function (
+  npcRace,
+  npcSubrace,
+  npcClass,
+  charismaMod,
+  npcAge
+) {
   const parents = getNPCParents(npcRace);
   const birthplace = getNPCBirthplace();
   const siblings = getNPCSiblings(npcRace, npcSubrace);
   const family = getNPCFamily();
   const memories = getNPCMemories(charismaMod);
+  const lifeEvents = getNPCLifeEvents(npcAge);
 
-  return [parents, birthplace, siblings, family, memories];
+  return [parents, birthplace, siblings, family, memories, lifeEvents];
 };
 
 const getNPCParents = function (race) {
@@ -948,6 +1040,21 @@ const getNPCMemories = function (chaMod) {
   return result;
 };
 
+const getNPCLifeEvents = function (npcAge) {
+  result = [];
+  let maxEvents = 0;
+
+  for (const [k, v] of lifeEventsByAge) {
+    if (npcAge <= k) {
+      maxEvents = v;
+      break;
+    }
+  }
+
+  const numEvents = rollXDX(1, maxEvents);
+  for (let i = 0; i < numEvents; i++) {}
+};
+
 /**
  * Takes a race, class and langNum and returns a list of known languages.
  * @param [String] race
@@ -964,7 +1071,7 @@ const getNPCLanguages = function (race, npcClass, langNum) {
     languageList += `<li>${languageByRace.get(race)[i]}</li>`;
   }
 
-  if (race === `Human` || race === `Half-Elf`) {
+  if (race === `Human` || race === `Half-Elf` || race === `Tabaxi`) {
     let i = 0;
     while (i < 1) {
       const roll = Math.trunc(Math.random() * languages.length);
