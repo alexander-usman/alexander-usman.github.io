@@ -68,31 +68,33 @@ const SimpleNPC = function () {
   this.subrace = getNPCSubrace(this.raceRoll);
   this.gender = getNPCGender();
   this.name = getNPCName(this.race, this.gender, this.subrace);
+  this.age = getNPCAge(this.race, this.subrace);
   this.highScore = getNPCHighAbility();
   this.lowScore = getNPCLowAbility(this.highScore[0]);
   this.talent = getNPCTalent();
   this.mannerism = getNPCMannerism();
   this.interactionTrait = getNPCInteractionTrait();
   this.appearance = getSimpleAppearance();
-  this.ideal = getNPCIdeal();
+  this.ideals = getNPCIdeals();
   this.bond = getNPCBond();
   this.flaw = getNPCFlaw();
   this.toPrettyHTML = function () {
     return `
     <ul>
-    <li>${this.race}</li>
-    <ul><li>${this.subrace}</li></ul>
-    <li>${this.gender}</li>
-    <li>${this.name}</li>
-    <li>${this.appearance}</li>
-    ${this.highScore[1]}
-    ${this.lowScore[1]}
-    <li>${this.talent}</li>
-    <li>${this.mannerism}</li>
-    <li>${this.interactionTrait}</li>
-    ${this.ideal}
-    <li>${this.bond}</li>
-    <li>${this.flaw}</li>
+    <li>Race: ${this.race} - ${this.subrace}</li>
+    <li>Gender: ${this.gender}</li>
+    <li>Name: ${this.name}</li>
+    <li>Age: ${this.age}</li>
+    <li>Appearance: ${this.appearance}</li>
+    <li>High Ability: ${this.highScore[1]}</li>
+    <li>Low Ability: ${this.lowScore[1]}</li>
+    <li>Talent: ${this.talent}</li>
+    <li>Mannerism: ${this.mannerism}</li>
+    <li>Interaction Trait: ${this.interactionTrait}</li>
+    <li>Ideals</li>
+    <ul>${this.ideals}</ul>
+    <li>Bond: ${this.bond}</li>
+    <li>Flaw: ${this.flaw}</li>
     </ul>`;
   };
 };
@@ -104,6 +106,7 @@ const ComplexNPC = function () {
   this.subrace = getNPCSubrace(this.raceRoll);
   this.gender = getNPCGender();
   this.name = getNPCName(this.race, this.gender, this.subrace);
+  this.age = getNPCAge(this.race, this.subrace);
   this.highScore = getNPCHighAbility();
   this.lowScore = getNPCLowAbility(this.highScore[0]);
   this.stats = getNPCStats(
@@ -188,11 +191,12 @@ const ComplexNPC = function () {
     <li>Race: ${this.race} - ${this.subrace}</li>
     <li>Gender: ${this.gender}</li>
     <li>Name: ${this.name}</li>
+    <li>Age: ${this.age}</li>
     ${this.displayStats()}
     <li>You speak: </li><ul>${this.languages}</ul>
     <li>You can use: </li><ul>${this.tools}</ul>
     <li>Appearance: ${this.appearance}</li>
-    <li>High ABility: ${this.highScore[1]}</li>
+    <li>High Ability: ${this.highScore[1]}</li>
     <li>Low Ability: ${this.lowScore[1]}</li>
     <li>Talent: ${this.talent}</li>
     <li>Mannerism: ${this.mannerism}</li>
@@ -272,7 +276,7 @@ const ComplexNPC = function () {
     <ul>
       <li>Hitpoints: ${this.hitpoints}</li>
       ${this.displaySkills()}
-      <li>${this.npcClass.decision}</li>
+      <li>Decision: ${this.npcClass.decision}</li>
       <li></li>
     </ul>
     `;
@@ -626,6 +630,22 @@ const getNPCName = function (
   }
 
   return `${result}`;
+};
+
+const getNPCAge = function (race = `Human`, subrace = `No subrace`) {
+  let result = 0;
+
+  if (subrace != `No subrace`) {
+    race += ` - ${subrace}`;
+  }
+
+  result = rollXDX(
+    1,
+    agesByRace.get(race)[1] - agesByRace.get(race)[0] - 1,
+    agesByRace.get(race)[0]
+  );
+
+  return result;
 };
 
 const getNPCStats = function (npcRace, npcSubrace, highScore, lowScore) {
@@ -1047,7 +1067,7 @@ const getNPCInteractionTrait = function () {
   return randomNPCInteractionTraits.get(roll);
 };
 
-const getNPCIdeal = function () {
+const getNPCIdeals = function () {
   let result = ``;
 
   const rollGNE = Math.trunc(Math.random() * 3);
