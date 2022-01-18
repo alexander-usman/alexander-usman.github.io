@@ -642,7 +642,7 @@ const getNPCName = function (
       lastNameRoll = Math.trunc(Math.random() * namesGoliathClan.length);
       result += `${namesGoliathClan[lastNameRoll]}`;
       otherNameRoll = Math.trunc(Math.random() * namesGoliathNickname.length);
-      result += ` (Nickname name: ${namesGoliathNickname[otherNameRoll]})`;
+      result += ` (Nickname: ${namesGoliathNickname[otherNameRoll]})`;
       break;
     case `Kenku`:
       firstNameRoll = Math.trunc(Math.random() * namesKenku.length);
@@ -1041,7 +1041,7 @@ const getNPCMemories = function (chaMod) {
 };
 
 const getNPCLifeEvents = function (npcAge) {
-  result = [];
+  const result = [];
   let maxEvents = 0;
 
   for (const [k, v] of lifeEventsByAge) {
