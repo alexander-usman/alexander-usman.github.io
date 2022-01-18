@@ -699,10 +699,10 @@ const getNPCName = function (
     case `Orc`:
       if (gender === `Male`) {
         firstNameRoll = Math.trunc(Math.random() * namesOrcMale.length);
-        result += `${namesOrcMale[firstNameRoll]}`;
+        result += `${namesOrcMale[firstNameRoll]} `;
       } else if (gender === `Female`) {
         firstNameRoll = Math.trunc(Math.random() * namesOrcFemale.length);
-        result += `${namesOrcFemale[firstNameRoll]}`;
+        result += `${namesOrcFemale[firstNameRoll]} `;
       }
       lastNameRoll = Math.trunc(Math.random() * namesOrcEpithet.length);
       result += `${namesOrcEpithet[lastNameRoll]}`;
