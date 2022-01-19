@@ -1278,7 +1278,7 @@ const getRandomAdventure = function () {
   let firstRoll = 0;
   let secondRoll = 0;
 
-  if (roll <= 10) {
+  if (rollAdventure <= 10) {
     firstRoll = rollXDX(1, 3);
     if (firstRoll === 1) {
       bodypart = `an ear`;
@@ -1290,11 +1290,11 @@ const getRandomAdventure = function () {
       bodypart = `${secondRoll} toes`;
     }
     return `You nearly died. You have nasty scars on your body, and you are missing ${bodypart}.`;
-  } else if (roll >= 11 && roll <= 20) {
+  } else if (rollAdventure >= 11 && rollAdventure <= 20) {
     return `You suffered a grievous injury. Although the wound healed, it still pains you from time to time.`;
-  } else if (roll >= 21 && roll <= 30) {
+  } else if (rollAdventure >= 21 && rollAdventure <= 30) {
     return `You were wounded, but in time you fully recovered.`;
-  } else if (roll >= 31 && roll <= 40) {
+  } else if (rollAdventure >= 31 && rollAdventure <= 40) {
     firstRoll = rollXDX(1, 3);
     let symptom = ``;
     if (firstRoll === 1) {
@@ -1305,7 +1305,7 @@ const getRandomAdventure = function () {
       symptom = `prematurely grey hair`;
     }
     return `You contracted a disease while exploring a filthy warren. You recovered from the disease, but you have ${symptom}.`;
-  } else if (roll >= 41 && roll <= 50) {
+  } else if (rollAdventure >= 41 && rollAdventure <= 50) {
     firstRoll = rollXDX(1, 2);
     let poisonType = ``;
     if (firstRoll === 1) {
@@ -1314,19 +1314,19 @@ const getRandomAdventure = function () {
       poisonType = `monster`;
     }
     return `You were poisoned by a ${poisonType}. You recovered, but the next time you must make a saving throw against poison, you make the saving throw with disadvantage.`;
-  } else if (roll >= 51 && roll <= 60) {
+  } else if (rollAdventure >= 51 && rollAdventure <= 60) {
     return `You lost something of value to you. Remove one trinket from your posessions.`;
-  } else if (roll >= 61 && roll <= 70) {
+  } else if (rollAdventure >= 61 && rollAdventure <= 70) {
     return `You were terribly frightened by something you encountered and ran away, abandoning your companions to their fate.`;
-  } else if (roll >= 71 && roll <= 80) {
+  } else if (rollAdventure >= 71 && rollAdventure <= 80) {
     return `You learned a great deal on your adventure. The next time you make an ability check or saving throw, you have advantage on the roll.`;
-  } else if (roll >= 81 && roll <= 90) {
+  } else if (rollAdventure >= 81 && rollAdventure <= 90) {
     firstRoll = rollXDX(2, 6);
     return `You found some treasure on your adventure. You have ${firstRoll} gp left from your share of it.`;
-  } else if (roll >= 91 && roll <= 99) {
+  } else if (rollAdventure >= 91 && rollAdventure <= 99) {
     firstRoll = rollXDX(1, 20, 50);
     return `You found a considerable amopunt of treasure on your adventure. You have ${firstRoll} gp left from your share of it.`;
-  } else if (roll === 100) {
+  } else if (rollAdventure === 100) {
     return `You came across a common magic item (of the DM's choice).`;
   }
 };
