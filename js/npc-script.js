@@ -96,6 +96,12 @@ const removeSimpleNPC = function () {
     selectSimpleNPC.appendChild(element);
     selectSimpleNPC.value = option;
   }
+
+  for (let i = 0; i < simpleNPCs.length; i++) {
+    if (simpleNPCs[i].name === selectSimpleNPC.value) {
+      resultsDiv.innerHTML = `${simpleNPCs[i].toPrettyHTML()}`;
+    }
+  }
 };
 
 /**
