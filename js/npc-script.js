@@ -44,7 +44,7 @@ const rollXDX = function (numDice = 1, dWhat = 6, modifier = 0) {
  */
 const generateSimpleNPC = function () {
   const newNPC = new SimpleNPC();
-  // simpleNPCs.push(newNPC);
+  // simpleNPCs.push(newNPC); //TODO: Implement saving and retrieval of Simpl and ComplexNPCs
   resultsDiv.innerHTML = `
     ${newNPC.toPrettyHTML()}
   `;
