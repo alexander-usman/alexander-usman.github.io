@@ -83,7 +83,7 @@ const removeSimpleNPC = function () {
 
   for (let i = 0; i < simpleNPCs.length; i++) {
     if (simpleNPCs[i].name === selectSimpleNPC.value) {
-      removeFirst(simpleNPCs, simpleNPCs[i].toPrettyHTML);
+      removeFirst(simpleNPCs, simpleNPCs[i]);
     }
   }
 
