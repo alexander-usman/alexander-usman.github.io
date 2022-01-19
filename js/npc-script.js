@@ -1124,7 +1124,7 @@ const getRandomTragedy = function (npcSiblings) {
   const rollTragedyType = rollXDX(1, 12);
   // poddible variables.
   let randomSibling;
-  let randomRace;
+  let randomRaceRoll;
   let randomGender;
   let randomSubrace;
   let randomFriend;
