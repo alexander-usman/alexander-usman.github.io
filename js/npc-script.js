@@ -683,7 +683,8 @@ const getNPCName = function (
     case `Aasimar - Protector`:
     case `Aasimar - Scourge`:
     case `Aasimar - Fallen`:
-      result += getNPCName(`Human - ${randomHumanType.get(namedBy)}`, gender);
+      const raisedBy = rollXDX(1, 9);
+      result += getNPCName(`Human - ${randomHumanType.get(raisedBy)}`, gender);
       return result;
       break;
     case `Firbolg`:
