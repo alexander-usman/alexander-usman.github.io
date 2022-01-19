@@ -1226,7 +1226,7 @@ const getRandomBoon = function () {
       return `A friendly wizard gave you a spell scroll containing one cantrip (of the DM's choice).`;
       break;
     case 2:
-      const commoner = generateSimpleNPC();
+      const commoner = new SimpleNPC();
       return `
       You saved the life of a commoner, who now owes you a life debt. This individual accompanies you on your travels and performs mundane tasks for you, but will leave if neglected, abused, or imperiled.
       
