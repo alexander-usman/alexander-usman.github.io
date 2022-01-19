@@ -1587,7 +1587,7 @@ const getRandomWeirdStuff = function () {
       `;
       break;
     case 7:
-      firstRoll = RollXDX(1, 6);
+      firstRoll = rollXDX(1, 6);
       return `You went insane for ${firstRoll} years and recently regained your sanity. A tic or some other bit of odd behaviour might linger.`;
       break;
     case 8:
