@@ -1063,6 +1063,7 @@ const getNPCLifeEvents = function (npcAge, npcSiblings) {
   const numEvents = rollXDX(1, maxEvents);
   for (let i = 0; i < numEvents; i++) {
     const rollEventType = rollXDX(1, 100);
+    let name = ``;
     for (const [k, v] of lifeEvents) {
       if (rollEventType <= k) {
         event = v;
@@ -1081,13 +1082,15 @@ const getNPCLifeEvents = function (npcAge, npcSiblings) {
       }
     } else if (event === lifeEvents.get(40)) {
       const enemy = new ComplexNPC();
+      name = enemy.name;
       result.push(`
-        You made an enemy of an adventurer: ${enemy.name}
+        You made an enemy of an adventurer: ${name}.
       `);
     } else if (event === lifeEvents.get(50)) {
       const friend = new ComplexNPC();
+      name = friend.name;
       result.push(`
-        You made a friend of an adventurer: ${friend.name}
+        You made a friend of an adventurer: ${name}.
       `);
     } else if (event === lifeEvents.get(70)) {
       const jobGold = rollXDX(2, 6);
@@ -1096,8 +1099,9 @@ const getNPCLifeEvents = function (npcAge, npcSiblings) {
       );
     } else if (event === lifeEvents.get(75)) {
       const accquaintence = new SimpleNPC();
+      name = accquaintence.name;
       result.push(`
-      You met someone important: ${accquaintence.name}
+      You met someone important: ${name}
       `);
     } else if (event === lifeEvents.get(80)) {
       result.push(getRandomAdventure());
