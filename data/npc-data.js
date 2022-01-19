@@ -3543,7 +3543,7 @@ const lifeEvents = new Map([
   ],
 ]);
 // Life Events - Secondary
-const 
+
 // Supplemental Tables
 const d100Alignments = new Map([
   [3, `Chaotic Evil`],
