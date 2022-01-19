@@ -1556,7 +1556,7 @@ const getRandomWeirdStuff = function () {
       return `You were petrified and remained a stone statue for a time until someone freed you.`;
       break;
     case 3:
-      firstRoll = RollXDX(1, 2);
+      firstRoll = rollXDX(1, 2);
       secondRoll = rollXDX(1, 6);
       let captor = ``;
 
@@ -1568,7 +1568,7 @@ const getRandomWeirdStuff = function () {
       return `You were enslaved by a ${captor} and lived in that creature's thrall for ${secondRoll} years.`;
       break;
     case 4:
-      firstRoll = RollXDX(1, 4);
+      firstRoll = rollXDX(1, 4);
       return `A dragon held you as a prisoner for ${firstRoll} months until adventurers killed it.`;
       break;
     case 5:
