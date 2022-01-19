@@ -1149,11 +1149,11 @@ const getRandomTragedy = function (npcSiblings) {
 
       break;
     case 2:
-      randomRace = getNPCRace();
+      randomRaceRoll = getNPCRace()[0];
       randomGender = getNPCGender();
-      randomSubrace = getNPCSubrace(randomRace);
+      randomSubrace = getNPCSubrace(randomRaceRoll);
 
-      randomFriend = getNPCName(randomRace, randomGender, randomSubrace);
+      randomFriend = getNPCName(randomRaceRoll, randomGender, randomSubrace);
       firstRoll = rollXDX(1, causesOfDeath.length, -1);
       randomCauseOfDeath = causesOfDeath[firstRoll];
       return `Your close friend, ${randomFriend}, died. Cause of death: ${randomCauseOfDeath}`;
