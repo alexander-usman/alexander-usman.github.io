@@ -94,6 +94,7 @@ const removeSimpleNPC = function () {
     element.textContent = option;
     element.value = option;
     selectSimpleNPC.appendChild(element);
+    selectSimpleNPC.value = option;
   }
 };
 
