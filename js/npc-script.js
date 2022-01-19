@@ -3,6 +3,7 @@
 const resultsDiv = document.querySelector(`.results`);
 const btnGenerateSimpleNPC = document.querySelector(`.btnGenerateSimpleNPC`);
 const btnGenerateComplexNPC = document.querySelector(`.btnGenerateComplexNPC`);
+const btnRemoveSimpleNPC = document.querySelector(`.btnRemoveSimpleNPC`);
 const selectSimpleNPC = document.querySelector(
   `.simpleNPCGenerator .selectSimpleNPC`
 );
@@ -74,6 +75,25 @@ const generateSimpleNPC = function () {
   `;
   } else {
     resultsDiv.innerHTML = `You have reached the limit for simple NPCs.`;
+  }
+};
+
+const removeSimpleNPC = function () {
+  const nameToRemove = selectSimpleNPC.value;
+
+  for (let i = 0; i < simpleNPCs.length; i++) {
+    if (simpleNPCs[i].name === selectSimpleNPC.value) {
+      removeFirst(simpleNPCs[i].toPrettyHTML);
+    }
+  }
+
+  selectSimpleNPC.innerHTML = "";
+  for (let i = 0; i < simpleNPCs.length; i++) {
+    let option = simpleNPCs[i].name;
+    let element = document.createElement(`option`);
+    element.textContent = option;
+    element.value = option;
+    selectSimpleNPC.appendChild(element);
   }
 };
 
@@ -1913,3 +1933,4 @@ const getNPCSkills = function (background, npcClass) {
 
 btnGenerateSimpleNPC.addEventListener(`click`, generateSimpleNPC);
 btnGenerateComplexNPC.addEventListener(`click`, generateComplexNPC);
+btnRemoveSimpleNPC.addEventListener(`click`, removeSimpleNPC);
