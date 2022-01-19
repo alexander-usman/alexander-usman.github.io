@@ -234,7 +234,6 @@ const ComplexNPC = function () {
         ${this.displaySiblings()}
         ${this.displayFamily()}
         <li>Childhood Memories: ${this.origin.memories}</li>
-        <li>Life Events: ${this.origin.lifeEvents}</li>
         ${this.displayLifeEvents()}
       </ul>
     </li>
