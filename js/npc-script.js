@@ -1080,13 +1080,13 @@ const getNPCLifeEvents = function (npcAge, npcSiblings) {
         result.push(`You got married.`);
       }
     } else if (event === lifeEvents.get(40)) {
-      const enemy = generateComplexNPC();
+      const enemy = new ComplexNPC();
       result.push(`
         You made an enemy of an adventurer:
         ${enemy.toPrettyHTML()}
       `);
     } else if (event === lifeEvents.get(50)) {
-      const friend = generateComplexNPC();
+      const friend = new ComplexNPC();
       result.push(`
         You made a friend of an adventurer:
         ${friend.toPrettyHTML()}
