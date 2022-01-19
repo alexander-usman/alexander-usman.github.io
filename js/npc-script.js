@@ -1099,7 +1099,7 @@ const getRandomTragedy = function (npcSiblings) {
   let randomCauseOfDeath;
 
   let roll = 0;
-  let seconRoll = 0;
+  let secondRoll = 0;
   let thirdRoll = 0;
 
   switch (rollTragedyType) {
