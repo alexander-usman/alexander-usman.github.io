@@ -57,7 +57,7 @@ const generateComplexNPC = function () {
   const newNPC = new ComplexNPC();
   // complexNPCs.push(newNPC);
   resultsDiv.innerHTML = `
-    ${newNPC.name}
+    ${newNPC.toPrettyHTML()}
   `;
 };
 
