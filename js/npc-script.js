@@ -1602,7 +1602,7 @@ const getRandomWeirdStuff = function () {
       if (firstRoll === 1) {
         outsider = `a demigod`;
       } else if (firstRoll === 2) {
-        otsider = `an archdevil`;
+        outsider = `an archdevil`;
       } else if (firstRoll === 3) {
         outsider = `an archfey`;
       } else if (firstRoll === 4) {
