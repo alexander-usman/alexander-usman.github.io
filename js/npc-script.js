@@ -1107,7 +1107,7 @@ const getRandomTragedy = function (npcSiblings) {
       randomSibling = npcSiblings[rollXDX(1, npcSiblings.length, -1)].name;
       roll = rollXDX(1, causesOfDeath.length, -1);
       randomCauseOfDeath = causesOfDeath[roll];
-      return `Your family member, ${randomSibling}, died. Cause of death: ${randomCauseOfDeath}`;
+      return `Your family member, ${randomSibling.trim()}, died. Cause of death: ${randomCauseOfDeath}`;
       break;
     case 2:
       randomRace = getNPCRace();
@@ -1189,6 +1189,8 @@ const getRandomTragedy = function (npcSiblings) {
 
 const getRandomBoon = function () {
   const rollBoon = rollXDX(1, 10);
+
+  return `Boon ${rollBoon}`;
 };
 
 /**
