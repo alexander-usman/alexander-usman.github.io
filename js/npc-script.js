@@ -1580,7 +1580,7 @@ const getRandomWeirdStuff = function () {
       return `You were taken captive by ${race}. You lived as a slave in the Underdark until you escaped.`;
       break;
     case 6:
-      adventurer = new ComplexNPC();
+      const adventurer = new ComplexNPC();
       return `
       You served a powerful adventurer as a hireling. You have only recently left that service.
       ${adventurer.name}
