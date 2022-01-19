@@ -289,7 +289,6 @@ const ComplexNPC = function () {
       <li>Hitpoints: ${this.hitpoints}</li>
       ${this.displaySkills()}
       <li>Decision: ${this.npcClass.decision}</li>
-      <li></li>
     </ul>
     `;
   };
