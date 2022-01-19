@@ -3536,14 +3536,23 @@ const lifeEvents = new Map([
     95,
     `You committed a crime, or were wrongly accused of doing so. Roll on the Crime table to determine the nature of the offense and on the Punishment table to see what became of you.`,
   ],
-  [99, `You encountered something magical. Roll on the Arcane MAtters table.`],
+  [99, `You encountered something magical. Roll on the Arcane Matters table.`],
   [
     100,
     `Something truly strange happened to you. Roll on the Weird Stuff table.`,
   ],
 ]);
 // Life Events - Secondary
-
+const crimes = [
+  `murder`,
+  `theft`,
+  `burglary`,
+  `assault`,
+  `smuggling`,
+  `kidnapping`,
+  `extortion`,
+  `counterfeiting`,
+];
 // Supplemental Tables
 const d100Alignments = new Map([
   [3, `Chaotic Evil`],

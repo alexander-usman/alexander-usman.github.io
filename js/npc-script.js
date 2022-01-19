@@ -1074,19 +1074,48 @@ const getNPCLifeEvents = function (npcAge, npcSiblings) {
     } else if (event === lifeEvents.get(20)) {
       result.push(getRandomBoon());
     } else if (event === lifeEvents.get(30)) {
+      if (result.includes(`You got married.`)) {
+        result.push(`You had a child.`);
+      } else {
+        result.push(`You got married.`);
+      }
     } else if (event === lifeEvents.get(40)) {
+      const enemy = generateComplexNPC();
+      result.push(`
+        You made an enemy of an adventurer:
+        ${enemy.toPrettyHTML()}
+      `);
     } else if (event === lifeEvents.get(50)) {
+      const friend = generateComplexNPC();
+      result.push(`
+        You made a friend of an adventurer:
+        ${friend.toPrettyHTML()}
+      `);
     } else if (event === lifeEvents.get(70)) {
+      const jobGold = rollXDX(2, 6);
+      result.push(
+        `You spent time working in a job related to your background. Start the game with an extra ${jobGold} gp.`
+      );
     } else if (event === lifeEvents.get(75)) {
+      const accquaintence = generateSimpleNPC();
+      result.push(`
+      You met someone important.
+      ${accquaintence.toPrettyHTML()}
+      `);
     } else if (event === lifeEvents.get(80)) {
+      result.push(getRandomAdventure());
     } else if (event === lifeEvents.get(85)) {
+      result.push(getRandomSupernaturalEvent());
     } else if (event === lifeEvents.get(90)) {
+      result.push(`You fought in a battle. ${getRandomBattleOutcome()}`);
     } else if (event === lifeEvents.get(95)) {
+      result.push(getRandomCrime() + ` ` + getRandomPunishment());
     } else if (event === lifeEvents.get(99)) {
+      result.push(getRandomArcaneMatter());
     } else if (event === lifeEvents.get(100)) {
+      result.push(getRandomWeirdStuff());
     }
   }
-
   return result;
 };
 
@@ -1243,6 +1272,355 @@ const getRandomBoon = function () {
   }
 };
 
+const getRandomAdventure = function () {
+  const rollAdventure = rollXDX(1, 100);
+
+  let firstRoll = 0;
+  let secondRoll = 0;
+
+  if (roll <= 10) {
+    firstRoll = rollXDX(1, 3);
+    if (firstRoll === 1) {
+      bodypart = `an ear`;
+    } else if (firstRoll === 2) {
+      secondRoll = rollXDX(1, 3);
+      bodypart = `${secondRoll} fingers`;
+    } else if (firstRoll === 3) {
+      secondRoll = rollXDX(1, 4);
+      bodypart = `${secondRoll} toes`;
+    }
+    return `You nearly died. You have nasty scars on your body, and you are missing ${bodypart}.`;
+  } else if (roll >= 11 && roll <= 20) {
+    return `You suffered a grievous injury. Although the wound healed, it still pains you from time to time.`;
+  } else if (roll >= 21 && roll <= 30) {
+    return `You were wounded, but in time you fully recovered.`;
+  } else if (roll >= 31 && roll <= 40) {
+    firstRoll = rollXDX(1, 3);
+    let symptom = ``;
+    if (firstRoll === 1) {
+      symptom = `a persistent cough`;
+    } else if (firstRoll === 2) {
+      symptom = `pockmarks on your skin`;
+    } else if (firstRoll === 3) {
+      symptom = `prematurely grey hair`;
+    }
+    return `You contracted a disease while exploring a filthy warren. You recovered from the disease, but you have ${symptom}.`;
+  } else if (roll >= 41 && roll <= 50) {
+    firstRoll = rollXDX(1, 2);
+    let poisonType = ``;
+    if (firstRoll === 1) {
+      poisonType = `trap`;
+    } else if (firstRoll == 2) {
+      poisonType = `monster`;
+    }
+    return `You were poisoned by a ${poisonType}. You recovered, but the next time you must make a saving throw against poison, you make the saving throw with disadvantage.`;
+  } else if (roll >= 51 && roll <= 60) {
+    return `You lost something of value to you. Remove one trinket from your posessions.`;
+  } else if (roll >= 61 && roll <= 70) {
+    return `You were terribly frightened by something you encountered and ran away, abandoning your companions to their fate.`;
+  } else if (roll >= 71 && roll <= 80) {
+    return `You learned a great deal on your adventure. The next time you make an ability check or saving throw, you have advantage on the roll.`;
+  } else if (roll >= 81 && roll <= 90) {
+    firstRoll = rollXDX(2, 6);
+    return `You found some treasure on your adventure. You have ${firstRoll} gp left from your share of it.`;
+  } else if (roll >= 91 && roll <= 99) {
+    firstRoll = rollXDX(1, 20, 50);
+    return `You found a considerable amopunt of treasure on your adventure. You have ${firstRoll} gp left from your share of it.`;
+  } else if (roll === 100) {
+    return `You came across a common magic item (of the DM's choice).`;
+  }
+};
+
+const getRandomSupernaturalEvent = function () {
+  const rollSupernaturalEvent = rollXDX(1, 100);
+  let firstRoll = 0;
+  let secondRoll = 0;
+
+  if (rollSupernaturalEvent <= 5) {
+    firstRoll = rollXDX(1, 6);
+    return `You were ensorcelled by a fey and enslaved for ${firstRoll} years before you escaped.`;
+  } else if (rollSupernaturalEvent >= 6 && rollSupernaturalEvent <= 10) {
+    return `You saw a demon and ran away before it could do anything to you.`;
+  } else if (rollSupernaturalEvent >= 11 && rollSupernaturalEvent <= 15) {
+    firstRoll = rollXDX(1, 20);
+    secondRoll = rollXDX(1, 20, 50);
+    return `A devil tempted you. Make a DC 10 Wisdom saving throw (${firstRoll} - no mdifier). On a failed save, your alignment shifts one step toward evil (if it's not evil already), and you start the game with an extra ${secondRoll} gp.`;
+  } else if (rollSupernaturalEvent >= 16 && rollSupernaturalEvent <= 20) {
+    return `You woke up one morning miles from your home, with no idea how you got there.`;
+  } else if (rollSupernaturalEvent >= 21 && rollSupernaturalEvent <= 30) {
+    return `You visited a holy site and felt the presence of the divine there.`;
+  } else if (rollSupernaturalEvent >= 31 && rollSupernaturalEvent <= 40) {
+    firstRoll = rollXDX(1, 2);
+    let omenType = ``;
+    if (firstRoll === 1) {
+      omenType = `a red falling star`;
+    } else if (firstRoll === 2) {
+      omenType = `a face in the frost`;
+    }
+    return `You witnessed ${omenType}. You are certain that it was an omen of some sort.`;
+  } else if (rollSupernaturalEvent >= 41 && rollSupernaturalEvent <= 50) {
+    return `You escaped certain death and believe it was the intervention of a god that saved you.`;
+  } else if (rollSupernaturalEvent >= 51 && rollSupernaturalEvent <= 60) {
+    return `You witnessed a minor miracle.`;
+  } else if (rollSupernaturalEvent >= 61 && rollSupernaturalEvent <= 70) {
+    return `You explored an empty house and found it to be haunted.`;
+  } else if (rollSupernaturalEvent >= 71 && rollSupernaturalEvent <= 75) {
+    firstRoll = rollXDX(1, 6);
+    let possessor = ``;
+    switch (firstRoll) {
+      case 1:
+        possessor = `a celestial`;
+        break;
+      case 2:
+        possessor = `a devil`;
+        break;
+      case 3:
+        possessor = `a demon`;
+        break;
+      case 4:
+        possessor = `a fey`;
+        break;
+      case 5:
+        possessor = `an elemental`;
+        break;
+      case 6:
+        possessor = `an undead`;
+        break;
+      default:
+        break;
+    }
+    return `You were briefly possessed by ${possessor}.`;
+  } else if (rollSupernaturalEvent >= 76 && rollSupernaturalEvent <= 80) {
+    return `You saw a ghost.`;
+  } else if (rollSupernaturalEvent >= 81 && rollSupernaturalEvent <= 85) {
+    return `You saw a ghoul feeding on a corpse.`;
+  } else if (rollSupernaturalEvent >= 86 && rollSupernaturalEvent <= 90) {
+    firstRoll = rollXDX(1, 2);
+    let visitor = ``;
+    if (firstRoll === 1) {
+      visitor = `celestial`;
+    } else if (firstRoll === 2) {
+      visitor = `fiend`;
+    }
+    return `A ${visitor} visited you in your dreams to give warning of dangers to come.`;
+  } else if (rollSupernaturalEvent >= 91 && rollSupernaturalEvent <= 95) {
+    firstRoll = rollXDX(1, 2);
+    let place = ``;
+    if (firstRoll === 1) {
+      place = `the Feywild`;
+    } else if (firstRoll === 2) {
+      place = `the Shadowfell`;
+    }
+    return `You briefly visited ${place}.`;
+  } else if (rollSupernaturalEvent >= 96 && rollSupernaturalEvent <= 100) {
+    return `You saw a portal that you believe leads to another plane of existence.`;
+  }
+};
+
+const getRandomBattleOutcome = function () {
+  const rollOutcome = rollXDX(1, 12);
+  if (rollOutcome === 1) {
+    return `You were knocked out and left for dead. You woke up hours later with no recollection of the battle.`;
+  } else if (rollOutcome >= 2 && rollOutcome <= 3) {
+    return `You were badly injured in the fight, and you still bear the awful scars of those wounds.`;
+  } else if (rollOutcome === 4) {
+    return `You ran away from the battle to save your life, but you still feel shame for your cowardice.`;
+  } else if (rollOutcome >= 5 && rollOutcome <= 7) {
+    return `You suffered only minor injuries, and the wounds all healed without leaving scars.`;
+  } else if (rollOutcome >= 8 && rollOutcome <= 9) {
+    return `You survived the battle, but you suffer from terrible nightmares in which you relive the experience.`;
+  } else if (rollOutcome >= 10 && rollOutcome <= 11) {
+    return `You escaped the battle unscathed, though many of your friends were injured or lost.`;
+  } else if (rollOutcome === 12) {
+    return `You acquitted yourself well in battle and are remembered as a hero. You might have received a medal for your bravery.`;
+  }
+};
+
+const getRandomCrime = function () {
+  rollCrime = rollXDX(1, crimes.length, -1);
+  return `You were accused of ${crimes[rollCrime]}.`;
+};
+
+const getRandomPunishment = function () {
+  const rollPunishment = rollXDX(1, 12);
+  let firstRoll = 0;
+  let secondRoll = 0;
+  let thirdRoll = 0;
+
+  if (rollPunishment <= 3) {
+    return `You did not commit the crime and were exonerated after being accused.`;
+  } else if (rollPunishment >= 4 && rollPunishment <= 6) {
+    return `You commited the crime or helped do so, but noetheless the authorities found you not guilty.`;
+  } else if (rollPunishment >= 7 && rollPunishment <= 8) {
+    return `You were nearly caught in the act. You had to flee and are wanted in the community where the crime occured.`;
+  } else if (rollPunishment >= 9 && rollPunishment <= 12) {
+    firstRoll = rollXDX(1, 3);
+    secondRoll = rollXDX(1, 4);
+    thirdRoll = rollXDX(1, 100);
+
+    let place = ``;
+    let sentence = ``;
+
+    if (firstRoll === 1) {
+      place = `in jail`;
+    } else if (firstRoll === 2) {
+      place = `chained to an oar`;
+    }
+    if (firstRoll === 3) {
+      place = `performing hard labour`;
+    }
+
+    if (thirdRoll >= 95) {
+      return `You were caught and convicted. You spent time ${punishment}. You escaped after ${secondRoll} years.`;
+    } else {
+      return `You were caught and convicted. You spent time ${punishment}. You served a ${secondRoll} year sentence.`;
+    }
+  }
+};
+
+const getRandomArcaneMatter = function () {
+  const rollEvent = rollXDX(1, 10);
+  const firstRoll = 0;
+  switch (rollEvent) {
+    case 1:
+      firstRoll = rollXDX(1, 2);
+      let effect = ``;
+      if (firstRoll === 1) {
+        effect = `charmed`;
+      } else if (firstRoll === 2) {
+        effect = `frightened`;
+      }
+      return `You were ${effect} by a spell.`;
+      break;
+    case 2:
+      return `You were injured by the effect of a spell.`;
+      break;
+    case 3:
+      firstRoll = rollXDX(1, 5);
+      let randomClass = ``;
+      if (firstRoll === 1) {
+        randomClass = `cleric`;
+      } else if (firstRoll === 2) {
+        randomClass = `druid`;
+      } else if (firstRoll === 3) {
+        randomClass = `sorcerer`;
+      } else if (firstRoll === 4) {
+        randomClass = `warlock`;
+      } else if (firstRoll === 5) {
+        randomClass = `wizard`;
+      }
+      return `You witnessed the effects of a powerful spell beiing cast by a ${randomClass}.`;
+      break;
+    case 4:
+      return `You drank a potion (of the DM's choice).`;
+      break;
+    case 5:
+      return `You found a spell scroll (of the DM's choice) and succeeded in casting the spell it contained.`;
+      break;
+    case 6:
+      return `You were affectee by teleportation magic.`;
+      break;
+    case 7:
+      return `You turned invisible for a time.`;
+      break;
+    case 8:
+      return `You identified an illusion for what it was.`;
+      break;
+    case 9:
+      return `You saw a creature being conjured by magic.`;
+      break;
+    case 10:
+      return `Your fortune was read by a diviner.`;
+      break;
+    default:
+      break;
+  }
+};
+
+const getRandomWeirdStuff = function () {
+  const rollWeirdStuff = rollXDX(1, 12);
+  let firstRoll = 0;
+  let secondRoll = 0;
+
+  switch (rollWeirdStuff) {
+    case 1:
+      firstRoll = rollXDX(1, 4);
+      return `You were turned into a toad and remained in that form for ${firstRoll} weeks.`;
+      break;
+    case 2:
+      return `You were petrified and remained a stone statue for a time until someone freed you.`;
+      break;
+    case 3:
+      firstRoll = RollXDX(1, 2);
+      secondRoll = rollXDX(1, 6);
+      let captor = ``;
+
+      if (firstRoll === 1) {
+        captor = `hag`;
+      } else if (firstRoll === 2) {
+        captor = `satyr`;
+      }
+      return `You were enslaved by a ${captor} and lived in that creature's thrall for ${secondRoll} years.`;
+      break;
+    case 4:
+      firstRoll = RollXDX(1, 4);
+      return `A dragon held you as a prisoner for ${firstRoll} months until adventurers killed it.`;
+      break;
+    case 5:
+      firstRoll = rollXDX(1, 3);
+      let race = ``;
+      if (firstRoll === 1) {
+        race = `Drow`;
+      } else if (firstRoll === 2) {
+        race = `Kuo-Toa`;
+      } else if (firstRoll === 3) {
+        race = `Quaggoths`;
+      }
+      return `You were taken captive by ${race}. You lived as a slave in the Underdark until you escaped.`;
+      break;
+    case 6:
+      adventurer = generateComplexNPC();
+      return `
+      You served a powerful adventurer as a hireling. You have only recently left that service.
+      ${adventurer.toPrettyHTML()}
+      `;
+      break;
+    case 7:
+      firstRoll = RollXDX(1, 6);
+      return `You went insane for ${firstRoll} years and recently regained your sanity. A tic or some other bit of odd behaviour might linger.`;
+      break;
+    case 8:
+      return `A lover of yours was secretly a silver dragon.`;
+      break;
+    case 9:
+      return `You were captured by a cult and nearly sacrificed on an altar to the foul being the cultists served. You escaped, but you fear they will find you.`;
+      break;
+    case 10:
+      firstRoll = RollXDX(1, 5);
+      let outsider = ``;
+      if (firstRoll === 1) {
+        outsider = `a demigod`;
+      } else if (firstRoll === 2) {
+        otsider = `an archdevil`;
+      } else if (firstRoll === 3) {
+        outsider = `an archfey`;
+      } else if (firstRoll === 4) {
+        outsider = `a demon lord`;
+      } else if (firstRoll === 5) {
+        outsider = `a titan`;
+      }
+      return `You met ${outsider}, and you lived to tell the tale.`;
+      break;
+    case 11:
+      return `You were swallowed by a giant fish and spent a month living in its gullet before you escaped.`;
+      break;
+    case 12:
+      return `A powerful being granted you a wish, but you squandered it on something frivolous.`;
+      break;
+    default:
+      break;
+  }
+};
 /**
  * Takes a race, class and langNum and returns a list of known languages.
  * @param [String] race
