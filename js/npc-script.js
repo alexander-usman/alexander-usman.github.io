@@ -1481,7 +1481,7 @@ const getRandomPunishment = function () {
 
 const getRandomArcaneMatter = function () {
   const rollEvent = rollXDX(1, 10);
-  const firstRoll = 0;
+  let firstRoll = 0;
   switch (rollEvent) {
     case 1:
       firstRoll = rollXDX(1, 2);
