@@ -1604,7 +1604,7 @@ const getRandomWeirdStuff = function () {
       return `You were captured by a cult and nearly sacrificed on an altar to the foul being the cultists served. You escaped, but you fear they will find you.`;
       break;
     case 10:
-      firstRoll = RollXDX(1, 5);
+      firstRoll = rollXDX(1, 5);
       let outsider = ``;
       if (firstRoll === 1) {
         outsider = `a demigod`;
