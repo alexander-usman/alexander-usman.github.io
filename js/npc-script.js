@@ -1100,7 +1100,7 @@ const getRandomTragedy = function (npcSiblings) {
   let randomFriend;
   let randomCauseOfDeath;
 
-  let roll = 0;
+  let firstRoll = 0;
   let secondRoll = 0;
   let thirdRoll = 0;
 
@@ -1108,7 +1108,7 @@ const getRandomTragedy = function (npcSiblings) {
     case 1:
       randomSibling = npcSiblings[rollXDX(1, npcSiblings.length, -1)].name;
       roll = rollXDX(1, causesOfDeath.length, -1);
-      randomCauseOfDeath = causesOfDeath[roll];
+      randomCauseOfDeath = causesOfDeath[firstRoll];
       return `Your family member, ${randomSibling.trim()}, died. Cause of death: ${randomCauseOfDeath}`;
       break;
     case 2:
@@ -1117,8 +1117,8 @@ const getRandomTragedy = function (npcSiblings) {
       randomSubrace = getNPCSubrace(randomRace);
 
       randomFriend = getNPCName(randomRace, randomGender, randomSubrace);
-      roll = rollXDX(1, causesOfDeath.length, -1);
-      randomCauseOfDeath = causesOfDeath[roll];
+      firstRoll = rollXDX(1, causesOfDeath.length, -1);
+      randomCauseOfDeath = causesOfDeath[firstRoll];
       return `Your close friend, ${randomFriend}, died. Cause of death: ${randomCauseOfDeath}`;
       break;
     case 3:
@@ -1128,14 +1128,14 @@ const getRandomTragedy = function (npcSiblings) {
       return `You lost all your posessions in a disaster, and you had to rebuild your life.`;
       break;
     case 5:
-      roll = rollXDX(1, 6);
-      return `You were imprisoned for a crime you didn't commit and spent ${roll} years at hard labour, in jail, or shackled to an oar ina slave galley.`;
+      firstRoll = rollXDX(1, 6);
+      return `You were imprisoned for a crime you didn't commit and spent ${firstRoll} years at hard labour, in jail, or shackled to an oar ina slave galley.`;
       break;
     case 6:
-      roll = rollXDX(1, 2);
-      if (roll === 1) {
+      firstRoll = rollXDX(1, 2);
+      if (firstRoll === 1) {
         return `War ravaged your home community, reducing everything to rubble and ruin. In the aftermat, you helped your town rebuild.`;
-      } else if (roll === 2) {
+      } else if (firstRoll === 2) {
         return `War ravaged your home community, reducing everything to rubble and ruin. In the aftermat, you moved somewhere else.`;
       }
       break;
@@ -1149,16 +1149,16 @@ const getRandomTragedy = function (npcSiblings) {
       return `You did something that brought terrible shame to you in the eyes of your family. They are indifferent to you at best.`;
       break;
     case 10:
-      roll = rollXDX(1, 2);
-      if (roll === 1) {
+      firstRoll = rollXDX(1, 2);
+      if (firstRoll === 1) {
         return `For a reason you were never told, you were exiled from your community. You wandered in the wilderness for a time.`;
-      } else if (roll === 2) {
+      } else if (firstRoll === 2) {
         return `For a reason you were never told, you were exiled from your community. You promptly found a new place to live.`;
       }
       break;
     case 11:
-      roll = rollXDX(1, 6);
-      if (roll % 0) {
+      firstRoll = rollXDX(1, 6);
+      if (firstRoll % 0) {
         return `A romantic relationship ended amicably.`;
       } else {
         return `A romantic relationship ended with bad feelings.`;
@@ -1166,8 +1166,8 @@ const getRandomTragedy = function (npcSiblings) {
       break;
     case 12:
       let loverType = ``;
-      roll = rollXDX(1, 2);
-      if (roll === 1) {
+      firstRoll = rollXDX(1, 2);
+      if (firstRoll === 1) {
         loverType += `current`;
       } else if (loverType === 2) {
         loverType += `prospective`;
@@ -1190,8 +1190,57 @@ const getRandomTragedy = function (npcSiblings) {
 
 const getRandomBoon = function () {
   const rollBoon = rollXDX(1, 10);
+  let firstRoll = 0;
 
-  return `Boon ${rollBoon}`;
+  switch (rollBoon) {
+    case 1:
+      return `A friendly wizard gave you a spell scroll containing one cantrip (of the DM's choice).`;
+      break;
+    case 2:
+      const commoner = generateSimpleNPC();
+      return `
+      You saved the life of a commoner, who now owes you a life debt. This individual accompanies you on your travels and performs mundane tasks for you, but will leave if neglected, abused, or imperiled.
+      
+      The Commoner:
+      ${commoner.toPrettyHTML()}
+      `;
+      break;
+    case 3:
+      return `You found a riding horse.`;
+      break;
+    case 4:
+      firstRoll = rollXDX(1, 20);
+      return `You found ${firstRoll} gold pieces.`;
+      break;
+    case 5:
+      return `A relative bequeathed you a simple weapon of your choice.`;
+      break;
+    case 6:
+      return `You ffound something interesting. You gain one additional trinket.`;
+      break;
+    case 7:
+      return `You once performed a service for the local temple. The next time you visit the temple, you can receive healing up to your hit point maximum.`;
+      break;
+    case 8:
+      firstRoll = rollXDX(1, 2);
+      let item = ``;
+      if (firstRoll === 1) {
+        item = `potion of healing`;
+      } else if (firstRoll === 2) {
+        item = `flask of acid`;
+      }
+      return `A friendly alchemist gifted you with a ${item}.`;
+      break;
+    case 9:
+      return `You found a treasure map.`;
+      break;
+    case 10:
+      firstRoll = rollXDX(1, 20);
+      return `A distant relative left you a stipend that allows you to live at the comfortable lifestyle for ${firstRoll} years. If you choose to live at s higher lifestyle, you reduce the price of the lifestyle by 2 gp during that time period.`;
+      break;
+    default:
+      break;
+  }
 };
 
 /**
