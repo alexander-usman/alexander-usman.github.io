@@ -1097,7 +1097,7 @@ const getNPCLifeEvents = function (npcAge, npcSiblings) {
         `You spent time working in a job related to your background. Start the game with an extra ${jobGold} gp.`
       );
     } else if (event === lifeEvents.get(75)) {
-      const accquaintence = generateSimpleNPC();
+      const accquaintence = new SimpleNPC();
       result.push(`
       You met someone important.
       ${accquaintence.toPrettyHTML()}
