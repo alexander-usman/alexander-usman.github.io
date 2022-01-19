@@ -3,10 +3,22 @@
 const resultsDiv = document.querySelector(`.results`);
 const btnGenerateSimpleNPC = document.querySelector(`.btnGenerateSimpleNPC`);
 const btnGenerateComplexNPC = document.querySelector(`.btnGenerateComplexNPC`);
+const selectSimpleNPC = document.querySelector(
+  `.simpleNPCGenerator .selectSimpleNPC`
+);
 // Global
 const simpleNPCs = [];
 const complexNPCs = [];
-
+// On Load
+window.onload = function () {
+  selectSimpleNPC.onchange = function () {
+    for (let i = 0; i < simpleNPCs.length; i++) {
+      if (simpleNPCs[i].name === selectSimpleNPC.value) {
+        resultsDiv.innerHTML = `${simpleNPCs[i].toPrettyHTML()}`;
+      }
+    }
+  };
+};
 // Helper Functions
 /**
  * Removes the first occurence of element in a provided array and returns the result.
@@ -43,11 +55,26 @@ const rollXDX = function (numDice = 1, dWhat = 6, modifier = 0) {
  * Generates a simple NPC, pushes it to the simpleNPCs list, and adds the results to the HTML.
  */
 const generateSimpleNPC = function () {
-  const newNPC = new SimpleNPC();
-  // simpleNPCs.push(newNPC); //TODO: Implement saving and retrieval of Simpl and ComplexNPCs
-  resultsDiv.innerHTML = `
+  if (simpleNPCs.length < 10) {
+    const newNPC = new SimpleNPC();
+    simpleNPCs.push(newNPC);
+
+    // Refresh the options
+    selectSimpleNPC.innerHTML = "";
+    for (let i = 0; i < simpleNPCs.length; i++) {
+      let option = simpleNPCs[i].name;
+      let element = document.createElement(`option`);
+      element.textContent = option;
+      element.value = option;
+      selectSimpleNPC.appendChild(element);
+    }
+
+    resultsDiv.innerHTML = `
     ${newNPC.toPrettyHTML()}
   `;
+  } else {
+    resultsDiv.innerHTML = `You have reached the limit for simple NPCs.`;
+  }
 };
 
 /**

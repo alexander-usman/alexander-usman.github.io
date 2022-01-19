@@ -27,7 +27,6 @@ window.onload = function () {
     );
   }
   selectPantheon.onchange = function () {
-    //empty Chapters- and Topics- dropdowns
     selectGod.length = 1;
     //display correct values
     let godsList = godsObject[this.value];
