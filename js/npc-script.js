@@ -1437,7 +1437,7 @@ const getRandomBattleOutcome = function () {
 };
 
 const getRandomCrime = function () {
-  rollCrime = rollXDX(1, crimes.length, -1);
+  const rollCrime = rollXDX(1, crimes.length, -1);
   return `You were accused of ${crimes[rollCrime]}.`;
 };
 
