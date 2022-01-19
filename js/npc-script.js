@@ -1095,6 +1095,8 @@ const getRandomTragedy = function (npcSiblings) {
   // poddible variables.
   let randomSibling;
   let randomRace;
+  let randomGender;
+  let randomSubrace;
   let randomFriend;
   let randomCauseOfDeath;
 
@@ -1111,11 +1113,10 @@ const getRandomTragedy = function (npcSiblings) {
       break;
     case 2:
       randomRace = getNPCRace();
-      randomFriend = getNPCName(
-        randomRace,
-        getNPCGender(),
-        getNPCSubrace(randomRace)
-      );
+      randomGender = getNPCGender();
+      randomSubrace = getNPCSubrace(randomRace);
+
+      randomFriend = getNPCName(randomRace, randomGender, randomSubrace);
       roll = rollXDX(1, causesOfDeath.length, -1);
       randomCauseOfDeath = causesOfDeath[roll];
       return `Your close friend, ${randomFriend}, died. Cause of death: ${randomCauseOfDeath}`;
