@@ -1280,6 +1280,7 @@ const getRandomAdventure = function () {
 
   if (rollAdventure <= 10) {
     firstRoll = rollXDX(1, 3);
+    let bodypart = ``;
     if (firstRoll === 1) {
       bodypart = `an ear`;
     } else if (firstRoll === 2) {
