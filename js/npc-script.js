@@ -644,13 +644,9 @@ const getNPCName = function (
       }
       break;
     case `Goliath`:
-      if (gender === `Male`) {
-        firstNameRoll = Math.trunc(Math.random() * namesGoliathMale.length);
-        result += `${namesGoliathMale[firstNameRoll]} `;
-      } else if (gender === `Female`) {
-        firstNameRoll = Math.trunc(Math.random() * namesGoliathFemale.length);
-        result += `${namesGoliathFemale[firstNameRoll]} `;
-      }
+      firstNameRoll = Math.trunc(Math.random() * namesGoliathBirth.length);
+      result += `${namesGoliathBirth[firstNameRoll]} `;
+
       lastNameRoll = Math.trunc(Math.random() * namesGoliathClan.length);
       result += `${namesGoliathClan[lastNameRoll]}`;
       otherNameRoll = Math.trunc(Math.random() * namesGoliathNickname.length);
@@ -874,21 +870,16 @@ const getNPCOrigin = function (
   charismaMod,
   npcAge
 ) {
-  const parents = getNPCParents(npcRace);
-  const birthplace = getNPCBirthplace();
-  const siblings = getNPCSiblings(npcRace, npcSubrace);
-  const family = getNPCFamily();
-  const memories = getNPCMemories(charismaMod);
-  const lifeEvents = getNPCLifeEvents(npcAge, siblings);
+  let origin = {};
 
-  return {
-    parents: parents,
-    birhtplace: birthplace,
-    siblings: siblings,
-    family: family,
-    memories: memories,
-    lifeEvents: lifeEvents,
-  };
+  origin.parents = getNPCParents(npcRace);
+  origin.birthplace = getNPCBirthplace();
+  origin.siblings = getNPCSiblings(npcRace, npcSubrace);
+  origin.family = getNPCFamily();
+  origin.memories = getNPCMemories(charismaMod);
+  origin.lifeEvents = getNPCLifeEvents(npcAge, origin.siblings);
+
+  return origin;
 };
 
 const getNPCParents = function (race) {
