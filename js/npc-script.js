@@ -67,11 +67,10 @@ const generateSimpleNPC = function () {
       let element = document.createElement(`option`);
       element.textContent = option;
       element.value = option;
-      element.selected = true;
       selectSimpleNPC.appendChild(element);
+      selectSimpleNPC.value = option;
     }
-
-    selectSimpleNPC.value = resultsDiv.innerHTML = `
+    resultsDiv.innerHTML = `
     ${newNPC.toPrettyHTML()}
   `;
   } else {
