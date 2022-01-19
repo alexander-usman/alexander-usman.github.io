@@ -4,8 +4,12 @@ const resultsDiv = document.querySelector(`.results`);
 const btnGenerateSimpleNPC = document.querySelector(`.btnGenerateSimpleNPC`);
 const btnGenerateComplexNPC = document.querySelector(`.btnGenerateComplexNPC`);
 const btnRemoveSimpleNPC = document.querySelector(`.btnRemoveSimpleNPC`);
+const btnRemoveComplexNPC = document.querySelector(`.btnRemoveComplexNPC`);
 const selectSimpleNPC = document.querySelector(
   `.simpleNPCGenerator .selectSimpleNPC`
+);
+const selectComplexNPC = document.querySelector(
+  `.ComplexNPCGenerator .selectComplexNPC`
 );
 // Global
 let simpleNPCs = [];
@@ -113,6 +117,32 @@ const generateComplexNPC = function () {
   resultsDiv.innerHTML = `
     ${newNPC.toPrettyHTML()}
   `;
+};
+
+const removeComplexNPC = function () {
+  const nameToRemove = selectComplexNPC.value;
+
+  for (let i = 0; i < complexNPCs.length; i++) {
+    if (complexNPCs[i].name === selectComplexNPC.value) {
+      complexNPCs = removeFirst(complexNPCs, complexNPCs[i]);
+    }
+  }
+
+  selectComplexNPC.innerHTML = "";
+  for (let i = 0; i < complexNPCs.length; i++) {
+    let option = complexNPCs[i].name;
+    let element = document.createElement(`option`);
+    element.textContent = option;
+    element.value = option;
+    selectComplexNPC.appendChild(element);
+    selectComplexNPC.value = option;
+  }
+
+  for (let i = 0; i < complexNPCs.length; i++) {
+    if (complexNPCs[i].name === selectComplexNPC.value) {
+      resultsDiv.innerHTML = `${complexNPCs[i].toPrettyHTML()}`;
+    }
+  }
 };
 
 const SimpleNPC = function () {
@@ -1942,3 +1972,4 @@ const getNPCSkills = function (background, npcClass) {
 btnGenerateSimpleNPC.addEventListener(`click`, generateSimpleNPC);
 btnGenerateComplexNPC.addEventListener(`click`, generateComplexNPC);
 btnRemoveSimpleNPC.addEventListener(`click`, removeSimpleNPC);
+btnComplexSimpleNPC.addEventListener(`click`, removeComplexNPC);
