@@ -242,7 +242,7 @@ const ComplexNPC = function () {
   };
   this.displaySiblings = function () {
     let result = ``;
-    for (const k of this.siblings) {
+    for (const k of this.origin.siblings) {
       result += `
       <li>Sibling ${k.number}:</li>
       <ul>
@@ -263,9 +263,9 @@ const ComplexNPC = function () {
     return `
       <li>Famliy: </li>
       <ul>
-        <li>Raised By: ${this.family.options}</li>
-        <li>Lifestyle: ${this.family.lifestyle}</li>
-        <li>Childhood Home: ${this.family.childhooHome}</li>
+        <li>Raised By: ${this.origin.family.options}</li>
+        <li>Lifestyle: ${this.origin.family.lifestyle}</li>
+        <li>Childhood Home: ${this.origin.family.childhooHome}</li>
       </ul>
     `;
   };
