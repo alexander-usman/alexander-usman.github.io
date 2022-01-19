@@ -8,8 +8,8 @@ const selectSimpleNPC = document.querySelector(
   `.simpleNPCGenerator .selectSimpleNPC`
 );
 // Global
-const simpleNPCs = [];
-const complexNPCs = [];
+let simpleNPCs = [];
+let complexNPCs = [];
 // On Load
 window.onload = function () {
   selectSimpleNPC.onchange = function () {
@@ -67,10 +67,11 @@ const generateSimpleNPC = function () {
       let element = document.createElement(`option`);
       element.textContent = option;
       element.value = option;
+      element.selected = true;
       selectSimpleNPC.appendChild(element);
     }
 
-    resultsDiv.innerHTML = `
+    selectSimpleNPC.value = resultsDiv.innerHTML = `
     ${newNPC.toPrettyHTML()}
   `;
   } else {
