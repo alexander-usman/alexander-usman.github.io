@@ -1136,7 +1136,7 @@ const getRandomTragedy = function (npcSiblings) {
   switch (rollTragedyType) {
     case 1:
       randomSibling = npcSiblings[rollXDX(1, npcSiblings.length, -1)].name;
-      roll = rollXDX(1, causesOfDeath.length, -1);
+      firstRoll = rollXDX(1, causesOfDeath.length, -1);
       randomCauseOfDeath = causesOfDeath[firstRoll];
       return `Your family member, ${randomSibling.trim()}, died. Cause of death: ${randomCauseOfDeath}`;
       break;
