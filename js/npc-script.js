@@ -1472,9 +1472,9 @@ const getRandomPunishment = function () {
     }
 
     if (thirdRoll >= 95) {
-      return `You were caught and convicted. You spent time ${punishment}. You escaped after ${secondRoll} years.`;
+      return `You were caught and convicted. You spent time ${place}. You escaped after ${secondRoll} years.`;
     } else {
-      return `You were caught and convicted. You spent time ${punishment}. You served a ${secondRoll} year sentence.`;
+      return `You were caught and convicted. You spent time ${place}. You served a ${secondRoll} year sentence.`;
     }
   }
 };
