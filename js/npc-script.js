@@ -1972,4 +1972,4 @@ const getNPCSkills = function (background, npcClass) {
 btnGenerateSimpleNPC.addEventListener(`click`, generateSimpleNPC);
 btnGenerateComplexNPC.addEventListener(`click`, generateComplexNPC);
 btnRemoveSimpleNPC.addEventListener(`click`, removeSimpleNPC);
-btnComplexNPC.addEventListener(`click`, removeComplexNPC);
+btnRemoveComplexNPC.addEventListener(`click`, removeComplexNPC);
