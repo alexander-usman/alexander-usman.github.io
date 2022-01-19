@@ -173,7 +173,7 @@ const ComplexNPC = function () {
   );
   this.tools = getNPCTools(this.background.tools);
   this.appearance = getSimpleAppearance();
-  const origin = getNPCOrigin(
+  this.origin = getNPCOrigin(
     this.race,
     this.subrace,
     this.npcClass[0],
