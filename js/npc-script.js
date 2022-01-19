@@ -86,8 +86,8 @@ const SimpleNPC = function () {
     <li>Name: ${this.name}</li>
     <li>Age: ${this.age}</li>
     <li>Appearance: ${this.appearance}</li>
-    <li>High Ability: ${this.highScore[1]}</li>
-    <li>Low Ability: ${this.lowScore[1]}</li>
+    <li>High Ability Trait: ${this.highScore[1]}</li>
+    <li>Low Ability Trait: ${this.lowScore[1]}</li>
     <li>Talent: ${this.talent}</li>
     <li>Mannerism: ${this.mannerism}</li>
     <li>Interaction Trait: ${this.interactionTrait}</li>
@@ -193,8 +193,8 @@ const ComplexNPC = function () {
     <li>You speak: </li><ul>${this.languages}</ul>
     <li>You can use: </li><ul>${this.tools}</ul>
     <li>Appearance: ${this.appearance}</li>
-    <li>High Ability: ${this.highScore[1]}</li>
-    <li>Low Ability: ${this.lowScore[1]}</li>
+    <li>High Ability Trait: ${this.highScore[1]}</li>
+    <li>Low Ability Trait: ${this.lowScore[1]}</li>
     <li>Talent: ${this.talent}</li>
     <li>Mannerism: ${this.mannerism}</li>
     <li>Interaction Trait: ${this.interactionTrait}</li>
