@@ -57,7 +57,7 @@ const generateComplexNPC = function () {
   const newNPC = new ComplexNPC();
   // complexNPCs.push(newNPC);
   resultsDiv.innerHTML = `
-    ${newNPC.toPrettyHTML()}
+    ${newNPC.name}
   `;
 };
 
@@ -1082,14 +1082,12 @@ const getNPCLifeEvents = function (npcAge, npcSiblings) {
     } else if (event === lifeEvents.get(40)) {
       const enemy = new ComplexNPC();
       result.push(`
-        You made an enemy of an adventurer:
-        ${enemy.toPrettyHTML()}
+        You made an enemy of an adventurer: ${enemy.name}
       `);
     } else if (event === lifeEvents.get(50)) {
       const friend = new ComplexNPC();
       result.push(`
-        You made a friend of an adventurer:
-        ${friend.toPrettyHTML()}
+        You made a friend of an adventurer: ${friend.name}
       `);
     } else if (event === lifeEvents.get(70)) {
       const jobGold = rollXDX(2, 6);
@@ -1099,8 +1097,7 @@ const getNPCLifeEvents = function (npcAge, npcSiblings) {
     } else if (event === lifeEvents.get(75)) {
       const accquaintence = new SimpleNPC();
       result.push(`
-      You met someone important.
-      ${accquaintence.toPrettyHTML()}
+      You met someone important: ${accquaintence.name}
       `);
     } else if (event === lifeEvents.get(80)) {
       result.push(getRandomAdventure());
@@ -1235,11 +1232,7 @@ const getRandomBoon = function () {
     case 2:
       const commoner = new SimpleNPC();
       return `
-      You saved the life of a commoner, who now owes you a life debt. This individual accompanies you on your travels and performs mundane tasks for you, but will leave if neglected, abused, or imperiled.
-      
-      The Commoner:
-      ${commoner.toPrettyHTML()}
-      `;
+      You saved the life of a commoner, ${commoner.name}, who now owes you a life debt. This individual accompanies you on your travels and performs mundane tasks for you, but will leave if neglected, abused, or imperiled.`;
       break;
     case 3:
       return `You found a riding horse.`;
@@ -1587,10 +1580,10 @@ const getRandomWeirdStuff = function () {
       return `You were taken captive by ${race}. You lived as a slave in the Underdark until you escaped.`;
       break;
     case 6:
-      adventurer = generateComplexNPC();
+      adventurer = new ComplexNPC();
       return `
       You served a powerful adventurer as a hireling. You have only recently left that service.
-      ${adventurer.toPrettyHTML()}
+      ${adventurer.name}
       `;
       break;
     case 7:
