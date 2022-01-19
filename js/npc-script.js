@@ -180,7 +180,6 @@ const ComplexNPC = function () {
     Number(this.stats[5][1][1].substring(1)), // Charisma modifier
     this.age
   );
-  // TODO: Make this an object.
   this.siblings = origin.siblings;
   this.family = origin.family;
   this.toPrettyHTML = function () {
@@ -236,6 +235,7 @@ const ComplexNPC = function () {
         ${this.displayFamily()}
         <li>Childhood Memories: ${this.origin.memories}</li>
         <li>Life Events: ${this.origin.lifeEvents}</li>
+        ${this.displayLifeEvents()}
       </ul>
     </li>
     `;
@@ -266,6 +266,20 @@ const ComplexNPC = function () {
         <li>Raised By: ${this.family.options}</li>
         <li>Lifestyle: ${this.family.lifestyle}</li>
         <li>Childhood Home: ${this.family.childhooHome}</li>
+      </ul>
+    `;
+  };
+  this.displayLifeEvents = function () {
+    let result = ``;
+    for (const k of this.origin.lifeEvents) {
+      result += `
+      <li>${k}</li>
+      `;
+    }
+    return `
+      <li>Life Events: </li>
+      <ul>
+        ${result}
       </ul>
     `;
   };
@@ -1184,7 +1198,7 @@ const getRandomTragedy = function (npcSiblings) {
 };
 
 const getRandomBoon = function () {
-  const rollBoon
+  const rollBoon = rollXDX(1, 10);
 };
 
 /**
