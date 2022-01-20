@@ -125,7 +125,7 @@ const generateComplexNPC = function () {
     complexNPCs.push(newNPC);
 
     // Refresh the options
-    selectomplexNPC.innerHTML = "";
+    selectComplexNPC.innerHTML = "";
     for (let i = 0; i < complexNPCs.length; i++) {
       let option = complexNPCs[i].name;
       let element = document.createElement(`option`);
