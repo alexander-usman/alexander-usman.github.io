@@ -23,6 +23,14 @@ window.onload = function () {
       }
     }
   };
+
+  selectComplexNPC.onchange = function () {
+    for (let i = 0; i < complexNPCs.length; i++) {
+      if (complexNPCs[i].name === selectComplexNPC.value) {
+        resultsDiv.innerHTML = `${complexNPCs[i].toPrettyHTML()}`;
+      }
+    }
+  };
 };
 // Helper Functions
 /**
