@@ -120,11 +120,26 @@ const removeSimpleNPC = function () {
  * Generates a complex NPC, pushes it to the complexNPCs list, and adds the results to the HTML.
  */
 const generateComplexNPC = function () {
-  const newNPC = new ComplexNPC();
-  complexNPCs.push(newNPC);
-  resultsDiv.innerHTML = `
+  if (complexNPCs.length < 10) {
+    const newNPC = new ComplexNPC();
+    complexNPCs.push(newNPC);
+
+    // Refresh the options
+    selectomplexNPC.innerHTML = "";
+    for (let i = 0; i < complexNPCs.length; i++) {
+      let option = complexNPCs[i].name;
+      let element = document.createElement(`option`);
+      element.textContent = option;
+      element.value = option;
+      selectComplexNPC.appendChild(element);
+      selectComplexNPC.value = option;
+    }
+    resultsDiv.innerHTML = `
     ${newNPC.toPrettyHTML()}
   `;
+  } else {
+    resultsDiv.innerHTML = `You have reached the limit for complex NPCs.`;
+  }
 };
 
 const removeComplexNPC = function () {
