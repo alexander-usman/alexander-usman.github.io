@@ -9,7 +9,7 @@ const selectSimpleNPC = document.querySelector(
   `.simpleNPCGenerator .selectSimpleNPC`
 );
 const selectComplexNPC = document.querySelector(
-  `.ComplexNPCGenerator .selectComplexNPC`
+  `.complexNPCGenerator .selectComplexNPC`
 );
 // Global
 let simpleNPCs = [];
