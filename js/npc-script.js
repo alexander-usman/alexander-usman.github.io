@@ -72,16 +72,8 @@ const generateSimpleNPC = function () {
     const newNPC = new SimpleNPC();
     simpleNPCs.push(newNPC);
 
-    // Refresh the options
-    selectSimpleNPC.innerHTML = "";
-    for (let i = 0; i < simpleNPCs.length; i++) {
-      let option = simpleNPCs[i].name;
-      let element = document.createElement(`option`);
-      element.textContent = option;
-      element.value = option;
-      selectSimpleNPC.appendChild(element);
-      selectSimpleNPC.value = option;
-    }
+    updateOptions(`simple`);
+
     resultsDiv.innerHTML = `
     ${newNPC.toPrettyHTML()}
   `;
@@ -99,19 +91,35 @@ const removeSimpleNPC = function () {
     }
   }
 
-  selectSimpleNPC.innerHTML = "";
-  for (let i = 0; i < simpleNPCs.length; i++) {
-    let option = simpleNPCs[i].name;
-    let element = document.createElement(`option`);
-    element.textContent = option;
-    element.value = option;
-    selectSimpleNPC.appendChild(element);
-    selectSimpleNPC.value = option;
-  }
+  updateOptions(`simple`);
 
   for (let i = 0; i < simpleNPCs.length; i++) {
     if (simpleNPCs[i].name === selectSimpleNPC.value) {
       resultsDiv.innerHTML = `${simpleNPCs[i].toPrettyHTML()}`;
+    }
+  }
+};
+
+const updateOptions = function (type = `simple`) {
+  if (type === `simple`) {
+    selectSimpleNPC.innerHTML = "";
+    for (let i = 0; i < simpleNPCs.length; i++) {
+      let option = simpleNPCs[i].name;
+      let element = document.createElement(`option`);
+      element.textContent = option;
+      element.value = option;
+      selectSimpleNPC.appendChild(element);
+      selectSimpleNPC.value = option;
+    }
+  } else if (type === `complex`) {
+    selectComplexNPC.innerHTML = "";
+    for (let i = 0; i < complexNPCs.length; i++) {
+      let option = complexNPCs[i].name;
+      let element = document.createElement(`option`);
+      element.textContent = option;
+      element.value = option;
+      selectComplexNPC.appendChild(element);
+      selectComplexNPC.value = option;
     }
   }
 };
@@ -124,16 +132,8 @@ const generateComplexNPC = function () {
     const newNPC = new ComplexNPC();
     complexNPCs.push(newNPC);
 
-    // Refresh the options
-    selectComplexNPC.innerHTML = "";
-    for (let i = 0; i < complexNPCs.length; i++) {
-      let option = complexNPCs[i].name;
-      let element = document.createElement(`option`);
-      element.textContent = option;
-      element.value = option;
-      selectComplexNPC.appendChild(element);
-      selectComplexNPC.value = option;
-    }
+    updateOptions(`complex`);
+
     resultsDiv.innerHTML = `
     ${newNPC.toPrettyHTML()}
   `;
@@ -151,15 +151,7 @@ const removeComplexNPC = function () {
     }
   }
 
-  selectComplexNPC.innerHTML = "";
-  for (let i = 0; i < complexNPCs.length; i++) {
-    let option = complexNPCs[i].name;
-    let element = document.createElement(`option`);
-    element.textContent = option;
-    element.value = option;
-    selectComplexNPC.appendChild(element);
-    selectComplexNPC.value = option;
-  }
+  updateOptions(`complex`);
 
   for (let i = 0; i < complexNPCs.length; i++) {
     if (complexNPCs[i].name === selectComplexNPC.value) {
@@ -1189,12 +1181,14 @@ const getNPCLifeEvents = function (npcAge, npcSiblings) {
       }
     } else if (event === lifeEvents.get(40)) {
       const enemy = new ComplexNPC();
+      complexNPCs.push(enemy);
       name = enemy.name;
       result.push(`
         You made an enemy of an adventurer: ${name}.
       `);
     } else if (event === lifeEvents.get(50)) {
       const friend = new ComplexNPC();
+      complexNPCs.push(friend);
       name = friend.name;
       result.push(`
         You made a friend of an adventurer: ${name}.
@@ -1206,6 +1200,7 @@ const getNPCLifeEvents = function (npcAge, npcSiblings) {
       );
     } else if (event === lifeEvents.get(75)) {
       const accquaintence = new SimpleNPC();
+      simpleNPCs.push(accquaintence);
       name = accquaintence.name;
       result.push(`
       You met someone important: ${name}
@@ -1342,6 +1337,7 @@ const getRandomBoon = function () {
       break;
     case 2:
       const commoner = new SimpleNPC();
+      simpleNPCs.push(commoner);
       return `
       You saved the life of a commoner, ${commoner.name}, who now owes you a life debt. This individual accompanies you on your travels and performs mundane tasks for you, but will leave if neglected, abused, or imperiled.`;
       break;
@@ -1692,6 +1688,7 @@ const getRandomWeirdStuff = function () {
       break;
     case 6:
       const adventurer = new ComplexNPC();
+      complexNPCs.push(adventurer);
       return `
       You served a powerful adventurer as a hireling. You have only recently left that service.
       ${adventurer.name}
