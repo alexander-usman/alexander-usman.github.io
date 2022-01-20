@@ -113,7 +113,7 @@ const removeSimpleNPC = function () {
  */
 const generateComplexNPC = function () {
   const newNPC = new ComplexNPC();
-  // complexNPCs.push(newNPC);
+  complexNPCs.push(newNPC);
   resultsDiv.innerHTML = `
     ${newNPC.toPrettyHTML()}
   `;
