@@ -1352,7 +1352,7 @@ const getRandomBoon = function () {
       return `A relative bequeathed you a simple weapon of your choice.`;
       break;
     case 6:
-      return `You ffound something interesting. You gain one additional trinket.`;
+      return `You found something interesting. You gain one additional trinket.`;
       break;
     case 7:
       return `You once performed a service for the local temple. The next time you visit the temple, you can receive healing up to your hit point maximum.`;
