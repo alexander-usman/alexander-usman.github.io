@@ -69,6 +69,7 @@ const rollXDX = function (numDice = 1, dWhat = 6, modifier = 0) {
  * Generates a simple NPC, pushes it to the simpleNPCs list, and adds the results to the HTML.
  */
 const generateSimpleNPC = function () {
+  npcDepth = 0;
   if (simpleNPCs.length < 10) {
     const newNPC = new SimpleNPC();
     simpleNPCs.push(newNPC);
@@ -159,6 +160,7 @@ const removeComplexNPC = function () {
 };
 
 const SimpleNPC = function () {
+  npcDepth++;
   const wholeRace = getNPCRace();
   this.raceRoll = wholeRace[0];
   this.race = wholeRace[1];
@@ -1180,8 +1182,9 @@ const getNPCLifeEvents = function (npcAge, npcSiblings) {
       }
     } else if (event === lifeEvents.get(40)) {
       const enemy = new ComplexNPC();
-      if (npcDepth <= 1) {
+      if (npcDepth <= 2) {
         complexNPCs.push(enemy);
+        npcDepth--;
       }
 
       name = enemy.name;
@@ -1191,8 +1194,9 @@ const getNPCLifeEvents = function (npcAge, npcSiblings) {
       `);
     } else if (event === lifeEvents.get(50)) {
       const friend = new ComplexNPC();
-      if (npcDepth <= 1) {
+      if (npcDepth <= 2) {
         complexNPCs.push(friend);
+        npcDepth--;
       }
       name = friend.name;
       updateOptions(`complex`);
@@ -1206,8 +1210,9 @@ const getNPCLifeEvents = function (npcAge, npcSiblings) {
       );
     } else if (event === lifeEvents.get(75)) {
       const accquaintence = new SimpleNPC();
-      if (npcDepth <= 1) {
+      if (npcDepth <= 2) {
         simpleNPCs.push(accquaintence);
+        npcDepth--;
       }
       name = accquaintence.name;
       updateOptions(`simple`);
@@ -1346,8 +1351,9 @@ const getRandomBoon = function () {
       break;
     case 2:
       const commoner = new SimpleNPC();
-      if (npcDepth <= 1) {
+      if (npcDepth <= 2) {
         simpleNPCs.push(commoner);
+        npcDepth--;
       }
       updateOptions(`simple`);
       return `
@@ -1700,8 +1706,9 @@ const getRandomWeirdStuff = function () {
       break;
     case 6:
       const adventurer = new ComplexNPC();
-      if (npcDepth <= 1) {
+      if (npcDepth <= 2) {
         complexNPCs.push(adventurer);
+        npcDepth--;
       }
       updateOptions(`complex`);
       return `
