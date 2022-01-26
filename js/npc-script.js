@@ -14,8 +14,7 @@ const selectComplexNPC = document.querySelector(
 // Global
 let simpleNPCs = [];
 let complexNPCs = [];
-let topLevelCompexNPC = false;
-let topLevelSimpleNPC = false;
+let npcDepth = 0;
 // On Load
 window.onload = function () {
   selectSimpleNPC.onchange = function () {
@@ -73,9 +72,7 @@ const generateSimpleNPC = function () {
   if (simpleNPCs.length < 10) {
     const newNPC = new SimpleNPC();
     simpleNPCs.push(newNPC);
-
     updateOptions(`simple`);
-
     resultsDiv.innerHTML = `
     ${newNPC.toPrettyHTML()}
   `;
@@ -130,12 +127,11 @@ const updateOptions = function (type = `simple`) {
  * Generates a complex NPC, pushes it to the complexNPCs list, and adds the results to the HTML.
  */
 const generateComplexNPC = function () {
+  npcDepth = 0;
   if (complexNPCs.length < 10) {
     const newNPC = new ComplexNPC();
     complexNPCs.push(newNPC);
-
     updateOptions(`complex`);
-
     resultsDiv.innerHTML = `
     ${newNPC.toPrettyHTML()}
   `;
@@ -201,6 +197,7 @@ const SimpleNPC = function () {
 };
 
 const ComplexNPC = function () {
+  npcDepth++;
   const wholeRace = getNPCRace();
   this.raceRoll = wholeRace[0];
   this.race = wholeRace[1];
@@ -1183,7 +1180,10 @@ const getNPCLifeEvents = function (npcAge, npcSiblings) {
       }
     } else if (event === lifeEvents.get(40)) {
       const enemy = new ComplexNPC();
-      complexNPCs.push(enemy);
+      if (npcDepth <= 5) {
+        complexNPCs.push(enemy);
+      }
+
       name = enemy.name;
       updateOptions(`complex`);
       result.push(`
@@ -1191,7 +1191,9 @@ const getNPCLifeEvents = function (npcAge, npcSiblings) {
       `);
     } else if (event === lifeEvents.get(50)) {
       const friend = new ComplexNPC();
-      complexNPCs.push(friend);
+      if (npcDepth <= 5) {
+        complexNPCs.push(friend);
+      }
       name = friend.name;
       updateOptions(`complex`);
       result.push(`
@@ -1694,7 +1696,9 @@ const getRandomWeirdStuff = function () {
       break;
     case 6:
       const adventurer = new ComplexNPC();
-      complexNPCs.push(adventurer);
+      if (npcDepth <= 5) {
+        complexNPCs.push(adventurer);
+      }
       updateOptions(`complex`);
       return `
       You served a powerful adventurer as a hireling. You have only recently left that service.
