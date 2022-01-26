@@ -1180,7 +1180,7 @@ const getNPCLifeEvents = function (npcAge, npcSiblings) {
       }
     } else if (event === lifeEvents.get(40)) {
       const enemy = new ComplexNPC();
-      if (npcDepth <= 5) {
+      if (npcDepth <= 1) {
         complexNPCs.push(enemy);
       }
 
@@ -1191,7 +1191,7 @@ const getNPCLifeEvents = function (npcAge, npcSiblings) {
       `);
     } else if (event === lifeEvents.get(50)) {
       const friend = new ComplexNPC();
-      if (npcDepth <= 5) {
+      if (npcDepth <= 1) {
         complexNPCs.push(friend);
       }
       name = friend.name;
@@ -1206,7 +1206,9 @@ const getNPCLifeEvents = function (npcAge, npcSiblings) {
       );
     } else if (event === lifeEvents.get(75)) {
       const accquaintence = new SimpleNPC();
-      simpleNPCs.push(accquaintence);
+      if (npcDepth <= 1) {
+        simpleNPCs.push(accquaintence);
+      }
       name = accquaintence.name;
       updateOptions(`simple`);
       result.push(`
@@ -1344,7 +1346,9 @@ const getRandomBoon = function () {
       break;
     case 2:
       const commoner = new SimpleNPC();
-      simpleNPCs.push(commoner);
+      if (npcDepth <= 1) {
+        simpleNPCs.push(commoner);
+      }
       updateOptions(`simple`);
       return `
       You saved the life of a commoner, ${commoner.name}, who now owes you a life debt. This individual accompanies you on your travels and performs mundane tasks for you, but will leave if neglected, abused, or imperiled.`;
@@ -1696,7 +1700,7 @@ const getRandomWeirdStuff = function () {
       break;
     case 6:
       const adventurer = new ComplexNPC();
-      if (npcDepth <= 5) {
+      if (npcDepth <= 1) {
         complexNPCs.push(adventurer);
       }
       updateOptions(`complex`);
