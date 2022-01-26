@@ -14,6 +14,8 @@ const selectComplexNPC = document.querySelector(
 // Global
 let simpleNPCs = [];
 let complexNPCs = [];
+let topLevelCompexNPC = false;
+let topLevelSimpleNPC = false;
 // On Load
 window.onload = function () {
   selectSimpleNPC.onchange = function () {
@@ -1183,6 +1185,7 @@ const getNPCLifeEvents = function (npcAge, npcSiblings) {
       const enemy = new ComplexNPC();
       complexNPCs.push(enemy);
       name = enemy.name;
+      updateOptions(`complex`);
       result.push(`
         You made an enemy of an adventurer: ${name}.
       `);
@@ -1190,6 +1193,7 @@ const getNPCLifeEvents = function (npcAge, npcSiblings) {
       const friend = new ComplexNPC();
       complexNPCs.push(friend);
       name = friend.name;
+      updateOptions(`complex`);
       result.push(`
         You made a friend of an adventurer: ${name}.
       `);
@@ -1202,6 +1206,7 @@ const getNPCLifeEvents = function (npcAge, npcSiblings) {
       const accquaintence = new SimpleNPC();
       simpleNPCs.push(accquaintence);
       name = accquaintence.name;
+      updateOptions(`simple`);
       result.push(`
       You met someone important: ${name}
       `);
@@ -1338,6 +1343,7 @@ const getRandomBoon = function () {
     case 2:
       const commoner = new SimpleNPC();
       simpleNPCs.push(commoner);
+      updateOptions(`simple`);
       return `
       You saved the life of a commoner, ${commoner.name}, who now owes you a life debt. This individual accompanies you on your travels and performs mundane tasks for you, but will leave if neglected, abused, or imperiled.`;
       break;
@@ -1352,7 +1358,7 @@ const getRandomBoon = function () {
       return `A relative bequeathed you a simple weapon of your choice.`;
       break;
     case 6:
-      return `You found something interesting. You gain one additional trinket.`;
+      return `You ffound something interesting. You gain one additional trinket.`;
       break;
     case 7:
       return `You once performed a service for the local temple. The next time you visit the temple, you can receive healing up to your hit point maximum.`;
@@ -1689,6 +1695,7 @@ const getRandomWeirdStuff = function () {
     case 6:
       const adventurer = new ComplexNPC();
       complexNPCs.push(adventurer);
+      updateOptions(`complex`);
       return `
       You served a powerful adventurer as a hireling. You have only recently left that service.
       ${adventurer.name}
