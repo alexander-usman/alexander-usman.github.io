@@ -69,7 +69,7 @@ window.onload = function () {
   selectSpecificSimpleNPCRace.onchange = function () {
     selectSpecificSimpleNPCSubrace.length = 1;
     //display correct values
-    let subraceList = randomNPCSubrace.get(this.value);
+    let subraceList = randomNPCRace.get(Number(this.value));
     for (let i = 0; i < subraceList.length; i++) {
       selectSpecificSimpleNPCSubrace.options[
         selectSpecificSimpleNPCSubrace.options.length
