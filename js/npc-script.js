@@ -61,7 +61,6 @@ window.onload = function () {
   };
 
   for (let item in randomNPCRace) {
-    console.log(item);
     selectSpecificSimpleNPCRace.options[
       selectSpecificSimpleNPCRace.options.length
     ] = new Option(item, item);
@@ -148,6 +147,12 @@ const generateSpecificSimpleNPC = function () {
   npcRace = selectSpecificSimpleNPCRace.value;
   npcSubrace = selectSpecificSimpleNPCSubrace.value;
   npcGender = selectSpecificSimpleNPCGender.value;
+};
+
+const removeSpecificSimpleNPC = function () {
+  for (let item in randomNPCRace) {
+    console.log(item);
+  }
 };
 
 /**
