@@ -60,12 +60,6 @@ window.onload = function () {
     }
   };
 
-  for (let item in randomNPCRace) {
-    selectSpecificSimpleNPCRace.options[
-      selectSpecificSimpleNPCRace.options.length
-    ] = new Option(item, item);
-  }
-
   for (let i = 1; i < randomNPCRace.size; i++) {
     selectSpecificSimpleNPCRace.options[
       selectSpecificSimpleNPCRace.options.length
