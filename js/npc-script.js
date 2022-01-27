@@ -60,7 +60,7 @@ window.onload = function () {
     }
   };
 
-  for (let item in randomRace) {
+  for (let item in randomNPCRace) {
     selectSpecificSimpleNPCRace.options[
       selectSpecificSimpleNPCRace.options.length
     ] = new Option(item, item);
