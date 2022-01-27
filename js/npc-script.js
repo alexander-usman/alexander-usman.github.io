@@ -149,7 +149,7 @@ const generateSpecificSimpleNPC = function () {
     Number(selectSpecificSimpleNPCRace.value)
   )[0];
   const npcSubrace = selectSpecificSimpleNPCSubrace.value;
-  const npcGender = selectSpecificSimpleNPCGender.value;
+  let npcGender = selectSpecificSimpleNPCGender.value;
   if (npcGender === `Random`) {
     npcGender = getNPCGender();
   }
