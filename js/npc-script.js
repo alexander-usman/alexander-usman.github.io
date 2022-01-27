@@ -145,9 +145,11 @@ const removeSimpleNPC = function () {
 };
 
 const generateSpecificSimpleNPC = function () {
-  npcRace = randomNPCRace.get(selectSpecificSimpleNPCRace.value)[0];
-  npcSubrace = selectSpecificSimpleNPCSubrace.value;
-  npcGender = selectSpecificSimpleNPCGender.value;
+  const npcRace = randomNPCRace.get(
+    Number(selectSpecificSimpleNPCRace.value)
+  )[0];
+  const npcSubrace = selectSpecificSimpleNPCSubrace.value;
+  const npcGender = selectSpecificSimpleNPCGender.value;
 };
 
 const removeSpecificSimpleNPC = function () {
