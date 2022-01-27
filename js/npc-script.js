@@ -63,17 +63,17 @@ window.onload = function () {
   for (let i = 1; i < randomNPCRace.size; i++) {
     selectSpecificSimpleNPCRace.options[
       selectSpecificSimpleNPCRace.options.length
-    ] = new Option(randomNPCRace.get(i), randomNPCRace.get(i));
+    ] = new Option(randomNPCRace.get(i)[0], i);
   }
 
   selectSpecificSimpleNPCRace.onchange = function () {
     selectSpecificSimpleNPCSubrace.length = 1;
     //display correct values
-    let subraceList = randomNPCSubrace[this.value];
+    let subraceList = randomNPCSubrace.get(this.value);
     for (let i = 0; i < subraceList.length; i++) {
       selectSpecificSimpleNPCSubrace.options[
         selectSpecificSimpleNPCSubrace.options.length
-      ] = new Option(subraceList[i], subraceList[i]);
+      ] = new Option(subraceList[1][i], subraceList[1][i]);
     }
   };
 };
