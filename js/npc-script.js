@@ -63,7 +63,7 @@ window.onload = function () {
   for (let item in randomNPCRace) {
     selectSpecificSimpleNPCRace.options[
       selectSpecificSimpleNPCRace.options.length
-    ] = new Option(item, item);
+    ] = new Option(item[0], item[0]);
   }
   selectSpecificSimpleNPCRace.onchange = function () {
     selectGod.length = 1;
