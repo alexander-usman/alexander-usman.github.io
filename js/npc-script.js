@@ -11,9 +11,28 @@ const selectSimpleNPC = document.querySelector(
 const selectComplexNPC = document.querySelector(
   `.complexNPCGenerator .selectComplexNPC`
 );
+const selectSpecificSimpleNPCRace = document.querySelector(
+  `.selectSpecificSimpleNPCRace`
+);
+const selectSpecificSimpleNPCSubrace = document.querySelector(
+  `.selectSpecificSimpleNPCSubrace`
+);
+const selectSpecificSimpleNPCGender = document.querySelector(
+  `.selectSpecificSimpleNPCGender`
+);
+const btnGenerateSpecificSimpleNPC = document.querySelector(
+  `.btnGenerateSpecificSimpleNPC`
+);
+const selectSpecificSimpleNPC = document.querySelector(
+  `.selectSpecificSimpleNPC`
+);
+const btnRemoveSpecificSimpleNPC = document.querySelector(
+  `.btnRemoveSpecificSimpleNPC`
+);
 // Global
 let simpleNPCs = [];
 let complexNPCs = [];
+let specificSimpleNPCs = [];
 let npcDepth = 0;
 // On Load
 window.onload = function () {
@@ -30,6 +49,30 @@ window.onload = function () {
       if (complexNPCs[i].name === selectComplexNPC.value) {
         resultsDiv.innerHTML = `${complexNPCs[i].toPrettyHTML()}`;
       }
+    }
+  };
+
+  selectSpecificSimpleNPC.onchange = function () {
+    for (let i = 0; i < specificSimpleNPCs.length; i++) {
+      if (specificSimpleNPCs[i].name === selectSpecificSimpleNPC.value) {
+        resultsDiv.innerHTML = `${specificSimpleNPCs[i].toPrettyHTML()}`;
+      }
+    }
+  };
+
+  for (let item in randomRace) {
+    selectSpecificSimpleNPCRace.options[
+      selectSpecificSimpleNPCRace.options.length
+    ] = new Option(item, item);
+  }
+  selectSpecificSimpleNPCRace.onchange = function () {
+    selectGod.length = 1;
+    //display correct values
+    let subraceList = randomNPCRace[this.value];
+    for (let i = 0; i < subraceList.length; i++) {
+      selectSpecificSimpleNPCSubrace.options[
+        selectSpecificSimpleNPCSubrace.options.length
+      ] = new Option(subraceList[i], subraceList[i]);
     }
   };
 };
@@ -66,7 +109,7 @@ const rollXDX = function (numDice = 1, dWhat = 6, modifier = 0) {
 };
 
 /**
- * Generates a simple NPC, pushes it to the simpleNPCs list, and adds the results to the HTML.
+ * Generates a random simple NPC, pushes it to the simpleNPCs list, and adds the results to the HTML.
  */
 const generateSimpleNPC = function () {
   npcDepth = 0;
@@ -100,32 +143,14 @@ const removeSimpleNPC = function () {
   }
 };
 
-const updateOptions = function (type = `simple`) {
-  if (type === `simple`) {
-    selectSimpleNPC.innerHTML = "";
-    for (let i = 0; i < simpleNPCs.length; i++) {
-      let option = simpleNPCs[i].name;
-      let element = document.createElement(`option`);
-      element.textContent = option;
-      element.value = option;
-      selectSimpleNPC.appendChild(element);
-      selectSimpleNPC.value = option;
-    }
-  } else if (type === `complex`) {
-    selectComplexNPC.innerHTML = "";
-    for (let i = 0; i < complexNPCs.length; i++) {
-      let option = complexNPCs[i].name;
-      let element = document.createElement(`option`);
-      element.textContent = option;
-      element.value = option;
-      selectComplexNPC.appendChild(element);
-      selectComplexNPC.value = option;
-    }
-  }
+const generateSpecificSimpleNPC = function () {
+  npcRace = selectSpecificSimpleNPCRace.value;
+  npcSubrace = selectSpecificSimpleNPCSubrace.value;
+  npcGender = selectSpecificSimpleNPCGender.value;
 };
 
 /**
- * Generates a complex NPC, pushes it to the complexNPCs list, and adds the results to the HTML.
+ * Generates a random complex NPC, pushes it to the complexNPCs list, and adds the results to the HTML.
  */
 const generateComplexNPC = function () {
   npcDepth = 0;
@@ -155,6 +180,30 @@ const removeComplexNPC = function () {
   for (let i = 0; i < complexNPCs.length; i++) {
     if (complexNPCs[i].name === selectComplexNPC.value) {
       resultsDiv.innerHTML = `${complexNPCs[i].toPrettyHTML()}`;
+    }
+  }
+};
+
+const updateOptions = function (type = `simple`) {
+  if (type === `simple`) {
+    selectSimpleNPC.innerHTML = "";
+    for (let i = 0; i < simpleNPCs.length; i++) {
+      let option = simpleNPCs[i].name;
+      let element = document.createElement(`option`);
+      element.textContent = option;
+      element.value = option;
+      selectSimpleNPC.appendChild(element);
+      selectSimpleNPC.value = option;
+    }
+  } else if (type === `complex`) {
+    selectComplexNPC.innerHTML = "";
+    for (let i = 0; i < complexNPCs.length; i++) {
+      let option = complexNPCs[i].name;
+      let element = document.createElement(`option`);
+      element.textContent = option;
+      element.value = option;
+      selectComplexNPC.appendChild(element);
+      selectComplexNPC.value = option;
     }
   }
 };
@@ -2015,3 +2064,8 @@ btnGenerateSimpleNPC.addEventListener(`click`, generateSimpleNPC);
 btnGenerateComplexNPC.addEventListener(`click`, generateComplexNPC);
 btnRemoveSimpleNPC.addEventListener(`click`, removeSimpleNPC);
 btnRemoveComplexNPC.addEventListener(`click`, removeComplexNPC);
+btnGenerateSpecificSimpleNPC.addEventListener(
+  `click`,
+  generateSpecificSimpleNPC
+);
+btnRemoveSpecificSimpleNPC.addEventListener(`click`, removeSpecificSimpleNPC);
