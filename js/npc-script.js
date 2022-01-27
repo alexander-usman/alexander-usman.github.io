@@ -65,10 +65,17 @@ window.onload = function () {
       selectSpecificSimpleNPCRace.options.length
     ] = new Option(item, item);
   }
+
+  for (let i = 1; i < randomNPCRace.size; i++) {
+    selectSpecificSimpleNPCRace.options[
+      selectSpecificSimpleNPCRace.options.length
+    ] = new Option(randomNPCRace.get(i), randomNPCRace.get(i));
+  }
+
   selectSpecificSimpleNPCRace.onchange = function () {
-    selectGod.length = 1;
+    selectSpecificSimpleNPCSubrace.length = 1;
     //display correct values
-    let subraceList = randomNPCRace[this.value];
+    let subraceList = randomNPCSubrace[this.value];
     for (let i = 0; i < subraceList.length; i++) {
       selectSpecificSimpleNPCSubrace.options[
         selectSpecificSimpleNPCSubrace.options.length
