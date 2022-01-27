@@ -163,7 +163,7 @@ const generateSpecificSimpleNPC = function () {
     ${newNPC.toPrettyHTML()}
   `;
   } else {
-    resultsDiv.innerHTML = `You have reached the limit for simple NPCs.`;
+    resultsDiv.innerHTML = `You have reached the limit for specific simple NPCs.`;
   }
 };
 
