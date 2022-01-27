@@ -150,11 +150,41 @@ const generateSpecificSimpleNPC = function () {
   )[0];
   const npcSubrace = selectSpecificSimpleNPCSubrace.value;
   const npcGender = selectSpecificSimpleNPCGender.value;
+  if (npcGender === `Random`) {
+    npcGender = getNPCGender();
+  }
+
+  npcDepth = 0;
+  if (specificSimpleNPCs.length < 10) {
+    const newNPC = new SpecificSimpleNPC(npcRace, npcSubrace, npcGender);
+    specificSimpleNPCs.push(newNPC);
+    updateOptions(`specificSimple`);
+    resultsDiv.innerHTML = `
+    ${newNPC.toPrettyHTML()}
+  `;
+  } else {
+    resultsDiv.innerHTML = `You have reached the limit for simple NPCs.`;
+  }
 };
 
 const removeSpecificSimpleNPC = function () {
-  for (let item in randomNPCRace) {
-    console.log(item);
+  const nameToRemove = selectSpecificSimpleNPC.value;
+
+  for (let i = 0; i < specificSimpleNPCs.length; i++) {
+    if (specificSimpleNPCs[i].name === selectSpecificSimpleNPC.value) {
+      specificSimpleNPCs = removeFirst(
+        specificSimpleNPCs,
+        specificSimpleNPCs[i]
+      );
+    }
+  }
+
+  updateOptions(`specificSimple`);
+
+  for (let i = 0; i < specificSimpleNPCs.length; i++) {
+    if (specificSimpleNPCs[i].name === selectSpecificSimpleNPC.value) {
+      resultsDiv.innerHTML = `${specificSimpleNPCs[i].toPrettyHTML()}`;
+    }
   }
 };
 
@@ -214,6 +244,16 @@ const updateOptions = function (type = `simple`) {
       selectComplexNPC.appendChild(element);
       selectComplexNPC.value = option;
     }
+  } else if (type === `specificSimple`) {
+    selectSpecificSimpleNPC.innerHTML = "";
+    for (let i = 0; i < specificSimpleNPCs.length; i++) {
+      let option = specificSimpleNPCs[i].name;
+      let element = document.createElement(`option`);
+      element.textContent = option;
+      element.value = option;
+      selectSpecificSimpleNPC.appendChild(element);
+      selectSpecificSimpleNPC.value = option;
+    }
   }
 };
 
@@ -224,6 +264,42 @@ const SimpleNPC = function () {
   this.race = wholeRace[1];
   this.subrace = getNPCSubrace(this.raceRoll);
   this.gender = getNPCGender();
+  this.name = getNPCName(this.race, this.gender, this.subrace);
+  this.age = getNPCAge(this.race, this.subrace);
+  this.highScore = getNPCHighAbility();
+  this.lowScore = getNPCLowAbility(this.highScore[0]);
+  this.talent = getNPCTalent();
+  this.mannerism = getNPCMannerism();
+  this.interactionTrait = getNPCInteractionTrait();
+  this.appearance = getSimpleAppearance();
+  this.ideals = getNPCIdeals();
+  this.bond = getNPCBond();
+  this.flaw = getNPCFlaw();
+  this.toPrettyHTML = function () {
+    return `
+    <ul>
+    <li>Race: ${this.race} - ${this.subrace}</li>
+    <li>Gender: ${this.gender}</li>
+    <li>Name: ${this.name}</li>
+    <li>Age: ${this.age}</li>
+    <li>Appearance: ${this.appearance}</li>
+    <li>High Ability Trait: ${this.highScore[1]}</li>
+    <li>Low Ability Trait: ${this.lowScore[1]}</li>
+    <li>Talent: ${this.talent}</li>
+    <li>Mannerism: ${this.mannerism}</li>
+    <li>Interaction Trait: ${this.interactionTrait}</li>
+    <li>Ideals</li>
+    <ul>${this.ideals}</ul>
+    <li>Bond: ${this.bond}</li>
+    <li>Flaw: ${this.flaw}</li>
+    </ul>`;
+  };
+};
+
+const SpecificSimpleNPC = function (npcRace, npcSubrace, npcGender) {
+  this.race = npcRace;
+  this.subrace = npcSubrace;
+  this.gender = npcGender;
   this.name = getNPCName(this.race, this.gender, this.subrace);
   this.age = getNPCAge(this.race, this.subrace);
   this.highScore = getNPCHighAbility();
