@@ -69,11 +69,11 @@ window.onload = function () {
   selectSpecificSimpleNPCRace.onchange = function () {
     selectSpecificSimpleNPCSubrace.length = 1;
     //display correct values
-    let subraceList = randomNPCRace.get(Number(this.value));
+    let subraceList = randomNPCRace.get(Number(this.value))[1];
     for (let i = 0; i < subraceList.length; i++) {
       selectSpecificSimpleNPCSubrace.options[
         selectSpecificSimpleNPCSubrace.options.length
-      ] = new Option(subraceList[1][i], subraceList[1][i]);
+      ] = new Option(subraceList[i], subraceList[i]);
     }
   };
 };
