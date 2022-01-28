@@ -28,9 +28,6 @@ p {
 }
 
 .container {
-  width: 1920px;
-  height: 1080px;
-
   display: grid;
   grid:
     "header header header" auto
