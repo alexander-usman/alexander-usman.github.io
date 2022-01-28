@@ -4,7 +4,7 @@ html {
 }
 
 body {
-  width: 70%;
+  width: 100%;
   height: 100%;
 }
 
@@ -57,9 +57,11 @@ p {
 }
 .leftSide {
   grid-area: leftSide;
+  width: 60px;
 }
 .rightSide {
   grid-area: rightSide;
+  width: 60px;
 }
 .body {
   grid-area: body;
