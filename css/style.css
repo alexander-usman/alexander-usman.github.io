@@ -41,6 +41,7 @@ p {
     / auto 1fr auto;
   gap: 8px;
   grid-auto-flow: column;
+  grid-template-rows: auto 1fr auto;
   align-content: space-between;
 }
 .header {
@@ -55,12 +56,9 @@ p {
 }
 .body {
   grid-area: body;
-  place-self: stretch;
 }
 .footer {
   grid-area: footer;
-  justify-self: stretch;
-  align-self: end;
 
   border-top: 1px solid #d5d5d5;
   font-size: 0.8em;
