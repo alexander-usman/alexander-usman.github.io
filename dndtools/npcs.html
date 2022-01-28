@@ -10,7 +10,8 @@
     <title>D&D Tools</title>
   </head>
   <body>
-    <nav>
+    <div class="container">
+    <nav class="header">
       <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>
@@ -21,98 +22,100 @@
       </ul>
     </nav>
 
-    <div class="container">
-      <div class="blurb">
-        <h1>D&D Tools: NPCs</h1>
-        <div class="results"></div>
-        <div class="simpleNPCGenerator">
-          <label for="selectSimpleNPC">Select a simple NPC: </label>
-          <select class="selectSimpleNPC" id="selectSimpleNPC">
-            <option value="Select a Simple NPC" selected="selected">
-              Select a Simple NPC
-            </option>
-          </select>
-          <input
-            type="button"
-            class="btnGenerateSimpleNPC"
-            value="Generate Simple NPC"
-          />
-          <input
-            type="button"
-            class="btnRemoveSimpleNPC"
-            value="Remove Simple NPC"
-          />
-        </div>
-        <div class="complexNPCGenerator">
-          <label for="selectComplexNPC">Select a complex NPC: </label>
-          <select class="selectComplexNPC" id="selectComplexNPC">
-            <option value="Select a Complex NPC" selected="selected">
-              Select a Complex NPC
-            </option>
-          </select>
-          <input
-            type="button"
-            class="btnGenerateComplexNPC"
-            value="Generate Complex NPC"
-          />
-          <input
-            type="button"
-            class="btnRemoveComplexNPC"
-            value="Remove Complex NPC"
-          />
-        </div>
-        <div class="specificSimpleNPCGenerator">
-          <label for="selectSpecificSimpleNPCRace">Select a Race</label>
-          <select
-            class="selectSpecificSimpleNPCRace"
-            id="selectSpecificSimpleNPCRace"
-          >
-            <option value="Select a race" selected="selected">
-              Select a race
-            </option>
-          </select>
-          <label for="selectSpecificSimpleNPCSubrace">Select a Subrace</label>
-          <select
-            class="selectSpecificSimpleNPCSubrace"
-            id="selectSpecificSimpleNPCSubrace"
-          >
-            <option value="No subrace" selected="selected">
-              Select a subrace
-            </option>
-          </select>
+    <div class="leftSide"></div>
 
-          <label for="selectSpecificSimpleNPCGender">Select a Gender</label>
-          <select
-            class="selectSpecificSimpleNPCGender"
-            id="selectSpecificSimpleNPCGender"
-          >
-            <option value="Random" selected="selected">Random</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-          </select>
+    <div class="rightSide"></div>
 
-          <input
-            type="button"
-            class="btnGenerateSpecificSimpleNPC"
-            value="Generate Specific Simple NPC"
-          />
-          <label for="selectSpecificSimpleNPC"
-            >Select a specific Simple NPC:
-          </label>
-          <select class="selectSpecificSimpleNPC" id="selectSpecificSimpleNPC">
-            <option value="Select a specific Simple NPC" selected="selected">
-              Select a specific Simple NPC
-            </option>
-          </select>
-          <input
-            type="button"
-            class="btnRemoveSpecificSimpleNPC"
-            value="Remove Specific Simple NPC"
-          />
-        </div>
+    <div class="body">
+      <h1>D&D Tools: NPCs</h1>
+      <div class="results"></div>
+      <div class="simpleNPCGenerator">
+        <label for="selectSimpleNPC">Select a simple NPC: </label>
+        <select class="selectSimpleNPC" id="selectSimpleNPC">
+          <option value="Select a Simple NPC" selected="selected">
+            Select a Simple NPC
+          </option>
+        </select>
+        <input
+          type="button"
+          class="btnGenerateSimpleNPC"
+          value="Generate Simple NPC"
+        />
+        <input
+          type="button"
+          class="btnRemoveSimpleNPC"
+          value="Remove Simple NPC"
+        />
+      </div>
+      <div class="complexNPCGenerator">
+        <label for="selectComplexNPC">Select a complex NPC: </label>
+        <select class="selectComplexNPC" id="selectComplexNPC">
+          <option value="Select a Complex NPC" selected="selected">
+            Select a Complex NPC
+          </option>
+        </select>
+        <input
+          type="button"
+          class="btnGenerateComplexNPC"
+          value="Generate Complex NPC"
+        />
+        <input
+          type="button"
+          class="btnRemoveComplexNPC"
+          value="Remove Complex NPC"
+        />
+      </div>
+      <div class="specificSimpleNPCGenerator">
+        <label for="selectSpecificSimpleNPCRace">Select a Race</label>
+        <select
+          class="selectSpecificSimpleNPCRace"
+          id="selectSpecificSimpleNPCRace"
+        >
+          <option value="Select a race" selected="selected">
+            Select a race
+          </option>
+        </select>
+        <label for="selectSpecificSimpleNPCSubrace">Select a Subrace</label>
+        <select
+          class="selectSpecificSimpleNPCSubrace"
+          id="selectSpecificSimpleNPCSubrace"
+        >
+          <option value="No subrace" selected="selected">
+            Select a subrace
+          </option>
+        </select>
+
+        <label for="selectSpecificSimpleNPCGender">Select a Gender</label>
+        <select
+          class="selectSpecificSimpleNPCGender"
+          id="selectSpecificSimpleNPCGender"
+        >
+          <option value="Random" selected="selected">Random</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+
+        <input
+          type="button"
+          class="btnGenerateSpecificSimpleNPC"
+          value="Generate Specific Simple NPC"
+        />
+        <label for="selectSpecificSimpleNPC"
+          >Select a specific Simple NPC:
+        </label>
+        <select class="selectSpecificSimpleNPC" id="selectSpecificSimpleNPC">
+          <option value="Select a specific Simple NPC" selected="selected">
+            Select a specific Simple NPC
+          </option>
+        </select>
+        <input
+          type="button"
+          class="btnRemoveSpecificSimpleNPC"
+          value="Remove Specific Simple NPC"
+        />
       </div>
     </div>
-    <footer>
+    <footer class="footer">
       <ul>
         <li><a href="mailto:alexander.usman@gmail.com">email</a></li>
         <li>
@@ -122,5 +125,6 @@
         </li>
       </ul>
     </footer>
+    "
   </body>
 </html>

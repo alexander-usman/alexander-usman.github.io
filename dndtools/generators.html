@@ -10,7 +10,8 @@
     <title>D&D Tools</title>
   </head>
   <body>
-    <nav>
+    <div class="container">
+    <nav class="header">
       <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>
@@ -20,188 +21,189 @@
         <li><a href="/dndtools/npcs">NPCs</a></li>
       </ul>
     </nav>
-    <div class="container">
-      <div class="blurb">
-        <h1>D&D Tools: Generators</h1>
-        <h2>Result</h2>
-        <div class="results"></div>
-        <h2>Generators</h2>
-        <div class="Items">
-          <h3>Items</h3>
-          <div class="individualLootGenerator">
-            <label for="monsterCount">Amount</label>
-            <input
-              class="monsterCount"
-              type="number"
-              id="monsterCount"
-              min="1"
-              max="10"
-              value="1"
-            />
-            <label for="monsterCR">CR</label>
-            <select class="monsterCR" id="monsterCR">
-              <option value="0">0</option>
-              <option value="0.125">0.125</option>
-              <option value="0.25">0.25</option>
-              <option value="0.5">0.5</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-              <option value="11">11</option>
-              <option value="12">12</option>
-              <option value="13">13</option>
-              <option value="14">14</option>
-              <option value="15">15</option>
-              <option value="16">16</option>
-              <option value="17">17</option>
-              <option value="18">18</option>
-              <option value="19">19</option>
-              <option value="20">20</option>
-              <option value="21">21</option>
-              <option value="22">22</option>
-              <option value="23">23</option>
-              <option value="24">24</option>
-              <option value="25">25</option>
-              <option value="26">26</option>
-              <option value="27">27</option>
-              <option value="28">28</option>
-              <option value="29">29</option>
-              <option value="30">30</option>
-            </select>
-            <input
-              type="button"
-              class="btnGenerateIndividualLoot"
-              value="Generate Individual Loot"
-            />
-          </div>
-          <div class="treasureHoardGenerator">
-            <label for="treasureHoardCR">Treasure Hoard CR</label>
-            <select class="treasureHoardCR" id="treasureHoardCR">
-              <option value="0">0</option>
-              <option value="0.125">0.125</option>
-              <option value="0.25">0.25</option>
-              <option value="0.5">0.5</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-              <option value="11">11</option>
-              <option value="12">12</option>
-              <option value="13">13</option>
-              <option value="14">14</option>
-              <option value="15">15</option>
-              <option value="16">16</option>
-              <option value="17">17</option>
-              <option value="18">18</option>
-              <option value="19">19</option>
-              <option value="20">20</option>
-              <option value="21">21</option>
-              <option value="22">22</option>
-              <option value="23">23</option>
-              <option value="24">24</option>
-              <option value="25">25</option>
-              <option value="26">26</option>
-              <option value="27">27</option>
-              <option value="28">28</option>
-              <option value="29">29</option>
-              <option value="30">30</option>
-            </select>
-            <input
-              type="button"
-              class="btnGenerateTreasureHoardLoot"
-              value="Generate Treasure Hoard"
-            />
-          </div>
-          <div class="randomItemGenerator">
-            <label for="randomItemType">Random Item Type</label>
-            <select class="randomItemType" id="randomItemType">
-              <option value="Trinket">Trinket</option>
-              <option value="Common Magical Item">Common Magical Item</option>
-              <option value="Simple Melee Weapon">Simple Melee Weapon</option>
-              <option value="Simple Ranged Weapon">Simple Ranged Weapon</option>
-              <option value="Martial Melee Weapon">Martial Melee Weapon</option>
-              <option value="Martial Ranged Weapon">
-                Martial Ranged Weapon
-              </option>
-            </select>
-            <input
-              type="button"
-              class="btnGenerateRandomItem"
-              value="Generate Random item"
-            />
-          </div>
+
+    <div class="leftSide"></div>
+
+    <div class="rightSide"></div>
+
+    <div class="body">
+      <h1>D&D Tools: Generators</h1>
+      <h2>Result</h2>
+      <div class="results"></div>
+      <h2>Generators</h2>
+      <div class="Items">
+        <h3>Items</h3>
+        <div class="individualLootGenerator">
+          <label for="monsterCount">Amount</label>
+          <input
+            class="monsterCount"
+            type="number"
+            id="monsterCount"
+            min="1"
+            max="10"
+            value="1"
+          />
+          <label for="monsterCR">CR</label>
+          <select class="monsterCR" id="monsterCR">
+            <option value="0">0</option>
+            <option value="0.125">0.125</option>
+            <option value="0.25">0.25</option>
+            <option value="0.5">0.5</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <option value="29">29</option>
+            <option value="30">30</option>
+          </select>
+          <input
+            type="button"
+            class="btnGenerateIndividualLoot"
+            value="Generate Individual Loot"
+          />
         </div>
-        <div class="quests">
-          <h3>Quests</h3>
-          <div class="questHookGenerator">
-            <label for="questHookType">Quest Hook Type</label>
-            <select class="questHookType" id="questHookType">
-              <option value="Wilderness">Wilderness</option>
-              <option value="Dungeon">Dungeon</option>
-              <option value="Other">Other</option>
-            </select>
-            <input
-              type="button"
-              class="btnGenerateQuestHook"
-              value="Generate Quest Hook"
-            />
-          </div>
+        <div class="treasureHoardGenerator">
+          <label for="treasureHoardCR">Treasure Hoard CR</label>
+          <select class="treasureHoardCR" id="treasureHoardCR">
+            <option value="0">0</option>
+            <option value="0.125">0.125</option>
+            <option value="0.25">0.25</option>
+            <option value="0.5">0.5</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <option value="29">29</option>
+            <option value="30">30</option>
+          </select>
+          <input
+            type="button"
+            class="btnGenerateTreasureHoardLoot"
+            value="Generate Treasure Hoard"
+          />
         </div>
-        <div class="places">
-          <h3>Places</h3>
-          <div class="tavernNameGenerator">
-            <input
-              type="button"
-              class="btnGenerateTavernName"
-              value="Generate Tavern Name"
-            />
-          </div>
+        <div class="randomItemGenerator">
+          <label for="randomItemType">Random Item Type</label>
+          <select class="randomItemType" id="randomItemType">
+            <option value="Trinket">Trinket</option>
+            <option value="Common Magical Item">Common Magical Item</option>
+            <option value="Simple Melee Weapon">Simple Melee Weapon</option>
+            <option value="Simple Ranged Weapon">Simple Ranged Weapon</option>
+            <option value="Martial Melee Weapon">Martial Melee Weapon</option>
+            <option value="Martial Ranged Weapon">Martial Ranged Weapon</option>
+          </select>
+          <input
+            type="button"
+            class="btnGenerateRandomItem"
+            value="Generate Random item"
+          />
         </div>
-        <div class="phrases">
-          <h3>Phrases</h3>
-          <div class="viciousMockeryGenerator">
-            <input
-              type="button"
-              class="btnGenerateViciousMockery"
-              value="Generate Vicious Mockery"
-            />
-          </div>
-          <div class="religiousOathGenerator">
-            <label for="selectPantheon">Select a pantheon</label>
-            <select class="selectPantheon" id="selectPantheon">
-              <option value="Select a Pantheon" selected="selected">
-                Select a Pantheon
-              </option>
-            </select>
-            <label for="selectGod">Select a god</label>
-            <select class="selectGod" id="selectGod">
-              <option value="Select a god" selected="selected">
-                Select a god
-              </option>
-            </select>
-            <input
-              type="button"
-              class="btnGenerateReligiousOath"
-              value="Generate Religious Oath"
-            />
-          </div>
+      </div>
+      <div class="quests">
+        <h3>Quests</h3>
+        <div class="questHookGenerator">
+          <label for="questHookType">Quest Hook Type</label>
+          <select class="questHookType" id="questHookType">
+            <option value="Wilderness">Wilderness</option>
+            <option value="Dungeon">Dungeon</option>
+            <option value="Other">Other</option>
+          </select>
+          <input
+            type="button"
+            class="btnGenerateQuestHook"
+            value="Generate Quest Hook"
+          />
+        </div>
+      </div>
+      <div class="places">
+        <h3>Places</h3>
+        <div class="tavernNameGenerator">
+          <input
+            type="button"
+            class="btnGenerateTavernName"
+            value="Generate Tavern Name"
+          />
+        </div>
+      </div>
+      <div class="phrases">
+        <h3>Phrases</h3>
+        <div class="viciousMockeryGenerator">
+          <input
+            type="button"
+            class="btnGenerateViciousMockery"
+            value="Generate Vicious Mockery"
+          />
+        </div>
+        <div class="religiousOathGenerator">
+          <label for="selectPantheon">Select a pantheon</label>
+          <select class="selectPantheon" id="selectPantheon">
+            <option value="Select a Pantheon" selected="selected">
+              Select a Pantheon
+            </option>
+          </select>
+          <label for="selectGod">Select a god</label>
+          <select class="selectGod" id="selectGod">
+            <option value="Select a god" selected="selected">
+              Select a god
+            </option>
+          </select>
+          <input
+            type="button"
+            class="btnGenerateReligiousOath"
+            value="Generate Religious Oath"
+          />
         </div>
       </div>
     </div>
-    <footer>
+    <footer class="footer">
       <ul>
         <li><a href="mailto:alexander.usman@gmail.com">email</a></li>
         <li>
@@ -211,5 +213,6 @@
         </li>
       </ul>
     </footer>
+    "
   </body>
 </html>
