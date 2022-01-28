@@ -49,14 +49,13 @@ p {
 }
 .leftSide {
   grid-area: leftSide;
-  border-right: 1px solid #d5d5d5;
 }
 .rightSide {
   grid-area: rightSide;
-  border-left: 1px solid #d5d5d5;
 }
 .body {
   grid-area: body;
+  place-self: stretch;
 }
 .footer {
   grid-area: footer;
