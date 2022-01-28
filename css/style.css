@@ -35,6 +35,7 @@ p {
 
 .container {
   display: grid;
+  min-height: 100%;
   grid-template-areas:
     "header header header"
     "leftSide body rightSide"
