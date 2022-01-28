@@ -43,6 +43,7 @@ p {
   grid-template-columns: auto 1fr auto;
   gap: 8px;
   grid-auto-flow: column;
+  justify-content: stretch;
   align-content: space-between;
 }
 .header {
