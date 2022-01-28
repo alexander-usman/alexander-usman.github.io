@@ -45,18 +45,24 @@ p {
 }
 .header {
   grid-area: header;
+  border-bottom: 1px solid #d5d5d5;
 }
 .leftSide {
   grid-area: leftSide;
+  border-right: 1px solid #d5d5d5;
 }
 .rightSide {
   grid-area: rightSide;
+  border-left: 1px solid #d5d5d5;
 }
 .body {
   grid-area: body;
 }
 .footer {
   grid-area: footer;
+  justify-self: stretch;
+  align-self: end;
+
   border-top: 1px solid #d5d5d5;
   font-size: 0.8em;
 }
