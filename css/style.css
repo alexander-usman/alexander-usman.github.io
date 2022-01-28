@@ -53,9 +53,11 @@ p {
 }
 .leftSide {
   grid-area: leftSide;
+  width: 15%;
 }
 .rightSide {
   grid-area: rightSide;
+  width: 15%;
 }
 .body {
   grid-area: body;
