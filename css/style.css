@@ -42,8 +42,7 @@ p {
   grid-template-rows: auto 1fr auto;
   grid-template-columns: auto 1fr auto;
   gap: 8px;
-  grid-auto-flow: column dense;
-  align-content: space-between;
+  grid-auto-flow: column;
 }
 .header {
   grid-area: header;
@@ -51,11 +50,9 @@ p {
 }
 .leftSide {
   grid-area: leftSide;
-  margin: 60px;
 }
 .rightSide {
   grid-area: rightSide;
-  margin: 60px;
 }
 .body {
   grid-area: body;
