@@ -28,8 +28,12 @@
 
     <div class="body">
       <h1>D&D Tools: NPCs</h1>
+      <h2>Result</h2>
       <div class="results"></div>
-      <div class="simpleNPCGenerator">
+      <h2>NPC Generators</h2>
+      <h3>Simple</h3>
+      <h4>Random</h4>
+      <div class="simpleNPCGenerator generator">
         <label for="selectSimpleNPC">Select a simple NPC: </label>
         <select class="selectSimpleNPC" id="selectSimpleNPC">
           <option value="Select a Simple NPC" selected="selected">
@@ -47,25 +51,8 @@
           value="Remove Simple NPC"
         />
       </div>
-      <div class="complexNPCGenerator">
-        <label for="selectComplexNPC">Select a complex NPC: </label>
-        <select class="selectComplexNPC" id="selectComplexNPC">
-          <option value="Select a Complex NPC" selected="selected">
-            Select a Complex NPC
-          </option>
-        </select>
-        <input
-          type="button"
-          class="btnGenerateComplexNPC"
-          value="Generate Complex NPC"
-        />
-        <input
-          type="button"
-          class="btnRemoveComplexNPC"
-          value="Remove Complex NPC"
-        />
-      </div>
-      <div class="specificSimpleNPCGenerator">
+      <h4>Specific</h4>
+      <div class="specificSimpleNPCGenerator generator">
         <label for="selectSpecificSimpleNPCRace">Select a Race</label>
         <select
           class="selectSpecificSimpleNPCRace"
@@ -112,6 +99,26 @@
           type="button"
           class="btnRemoveSpecificSimpleNPC"
           value="Remove Specific Simple NPC"
+        />
+      </div>
+      <h3>Complex</h3>
+      <h4>Random</h4>
+      <div class="complexNPCGenerator generator">
+        <label for="selectComplexNPC">Select a complex NPC: </label>
+        <select class="selectComplexNPC" id="selectComplexNPC">
+          <option value="Select a Complex NPC" selected="selected">
+            Select a Complex NPC
+          </option>
+        </select>
+        <input
+          type="button"
+          class="btnGenerateComplexNPC"
+          value="Generate Complex NPC"
+        />
+        <input
+          type="button"
+          class="btnRemoveComplexNPC"
+          value="Remove Complex NPC"
         />
       </div>
     </div>

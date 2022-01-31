@@ -31,6 +31,21 @@ h1 {
   font-size: 3em;
   font-family: "Helvetica", "Arial", "Sans-Serif";
 }
+
+h2 {
+  font-size: 2.5em;
+  font-family: "Helvetica", "Arial", "Sans-Serif";
+}
+
+h3 {
+  font-size: 2em;
+  font-family: "Helvetica", "Arial", "Sans-Serif";
+}
+h4 {
+  font-size: 1.5em;
+  font-family: "Helvetica", "Arial", "Sans-Serif";
+}
+
 p {
   font-size: 1.5em;
   line-height: 1.4em;
@@ -45,7 +60,7 @@ p {
     "leftSide body rightSide"
     "footer footer footer";
   grid-template-rows: auto 1fr auto;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 15fr 70fr 15fr;
   gap: 8px;
   grid-auto-flow: column;
   justify-items: center;
@@ -57,7 +72,6 @@ p {
 }
 .leftSide {
   grid-area: leftSide;
-  width: 60px;
 }
 .rightSide {
   grid-area: rightSide;
@@ -71,4 +85,10 @@ p {
 
   border-top: 1px solid #d5d5d5;
   font-size: 0.8em;
+}
+
+.generator {
+  font-size: 1.5em;
+  line-height: 0.75em;
+  color: #333;
 }
