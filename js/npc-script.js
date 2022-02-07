@@ -230,13 +230,14 @@ class SimpleNPC {
   set bond(npcBond) {
     this.#bond = npcBond;
   }
-  
+
   get flaw() {
     return this.#flaw;
   }
   set flaw(npcFlaw) {
     this.#flaw = npcFlaw;
   }
+}
 
 class SpecificSimpleNPC {
   constructor(npcRace, npcSubrace, npcGender) {

@@ -1,5 +1,15 @@
 "use strict";
-
+// DOM Elements
+const divResultsPartyThreshold = document.querySelector(
+  `.resultsPartyThreshold`
+);
+const divResultsMonsterEXP = document.querySelector(`.resultsMonsterEXP`);
+const divResultsEncounter = document.querySelector(`.resultsEncounter`);
+const divResultsDifficulty = document.querySelector(`.resultsDifficulty`);
+const btnCalculate = document.querySelector(`.btnCalculate`);
+const btnAddMonster = document.querySelector(`.btnAddMonster`);
+const btnRemoveMonster = document.querySelector(`.btnRemoveMonster`);
+// Global
 const thresholdsByLevel = [
   [25, 50, 75, 100],
   [50, 100, 150, 200],
@@ -22,7 +32,6 @@ const thresholdsByLevel = [
   [2400, 4900, 7300, 10900],
   [2800, 5700, 8500, 12700],
 ];
-
 const thresholdNames = [
   `Trivial`,
   `Easy`,
@@ -31,12 +40,10 @@ const thresholdNames = [
   `Deadly`,
   `Per Day`,
 ];
-
 const expPerDay = [
   300, 600, 1200, 1700, 3500, 4000, 5000, 6000, 7500, 9000, 10500, 11500, 13500,
   15000, 18000, 20000, 25000, 27000, 30000, 40000,
 ];
-
 const expByCR = new Map([
   [0, 10],
   [0.125, 25],
@@ -73,7 +80,6 @@ const expByCR = new Map([
   [29, 135000],
   [30, 155000],
 ]);
-
 const optionText = `
         <option value="0">0</option>
         option value="0.125">0.125</option>
@@ -110,19 +116,103 @@ const optionText = `
         <option value="29">29</option>
         <option value="30">30</option>
       `;
-
-const divResultsPartyThreshold = document.querySelector(
-  `.resultsPartyThreshold`
-);
-const divResultsMonsterEXP = document.querySelector(`.resultsMonsterEXP`);
-const divResultsDifficulty = document.querySelector(`.resultsDifficulty`);
-
-const btnCalculate = document.querySelector(`.btnCalculate`);
-const btnAddMonster = document.querySelector(`.btnAddMonster`);
-const btnRemoveMonster = document.querySelector(`.btnRemoveMonster`);
-
 let rowCountMonster = 1;
 let rowCountPlayer = 1;
+
+const addRow = function (btnID) {
+  if (btnID === `btnAddMonster`) {
+    if (rowCountMonster < 10) {
+      rowCountMonster++;
+      // Create a monster row.
+      const container = document.createElement(`div`);
+      container.className = `monsterRow`;
+      container.id = `monsterRow${rowCountMonster}`;
+      const countLabel = document.createElement(`label`);
+      countLabel.htmlFor = `monsterCount${rowCountMonster}`;
+      countLabel.innerText = `Amount`;
+      const countInput = document.createElement(`input`);
+      countInput.className = `monsterCount`;
+      countInput.type = "number";
+      countInput.id = `monsterCount${rowCountMonster}`;
+      countInput.min = `1`;
+      countInput.max = `10`;
+      countInput.value = `1`;
+      const crLabel = document.createElement(`label`);
+      crLabel.htmlFor = `monsterCR${rowCountMonster}`;
+      crLabel.innerText = `CR`;
+      const crSelect = document.createElement(`select`);
+      crSelect.className = `monsterCR`;
+      crSelect.id = `monsterCR${rowCountMonster}`;
+      crSelect.innerHTML = optionText;
+      // Add the row to the DOM.
+      document.querySelector(`.monsterEXP`).append(container);
+      container.appendChild(countLabel);
+      container.appendChild(countInput);
+      container.appendChild(crLabel);
+      container.appendChild(crSelect);
+    } else {
+      alert(`You can only have so many kinds of monster.`);
+    }
+  } else if (btnID === `btnAddPlayer`) {
+    if (rowCountPlayer < 10) {
+      rowCountPlayer++;
+      // Create a player row.
+      const container = document.createElement(`div`);
+      container.className = `playerRow`;
+      container.id = `playerRow${rowCountPlayer}`;
+      const countLabel = document.createElement(`label`);
+      countLabel.htmlFor = `playerCount${rowCountPlayer}`;
+      countLabel.innerText = `Amount`;
+      const countInput = document.createElement(`input`);
+      countInput.className = `playerCount`;
+      countInput.type = `number`;
+      countInput.id = `playerCount${rowCountPlayer}`;
+      countInput.min = `1`;
+      countInput.max = `10`;
+      countInput.value = `1`;
+      const levelLabel = document.createElement(`label`);
+      levelLabel.htmlFor = `playerLevel${rowCountPlayer}`;
+      levelLabel.innerText = `Level`;
+      const levelInput = document.createElement(`input`);
+      levelInput.className = `playerLevel`;
+      levelInput.type = `number`;
+      levelInput.id = `playerLevel${rowCountPlayer}`;
+      levelInput.min = `1`;
+      levelInput.max = `20`;
+      levelInput.value = `1`;
+      // Add the row to the DOM.
+      document.querySelector(`.partyThreshold`).append(container);
+      container.appendChild(countLabel);
+      container.appendChild(countInput);
+      container.appendChild(levelLabel);
+      container.appendChild(levelInput);
+    } else {
+      alert(`More than ten different levels? That might be too many.`);
+    }
+  }
+};
+
+const removeRow = function (btnID) {
+  if (btnID === `btnRemoveMonster`) {
+    if (rowCountMonster > 1) {
+      const rows = document.querySelector(`.monsterEXP`).children;
+      document.querySelector(`.monsterEXP`).removeChild(rows[rows.length - 1]);
+      rowCountMonster--;
+    } else {
+      alert(`You need at least one monster.`);
+    }
+  } else if (btnID === `btnRemovePlayer`) {
+    if (rowCountPlayer > 1) {
+      const rows = document.querySelector(`.partyThreshold`).children;
+      document
+        .querySelector(`.partyThreshold`)
+        .removeChild(rows[rows.length - 1]);
+      rowCountPlayer--;
+    } else {
+      alert(`You need at least one player.`);
+    }
+  }
+};
 
 const calculateThresholds = function (numPlayers, playerLevel) {
   let easy = 0;
@@ -267,7 +357,7 @@ const calculateResults = function () {
     return e.value;
   });
   const monsterCREls = document.querySelectorAll(`.monsterCR`);
-  const monsterCR = [].map.call(monsterCREls, function (e) {
+  const monsterCRs = [].map.call(monsterCREls, function (e) {
     return e.value;
   });
 
@@ -284,7 +374,7 @@ const calculateResults = function () {
 
   const arrEXP = calculateMonsterEXP(
     numMonsters,
-    monsterCR,
+    monsterCRs,
     sumPlayers,
     sumMonsters
   );
@@ -308,6 +398,9 @@ const calculateResults = function () {
 
   const expPerPlayer = expUnmodified / sumPlayers;
 
+  const encounter = generateEncounter(numMonsters, monsterCRs);
+  divResultsEncounter.innerHTML = encounter;
+
   divResultsDifficulty.innerHTML = `
         <p>
             This encounter is ${difficulty}. 
@@ -316,99 +409,50 @@ const calculateResults = function () {
     `;
 };
 
-const addRow = function (btnID) {
-  if (btnID === `btnAddMonster`) {
-    if (rowCountMonster < 10) {
-      rowCountMonster++;
-      // Create a monster row.
-      const container = document.createElement(`div`);
-      container.className = `monsterRow`;
-      container.id = `monsterRow${rowCountMonster}`;
-      const countLabel = document.createElement(`label`);
-      countLabel.htmlFor = `monsterCount${rowCountMonster}`;
-      countLabel.innerText = `Amount`;
-      const countInput = document.createElement(`input`);
-      countInput.className = `monsterCount`;
-      countInput.type = "number";
-      countInput.id = `monsterCount${rowCountMonster}`;
-      countInput.min = `1`;
-      countInput.max = `10`;
-      countInput.value = `1`;
-      const crLabel = document.createElement(`label`);
-      crLabel.htmlFor = `monsterCR${rowCountMonster}`;
-      crLabel.innerText = `CR`;
-      const crSelect = document.createElement(`select`);
-      crSelect.className = `monsterCR`;
-      crSelect.id = `monsterCR${rowCountMonster}`;
-      crSelect.innerHTML = optionText;
-      // Add the row to the DOM.
-      document.querySelector(`.monsterEXP`).append(container);
-      container.appendChild(countLabel);
-      container.appendChild(countInput);
-      container.appendChild(crLabel);
-      container.appendChild(crSelect);
-    } else {
-      alert(`You can only have so many kinds of monster.`);
+const generateEncounter = function (numMonsters, monsterCRs) {
+  let encounterRows = [];
+  for (let i = 0; i < numMonsters.length; i++) {
+    let monsterList = [];
+    for (let j = 0; j < monsterData.length; j++) {
+      if (monsterData[j][`CR`] === monsterCRs[i]) {
+        monsterList.push(monsterData[j]);
+      }
     }
-  } else if (btnID === `btnAddPlayer`) {
-    if (rowCountPlayer < 10) {
-      rowCountPlayer++;
-      // Create a player row.
-      const container = document.createElement(`div`);
-      container.className = `playerRow`;
-      container.id = `playerRow${rowCountPlayer}`;
-      const countLabel = document.createElement(`label`);
-      countLabel.htmlFor = `playerCount${rowCountPlayer}`;
-      countLabel.innerText = `Amount`;
-      const countInput = document.createElement(`input`);
-      countInput.className = `playerCount`;
-      countInput.type = `number`;
-      countInput.id = `playerCount${rowCountPlayer}`;
-      countInput.min = `1`;
-      countInput.max = `10`;
-      countInput.value = `1`;
-      const levelLabel = document.createElement(`label`);
-      levelLabel.htmlFor = `playerLevel${rowCountPlayer}`;
-      levelLabel.innerText = `Level`;
-      const levelInput = document.createElement(`input`);
-      levelInput.className = `playerLevel`;
-      levelInput.type = `number`;
-      levelInput.id = `playerLevel${rowCountPlayer}`;
-      levelInput.min = `1`;
-      levelInput.max = `20`;
-      levelInput.value = `1`;
-      // Add the row to the DOM.
-      document.querySelector(`.partyThreshold`).append(container);
-      container.appendChild(countLabel);
-      container.appendChild(countInput);
-      container.appendChild(levelLabel);
-      container.appendChild(levelInput);
-    } else {
-      alert(`More than ten different levels? That might be too many.`);
-    }
+    const rollMonster = Math.trunc(Math.random() * monsterList.length);
+    encounterRows.push(`
+    <tr>
+      <td>${monsterList[rollMonster][`Creature`]}</td>
+      <td>${monsterList[rollMonster][`CR`]}</td>
+      <td>${monsterList[rollMonster][`Type`]}</td>
+      <td>${monsterList[rollMonster][`Size`]}</td>
+      <td>${monsterList[rollMonster][`AC`]}</td>
+      <td>${monsterList[rollMonster][`HP`]}</td>
+      <td>${monsterList[rollMonster][`Speed`] || `walk`}</td>
+      <td>${monsterList[rollMonster][`Alignment`]}</td>
+      <td>${monsterList[rollMonster][`Legendary`] || `no`}</td>
+      <td>${monsterList[rollMonster][`Source`]}</td>
+    </tr>`);
   }
-};
 
-const removeRow = function (btnID) {
-  if (btnID === `btnRemoveMonster`) {
-    if (rowCountMonster > 1) {
-      const rows = document.querySelector(`.monsterEXP`).children;
-      document.querySelector(`.monsterEXP`).removeChild(rows[rows.length - 1]);
-      rowCountMonster--;
-    } else {
-      alert(`You need at least one monster.`);
-    }
-  } else if (btnID === `btnRemovePlayer`) {
-    if (rowCountPlayer > 1) {
-      const rows = document.querySelector(`.partyThreshold`).children;
-      document
-        .querySelector(`.partyThreshold`)
-        .removeChild(rows[rows.length - 1]);
-      rowCountPlayer--;
-    } else {
-      alert(`You need at least one player.`);
-    }
-  }
+  const encounter = `
+  <table>
+    <tr>
+      <th>Creature</th>
+      <th>CR</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>AC</th>
+      <th>HP</th>
+      <th>Speed</th>
+      <th>Alignment</th>
+      <th>Legendary</th>
+      <th>Source</th>
+    </tr>
+    ${encounterRows}
+  </table>          
+  `;
+
+  return encounter;
 };
 
 btnCalculate.addEventListener(`click`, calculateResults);
