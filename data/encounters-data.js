@@ -1,4 +1,5 @@
-const monsterJSON = `[
+// Monster Data
+const monsterData = JSON.parse(`[
    {
       "Creature":"Aarakocra",
       "CR":"1/4",
@@ -10271,6 +10272,4 @@ const monsterJSON = `[
       "Legendary":"",
       "Source":"Mordenkainen´s Tome of Foes"
    }
-]`;
-
-const monsterData = JSON.parse(monsterJSON);
+]`);
