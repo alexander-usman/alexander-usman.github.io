@@ -10266,7 +10266,7 @@ const monsterData = JSON.parse(`[
       "Type":"fiend (demon)",
       "Size":"Large",
       "AC":"18",
-      "hp":"304",
+      "HP":"304",
       "Speed":"",
       "Alignment":"chaotic evil",
       "Legendary":"",
