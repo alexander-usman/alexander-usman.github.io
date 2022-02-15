@@ -80,7 +80,7 @@ const expByCR = new Map([
   [29, 135000],
   [30, 155000],
 ]);
-const optionText = `
+const optionTextCR = `
         <option value="0">0</option>
         <option value="0.125">0.125</option>
         <option value="0.25">0.25</option>
@@ -116,6 +116,23 @@ const optionText = `
         <option value="29">29</option>
         <option value="30">30</option>
       `;
+const optionTextType = `
+        <option value="any">any</option>
+        <option value="abberation">abberation</option>
+        <option value="beast">beast</option>
+        <option value="celestial">celestial</option>
+        <option value="construct">connstruct</option>
+        <option value="dragon">dragon</option>
+        <option value="elemental">elemental</option>
+        <option value="fey">fey</option>
+        <option value="fiend">fiend</option>
+        <option value="giant">giant</option>
+        <option value="humanoid">humanoid</option>
+        <option value="monstrosity">monstrosity</option>
+        <option value="ooze">ooze</option>
+        <option value="plant">plant</option>
+        <option value="undead">undead</option>
+      `;
 let rowCountMonster = 1;
 let rowCountPlayer = 1;
 
@@ -143,13 +160,24 @@ const addRow = function (btnID) {
       const crSelect = document.createElement(`select`);
       crSelect.className = `monsterCR`;
       crSelect.id = `monsterCR${rowCountMonster}`;
-      crSelect.innerHTML = optionText;
+      crSelect.innerHTML = optionTextCR;
+
+      const typeLabel = document.createElement(`label`);
+      typeLabel.htmlFor = `monsterType${rowCountMonster}`;
+      typeLabel.innerText = ` Type `;
+      const typeSelect = document.createElement(`select`);
+      typeSelect.className = `monsterType`;
+      typeSelect.id = `monsterCR${rowCountMonster}`;
+      typeSelect.innerHTML = optionTextType;
+
       // Add the row to the DOM.
       document.querySelector(`.monsterEXP`).append(container);
       container.appendChild(countLabel);
       container.appendChild(countInput);
       container.appendChild(crLabel);
       container.appendChild(crSelect);
+      container.appendChild(typeLabel);
+      container.appendChild(typeSelect);
     } else {
       alert(`You can only have so many kinds of monster.`);
     }
@@ -361,6 +389,11 @@ const calculateResults = function () {
     return e.value;
   });
 
+  const monsterTypeEls = document.querySelectorAll(`.monsterType`);
+  const monsterTypes = [].map.call(monsterTypeEls, function (e) {
+    return e.value;
+  });
+
   let sumPlayers = 0;
   let sumMonsters = 0;
 
@@ -398,7 +431,7 @@ const calculateResults = function () {
 
   const expPerPlayer = expUnmodified / sumPlayers;
 
-  const encounter = generateEncounter(numMonsters, monsterCRs);
+  const encounter = generateEncounter(numMonsters, monsterCRs, monsterTypes);
   divResultsEncounter.innerHTML = encounter;
 
   divResultsDifficulty.innerHTML = `
@@ -409,17 +442,24 @@ const calculateResults = function () {
     `;
 };
 
-const generateEncounter = function (numMonsters, monsterCRs) {
+const generateEncounter = function (numMonsters, monsterCRs, monsterTypes) {
   let encounterRows = [];
   for (let i = 0; i < numMonsters.length; i++) {
     let monsterList = [];
     for (let j = 0; j < monsterData.length; j++) {
       if (monsterData[j][`CR`] === monsterCRs[i]) {
-        monsterList.push(monsterData[j]);
+        if (
+          monsterTypes[i] === `any` ||
+          monsterData[j][`Type`].includes(monsterTypes[i])
+        ) {
+          monsterList.push(monsterData[j]);
+        }
       }
     }
     const rollMonster = Math.trunc(Math.random() * monsterList.length);
-    encounterRows.push(`
+
+    if (monsterList[rollMonster]) {
+      encounterRows.push(`
     <tr>
       <td>${monsterList[rollMonster][`Creature`]}</td>
       <td>${monsterList[rollMonster][`CR`]}</td>
@@ -432,6 +472,11 @@ const generateEncounter = function (numMonsters, monsterCRs) {
       <td>${monsterList[rollMonster][`Legendary`] || `no`}</td>
       <td>${monsterList[rollMonster][`Source`]}</td>
     </tr>`);
+    } else {
+      encounterRows.push(`
+        <tr><td>No monster meets these requirements.</td></tr>
+      `);
+    }
   }
 
   const encounter = `
