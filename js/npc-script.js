@@ -99,6 +99,7 @@ class SimpleNPC {
     const wholeRace = getNPCRace();
     this.#raceRoll = wholeRace[0];
     this.#race = wholeRace[1];
+    this.#subrace = getNPCSubrace(this.#raceRoll);
     this.#gender = getNPCGender();
     this.#name = getNPCName(this.race, this.gender, this.subrace);
     this.#age = getNPCAge(this.race, this.subrace);
