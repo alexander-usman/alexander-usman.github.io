@@ -486,7 +486,7 @@ const generateEncounter = function (numMonsters, monsterCRs, monsterTypes) {
       <th>CR</th>
       <th>Type</th>
       <th>Size</th>
-      <th>AC</th>
+      <th>AC</th>  
       <th>HP</th>
       <th>Speed</th>
       <th>Alignment</th>

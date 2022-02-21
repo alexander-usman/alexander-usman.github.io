@@ -3404,7 +3404,7 @@ const personalDecisionsClasses = new Map([
     [
       `I wanted to hone my combat skills, and so I joined a war college.`,
       `I squired for a knight who taught e how to fight, care for a steed, and conduct myself wityh honour. I decided to take up that path for myself.`,
-      `Horrib;e monsters descended on my community, killing someone I loved. I tool up arms to destroy those creatures and others of a similar nature.`,
+      `Horrible monsters descended on my community, killing someone I loved. I tool up arms to destroy those creatures and others of a similar nature.`,
       `I joined the army and learned how to fight as part of a group.`,
       `I grew up fighting, and refined my talents by defending myself against people who  crossed me.`,
       `I could always pick up just about any weapon and know how to use it effectively.`,
@@ -3413,7 +3413,7 @@ const personalDecisionsClasses = new Map([
   [
     `Monk`,
     [
-      `I ws chosen to study at a secluded monastery. There, I was taught the fundamental techniques required to eventually master a tradition.`,
+      `I was chosen to study at a secluded monastery. There, I was taught the fundamental techniques required to eventually master a tradition.`,
       `I sought instruction to gain a deeper understanding of existence and my place in the world.`,
       `I stumbled into a portal to the Shadowfell and took refuge in a streange monastery, where I learned how to defend myself against the forces of darkness.`,
       `I was overwhelmed with grief after losing someone close to me, and I sought the advice of philosiphers to help me cope with my loss.`,

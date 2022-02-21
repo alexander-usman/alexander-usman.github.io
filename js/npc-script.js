@@ -94,43 +94,41 @@ class SimpleNPC {
   #ideals;
   #bond;
   #flaw;
-
   constructor() {
     npcDepth++;
     const wholeRace = getNPCRace();
-    this.raceRoll = wholeRace[0];
-    this.race = wholeRace[1];
-    this.subrace = getNPCSubrace(this.raceRoll);
-    this.gender = getNPCGender();
-    this.name = getNPCName(this.race, this.gender, this.subrace);
-    this.age = getNPCAge(this.race, this.subrace);
-    this.highScore = getNPCHighAbility();
-    this.lowScore = getNPCLowAbility(this.highScore[0]);
-    this.talent = getNPCTalent();
-    this.mannerism = getNPCMannerism();
-    this.interactionTrait = getNPCInteractionTrait();
-    this.appearance = getSimpleAppearance();
+    this.#raceRoll = wholeRace[0];
+    this.#race = wholeRace[1];
+    this.#gender = getNPCGender();
+    this.#name = getNPCName(this.race, this.gender, this.subrace);
+    this.#age = getNPCAge(this.race, this.subrace);
+    this.#highScore = getNPCHighAbility();
+    this.#lowScore = getNPCLowAbility(this.highScore[0]);
+    this.#talent = getNPCTalent();
+    this.#mannerism = getNPCMannerism();
+    this.#interactionTrait = getNPCInteractionTrait();
+    this.#appearance = getSimpleAppearance();
     this.ideals = getNPCIdeals();
-    this.bond = getNPCBond();
-    this.flaw = getNPCFlaw();
+    this.#bond = getNPCBond();
+    this.#flaw = getNPCFlaw();
   }
   toPrettyHTML = function () {
     return `
     <ul>
-    <li>Race: ${this.race} - ${this.subrace}</li>
-    <li>Gender: ${this.gender}</li>
-    <li>Name: ${this.name}</li>
-    <li>Age: ${this.age}</li>
-    <li>Appearance: ${this.appearance}</li>
-    <li>High Ability Trait: ${this.highScore[1]}</li>
-    <li>Low Ability Trait: ${this.lowScore[1]}</li>
-    <li>Talent: ${this.talent}</li>
-    <li>Mannerism: ${this.mannerism}</li>
-    <li>Interaction Trait: ${this.interactionTrait}</li>
+    <li>Race: ${this.#race} - ${this.#subrace}</li>
+    <li>Gender: ${this.#gender}</li>
+    <li>Name: ${this.#name}</li>
+    <li>Age: ${this.#age}</li>
+    <li>Appearance: ${this.#appearance}</li>
+    <li>High Ability Trait: ${this.#highScore[1]}</li>
+    <li>Low Ability Trait: ${this.#lowScore[1]}</li>
+    <li>Talent: ${this.#talent}</li>
+    <li>Mannerism: ${this.#mannerism}</li>
+    <li>Interaction Trait: ${this.#interactionTrait}</li>
     <li>Ideals</li>
-    <ul>${this.ideals}</ul>
-    <li>Bond: ${this.bond}</li>
-    <li>Flaw: ${this.flaw}</li>
+    <ul>${this.#ideals}</ul>
+    <li>Bond: ${this.#bond}</li>
+    <li>Flaw: ${this.#flaw}</li>
     </ul>`;
   };
   get raceRoll() {
@@ -139,98 +137,84 @@ class SimpleNPC {
   set raceRoll(npcRaceRoll) {
     this.#raceRoll = npcRaceRoll;
   }
-
   get race() {
     return this.#race;
   }
   set race(npcRace) {
     this.#race = npcRace;
   }
-
   get subrace() {
     return this.#subrace;
   }
   set subrace(npcSubrace) {
     this.#subrace = npcSubrace;
   }
-
   get gender() {
     return this.#gender;
   }
   set gender(npcGender) {
     this.#gender = npcGender;
   }
-
   get name() {
     return this.#name;
   }
   set name(npcName) {
     this.#name = npcName;
   }
-
   get age() {
     return this.#age;
   }
   set age(npcAge) {
     this.#age = npcAge;
   }
-
   get highScore() {
     return this.#highScore;
   }
   set highScore(npcHighScore) {
     this.#highScore = npcHighScore;
   }
-
   get lowScore() {
     return this.#lowScore;
   }
   set lowScore(npcLowScore) {
     this.#lowScore = npcLowScore;
   }
-
   get talent() {
     return this.#talent;
   }
   set talent(npcTalent) {
     this.#talent = npcTalent;
   }
-
   get mannerism() {
     return this.#mannerism;
   }
   set mannerism(npcMannerism) {
     this.#mannerism = npcMannerism;
   }
-
   get interactionTrait() {
     return this.#interactionTrait;
   }
   set interactionTrait(npcInteractionTrait) {
     this.#interactionTrait = npcInteractionTrait;
   }
-
   get appearance() {
     return this.#appearance;
   }
   set appearance(npcAppearance) {
     this.#appearance = npcAppearance;
   }
-
   get ideals() {
     return this.#ideals;
   }
   set ideals(npcIdeals) {
     this.#ideals = npcIdeals;
   }
-
   get bond() {
     return this.#bond;
   }
   set bond(npcBond) {
     this.#bond = npcBond;
   }
-
   get flaw() {
     return this.#flaw;
   }
@@ -240,21 +224,35 @@ class SimpleNPC {
 }
 
 class SpecificSimpleNPC {
+  #race;
+  #subrace;
+  #gender;
+  #name;
+  #age;
+  #highScore;
+  #lowScore;
+  #talent;
+  #mannerism;
+  #interactionTrait;
+  #appearance;
+  #ideals;
+  #bond;
+  #flaw;
   constructor(npcRace, npcSubrace, npcGender) {
-    this.race = npcRace;
-    this.subrace = npcSubrace;
-    this.gender = npcGender;
-    this.name = getNPCName(this.race, this.gender, this.subrace);
-    this.age = getNPCAge(this.race, this.subrace);
-    this.highScore = getNPCHighAbility();
-    this.lowScore = getNPCLowAbility(this.highScore[0]);
-    this.talent = getNPCTalent();
-    this.mannerism = getNPCMannerism();
-    this.interactionTrait = getNPCInteractionTrait();
-    this.appearance = getSimpleAppearance();
-    this.ideals = getNPCIdeals();
-    this.bond = getNPCBond();
-    this.flaw = getNPCFlaw();
+    this.#race = npcRace;
+    this.#subrace = npcSubrace;
+    this.#gender = npcGender;
+    this.#name = getNPCName(this.race, this.gender, this.subrace);
+    this.#age = getNPCAge(this.race, this.subrace);
+    this.#highScore = getNPCHighAbility();
+    this.#lowScore = getNPCLowAbility(this.highScore[0]);
+    this.#talent = getNPCTalent();
+    this.#mannerism = getNPCMannerism();
+    this.#interactionTrait = getNPCInteractionTrait();
+    this.#appearance = getSimpleAppearance();
+    this.#ideals = getNPCIdeals();
+    this.#bond = getNPCBond();
+    this.#flaw = getNPCFlaw();
   }
   toPrettyHTML = function () {
     return `
@@ -275,61 +273,175 @@ class SpecificSimpleNPC {
     <li>Flaw: ${this.flaw}</li>
     </ul>`;
   };
+  get race() {
+    return this.#race;
+  }
+  set race(npcRace) {
+    this.#race = npcRace;
+  }
+  get subrace() {
+    return this.#subrace;
+  }
+  set subrace(npcSubrace) {
+    this.#subrace = npcSubrace;
+  }
+  get gender() {
+    return this.#gender;
+  }
+  set gender(npcGender) {
+    this.#gender = npcGender;
+  }
+  get name() {
+    return this.#name;
+  }
+  set name(npcName) {
+    this.#name = npcName;
+  }
+  get age() {
+    return this.#age;
+  }
+  set age(npcAge) {
+    this.#age = npcAge;
+  }
+  get highScore() {
+    return this.#highScore;
+  }
+  set highScore(npcHighScore) {
+    this.#highScore = npcHighScore;
+  }
+  get lowScore() {
+    return this.#lowScore;
+  }
+  set lowScore(npcLowScore) {
+    this.#lowScore = npcLowScore;
+  }
+  get talent() {
+    return this.#talent;
+  }
+  set talent(npcTalent) {
+    this.#talent = npcTalent;
+  }
+  get mannerism() {
+    return this.#mannerism;
+  }
+  set mannerism(npcMannerism) {
+    this.#mannerism = npcMannerism;
+  }
+  get interactionTrait() {
+    return this.#interactionTrait;
+  }
+  set interactionTrait(npcInteractionTrait) {
+    this.#interactionTrait = npcInteractionTrait;
+  }
+  get appearance() {
+    return this.#appearance;
+  }
+  set appearance(npcAppearance) {
+    this.#appearance = npcAppearance;
+  }
+  get ideals() {
+    return this.#ideals;
+  }
+  set ideals(npcIdeals) {
+    this.#ideals = npcIdeals;
+  }
+  get bond() {
+    return this.#bond;
+  }
+  set bond(npcBond) {
+    this.#bond = npcBond;
+  }
+  get flaw() {
+    return this.#flaw;
+  }
+  set flaw(npcFlaw) {
+    this.#flaw = npcFlaw;
+  }
 }
 
 class ComplexNPC {
+  #raceRoll;
+  #race;
+  #subrace;
+  #gender;
+  #name;
+  #age;
+  #highScore;
+  #lowScore;
+  #stats;
+  #talent;
+  #mannerism;
+  #interactionTrait;
+  #background;
+  #firstTrait;
+  #secondTrait;
+  #ideal;
+  #bond;
+  #flaw;
+  #equipment;
+  #npcClass;
+  #decision;
+  #skills;
+  #level;
+  #hitpoints;
+  #languages;
+  #tools;
+  #appearance;
+  #origin;
+  #siblings;
+  #family;
   constructor() {
     npcDepth++;
     const wholeRace = getNPCRace();
-    this.name = wholeRace[0];
-    this.race = wholeRace[1];
-    this.subrace = getNPCSubrace(this.raceRoll);
-    this.gender = getNPCGender();
-    this.name = getNPCName(this.race, this.gender, this.subrace);
-    this.age = getNPCAge(this.race, this.subrace);
-    this.highScore = getNPCHighAbility();
-    this.lowScore = getNPCLowAbility(this.highScore[0]);
-    this.stats = getNPCStats(
-      this.race,
-      this.subrace,
-      this.highScore[0],
-      this.lowScore[0]
+    this.#raceRoll = wholeRace[0];
+    this.#race = wholeRace[1];
+    this.#subrace = getNPCSubrace(this.#raceRoll);
+    this.#gender = getNPCGender();
+    this.#name = getNPCName(this.#race, this.#gender, this.#subrace);
+    this.#age = getNPCAge(this.#race, this.#subrace);
+    this.#highScore = getNPCHighAbility();
+    this.#lowScore = getNPCLowAbility(this.#highScore[0]);
+    this.#stats = getNPCStats(
+      this.#race,
+      this.#subrace,
+      this.#highScore[0],
+      this.#lowScore[0]
     );
-    this.talent = getNPCTalent();
-    this.mannerism = getNPCMannerism();
-    this.interactionTrait = getNPCInteractionTrait();
+    this.#talent = getNPCTalent();
+    this.#mannerism = getNPCMannerism();
+    this.#interactionTrait = getNPCInteractionTrait();
     const wholeBackground = getNPCBackground();
 
-    this.background = wholeBackground[0];
-    this.background.specialty = wholeBackground[1];
-    this.background.decision = wholeBackground[2];
+    this.#background = wholeBackground[0];
+    this.#background.specialty = wholeBackground[1];
+    this.#background.decision = wholeBackground[2];
     const rollFirstTrait = Math.trunc(
-      Math.random() * this.background.personality.length
+      Math.random() * this.#background.personality.length
     );
     const rollSecondTrait = Math.trunc(
-      Math.random() * this.background.personality.length
+      Math.random() * this.#background.personality.length
     );
-    const rollIdeal = Math.trunc(Math.random() * this.background.ideal.length);
-    const rollBond = Math.trunc(Math.random() * this.background.bond.length);
-    const rollFlaw = Math.trunc(Math.random() * this.background.flaw.length);
-    this.firstTrait = this.background.personality[rollFirstTrait];
-    this.secondTrait = this.background.personality[rollSecondTrait];
-    this.ideal = this.background.ideal[rollIdeal];
-    this.bond = this.background.bond[rollBond];
-    this.flaw = this.background.flaw[rollFlaw];
-    this.equipment = this.background.equipment;
-    this.npcClass = getNPCClass(
-      this.highScore[0],
-      this.lowScore[0],
-      this.stats[0]
+    this.#firstTrait = this.#background.personality[rollFirstTrait];
+    this.#secondTrait = this.#background.personality[rollSecondTrait];
+    const rollIdeal = Math.trunc(Math.random() * this.#background.ideal.length);
+    const rollBond = Math.trunc(Math.random() * this.#background.bond.length);
+    const rollFlaw = Math.trunc(Math.random() * this.#background.flaw.length);
+    this.#ideal = this.#background.ideal[rollIdeal];
+    this.#bond = this.#background.bond[rollBond];
+    this.#flaw = this.#background.flaw[rollFlaw];
+    this.#equipment = this.#background.equipment;
+    this.#npcClass = getNPCClass(
+      this.#highScore[0],
+      this.#lowScore[0],
+      this.#stats[0]
     );
     const rollDecision = rollXDX(1, 6, -1);
-    this.npcClass.decision = personalDecisionsClasses.get(this.npcClass.name)[
+    this.#npcClass.decision = personalDecisionsClasses.get(this.#npcClass.name)[
       rollDecision
     ];
 
-    this.skills = getNPCSkills(this.background, this.npcClass);
-    this.level = rollXDX(1, 20);
+    this.#skills = getNPCSkills(this.#background, this.#npcClass);
+    this.#level = rollXDX(1, 20);
     this.getHitpoints = function (level, hitDice, modifier) {
       // Set hitpoints to max for level 1.
       let total = hitDice + modifier;
@@ -341,53 +453,55 @@ class ComplexNPC {
 
       return total;
     };
-    this.hitpoints = this.getHitpoints(
-      this.level,
-      this.npcClass.hitpoints,
-      Number(this.stats[2][1][1].substring(1))
+    this.#hitpoints = this.getHitpoints(
+      this.#level,
+      this.#npcClass.hitpoints,
+      Number(this.#stats[2][1][1].substring(1))
     );
-    this.languages = getNPCLanguages(
-      this.race,
-      this.npcClass[0],
-      this.background.languages
+    this.#languages = getNPCLanguages(
+      this.#race,
+      this.#npcClass[0],
+      this.#background.languages
     );
-    this.tools = getNPCTools(this.background.tools);
-    this.appearance = getSimpleAppearance();
-    this.origin = getNPCOrigin(
-      this.race,
-      this.subrace,
-      this.npcClass[0],
-      Number(this.stats[5][1][1].substring(1)),
-      this.age
+    this.#tools = getNPCTools(this.#background.tools);
+    this.#appearance = getSimpleAppearance();
+    this.#origin = getNPCOrigin(
+      this.#race,
+      this.#subrace,
+      this.#npcClass[0],
+      Number(this.#stats[5][1][1].substring(1)),
+      this.#age
     );
-    this.siblings = origin.siblings;
-    this.family = origin.family;
+    this.#siblings = this.#origin.siblings;
+    this.#family = this.#origin.family;
   }
   toPrettyHTML = function () {
     return `
     <ul>
-    <li>Race: ${this.race} - ${this.subrace}</li>
-    <li>Gender: ${this.gender}</li>
-    <li>Name: ${this.name}</li>
-    <li>Age: ${this.age}</li>
+    <li>Race: ${this.#race} - ${this.#subrace}</li>
+    <li>Gender: ${this.#gender}</li>
+    <li>Name: ${this.#name}</li>
+    <li>Age: ${this.#age}</li>
     ${this.displayStats()}
-    <li>You speak: </li><ul>${this.languages}</ul>
-    <li>You can use: </li><ul>${this.tools}</ul>
-    <li>Appearance: ${this.appearance}</li>
-    <li>High Ability Trait: ${this.highScore[1]}</li>
-    <li>Low Ability Trait: ${this.lowScore[1]}</li>
-    <li>Talent: ${this.talent}</li>
-    <li>Mannerism: ${this.mannerism}</li>
-    <li>Interaction Trait: ${this.interactionTrait}</li>
-    <li>Background: ${this.background.name} - ${this.background.specialty}</li>
+    <li>You speak: </li><ul>${this.#languages}</ul>
+    <li>You can use: </li><ul>${this.#tools}</ul>
+    <li>Appearance: ${this.#appearance}</li>
+    <li>High Ability Trait: ${this.#highScore[1]}</li>
+    <li>Low Ability Trait: ${this.#lowScore[1]}</li>
+    <li>Talent: ${this.#talent}</li>
+    <li>Mannerism: ${this.#mannerism}</li>
+    <li>Interaction Trait: ${this.#interactionTrait}</li>
+    <li>Background: ${this.#background.name} - ${
+      this.#background.specialty
+    }</li>
       <ul>
-        <li>Trait One: ${this.firstTrait}</li>
+        <li>Trait One: ${this.#firstTrait}</li>
         <li>Trait Two: ${this.secondTrait}</li>
-        <li>Ideal: ${this.ideal}</li>
-        <li>Bond: ${this.bond}</li>
-        <li>Flaw: ${this.flaw}</li>
-        <li>Decision: ${this.background.decision}</li>
-        <li>Equipment: ${this.equipment}</li>
+        <li>Ideal: ${this.#ideal}</li>
+        <li>Bond: ${this.#bond}</li>
+        <li>Flaw: ${this.#flaw}</li>
+        <li>Decision: ${this.#background.decision}</li>
+        <li>Equipment: ${this.#equipment}</li>
       </ul>
     ${this.displayOrigin()}
     ${this.displayClass()}
@@ -395,7 +509,7 @@ class ComplexNPC {
   };
   displayStats = function () {
     let result = ``;
-    for (const [k, v] of this.stats) {
+    for (const [k, v] of this.#stats) {
       result += `<li>${k}: ${v[0]} (${v[1]})</li>`;
     }
     return `
@@ -410,11 +524,11 @@ class ComplexNPC {
     <li>
       Origin:
       <ul>
-        <li>Parents: ${this.origin.parents}</li>
-        <li>Birthplace: ${this.origin.birthplace}</li>
+        <li>Parents: ${this.#origin.parents}</li>
+        <li>Birthplace: ${this.#origin.birthplace}</li>
         ${this.displaySiblings()}
         ${this.displayFamily()}
-        <li>Childhood Memories: ${this.origin.memories}</li>
+        <li>Childhood Memories: ${this.#origin.memories}</li>
         ${this.displayLifeEvents()}
       </ul>
     </li>
@@ -422,7 +536,7 @@ class ComplexNPC {
   };
   displaySiblings = function () {
     let result = ``;
-    for (const k of this.origin.siblings) {
+    for (const k of this.#origin.siblings) {
       result += `
       <li>Sibling ${k.number}:</li>
       <ul>
@@ -443,15 +557,15 @@ class ComplexNPC {
     return `
       <li>Famliy: </li>
       <ul>
-        <li>Raised By: ${this.origin.family.options}</li>
-        <li>Lifestyle: ${this.origin.family.lifestyle}</li>
-        <li>Childhood Home: ${this.origin.family.childhooHome}</li>
+        <li>Raised By: ${this.#origin.family.options}</li>
+        <li>Lifestyle: ${this.#origin.family.lifestyle}</li>
+        <li>Childhood Home: ${this.#origin.family.childhooHome}</li>
       </ul>
     `;
   };
   displayLifeEvents = function () {
     let result = ``;
-    for (const k of this.origin.lifeEvents) {
+    for (const k of this.#origin.lifeEvents) {
       result += `
       <li>${k}</li>
       `;
@@ -465,18 +579,18 @@ class ComplexNPC {
   };
   displayClass = function () {
     return `
-      <li>${this.npcClass.name} - ${this.level}</li>
+      <li>${this.#npcClass.name} - ${this.level}</li>
     <ul>
-      <li>Hitpoints: ${this.hitpoints}</li>
+      <li>Hitpoints: ${this.#hitpoints}</li>
       ${this.displaySkills()}
-      <li>Decision: ${this.npcClass.decision}</li>
+      <li>Decision: ${this.#npcClass.decision}</li>
     </ul>
     `;
   };
   displaySkills = function () {
     let result = ``;
-    for (let i = 0; i < this.skills.length; i++) {
-      result += `<li>${this.skills[i]}</li>`;
+    for (let i = 0; i < this.#skills.length; i++) {
+      result += `<li>${this.#skills[i]}</li>`;
     }
     return `
       <li>Skills: </li>
@@ -485,6 +599,174 @@ class ComplexNPC {
       </ul>
     `;
   };
+  get race() {
+    return this.#race;
+  }
+  set race(npcRace) {
+    this.#race = npcRace;
+  }
+  get subrace() {
+    return this.#subrace;
+  }
+  set subrace(npcSubrace) {
+    this.#subrace = npcSubrace;
+  }
+  get gender() {
+    return this.#gender;
+  }
+  set gender(npcGender) {
+    this.#gender = npcGender;
+  }
+  get name() {
+    return this.#name;
+  }
+  set name(npcName) {
+    this.#name = npcName;
+  }
+  get age() {
+    return this.#age;
+  }
+  set age(npcAge) {
+    this.#age = npcAge;
+  }
+  get highScore() {
+    return this.#highScore;
+  }
+  set highScore(npcHighScore) {
+    this.#highScore = npcHighScore;
+  }
+  get lowScore() {
+    return this.#lowScore;
+  }
+  set lowScore(npcLowScore) {
+    this.#lowScore = npcLowScore;
+  }
+  get talent() {
+    return this.#talent;
+  }
+  set talent(npcTalent) {
+    this.#talent = npcTalent;
+  }
+  get mannerism() {
+    return this.#mannerism;
+  }
+  set mannerism(npcMannerism) {
+    this.#mannerism = npcMannerism;
+  }
+  get interactionTrait() {
+    return this.#interactionTrait;
+  }
+  set interactionTrait(npcInteractionTrait) {
+    this.#interactionTrait = npcInteractionTrait;
+  }
+  get background() {
+    return this.#background;
+  }
+  set background(npcBackground) {
+    this.#background = npcBackground;
+  }
+  get firstTrait() {
+    return this.#firstTrait;
+  }
+  set firstTrait(npcFirstTrait) {
+    this.#firstTrait = npcFirstTrait;
+  }
+  get secondTrait() {
+    return this.#secondTrait;
+  }
+  set secondTrait(npcSecondTrait) {
+    this.#secondTrait = npcSecondTrait;
+  }
+  get ideal() {
+    return this.#ideal;
+  }
+  set ideal(npcIdeal) {
+    this.#ideal = npcIdeal;
+  }
+  get bond() {
+    return this.#bond;
+  }
+  set bond(npcBond) {
+    this.#bond = npcBond;
+  }
+  get flaw() {
+    return this.#flaw;
+  }
+  set flaw(npcFlaw) {
+    this.#flaw = npcFlaw;
+  }
+  get equipment() {
+    return this.#equipment;
+  }
+  set equipment(npcEquipment) {
+    this.#equipment = npcEquipment;
+  }
+  get npcClass() {
+    return this.#npcClass;
+  }
+  set npcClass(newClass) {
+    this.#npcClass = newClass;
+  }
+  get decision() {
+    return this.#decision;
+  }
+  set decision(npcDecision) {
+    this.#decision = npcDecision;
+  }
+  get skills() {
+    return this.#skills;
+  }
+  set skills(npcSkills) {
+    this.#skills = npcSkills;
+  }
+  get level() {
+    return this.#level;
+  }
+  set level(npcLevel) {
+    this.#level = npcLevel;
+  }
+  get hitpoints() {
+    return this.#hitpoints;
+  }
+  set hitpoints(npcHitpoints) {
+    this.#hitpoints = npcHitpoints;
+  }
+  get languages() {
+    return this.#languages;
+  }
+  set languages(npcLanguages) {
+    this.#languages = npcLanguages;
+  }
+  get tools() {
+    return this.#tools();
+  }
+  set tools(npcTools) {
+    this.#tools = npcTools;
+  }
+  get appearance() {
+    return this.#appearance;
+  }
+  set appearance(npcAppearance) {
+    this.#appearance = npcAppearance;
+  }
+  get origin() {
+    return this.#origin;
+  }
+  set origin(npcOrigin) {
+    this.#origin = npcOrigin;
+  }
+  get siblings() {
+    return this.#siblings;
+  }
+  set siblings(npcSiblibngs) {
+    this.#siblings = npcSiblibngs;
+  }
+  get family() {
+    return this.#family;
+  }
+  set family(npcFamily) {
+    this.#family = npcFamily;
+  }
 }
 // Helper Functions
 /**
@@ -668,6 +950,7 @@ const updateOptions = function (type = `simple`) {
 
 const getNPCRace = function () {
   const roll = Math.trunc(Math.random() * randomNPCRace.size) + 1;
+
   return [roll, `${randomNPCRace.get(roll)[0]}`];
 };
 
