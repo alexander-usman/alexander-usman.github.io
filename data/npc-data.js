@@ -2646,7 +2646,7 @@ const backgrounds = new Map([
       tools: [`Artisan's Tools`],
       languages: 1,
       personality: [
-        `I believe that everything worth doing is worth doing right. I can't help it--I'm a perfectionist.`,
+        `I believe that everything worth doing is worth doing right. I can't help it - I'm a perfectionist.`,
         `I'm a snob who looks down on those who can't appreciate fine art.`,
         `I always want to know how things work and what makes people tick.`,
         `I'm full of witty aphorisms and have a proverb for every occasion.`,
@@ -2679,7 +2679,7 @@ const backgrounds = new Map([
         `I would kill to acquire a noble title.`,
         `I'm horribly jealous of anyone who outshines my handiwork. Everywhere I go, I'm surrounded by rivals.`,
       ],
-      equipment: `A set o f artisan’s tools (one of your choice), a letter of introduction from your guild, a set of traveler’s clothes, and a belt pouch containing 15 gp`,
+      equipment: `A set of artisan’s tools (one of your choice), a letter of introduction from your guild, a set of traveler’s clothes, and a belt pouch containing 15 gp`,
       guildBusiness: [
         `Alchemists and apothecaries`,
         `Armorers, locksmiths, and finesmiths`,
