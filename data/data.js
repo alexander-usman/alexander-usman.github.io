@@ -4,7 +4,6 @@ const negativeAdjectives = [
   `Abject`,
   `Abnormal`,
   `Abrasive`,
-  `Abrupt`,
   `Absent`,
   `Absentminded`,
   `Absurd`,

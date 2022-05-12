@@ -379,10 +379,10 @@ class ComplexNPC {
   #ideal;
   #bond;
   #flaw;
-  #equipment;
   #npcClass;
   #decision;
   #skills;
+  #equipment;
   #level;
   #hitpoints;
   #languages;
@@ -430,7 +430,6 @@ class ComplexNPC {
     this.#ideal = this.#background.ideal[rollIdeal];
     this.#bond = this.#background.bond[rollBond];
     this.#flaw = this.#background.flaw[rollFlaw];
-    this.#equipment = this.#background.equipment;
     this.#npcClass = getNPCClass(
       this.#highScore[0],
       this.#lowScore[0],
@@ -442,6 +441,7 @@ class ComplexNPC {
     ];
 
     this.#skills = getNPCSkills(this.#background, this.#npcClass);
+    this.#equipment = getNPCEquipment(this.#background, this.#npcClass);
     this.#level = rollXDX(1, 20);
     this.getHitpoints = function (level, hitDice, modifier) {
       // Set hitpoints to max for level 1.
@@ -502,7 +502,6 @@ class ComplexNPC {
         <li>Bond: ${this.#bond}</li>
         <li>Flaw: ${this.#flaw}</li>
         <li>Decision: ${this.#background.decision}</li>
-        <li>Equipment: ${this.#equipment}</li>
       </ul>
     ${this.displayOrigin()}
     ${this.displayClass()}
@@ -585,6 +584,7 @@ class ComplexNPC {
       <li>Hitpoints: ${this.#hitpoints}</li>
       ${this.displaySkills()}
       <li>Decision: ${this.#npcClass.decision}</li>
+      <li>Equipment: ${this.#equipment}</li>
     </ul>
     `;
   };
@@ -2535,6 +2535,7 @@ const getNPCClass = function (highAbility, lowAbility, npcStatArray) {
 
   return { ...classes.get(npcClass) };
 };
+
 const getNPCSkills = function (background, npcClass) {
   const skillArray = [];
   // Copy the array across to avoid modifying the original elsewhere.
@@ -2554,6 +2555,31 @@ const getNPCSkills = function (background, npcClass) {
 
   return skillArray;
 };
+
+const getNPCEquipment = function (background, npcClass) {
+  const equipmentArray = [];
+  // Copy the array across to avoid modifying the original elsewhere.
+  for (let i = 0; i < background.equipment.length; i++) {
+    if (Array.isArray(background.equipment[i])) {
+      // Select a random option from the list.
+      const roll = Math.trunc(Math.random() * background.equipment[i].length);
+      equipmentArray.push(background.equipment[i][roll]);
+    } else {
+      equipmentArray.push(background.equipment[i]);
+    }
+  }
+ 
+  for (let i = 0; i < npcClass.equipment.length; i ++) {
+    if (Array.isArray(npcClass.equipment[i])) {
+      // Select a random option from the list.
+      const roll = Math.trunc(Math.random() * npcClass.equipment[i].length);
+      equipmentArray.push(npcClass.equipment[i][roll]);
+    } else {
+      equipmentArray.push(npcClass.equipment[i]);
+    }
+  }
+  return equipmentArray;
+}
 
 btnGenerateSimpleNPC.addEventListener(`click`, generateSimpleNPC);
 btnGenerateComplexNPC.addEventListener(`click`, generateComplexNPC);
