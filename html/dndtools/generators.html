@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/style.css" />
-    <script defer src="../data/dndtools/generators-data.js"></script>
-    <script defer src="../js/generators-script.js"></script>
-    <title>D&D Tools</title>
-  </head>
-  <body>
-    <div class="container">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <script defer src="../data/dndtools/generators-data.js"></script>
+  <script defer src="../js/dndtools/generators-script.js"></script>
+  <title>D&D Tools</title>
+</head>
+
+<body>
+  <div class="container">
     <nav class="header">
       <ul>
         <li><a href="/">Home</a></li>
@@ -23,6 +25,14 @@
               <li><a href="/dndtools/encounters">Encounters</a></li>
               <li><a href="/dndtools/generators">Generators</a></li>
               <li><a href="/dndtools/npcs">NPCs</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="dropdown">
+          <li><button class="dropButton">Traveller Tools</button></li>
+          <div class="dropContent">
+            <ul>
+              <li><a href="/travellertools/chargen">Character Generator</a></li>
             </ul>
           </div>
         </div>
@@ -42,14 +52,7 @@
         <h3>Items</h3>
         <div class="individualLootGenerator generator">
           <label for="monsterCount">Amount</label>
-          <input
-            class="monsterCount"
-            type="number"
-            id="monsterCount"
-            min="1"
-            max="10"
-            value="1"
-          />
+          <input class="monsterCount" type="number" id="monsterCount" min="1" max="10" value="1" />
           <label for="monsterCR">CR</label>
           <select class="monsterCR" id="monsterCR">
             <option value="0">0</option>
@@ -87,11 +90,7 @@
             <option value="29">29</option>
             <option value="30">30</option>
           </select>
-          <input
-            type="button"
-            class="btnGenerateIndividualLoot"
-            value="Generate Individual Loot"
-          />
+          <input type="button" class="btnGenerateIndividualLoot" value="Generate Individual Loot" />
         </div>
         <div class="treasureHoardGenerator generator">
           <label for="treasureHoardCR">Treasure Hoard CR</label>
@@ -131,11 +130,7 @@
             <option value="29">29</option>
             <option value="30">30</option>
           </select>
-          <input
-            type="button"
-            class="btnGenerateTreasureHoardLoot"
-            value="Generate Treasure Hoard"
-          />
+          <input type="button" class="btnGenerateTreasureHoardLoot" value="Generate Treasure Hoard" />
         </div>
         <div class="randomItemGenerator generator">
           <label for="randomItemType">Random Item Type</label>
@@ -147,11 +142,7 @@
             <option value="Martial Melee Weapon">Martial Melee Weapon</option>
             <option value="Martial Ranged Weapon">Martial Ranged Weapon</option>
           </select>
-          <input
-            type="button"
-            class="btnGenerateRandomItem"
-            value="Generate Random item"
-          />
+          <input type="button" class="btnGenerateRandomItem" value="Generate Random item" />
         </div>
       </div>
       <div class="quests">
@@ -163,31 +154,19 @@
             <option value="Dungeon">Dungeon</option>
             <option value="Other">Other</option>
           </select>
-          <input
-            type="button"
-            class="btnGenerateQuestHook"
-            value="Generate Quest Hook"
-          />
+          <input type="button" class="btnGenerateQuestHook" value="Generate Quest Hook" />
         </div>
       </div>
       <div class="places">
         <h3>Places</h3>
         <div class="tavernNameGenerator generator">
-          <input
-            type="button"
-            class="btnGenerateTavernName"
-            value="Generate Tavern Name"
-          />
+          <input type="button" class="btnGenerateTavernName" value="Generate Tavern Name" />
         </div>
       </div>
       <div class="phrases">
         <h3>Phrases</h3>
         <div class="viciousMockeryGenerator generator">
-          <input
-            type="button"
-            class="btnGenerateViciousMockery"
-            value="Generate Vicious Mockery"
-          />
+          <input type="button" class="btnGenerateViciousMockery" value="Generate Vicious Mockery" />
         </div>
         <div class="religiousOathGenerator generator">
           <label for="selectPantheon">Select a pantheon</label>
@@ -202,11 +181,7 @@
               Select a god
             </option>
           </select>
-          <input
-            type="button"
-            class="btnGenerateReligiousOath"
-            value="Generate Religious Oath"
-          />
+          <input type="button" class="btnGenerateReligiousOath" value="Generate Religious Oath" />
         </div>
       </div>
     </div>
@@ -214,11 +189,10 @@
       <ul>
         <li><a href="mailto:alexander.usman@gmail.com">email</a></li>
         <li>
-          <a href="https://github.com/alexander-usman"
-            >github.com/alexander-usman</a
-          >
+          <a href="https://github.com/alexander-usman">github.com/alexander-usman</a>
         </li>
       </ul>
     </footer>
-  </body>
+</body>
+
 </html>

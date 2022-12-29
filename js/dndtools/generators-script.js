@@ -39,7 +39,7 @@ window.onload = function () {
   };
 };
 
-// Item
+// Items
 const generateIndividualLoot = function () {
   const numMonsters = Number(
     document.querySelector(`.individualLootGenerator .monsterCount`).value
@@ -368,8 +368,7 @@ const generateTavernName = function () {
   const secondRoll = Math.trunc(Math.random() * tavernSecond.length);
 
   resultsDiv.innerHTML = `
-    <h3>Tavern Name</h3> <ul><li>${
-      tavernFirst[firstRoll] + ` ` + tavernSecond[secondRoll]
+    <h3>Tavern Name</h3> <ul><li>${tavernFirst[firstRoll] + ` ` + tavernSecond[secondRoll]
     }</li></ul>
   `;
 };
@@ -496,9 +495,8 @@ const generateReligiousOath = function () {
       firstRoll = Math.trunc(
         Math.random() * pantheon.get(deity).shortSymbol.length
       );
-      oath += `By the ${
-        pantheon.get(deity).shortSymbol[firstRoll]
-      } of ${deity}!`;
+      oath += `By the ${pantheon.get(deity).shortSymbol[firstRoll]
+        } of ${deity}!`;
       break;
     case 2:
       firstRoll = Math.trunc(
