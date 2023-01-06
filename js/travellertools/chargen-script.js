@@ -13,61 +13,25 @@ const selectPCSoc = document.querySelector(`.selectPCSoc`);
 
 
 // Global
+let numPCs = 0;
 // On Load
 window.onload = function () {
-    selectSimpleNPC.onchange = function () {
-        for (let i = 0; i < simpleNPCs.length; i++) {
-            if (simpleNPCs[i].name === selectSimpleNPC.value) {
-                resultsDiv.innerHTML = `${simpleNPCs[i].toPrettyHTML()}`;
-            }
-        }
-    };
-
-    selectComplexNPC.onchange = function () {
-        for (let i = 0; i < complexNPCs.length; i++) {
-            if (complexNPCs[i].name === selectComplexNPC.value) {
-                resultsDiv.innerHTML = `${complexNPCs[i].toPrettyHTML()}`;
-            }
-        }
-    };
-
-    selectSpecificSimpleNPC.onchange = function () {
-        for (let i = 0; i < specificSimpleNPCs.length; i++) {
-            if (specificSimpleNPCs[i].name === selectSpecificSimpleNPC.value) {
-                resultsDiv.innerHTML = `${specificSimpleNPCs[i].toPrettyHTML()}`;
-            }
-        }
-    };
-
-    for (let i = 1; i < randomNPCRace.size; i++) {
-        selectSpecificSimpleNPCRace.options[
-            selectSpecificSimpleNPCRace.options.length
-        ] = new Option(randomNPCRace.get(i)[0], i);
-    }
-
-    selectSpecificSimpleNPCRace.onchange = function () {
-        selectSpecificSimpleNPCSubrace.length = 1;
-        //display correct values
-        let subraceList = randomNPCRace.get(Number(this.value))[1];
-        for (let i = 0; i < subraceList.length; i++) {
-            selectSpecificSimpleNPCSubrace.options[
-                selectSpecificSimpleNPCSubrace.options.length
-            ] = new Option(subraceList[i], subraceList[i]);
-        }
-    };
+    // TODO Add any necessary onload functions.
 };
 // Classes
-class SimpleNPC {
+class PC {
     #race;
     #gender;
     #name;
     #age;
+    #stats
     #skills;
     constructor() {
         this.#race = selectPCRace.value;
         this.#gender = selectPCGender.value;
+        this.#name = `Jon Bovi`;
         this.#age = 18;
-        this.stats = [
+        this.#stats = [
             [selectPCStr.value, getStatModifier(selectPCStr.value)],
             [selectPCDex.value, getStatModifier(selectPCDex.value)],
             [selectPCEnd.value, getStatModifier(selectPCEnd.value)],
@@ -84,6 +48,8 @@ class SimpleNPC {
     <li>Gender: ${this.#gender}</li>
     <li>Name: ${this.#name}</li>
     <li>Age: ${this.#age}</li>
+    <li>Stats: ${this.#stats}</li>
+    <li>Skills: ${this.#skills}</li>
     </ul>`;
     };
     get race() {
@@ -110,6 +76,18 @@ class SimpleNPC {
     set age(npcAge) {
         this.#age = npcAge;
     }
+    get stats() {
+        return this.#stats;
+    }
+    set stats(npcStats) {
+        this.#stats = npcStats;
+    }
+    get skills() {
+        return this.#skills;
+    }
+    set skills(npcSkills) {
+        this.#skills = npcSkills;
+    }
 }
 // Helper Functions
 /**
@@ -129,6 +107,21 @@ const rollXDX = function (numDice = 2, dWhat = 6, modifier = 0) {
     roll += modifier;
 
     return roll;
+};
+
+/**
+ * Generates a PC, and adds the results to the HTML.
+ */
+const generatePC = function () {
+  if (numPCs != 1) {
+    numPCs = 1;
+    const newPC = new PC();
+    resultsDiv.innerHTML = `
+    ${newPC.toPrettyHTML()}
+  `;
+  } else {
+    resultsDiv.insertAdjacentHTML(`beforebegin`, `<p>You would lose the character below. please refresh to comfirm.</p>`);
+  }
 };
 
 const getStatModifier = function (stat) {
