@@ -19,7 +19,11 @@ window.onload = function () {
     // TODO Add any necessary onload functions.
 };
 // Classes
+<<<<<<< HEAD
+class GeneratedPC {
+=======
 class PC {
+>>>>>>> 9b91c78e664d146d90f5d21b578516652813c988
     #race;
     #gender;
     #name;
@@ -39,7 +43,113 @@ class PC {
             [selectPCEdu.value, getStatModifier(selectPCEdu.value)],
             [selectPCSoc.value, getStatModifier(selectPCSoc.value)],
         ];
-        this.#skills = allSkills;
+        this.#skills = new Map([
+            [`Admin`, -3],
+            [`Advocate`, -3],
+            [`Animals - Handling`, -3],
+            [`Animals - Veterinary`, -3],
+            [`Animals - Training`, -3],
+            [`Art - Performer`, -3],
+            [`Art - Holography`, -3],
+            [`Art - Instrument`, -3],
+            [`Art - Visual Media`, -3],
+            [`Art - Write`, -3],
+            [`Astrogation`, -3],
+            [`Athletics - Dexterity`, -3],
+            [`Athletics - Endurance`, -3],
+            [`Athletics - Strength`, -3],
+            [`Broker`, -3],
+            [`Carouse`, -3],
+            [`Deception`, -3],
+            [`Diplomat`, -3],
+            [`Drive - Hovercraft`, -3],
+            [`Drive - Mole`, -3],
+            [`Drive - Track`, -3],
+            [`Drive - Walker`, -3],
+            [`Drive - Wheel`, -3],
+            [`Electronics - Comms`, -3],
+            [`Electronics - Computers`, -3],
+            [`Electronics - Remote Ops`, -3],
+            [`Electronics - Sensors`, -3],
+            [`Engineer - M-Drive`, -3],
+            [`Engineer - J-Drive`, -3],
+            [`Engineer - Life Support`, -3],
+            [`Engineer - Power`, -3],
+            [`Explosives`, -3],
+            [`Flyer - Airship`, -3],
+            [`Flyer - Grav`, -3],
+            [`Flyer - Ornithopter`, -3],
+            [`Flyer - Rotor`, -3],
+            [`Flyer - Wings`, -3],
+            [`Gambler`, -3],
+            [`Gunner - Turret`, -3],
+            [`Gunner - Ortillery`, -3],
+            [`Gunner - Screen`, -3],
+            [`Gunner - Capital`, -3],
+            [`Gun Combat - Archaic`, -3],
+            [`Gun Combat - Energy`, -3],
+            [`Gun Combat - Slug`, -3],
+            [`Heavy Weapons - Artillery`, -3],
+            [`Heavy Weapons - Portable`, -3],
+            [`Heavy Weapons - Vehicle`, -3],
+            [`Investigate`, -3],
+            [`Jack of All Trades`, -3],
+            [`Language - Galanglic`, -3],
+            [`Language - Vilani`, -3],
+            [`Language - Zdetl`, -3],
+            [`Language - Oynprith`, -3],
+            [`Language - Trokh`, -3],
+            [`Language - Gvegh`, -3],
+            [`Leadership`, -3],
+            [`Mechanic`, -3],
+            [`Medic`, -3],
+            [`Melee - Unarmed`, -3],
+            [`Melee - Blade`, -3],
+            [`Melee - Bludgeon`, -3],
+            [`Melee - Natural`, -3],
+            [`Navigation`, -3],
+            [`Persuade`, -3],
+            [`Pilot - Small Craft`, -3],
+            [`Pilot - Space Craft`, -3],
+            [`Pilot - Capital Ships`, -3],
+            [`Profession - Belter`, -3],
+            [`Profession - Biologicals`, -3],
+            [`Profession - Civil Engineering`, -3],
+            [`Profession - Construction`, -3],
+            [`Profession - Hydroponics`, -3],
+            [`Profession - Polymers`, -3],
+            [`Recon`, -3],
+            [`Science - Archaeology`, -3],
+            [`Science - Astronomy`, -3],
+            [`Science - Biology`, -3],
+            [`Science - Chemistry`, -3],
+            [`Science - Cosmology`, -3],
+            [`Science - Cybernetics`, -3],
+            [`Science - Economics`, -3],
+            [`Science - Genetics`, -3],
+            [`Science - History`, -3],
+            [`Science - Linguistics`, -3],
+            [`Science - Philosophy`, -3],
+            [`Science - Physics`, -3],
+            [`Science - Planetology`, -3],
+            [`Science - Psionicology`, -3],
+            [`Science - Psychology`, -3],
+            [`Science - Robotics`, -3],
+            [`Science - Sophontology`, -3],
+            [`Science - Xenology`, -3],
+            [`Seafarer`, [`Ocean Ships`, `Personal`, `Sail`, `Submarine`]],
+            [`Seafarer - Ocean Ships`, -3],
+            [`Seafarer - Personal`, -3],
+            [`Seafarer - Sail`, -3],
+            [`Seafarer - Submarine`, -3],
+            [`Stealth`, -3],
+            [`Steward`, -3],
+            [`Streetwise`, -3],
+            [`Survival`, -3],
+            [`Tactics - Military`, -3],
+            [`Tactics - Naval`, -3],
+            [`Vacc Suit`, -3],
+        ]);
     }
     toPrettyHTML = function () {
         return `
@@ -55,25 +165,25 @@ class PC {
     get race() {
         return this.#race;
     }
-    set race(npcRace) {
+    set race(pcRace) {
         this.#race = npcRace;
     }
     get gender() {
         return this.#gender;
     }
-    set gender(npcGender) {
+    set gender(pcGender) {
         this.#gender = npcGender;
     }
     get name() {
         return this.#name;
     }
-    set name(npcName) {
+    set name(pcName) {
         this.#name = npcName;
     }
     get age() {
         return this.#age;
     }
-    set age(npcAge) {
+    set age(pcAge) {
         this.#age = npcAge;
     }
     get stats() {
