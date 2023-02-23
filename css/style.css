@@ -37,9 +37,7 @@ a:hover {
   color: #999;
   text-decoration: none;
   font-size: 16px;
-  font-family: "Helvetica",
-  "Arial",
-  "Sans-Serif";
+  font-family: "Helvetica", "Arial", "Sans-Serif";
   padding: 0px;
   list-style: none;
   font-weight: bold;
@@ -59,7 +57,6 @@ a:hover {
   margin-left: 8px;
   margin-top: 8px;
   display: block;
-
 }
 
 /* Change color of dropdown links on hover */
@@ -76,10 +73,6 @@ a:hover {
 .dropdown:hover .dropButton {
   text-decoration: underline;
 }
-
-
-
-
 
 h1 {
   font-size: 3em;
@@ -137,7 +130,13 @@ p {
   font-size: 0.8em;
 }
 
-.generator {
+.results {
+  font-size: 1.5em;
+  line-height: 0.75em;
+  color: #333;
+}
+
+.setup {
   font-size: 1.5em;
   line-height: 0.75em;
   color: #333;

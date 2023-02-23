@@ -48,8 +48,9 @@
             <h2>Result</h2>
             <div class="results"></div>
             <h2>PC Generator</h2>
-            <div class="PCGenerator generator">
-                <label for="selectPCRace">Select a Race</label>
+            <div class="PCGenerator generator" id="generator">
+                <div class="PCGenerator generator setup" id="setup">
+                    <label for="selectPCRace">Select a Race</label>
                 <select class="selectPCRace" id="selectPCRace">
                     <option value="Human" selected="selected">Human</option>
                 </select>
@@ -63,7 +64,7 @@
 
                 <div class="stats">
                     Select your initial statistics (Roll 2D)
-                    <ol>
+                    <ul>
                         <li>
                             <label for="selectPCStr">Strength</label>
                             <select class="selectPCStr" id="selectPCStr">
@@ -166,9 +167,10 @@
                                 <option value="12">12</option>
                             </select>
                         </li>
-                    </ol>
+                    </ul>
                 </div>
                 <input type="button" class="btnGeneratePC" value="Begin PC Generation" />
+                </div>
             </div>
         </div>
         <footer class="footer">
