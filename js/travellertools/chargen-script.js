@@ -15,6 +15,7 @@ const selectPCSoc = document.querySelector(`.selectPCSoc`);
 // Global
 
 let numPCs = 0;
+let newPC;
 let termCount = 0;
 // On Load
 window.onload = function () {
@@ -222,10 +223,10 @@ class GeneratedPC {
 // Helper Functions
 /**
  * Rolls numDice number of dWhat-sided dice, adds the provided modifier and returns the result.
- * @param [number] numDice = how many dice to roll
- * @param [number] dWhat = what number sided dice
- * @param [number] modifier
- * @returns [number] Roll result
+ * @param {number} numDice = how many dice to roll
+ * @param {number} dWhat = what number sided dice
+ * @param {number} modifier
+ * @returns {number} Roll result
  */
 const rollXDX = function (numDice = 2, dWhat = 6, modifier = 0) {
   let roll = 0;
@@ -238,6 +239,9 @@ const rollXDX = function (numDice = 2, dWhat = 6, modifier = 0) {
 
   return roll;
 };
+/**
+ * Creates a div for each new term and adds it to the DOM.
+ */
 const addTerm = function () {
   const prevTerm = document.querySelector(`#term${termCount}`);
   if (termCount <= 4 && prevTerm) {
@@ -283,8 +287,11 @@ const addTerm = function () {
     alert(`You can only have so many terms.`);
   }
 };
-
-const updateAssignmentOptions = function () {
+/**
+ *
+ * @param [event] event allows reference to the select element that called the function
+ */
+const updateAssignmentOptions = function (event) {
   const toCheck = event.target;
   const selectedCareer = toCheck.value;
   const toChange = document.querySelector(`#selectAssignment${termCount}`);
@@ -305,7 +312,7 @@ const updateAssignmentOptions = function () {
 const generatePC = function () {
   if (numPCs != 1) {
     numPCs = 1;
-    const newPC = new GeneratedPC();
+    let newPC = new GeneratedPC();
     resultsDiv.innerHTML = `
     ${newPC.toPrettyHTML()}
   `;
@@ -315,9 +322,29 @@ const generatePC = function () {
     const container = document.createElement(`div`);
     container.className = `PCGenerator generator term`;
     container.id = `term${termCount}`;
-    const countLabel = document.createElement(`label`);
-    countLabel.htmlFor = `term${termCount}`;
-    countLabel.innerText = `Career `;
+
+    const skillsLabel = document.createElement(`label`);
+    skillsLabel.htmlFor = `selectInitialSkills0`;
+    skillsLabel.innerText = `Initial Skills`;
+
+    const skillsFragment = document.createDocumentFragment();
+    skillsFragment.append(skillsLabel);
+    for (let i = 0; i < 3 + newPC.stats.get(`Education`)[1]; i++) {
+      let selectSkills = document.createElement(`select`);
+      selectSkills.className = `selectInitialSkills${i}`;
+      selectSkills.id = `selectInitialSkills${i}`;
+      for (const skill of backgroundSkills) {
+        const option = document.createElement("option");
+        option.value = skill;
+        option.text = skill;
+        selectSkills.add(option);
+      }
+      skillsFragment.appendChild(selectSkills);
+    }
+
+    const careerLabel = document.createElement(`label`);
+    careerLabel.htmlFor = `term${termCount}`;
+    careerLabel.innerText = `Term ${termCount}: Career `;
     const selectCareer = document.createElement(`select`);
     selectCareer.className = `selectCareer${termCount}`;
     selectCareer.id = `selectCareer${termCount}`;
@@ -342,7 +369,8 @@ const generatePC = function () {
     // Use a DocumentFragment to group the elements.
     const fragment = document.createDocumentFragment();
     fragment.appendChild(container);
-    container.appendChild(countLabel);
+    container.appendChild(skillsFragment);
+    container.appendChild(careerLabel);
     container.appendChild(selectCareer);
     container.appendChild(selectAssignment);
 
@@ -391,16 +419,20 @@ const getPCStats = function () {
     pcSoc = rollXDX(2, 6, 0);
   }
 
-  return [
+  return new Map([
     [`Strength`, [pcStr, getStatModifier(pcStr)]],
     [`Dexterity`, [pcDex, getStatModifier(pcDex)]],
     [`Endurance`, [pcEnd, getStatModifier(pcEnd)]],
     [`Intelligence`, [pcInt, getStatModifier(pcInt)]],
     [`Education`, [pcEdu, getStatModifier(pcEdu)]],
     [`Social`, [pcSoc, getStatModifier(pcSoc)]],
-  ];
+  ]);
 };
-
+/**
+ * Calculates the modifier value for a given statistic
+ * @param {number} stat - The value of the statistic to calculate the modifier for
+ * @returns {number} The modifier value for the given statistic.
+ */
 const getStatModifier = function (stat) {
   let modifier = 0;
 
@@ -421,6 +453,10 @@ const getStatModifier = function (stat) {
   }
 
   return modifier;
+};
+
+const handleEvent = function (eventCode) {
+  console.log(eventCode);
 };
 
 btnGeneratePC.addEventListener(`click`, generatePC);
