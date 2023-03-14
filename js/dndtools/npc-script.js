@@ -384,6 +384,7 @@ class ComplexNPC {
   #skills;
   #equipment;
   #level;
+  #spells;
   #hitpoints;
   #languages;
   #tools;
@@ -492,8 +493,9 @@ class ComplexNPC {
     <li>Talent: ${this.#talent}</li>
     <li>Mannerism: ${this.#mannerism}</li>
     <li>Interaction Trait: ${this.#interactionTrait}</li>
-    <li>Background: ${this.#background.name} - ${this.#background.specialty
-      }</li>
+    <li>Background: ${this.#background.name} - ${
+      this.#background.specialty
+    }</li>
       <ul>
         <li>Trait One: ${this.#firstTrait}</li>
         <li>Trait Two: ${this.secondTrait}</li>
@@ -724,6 +726,12 @@ class ComplexNPC {
   }
   set level(npcLevel) {
     this.#level = npcLevel;
+  }
+  get spells() {
+    return this.#spells;
+  }
+  set spells(npcSpells) {
+    this.#spells = npcSpells;
   }
   get hitpoints() {
     return this.#hitpoints;
@@ -1651,8 +1659,9 @@ const getNPCFamily = function () {
     if (rollFamilyOptions <= k) {
       if (rollFamilyOptions <= 75) {
         const rollAbsentParents = rollXDX(1, 4, -1);
-        family.options = `${familyOptions.get(k)} - ${absentParent[rollAbsentParents]
-          }`;
+        family.options = `${familyOptions.get(k)} - ${
+          absentParent[rollAbsentParents]
+        }`;
       } else {
         family.options = `${familyOptions.get(k)}`;
       }
@@ -2429,8 +2438,9 @@ const getNPCIdeals = function () {
       result += `<li>Neutral: ${randomNPCIdeals.get(`Other`)[secondRoll]}</li>`;
       break;
     case 2:
-      result += `<li>Chaotic: ${randomNPCIdeals.get(`Chaotic`)[secondRoll]
-        }</li>`;
+      result += `<li>Chaotic: ${
+        randomNPCIdeals.get(`Chaotic`)[secondRoll]
+      }</li>`;
       break;
     default:
       break;
@@ -2441,8 +2451,9 @@ const getNPCIdeals = function () {
       result += `<li>Good: ${randomNPCIdeals.get(`Good`)[firstRoll]}</li>`;
       break;
     case 1:
-      result += `<li>Neutral: ${randomNPCIdeals.get(`Neutral`)[firstRoll]
-        }</li>`;
+      result += `<li>Neutral: ${
+        randomNPCIdeals.get(`Neutral`)[firstRoll]
+      }</li>`;
       break;
     case 2:
       result += `<li>Evil:  ${randomNPCIdeals.get(`Evil`)[firstRoll]}</li>`;
@@ -2515,7 +2526,7 @@ const getNPCBackground = function () {
   return [background, specialty, decision];
 };
 
-const getNPCClass = function (highAbility, lowAbility, npcStatArray) {
+const getNPCClass = function (highAbility, lowAbility) {
   const statList = [
     `Strength`,
     `Dexterity`,
@@ -2531,6 +2542,8 @@ const getNPCClass = function (highAbility, lowAbility, npcStatArray) {
 
   return { ...classes.get(npcClass) };
 };
+
+const getNPCSpells = function (npcClass) {};
 
 const getNPCSkills = function (background, npcClass) {
   const skillArray = [];
@@ -2575,7 +2588,7 @@ const getNPCEquipment = function (background, npcClass) {
     }
   }
   return equipmentArray;
-}
+};
 
 btnGenerateSimpleNPC.addEventListener(`click`, generateSimpleNPC);
 btnGenerateComplexNPC.addEventListener(`click`, generateComplexNPC);
