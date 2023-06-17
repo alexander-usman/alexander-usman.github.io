@@ -34,7 +34,9 @@ const rollXDX = function () {
     let utterance = new SpeechSynthesisUtterance("");
     speechSynthesis.speak(utterance);
     voices = speechSynthesis.getVoices();
-    alert(voices);
+    speechSynthesis.getVoices().forEach(function(voice) {
+    alert(voice.name, voice.default ? voice.default :'');
+});
   }
   
   // Speak
