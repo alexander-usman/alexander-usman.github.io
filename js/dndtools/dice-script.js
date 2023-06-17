@@ -47,11 +47,11 @@ const rollXDX = function () {
   
   // Check Roll
   
-  if (dWhat === 20 && roll === 20) {
+  if (dWhat == 20 && roll == 20) {
     speakData.volume = 1; // From 0 to 1
     speakData.rate = 1; // From 0.1 to 10
     speakData.pitch = 1; // From 0 to 2
-    speakData.text = result + "Natural 20.":
+    speakData.text = result;
     speakData.lang = 'en-AU';
     //speakData.voice = voices[0];
   }
