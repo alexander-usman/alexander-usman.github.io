@@ -44,6 +44,18 @@ const rollXDX = function () {
   speakData.text = result;
   speakData.lang = 'en-AU';
   //speakData.voice = voices[0];
+  
+  // Check Roll
+  
+  if (dWhat == 20 && roll == 20) {
+    let speakData = new SpeechSynthesisUtterance();
+    speakData.volume = 1; // From 0 to 1
+    speakData.rate = 1; // From 0.1 to 10
+    speakData.pitch = 1; // From 0 to 2
+    speakData.text = result + "Natural 20.":
+    speakData.lang = 'en-AU';
+    //speakData.voice = voices[0];
+  }
 
   speechSynthesis.speak(speakData);
 };
