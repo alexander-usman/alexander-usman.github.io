@@ -42,7 +42,7 @@ const rollXDX = function () {
   speakData.rate = 1; // From 0.1 to 10
   speakData.pitch = 2; // From 0 to 2
   speakData.text = result;
-  speakData.lang = 'en';
+  speakData.lang = 'en-AU';
   speakData.voice = voices[0];
 
   speechSynthesis.speak(speakData);
