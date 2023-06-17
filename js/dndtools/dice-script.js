@@ -22,7 +22,7 @@ const rollXDX = function () {
   // Test
   if ('speechSynthesis' in window) {
    // Speech Synthesis supported
-   alert("TTS should work.")
+   // alert("TTS should work.");
   }else{
     // Speech Synthesis Not Supported
     alert("Sorry, your browser doesn't support text to speech!");
@@ -34,6 +34,7 @@ const rollXDX = function () {
     let utterance = new SpeechSynthesisUtterance("");
     speechSynthesis.speak(utterance);
     voices = speechSynthesis.getVoices();
+    alert(voices);
   }
   
   // Speak
