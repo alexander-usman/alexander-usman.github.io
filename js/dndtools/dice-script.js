@@ -46,7 +46,7 @@ const rollXDX = function () {
   //speakData.voice = voices[0];
   
   if (dWhat == 20 && roll == 20) {
-    speakData. text += ". Natural 20.";
+    speakData.text += ". Natural 20.";
   }
 
   speechSynthesis.speak(speakData);
