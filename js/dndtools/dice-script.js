@@ -48,6 +48,12 @@ const rollXDX = function () {
   // Check Roll
   
   if (dWhat == 20 && roll == 20) {
+    let voices = speechSynthesis.getVoices();
+    if(!voices.length){
+      let utterance = new SpeechSynthesisUtterance("");
+      speechSynthesis.speak(utterance);
+      voices = speechSynthesis.getVoices();
+    }
     speakData.volume = 1; // From 0 to 1
     speakData.rate = 1; // From 0.1 to 10
     speakData.pitch = 1; // From 0 to 2
