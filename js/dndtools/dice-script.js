@@ -48,7 +48,7 @@ const rollXDX = function () {
   // Check Roll
   
   if (dWhat == 20 && (result - numModifier) == 20) {
-    alert("Nat 20");
+    speakData.text = speakData.text + ". Natural 20.";
   }
 
   speechSynthesis.speak(speakData);
