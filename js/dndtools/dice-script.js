@@ -44,13 +44,8 @@ const rollXDX = function () {
   speakData.text = result;
   speakData.lang = 'en-AU';
   speakData.voice = voices[0];
-  
-  if (dWhat == 20 && roll == 20) {
-    speakData.text = result && ". Natural 20.";
-  }
 
   speechSynthesis.speak(speakData);
-  
 };
 
 btnRoll.addEventListener(`click`, rollXDX);
