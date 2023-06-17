@@ -21,9 +21,10 @@ const rollXDX = function () {
   // TTS
   // Test
   if ('speechSynthesis' in window) {
-   // Speech Synthesis supported 🎉
+   // Speech Synthesis supported
+   alert("TTS should work.")
   }else{
-    // Speech Synthesis Not Supported 😣
+    // Speech Synthesis Not Supported
     alert("Sorry, your browser doesn't support text to speech!");
   }
   
