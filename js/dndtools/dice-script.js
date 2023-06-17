@@ -19,6 +19,14 @@ const rollXDX = function () {
   resultsDiv.innerHTML = `Your Roll: ${result} (${rollList})`;
   
   // TTS
+  // Test
+  if ('speechSynthesis' in window) {
+   // Speech Synthesis supported 🎉
+  }else{
+    // Speech Synthesis Not Supported 😣
+    alert("Sorry, your browser doesn't support text to speech!");
+  }
+  
   // Setup
   let voices = speechSynthesis.getVoices();
   if(!voices.length){
