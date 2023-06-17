@@ -47,7 +47,7 @@ const rollXDX = function () {
   
   // Check Roll
   
-  if (dWhat == 20 && roll == 20) {
+  if (dWhat == 20) {
     alert("Nat 20");
   }
 
