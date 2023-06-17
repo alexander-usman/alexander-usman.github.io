@@ -43,7 +43,7 @@ const rollXDX = function () {
   speakData.pitch = 1; // From 0 to 2
   speakData.text = result;
   speakData.lang = 'en-AU';
-  speakData.voice = voices[0];
+  //speakData.voice = voices[0];
 
   speechSynthesis.speak(speakData);
 };
