@@ -49,6 +49,8 @@ const rollXDX = function () {
   
   if (dWhat == 20 && (result - numModifier) == 20) {
     speakData.text = speakData.text + ". Natural 20.";
+  } else if (dWhat == 20 && (result - numModifier) == 1) {
+    speakData.text = speakData.text + ". Natural 1.";
   }
 
   speechSynthesis.speak(speakData);
