@@ -34,9 +34,6 @@ const rollXDX = function () {
     let utterance = new SpeechSynthesisUtterance("");
     speechSynthesis.speak(utterance);
     voices = speechSynthesis.getVoices();
-    speechSynthesis.getVoices().forEach(function(voice) {
-    alert(voice.name, voice.default ? voice.default :'');
-});
   }
   
   // Speak
@@ -46,7 +43,7 @@ const rollXDX = function () {
   speakData.pitch = 2; // From 0 to 2
   speakData.text = result;
   speakData.lang = 'en-AU';
-  speakData.voice = voices[0];
+  //speakData.voice = voices[0];
 
   speechSynthesis.speak(speakData);
   
