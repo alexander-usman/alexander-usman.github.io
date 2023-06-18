@@ -6,6 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Alexander Usman</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
+
+    <!-- include jquery -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <!-- include the jquery-accessibleMegaMenu plugin script -->
+    <script src="http://terrillthompson.com/tests/menus/accessible-mega-menu/js/jquery-accessibleMegaMenu.js"></script>
+
+    <!-- initialize a selector as an accessibleMegaMenu -->
+    <script>
+      $(document).ready(function () {
+        $("nav").accessibleMegaMenu({
+          /* prefix for generated unique id attributes, which are required 
+               to indicate aria-owns, aria-controls and aria-labelledby */
+          uuidPrefix: "accessible-megamenu",
+
+          /* css class used to define the megamenu styling */
+          menuClass: "nav-menu",
+
+          /* css class for a top-level navigation item in the megamenu */
+          topNavItemClass: "nav-item",
+
+          /* css class for a megamenu panel */
+          panelClass: "sub-nav",
+
+          /* css class for a group of items within a megamenu panel */
+          panelGroupClass: "sub-nav-group",
+
+          /* css class for the hover state */
+          hoverClass: "hover",
+
+          /* css class for the focus state */
+          focusClass: "focus",
+
+          /* css class for the open state */
+          openClass: "open",
+        });
+      });
+    </script>
   </head>
 
   <body>
@@ -16,56 +54,32 @@
         aria-label="Main Menu"
         tabindex="-1"
       >
-        <ul id="nav" class="menubar root-level" role="menubar">
-          <li role="menuitem" tabindex=" = -1"><a href="/">Home</a></li>
-          <li role="menuitem" tabindex=" = -1">
-            <a href="/html/about">About</a>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="/">Home</a></li>
+          <li class="nav-item"><a href="/html/about">About</a></li>
+          <li class="nav-item">
+            <a href="">D&D Tools</a>
+            <div class="sub-nav">
+              <ul class="sub-nav-group">
+                <li><a href="/html/dndtools/dice">Dice</a></li>
+                <li><a href="/html/dndtools/encounters">Encounters</a></li>
+                <li><a href="/html/dndtools/generators">Generators</a></li>
+                <li><a href="/html/dndtools/npcs">NPCs</a></li>
+              </ul>
+            </div>
           </li>
-          <div class="dropdown">
-            <li
-              class="menu-parent"
-              role="menuitem"
-              tabindex="0"
-              aria-haspopup="true"
-              title="D&D Tools Menu"
-            >
-              <button class="dropButton">D&D Tools</button>
-            </li>
-            <div class="dropContent">
-              <ul>
-                <li role="menuitem" class="menu-item" tabindex="-1">
-                  <a href="/html/dndtools/dice">Dice</a>
-                </li>
-                <li role="menuitem" class="menu-item" tabindex="-1">
-                  <a href="/html/dndtools/encounters">Encounters</a>
-                </li>
-                <li role="menuitem" class="menu-item" tabindex="-1">
-                  <a href="/html/dndtools/generators">Generators</a>
-                </li>
-                <li role="menuitem" class="menu-item" tabindex="-1">
-                  <a href="/html/dndtools/npcs">NPCs</a>
+          <li class="nav-item">
+            <a href="">Traveller Tools</a>
+            <div class="sub-nav">
+              <ul class="sub-nav-group">
+                <li>
+                  <a href="/html/dndtools/travellertools/chargen"
+                    >Character Generator</a
+                  >
                 </li>
               </ul>
             </div>
-          </div>
-          <div class="dropdown">
-            <li
-              class="menu-parent"
-              role="menuitem"
-              tabindex="0"
-              aria-haspopup="true"
-              title="Traveller Tools Menu"
-            >
-              <button class="dropButton">Traveller Tools</button>
-            </li>
-            <div class="dropContent">
-              <ul>
-                <li ole="menuitem" class="menu-item" tabindex="-1">
-                  <a href="/html/travellertools/chargen">Character Generator</a>
-                </li>
-              </ul>
-            </div>
-          </div>
+          </li>
         </ul>
       </nav>
 
