@@ -13,6 +13,9 @@ const btnGenerateTavernName = document.querySelector(`.btnGenerateTavernName`);
 const btnGenerateViciousMockery = document.querySelector(
   `.btnGenerateViciousMockery`
 );
+const btnGenerateEightBall = document.querySelector(
+  `.btnGenerateEightBall`
+);
 const selectPantheon = document.querySelector(`.selectPantheon`);
 const selectGod = document.querySelector(`.selectGod`);
 const btnGenerateReligiousOath = document.querySelector(
@@ -424,6 +427,16 @@ const generateViciousMockery = function () {
     <h3>Vicious Mockery</h3> ${insult}
   `;
 };
+
+const generateEightBall = function () {
+    let rolledPhrase = ``;
+    const roll = Math.trunc(Math.random() * 20) + 1;
+    const results = [`It is certian.`, `It is decidedly so.`, `Wthout a doubt.`, `Yes definitely.`, `You may rely upon it.`, `As I see it, yes.`, `Most likely.`, `Yes.`, `Signs point to yes.`, `Reply hazy, try again`, `Ask again later.`, `Better not tell you now.`, `Better not tell you now.`, `Concentrate and ask again.`, `Don't count on it.`, `My reply is no.`, `My sources say no.`, `Outlook not so good.`, `Very doubtful.`];
+    rolledPhrase = results[roll];
+
+    resultsDiv.innerHTMl = `<h3>Eight Ball</h3> ${rolledPhrase}`;
+    
+}
 
 const generateReligiousOath = function () {
   const whichPantheon = document.querySelector(
