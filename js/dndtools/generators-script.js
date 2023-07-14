@@ -694,4 +694,5 @@ btnGenerateRandomItem.addEventListener(`click`, generateRandomItem);
 btnGenerateQuestHook.addEventListener(`click`, generateQuestHook);
 btnGenerateTavernName.addEventListener(`click`, generateTavernName);
 btnGenerateViciousMockery.addEventListener(`click`, generateViciousMockery);
+btnGenerateEightBall.addEventListener(`click`, generateEightBall);
 btnGenerateReligiousOath.addEventListener(`click`, generateReligiousOath);
