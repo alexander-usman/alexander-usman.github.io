@@ -13,9 +13,7 @@ const btnGenerateTavernName = document.querySelector(`.btnGenerateTavernName`);
 const btnGenerateViciousMockery = document.querySelector(
   `.btnGenerateViciousMockery`
 );
-const btnGenerateEightBall = document.querySelector(
-  `.btnGenerateEightBall`
-);
+const btnGenerateEightBall = document.querySelector(`.btnGenerateEightBall`);
 const selectPantheon = document.querySelector(`.selectPantheon`);
 const selectGod = document.querySelector(`.selectGod`);
 const btnGenerateReligiousOath = document.querySelector(
@@ -371,7 +369,8 @@ const generateTavernName = function () {
   const secondRoll = Math.trunc(Math.random() * tavernSecond.length);
 
   resultsDiv.innerHTML = `
-    <h3>Tavern Name</h3> <ul><li>${tavernFirst[firstRoll] + ` ` + tavernSecond[secondRoll]
+    <h3>Tavern Name</h3> <ul><li>${
+      tavernFirst[firstRoll] + ` ` + tavernSecond[secondRoll]
     }</li></ul>
   `;
 };
@@ -429,14 +428,33 @@ const generateViciousMockery = function () {
 };
 
 const generateEightBall = function () {
-    let rolledPhrase = ``;
-    const results = [`It is certian.`, `It is decidedly so.`, `Wthout a doubt.`, `Yes definitely.`, `You may rely upon it.`, `As I see it, yes.`, `Most likely.`, `Yes.`, `Signs point to yes.`, `Reply hazy, try again`, `Ask again later.`, `Better not tell you now.`, `Better not tell you now.`, `Concentrate and ask again.`, `Don't count on it.`, `My reply is no.`, `My sources say no.`, `Outlook not so good.`, `Very doubtful.`];
-    const roll = Math.trunc(Math.random() * results.length);
-    rolledPhrase = results[roll];
-
-    resultsDiv.innerHTMl = `<h3>Eight Ball</h3> ${rolledPhrase}`;
-    
-}
+  let rolledPhrase = ``;
+  const results = [
+    `It is certian.`,
+    `It is decidedly so.`,
+    `Wthout a doubt.`,
+    `Yes definitely.`,
+    `You may rely upon it.`,
+    `As I see it, yes.`,
+    `Most likely.`,
+    `Yes.`,
+    `Signs point to yes.`,
+    `Reply hazy, try again`,
+    `Ask again later.`,
+    `Better not tell you now.`,
+    `Better not tell you now.`,
+    `Concentrate and ask again.`,
+    `Don't count on it.`,
+    `My reply is no.`,
+    `My sources say no.`,
+    `Outlook not so good.`,
+    `Very doubtful.`,
+  ];
+  const roll = Math.trunc(Math.random() * results.length);
+  rolledPhrase = results[roll];
+  console.log(rolledPhrase);
+  resultsDiv.innerHTML = `<h3>Eight Ball</h3> ${rolledPhrase}`;
+};
 
 const generateReligiousOath = function () {
   const whichPantheon = document.querySelector(
@@ -508,8 +526,9 @@ const generateReligiousOath = function () {
       firstRoll = Math.trunc(
         Math.random() * pantheon.get(deity).shortSymbol.length
       );
-      oath += `By the ${pantheon.get(deity).shortSymbol[firstRoll]
-        } of ${deity}!`;
+      oath += `By the ${
+        pantheon.get(deity).shortSymbol[firstRoll]
+      } of ${deity}!`;
       break;
     case 2:
       firstRoll = Math.trunc(
