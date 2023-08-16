@@ -99,28 +99,47 @@
         <h2>Result</h2>
         <div class="results" role="region" aria-live="polite"></div>
         <h2>Roll Dice</h2>
-        <div class="diceRollGenerator">
+        <div class="diceRollGenerator generator">
           <label for="numRolls">Roll </label>
           <input class="numRolls" type="number" min="1" max="30" value="1" />
-          <input type="radio" id="D2" name="diceValues" value="2" />
-          <label for="D2">D2</label>
-          <input type="radio" id="D3" name="diceValues" value="3" />
-          <label for="D3">D3</label>
-          <input type="radio" id="D4" name="diceValues" value="4" />
-          <label for="D4">D4</label>
-          <input type="radio" id="D6" name="diceValues" value="6" checked />
-          <label for="D6">D6</label>
-          <input type="radio" id="D8" name="diceValues" value="8" />
-          <label for="D8">D8</label>
-          <input type="radio" id="D10" name="diceValues" value="10" />
-          <label for="D10">D10</label>
-          <input type="radio" id="D12" name="diceValues" value="12" />
-          <label for="D12">D12</label>
-          <input type="radio" id="D20" name="diceValues" value="20" />
-          <label for="D20">D20</label>
-          <input type="radio" id="D100" name="diceValues" value="100" />
-          <label for="D100">D100</label>
-
+          <ul>
+            <li>
+              <input type="radio" id="D2" name="diceValues" value="2" />
+              <label for="D2">D2</label>
+            </li>
+            <li>
+              <input type="radio" id="D3" name="diceValues" value="3" />
+              <label for="D3">D3</label>
+            </li>
+            <li>
+              <input type="radio" id="D4" name="diceValues" value="4" />
+              <label for="D4">D4</label>
+            </li>
+            <li>
+              <input type="radio" id="D6" name="diceValues" value="6" checked />
+              <label for="D6">D6</label>
+            </li>
+            <li>
+              <input type="radio" id="D8" name="diceValues" value="8" />
+              <label for="D8">D8</label>
+            </li>
+            <li>
+              <input type="radio" id="D10" name="diceValues" value="10" />
+              <label for="D10">D10</label>
+            </li>
+            <li>
+              <input type="radio" id="D12" name="diceValues" value="12" />
+              <label for="D12">D12</label>
+            </li>
+            <li>
+              <input type="radio" id="D20" name="diceValues" value="20" />
+              <label for="D20">D20</label>
+            </li>
+            <li>
+              <input type="radio" id="D100" name="diceValues" value="100" />
+              <label for="D100">D100</label>
+            </li>
+          </ul>
           <label for="numModifier">And add </label>
           <input
             type="number"
