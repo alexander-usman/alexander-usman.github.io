@@ -60,147 +60,143 @@
 
       <div class="leftSide"></div>
 
-        <div class="rightSide"></div>
+      <div class="rightSide"></div>
 
-        <div class="body">
-            <h1>Traveller Tools: PC Generator</h1>
-            <h2>Result</h2>
-            <div class="results"></div>
-            <h2>PC Generator</h2>
-            <div class="PCGenerator generator" id="generator">
-                <div class="PCGenerator generator setup" id="setup">
-                    <label for="selectPCRace">Select a Race</label>
-                <select class="selectPCRace" id="selectPCRace">
-                    <option value="Human" selected="selected">Human</option>
-                </select>
+      <div class="body">
+        <h1>Traveller Tools: PC Generator</h1>
+        <h2>Result</h2>
+        <div class="results"></div>
+        <h2>PC Generator</h2>
+        <div class="PCGenerator generator" id="generator">
+          <div class="PCGenerator generator setup" id="setup">
+            <label for="selectPCRace">Select a Race</label>
+            <select class="selectPCRace" id="selectPCRace">
+              <option value="Human" selected="selected">Human</option>
+            </select>
 
-                <label for="selectPCGender">Select a Gender</label>
-                <select class="selectPCGender" id="selectPCGender">
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Other">Other</option>
-                </select>
+            <label for="selectPCGender">Select a Gender</label>
+            <select class="selectPCGender" id="selectPCGender">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
 
-                <div class="stats">
-                    Select your initial statistics (Roll 2D)
-                    <ul>
-                        <li>
-                            <label for="selectPCStr">Strength</label>
-                            <select class="selectPCStr" id="selectPCStr">
-                                <option value="Random">Random</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                            </select>
-                        </li>
-                        <li>
-                            <label for="selectPCDex">Dex</label>
-                            <select class="selectPCDex" id="selectPCDex">
-                                <option value="Random">Random</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                            </select>
-                        </li>
-                        <li>
-                            <label for="selectPCEnd">Endurance</label>
-                            <select class="selectPCEnd" id="selectPCEnd">
-                                <option value="Random">Random</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                            </select>
-                        </li>
-                        <li>
-                            <label for="selectPCInt">Intellect</label>
-                            <select class="selectPCInt" id="selectPCInt">
-                                <option value="Random">Random</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                            </select>
-                        </li>
-                        <li>
-                            <label for="selectPCEdu">Education</label>
-                            <select class="selectPCEdu" id="selectPCEdu">
-                                <option value="Random">Random</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                            </select>
-                        </li>
-                        <li>
-                            <label for="selectPCSoc">Social</label>
-                            <select class="selectPCSoc" id="selectPCSoc">
-                                <option value="Random">Random</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                            </select>
-                        </li>
-                    </ul>
-                </div>
-                <input type="button" class="btnGeneratePC" value="Begin PC Generation" />
-                </div>
-            </div>
-        </div>
-        <footer class="footer">
-            <ul>
-                <li><a href="mailto:alexander.usman@gmail.com">email</a></li>
+            <div class="stats">
+              Select your initial statistics (Roll 2D)
+              <ul>
                 <li>
-                    <a href="https://github.com/alexander-usman">github.com/alexander-usman</a>
+                  <label for="selectPCStr">Strength</label>
+                  <select class="selectPCStr" id="selectPCStr">
+                    <option value="Random">Random</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                  </select>
                 </li>
-            </ul>
-        </footer>
-
-</body>
-
+                <li>
+                  <label for="selectPCDex">Dex</label>
+                  <select class="selectPCDex" id="selectPCDex">
+                    <option value="Random">Random</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                  </select>
+                </li>
+                <li>
+                  <label for="selectPCEnd">Endurance</label>
+                  <select class="selectPCEnd" id="selectPCEnd">
+                    <option value="Random">Random</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                  </select>
+                </li>
+                <li>
+                  <label for="selectPCInt">Intellect</label>
+                  <select class="selectPCInt" id="selectPCInt">
+                    <option value="Random">Random</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                  </select>
+                </li>
+                <li>
+                  <label for="selectPCEdu">Education</label>
+                  <select class="selectPCEdu" id="selectPCEdu">
+                    <option value="Random">Random</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                  </select>
+                </li>
+                <li>
+                  <label for="selectPCSoc">Social</label>
+                  <select class="selectPCSoc" id="selectPCSoc">
+                    <option value="Random">Random</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                  </select>
+                </li>
+              </ul>
+            </div>
+            <input
+              type="button"
+              class="btnGeneratePC"
+              value="Begin PC Generation"
+            />
+          </div>
+        </div>
+      </div>
+      <comp-header class="footer"></comp-header>
+    </div>
+  </body>
 </html>
