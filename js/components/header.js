@@ -34,7 +34,7 @@ class Header extends HTMLElement {
             <div class="sub-nav">
               <ul class="sub-nav-group">
                 <li>
-                  <a href="/html/dndtools/travellertools/chargen"
+                  <a href="/html/travellertools/chargen"
                     >Character Generator</a
                   >
                 </li>
