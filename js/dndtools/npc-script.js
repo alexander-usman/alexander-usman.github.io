@@ -479,6 +479,7 @@ class ComplexNPC {
   }
   toPrettyHTML = function () {
     return `
+    <p>
     <ul>
     <li>Race: ${this.#race} - ${this.#subrace}</li>
     <li>Gender: ${this.#gender}</li>
@@ -506,7 +507,8 @@ class ComplexNPC {
       </ul>
     ${this.displayOrigin()}
     ${this.displayClass()}
-    </ul>`;
+    </ul>
+    </p>`;
   };
   displayStats = function () {
     let result = ``;
