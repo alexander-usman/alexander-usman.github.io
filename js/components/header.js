@@ -13,19 +13,19 @@ class Header extends HTMLElement {
       >
         <ul class="nav-menu">
           <li class="nav-item"><a href="/">Home</a></li>
-          <li class="nav-item"><a href="/html/about">About</a></li>
+          <li class="nav-item"><a href="/html/about.html">About</a></li>
           <li class="nav-item">
             <a href="">D&D Tools</a>
             <div class="sub-nav">
               <ul class="sub-nav-group">
-              <li class=><a href="/html/dndtools/dice">Dice</a></li>
+              <li class=><a href="/html/dndtools/dice.html">Dice</a></li>
                 <li class=>
-                  <a href="/html/dndtools/encounters">Encounters</a>
+                  <a href="/html/dndtools/encounters.html">Encounters</a>
                 </li>
                 <li class=>
-                  <a href="/html/dndtools/generators">Generators</a>
+                  <a href="/html/dndtools/generators.html">Generators</a>
                 </li>
-                <li class=><a href="/html/dndtools/npcs">NPCs</a></li>
+                <li class=><a href="/html/dndtools/npcs.html">NPCs</a></li>
               </ul>
             </div>
           </li>
@@ -34,14 +34,14 @@ class Header extends HTMLElement {
             <div class="sub-nav">
               <ul class="sub-nav-group">
                 <li>
-                  <a href="/html/travellertools/chargen"
+                  <a href="/html/travellertools/chargen.html"
                     >Character Generator</a
                   >
                 </li>
               </ul>
             </div>
           </li>
-          <li class="nav-item"><a href="/html/sitemap">Site Map</a></li>
+          <li class="nav-item"><a href="/html/sitemap.html">Site Map</a></li>
         </ul>
       </nav>
       </header>
