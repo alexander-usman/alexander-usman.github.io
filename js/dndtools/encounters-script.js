@@ -493,10 +493,9 @@ const generateEncounter = function (numMonsters, monsterCRs, monsterTypes) {
       <th>Legendary</th>
       <th>Source</th>
     </tr>
-    ${encounterRows}
+    ${encounterRows.toString().replace(/,/g, "")} 
   </table>          
   `;
-
   return encounter;
 };
 

@@ -5,7 +5,7 @@ class Header extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-      <header>
+      <header class="header">
       <nav
         role="navigation"
         aria-label="Main Menu"
