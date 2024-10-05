@@ -14,6 +14,7 @@ class Header extends HTMLElement {
         <ul class="nav-menu">
           <li class="nav-item"><a href="/">Home</a></li>
           <li class="nav-item"><a href="/html/about.html">About</a></li>
+          <li class="nav-item"><a href="/html/combos.html">Combination Generator</a></li>
           <li class="nav-item">
             <a href="">D&D Tools</a>
             <div class="sub-nav">
